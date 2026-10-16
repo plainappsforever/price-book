@@ -1,0 +1,11 @@
+appId: ${APP_ID}
+---
+# Types ${KEYS} on the deal-sheet keypad (digits, "." = decimal key, "n" = next field).
+- evalScript: >-
+    ${output.dkeys = KEYS.split('').map(function (k) { return k === '.' ? 'dkey-sep' : k === 'n' ? 'dkey-next' : 'dkey-' + k; })}
+- repeat:
+    times: ${output.dkeys.length}
+    commands:
+      - evalScript: ${output.dkey = output.dkeys.shift()}
+      - tapOn:
+          id: ${output.dkey}

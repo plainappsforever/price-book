@@ -1,0 +1,98 @@
+appId: ${APP_ID}
+name: Large text - Compare keypad answer and the product screen stay usable at the largest system text size (A15)
+tags:
+  - large-text
+---
+# Run by scripts/large-text.sh, which sets the system text size first and resets it afterwards.
+- runFlow:
+    file: ../subflows/seed.yaml
+    env:
+      SEED: s1
+# settings without the tax sheet (its keypad sheet is not part of A15): EUR, 1,234.56, metric
+- tapOn: {id: open-settings}
+- tapOn: {id: currency-EUR}
+- scrollUntilVisible:
+    element:
+      id: format-point
+    direction: DOWN
+- tapOn: {id: format-point}
+- scrollUntilVisible:
+    element:
+      id: units-metric
+    direction: DOWN
+- tapOn: {id: units-metric}
+- runFlow:
+    file: ../subflows/back.yaml
+    env:
+      BACK_TITLE: Compare
+- extendedWaitUntil:
+    visible:
+      id: compare-screen
+    timeout: 15000
+- runFlow:
+    file: ../subflows/type.yaml
+    env:
+      KEYS: 2.49n500
+# the answer sits just above the pinned keypad: scroll the cards up a little so the screenshot shows it whole
+- swipe:
+    start: 50%,40%
+    end: 50%,20%
+- assertVisible:
+    id: result-A
+    text: "€4\\.98 per kg"
+- takeScreenshot: lt-compare
+- tapOn: {id: tab-book}
+# at the largest text a row is taller than the visible part of the list: search, so Coffee is the only row
+- tapOn: {id: book-search}
+- inputText: Coffee
+- pressKey: Enter
+- extendedWaitUntil:
+    visible:
+      id: product-1
+    timeout: 15000
+- tapOn: {id: product-1}
+- extendedWaitUntil:
+    visible:
+      id: product-add-price
+    timeout: 15000
+- scrollUntilVisible:
+    element:
+      id: tile-latest
+    direction: DOWN
+- assertVisible:
+    id: tile-latest
+    text: "€4\\.98 per kg"
+- assertVisible: {id: product-edit}
+- takeScreenshot: lt-product-top
+- scrollUntilVisible:
+    element:
+      id: tile-usual
+    direction: DOWN
+- assertVisible:
+    id: tile-usual
+    text: "€4\\.98 per kg"
+- takeScreenshot: lt-product-usual
+- scrollUntilVisible:
+    element:
+      id: product-add-price
+    direction: UP
+# the button can stop half under the header at the largest text size (a tap then hits the header): go to the very top
+- swipe:
+    start: 50%,30%
+    end: 50%,85%
+- swipe:
+    start: 50%,30%
+    end: 50%,85%
+- tapOn: {id: product-add-price}
+- runFlow:
+    file: ../subflows/ptype.yaml
+    env:
+      KEYS: "2.49"
+- assertVisible:
+    id: price-live
+    text: "€4\\.98 per kg"
+- takeScreenshot: lt-add-price
+- assertVisible: {id: price-save}
+- assertVisible:
+    id: pf-price-text
+    text: "2\\.49\\|?"

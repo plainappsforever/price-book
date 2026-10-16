@@ -1,0 +1,12 @@
+appId: ${APP_ID}
+---
+# Release builds have no seed link: start from a clean install (no data, no settings) and set the locale-dependent
+# settings through the screens, as the debug flows do after their seed.
+- launchApp:
+    clearState: true
+    stopApp: true
+- extendedWaitUntil:
+    visible:
+      id: compare-screen
+    timeout: 90000
+- runFlow: settings-eu.yaml

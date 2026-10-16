@@ -1,0 +1,93 @@
+appId: ${APP_ID}
+name: Scan attach - a Compare card scan links the card; an unknown shop-label code is added to a product; codes edited in the product form
+tags:
+  - book
+---
+- runFlow:
+    file: subflows/seed.yaml
+    env:
+      SEED: s1
+- runFlow: subflows/settings-eu.yaml
+# card A: a shop's own label code (weighed item) is not in the book: warned, then added to the crisps; the card links to them
+- tapOn: {id: scan-A}
+- extendedWaitUntil:
+    visible: {id: scan-manual}
+    timeout: 15000
+- tapOn: {id: scan-manual}
+- inputText: "2112345000008"
+- tapOn: {id: scan-manual-go}
+- extendedWaitUntil:
+    visible:
+      id: scan-notfound
+      text: "No product in your book has barcode 2112345000008 yet\\."
+    timeout: 15000
+- assertVisible: {id: scan-store-label}
+- tapOn: {id: scan-attach}
+- extendedWaitUntil:
+    visible:
+      id: scan-choose
+      text: "Which product has barcode 2112345000008\\?"
+    timeout: 15000
+- tapOn: {id: pick-2}
+- extendedWaitUntil:
+    visible:
+      id: link-A
+      text: Crisps
+    timeout: 15000
+# card B: the coffee's code links it at once (simulated camera, EAN-13)
+- tapOn: {id: scan-B}
+- extendedWaitUntil:
+    visible: {id: scan-manual}
+    timeout: 15000
+- runFlow:
+    file: subflows/camera.yaml
+    env:
+      CODE: "4001234567891"
+      TYPE: ean13
+- extendedWaitUntil:
+    visible:
+      id: link-B
+      text: Coffee beans
+    timeout: 15000
+# the product form lists the code; another product's code is refused at once; the list is saved with the product
+- tapOn: {id: tab-book}
+- tapOn: {id: product-2}
+- tapOn: {id: product-edit}
+- scrollUntilVisible:
+    element: {id: pe-barcode-input}
+    direction: DOWN
+- assertVisible: {id: pe-barcode-2112345000008}
+- tapOn: {id: pe-barcode-input}
+- inputText: "4001234567891"
+- tapOn: {id: pe-barcode-add}
+- assertVisible:
+    id: pe-barcode-note
+    text: "Barcode 4001234567891 already belongs to Coffee beans"
+- tapOn: {id: pe-barcode-input}
+- eraseText: 20
+- inputText: "73513537"
+- tapOn: {id: pe-barcode-add}
+- assertVisible: {id: pe-barcode-73513537}
+- tapOn: {id: pe-barcode-remove-2112345000008}
+- assertNotVisible: {id: pe-barcode-2112345000008}
+- scrollUntilVisible:
+    element: {id: pe-save}
+    direction: DOWN
+- tapOn: {id: pe-save}
+- extendedWaitUntil:
+    visible:
+      id: product-barcodes
+      text: "Barcode: 73513537"
+    timeout: 15000
+# the removed shop-label code finds nothing any more
+- runFlow:
+    file: subflows/back.yaml
+    env:
+      BACK_TITLE: Price Book
+- tapOn: {id: book-scan}
+- tapOn: {id: scan-manual}
+- inputText: "2112345000008"
+- tapOn: {id: scan-manual-go}
+- extendedWaitUntil:
+    visible: {id: scan-notfound}
+    timeout: 15000

@@ -1,0 +1,172 @@
+appId: ${APP_ID}
+name: Screenshot tour - every screen in one theme (A16 dark-mode pass, docs screenshots); env THEME = light|dark, SHOT = file prefix
+tags:
+  - screenshots
+---
+# Not part of the regression set (lives in a sub-folder). Run: scripts/e2e.sh <p> development .maestro/screenshots/tour.yaml
+# with -e THEME=dark -e SHOT=ios-dark (the script passes only APP_ID/APP_SCHEME, so call maestro directly, see docs/V1_LOG P6).
+- runFlow:
+    file: ../subflows/seed.yaml
+    env:
+      SEED: s1
+- runFlow: ../subflows/settings-eu.yaml
+- tapOn: {id: open-settings}
+- scrollUntilVisible:
+    element:
+      id: theme-${THEME}
+    direction: DOWN
+- tapOn:
+    id: theme-${THEME}
+- scrollUntilVisible:
+    element:
+      id: open-about
+    direction: DOWN
+- runFlow:
+    file: back.yaml
+    env:
+      TARGET: compare-screen
+- tapOn: {id: open-settings}
+- scrollUntilVisible:
+    element:
+      id: open-about
+    direction: DOWN
+- takeScreenshot: ${SHOT}-settings
+- tapOn: {id: open-data}
+- extendedWaitUntil:
+    visible:
+      id: data-screen
+    timeout: 15000
+- takeScreenshot: ${SHOT}-data
+- runFlow:
+    file: ../subflows/pause.yaml
+    env:
+      MS: 1000
+- runFlow:
+    file: back.yaml
+    env:
+      TARGET: settings-screen
+- scrollUntilVisible:
+    element:
+      id: open-stores
+    direction: UP
+- tapOn: {id: open-stores}
+- extendedWaitUntil:
+    visible:
+      id: stores-screen
+    timeout: 15000
+- takeScreenshot: ${SHOT}-stores
+- runFlow:
+    file: ../subflows/pause.yaml
+    env:
+      MS: 1000
+- runFlow:
+    file: back.yaml
+    env:
+      TARGET: settings-screen
+- scrollUntilVisible:
+    element:
+      id: open-about
+    direction: DOWN
+- tapOn: {id: open-about}
+- extendedWaitUntil:
+    visible:
+      id: about-screen
+    timeout: 15000
+- takeScreenshot: ${SHOT}-about
+- runFlow:
+    file: ../subflows/pause.yaml
+    env:
+      MS: 1000
+- runFlow:
+    file: back.yaml
+    env:
+      TARGET: settings-screen
+- runFlow:
+    file: ../subflows/pause.yaml
+    env:
+      MS: 1000
+- runFlow:
+    file: back.yaml
+    env:
+      TARGET: compare-screen
+- extendedWaitUntil:
+    visible:
+      id: compare-screen
+    timeout: 15000
+- takeScreenshot: ${SHOT}-compare-empty
+- runFlow:
+    file: ../subflows/type.yaml
+    env:
+      KEYS: 2.29n500n5.49n1.2
+- tapOn: {id: unit-kg}
+- tapOn: {id: deal-add-A}
+- takeScreenshot: ${SHOT}-deal-sheet
+- tapOn: {id: preset-threeForTwo}
+- assertVisible:
+    id: deal-A-0
+    text: 3 for 2
+- takeScreenshot: ${SHOT}-compare-result
+- tapOn: {id: save-A}
+- extendedWaitUntil:
+    visible:
+      id: save-name
+    timeout: 15000
+- inputText: Cof
+- takeScreenshot: ${SHOT}-save-sheet
+- tapOn: {id: save-pick-1}
+- tapOn: {id: save-confirm}
+- extendedWaitUntil:
+    visible:
+      id: compare-notice
+    timeout: 15000
+- tapOn: {id: tab-book}
+- extendedWaitUntil:
+    visible:
+      id: product-1
+    timeout: 15000
+- takeScreenshot: ${SHOT}-book
+- tapOn: {id: product-1}
+- extendedWaitUntil:
+    visible:
+      id: tile-usual
+    timeout: 15000
+- takeScreenshot: ${SHOT}-product
+- scrollUntilVisible:
+    element:
+      id: store-cheapest-1
+    direction: DOWN
+- takeScreenshot: ${SHOT}-product-stores
+- scrollUntilVisible:
+    element:
+      id: product-add-price
+    direction: UP
+- tapOn: {id: product-add-price}
+- extendedWaitUntil:
+    visible:
+      id: price-save
+    timeout: 15000
+- takeScreenshot: ${SHOT}-add-price
+# back to the default theme for the next flow
+- runFlow:
+    file: ../subflows/pause.yaml
+    env:
+      MS: 1000
+- runFlow:
+    file: back.yaml
+    env:
+      TARGET: tile-usual
+- runFlow:
+    file: ../subflows/pause.yaml
+    env:
+      MS: 1000
+- runFlow:
+    file: back.yaml
+    env:
+      TARGET: book-screen
+- tapOn: {id: tab-compare}
+- tapOn: {id: open-settings}
+- scrollUntilVisible:
+    element:
+      id: theme-system
+    direction: DOWN
+- tapOn: {id: theme-system}

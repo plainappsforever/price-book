@@ -1,0 +1,42 @@
+appId: ${APP_ID}
+---
+# Absolute starting state (V1_PLAN rule 10): app running, data = seed ${SEED}, Compare = two empty cards,
+# statistics "today" pinned to 2026-09-30 (SPEC S1).
+# v1.1 (REVIEW_V1 S8): the link carries a fresh nonce and the flow waits for "Seed loaded: <seed> #<nonce>" on Compare,
+# so a link dropped while the app was still starting is retried once and can never pass on the previous flow's data.
+- runFlow: launch.yaml
+- evalScript: ${output.seedNonce = String(Date.now() % 100000000)}
+- openLink: ${APP_SCHEME}://debug/seed?set=${SEED}&today=2026-09-30&nonce=${output.seedNonce}
+- runFlow:
+    when:
+      visible: "Open"
+    commands:
+      - tapOn: "Open"
+- extendedWaitUntil:
+    visible:
+      id: compare-notice
+      text: "Seed loaded: ${SEED} #${output.seedNonce}"
+    timeout: 60000
+    optional: true
+- runFlow:
+    when:
+      notVisible:
+        id: compare-notice
+        text: "Seed loaded: ${SEED} #${output.seedNonce}"
+    commands:
+      - openLink: ${APP_SCHEME}://debug/seed?set=${SEED}&today=2026-09-30&nonce=${output.seedNonce}
+      - runFlow:
+          when:
+            visible: "Open"
+          commands:
+            - tapOn: "Open"
+      - extendedWaitUntil:
+          visible:
+            id: compare-notice
+            text: "Seed loaded: ${SEED} #${output.seedNonce}"
+          timeout: 60000
+- extendedWaitUntil:
+    visible:
+      id: missing-A
+      text: Enter a price
+    timeout: 30000

@@ -1,0 +1,26 @@
+appId: ${APP_ID}
+---
+# Tour-only back to the screen whose testID is ${TARGET}. Android: system back. iOS: tap the header's back button by position,
+# and again if the first tap was swallowed (it is, sometimes, right after a scroll or a push).
+- runFlow:
+    when:
+      platform: Android
+    commands:
+      - back
+- runFlow:
+    when:
+      platform: iOS
+    commands:
+      - tapOn:
+          point: 14%,10%
+      - runFlow:
+          when:
+            notVisible:
+              id: ${TARGET}
+          commands:
+            - tapOn:
+                point: 12%,10%
+- extendedWaitUntil:
+    visible:
+      id: ${TARGET}
+    timeout: 15000

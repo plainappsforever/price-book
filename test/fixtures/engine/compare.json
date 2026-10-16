@@ -1,0 +1,2946 @@
+{
+ "examples": [
+  {
+   "id": "E1-conversion-metric",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 249,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g"
+     },
+     {
+      "id": "B",
+      "priceMinor": 549,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1.2"
+      },
+      "unit": "kg"
+     },
+     {
+      "id": "C",
+      "priceMinor": 239,
+      "size": {
+       "packCount": 1,
+       "itemSize": "16"
+      },
+      "unit": "oz"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "B",
+       "A",
+       "C"
+      ],
+      "winners": [
+       "B"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "B",
+       "runnerUpId": "A",
+       "permille": 81,
+       "moneyMinor": 49
+      },
+      "lowestToPay": {
+       "cardIds": [
+        "C"
+       ],
+       "amountMinor": 239
+      }
+     }
+    ],
+    "warnings": [
+     "W3:C"
+    ],
+    "unitDisplay": {
+     "A": "4.98",
+     "B": "4.58",
+     "C": "5.27"
+    }
+   },
+   "note": "SPEC E1: A 4.98 · B 4.58 (4.575) · C 5.27 (526.905 c) per kg; B best, 8.1 % cheaper, saves 0.49 on 1.2 kg (48.6 c)"
+  },
+  {
+   "id": "E2-conversion-us",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 249,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g"
+     },
+     {
+      "id": "B",
+      "priceMinor": 549,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1.2"
+      },
+      "unit": "kg"
+     },
+     {
+      "id": "C",
+      "priceMinor": 239,
+      "size": {
+       "packCount": 1,
+       "itemSize": "16"
+      },
+      "unit": "oz"
+     }
+    ],
+    "settings": {
+     "currency": "USD",
+     "taxMode": "include",
+     "measurementSystem": "us"
+    }
+   },
+   "expected": {
+    "decimals": 3,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "B",
+       "A",
+       "C"
+      ],
+      "winners": [
+       "B"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "B",
+       "runnerUpId": "A",
+       "permille": 81,
+       "moneyMinor": 49
+      },
+      "lowestToPay": {
+       "cardIds": [
+        "C"
+       ],
+       "amountMinor": 239
+      }
+     }
+    ],
+    "warnings": [
+     "W3:A",
+     "W3:B"
+    ],
+    "unitDisplay": {
+     "A": "0.141",
+     "B": "0.130",
+     "C": "0.149"
+    }
+   },
+   "note": "SPEC E2: same cards per oz: A $0.141 · B $0.130 · C $0.149 (3 decimals: all < 1)"
+  },
+  {
+   "id": "E8-three-for-two-wins",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 229,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "deals": {
+       "quantity": {
+        "kind": "buyXGetY",
+        "x": 2,
+        "y": 1,
+        "pct": "100"
+       }
+      }
+     },
+     {
+      "id": "B",
+      "priceMinor": 549,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1.2"
+      },
+      "unit": "kg"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "A",
+       "B"
+      ],
+      "winners": [
+       "A"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "A",
+       "runnerUpId": "B",
+       "permille": 333,
+       "moneyMinor": 228
+      },
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "3.05",
+     "B": "4.58"
+    }
+   },
+   "note": "SPEC E8: A 500 g 2.29 '3 for 2' (q3) 3.05/kg vs B 1.2 kg 5.49 4.58/kg; A best, 33.3 % cheaper, saves 2.28 on 1.5 kg (228.25 c)"
+  },
+  {
+   "id": "E18-deposit-excluded",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 449,
+      "size": {
+       "packCount": 6,
+       "itemSize": "330"
+      },
+      "unit": "ml",
+      "depositMinor": 150
+     },
+     {
+      "id": "B",
+      "priceMinor": 119,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1.5"
+      },
+      "unit": "l",
+      "depositMinor": 25
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 3,
+    "groups": [
+     {
+      "dimension": "volume",
+      "ranking": [
+       "B",
+       "A"
+      ],
+      "winners": [
+       "B"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "B",
+       "runnerUpId": "A",
+       "permille": 650,
+       "moneyMinor": 221
+      },
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "2.268",
+     "B": "0.793"
+    }
+   },
+   "note": "SPEC E18: 6x330 ml 4.49 + 1.50 deposit (226.77 c/L) vs 1.5 L 1.19 + 0.25 (79.33 c/L): B best; mixed values -> 3 decimals (D32)"
+  },
+  {
+   "id": "E19-dimension-mismatch",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 119,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "l"
+     },
+     {
+      "id": "B",
+      "priceMinor": 129,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "kg"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "volume",
+      "ranking": [
+       "A"
+      ],
+      "winners": [],
+      "tie": false,
+      "savings": null,
+      "lowestToPay": null
+     },
+     {
+      "dimension": "mass",
+      "ranking": [
+       "B"
+      ],
+      "winners": [],
+      "tie": false,
+      "savings": null,
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [
+     "W1"
+    ],
+    "unitDisplay": {
+     "A": "1.19",
+     "B": "1.29"
+    }
+   },
+   "note": "SPEC E19: 1 L 1.19 vs 1 kg 1.29: two groups, W1, no winner across them"
+  },
+  {
+   "id": "E20-typo",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 249,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g"
+     },
+     {
+      "id": "B",
+      "priceMinor": 259,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "kg"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 3,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "B",
+       "A"
+      ],
+      "winners": [
+       "B"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "B",
+       "runnerUpId": "A",
+       "permille": 999,
+       "moneyMinor": 248741
+      },
+      "lowestToPay": {
+       "cardIds": [
+        "A"
+       ],
+       "amountMinor": 249
+      }
+     }
+    ],
+    "warnings": [
+     "W4:961"
+    ],
+    "unitDisplay": {
+     "A": "4.980",
+     "B": "0.005"
+    }
+   },
+   "note": "SPEC E20: A 500 g 2.49 vs B 500 kg 2.59: W4 '961x'"
+  },
+  {
+   "id": "E21-tie-equal",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 200,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g"
+     },
+     {
+      "id": "B",
+      "priceMinor": 400,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "kg"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "A",
+       "B"
+      ],
+      "winners": [
+       "A",
+       "B"
+      ],
+      "tie": true,
+      "savings": null,
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "4.00",
+     "B": "4.00"
+    }
+   },
+   "note": "SPEC E21: A 500 g 2.00 vs B 1 kg 4.00: Same unit price (4.00 = 4.00)"
+  },
+  {
+   "id": "E21-tie-within-0.1pct",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 400,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "kg"
+     },
+     {
+      "id": "B",
+      "priceMinor": 1199,
+      "size": {
+       "packCount": 1,
+       "itemSize": "3"
+      },
+      "unit": "kg"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "B",
+       "A"
+      ],
+      "winners": [
+       "B",
+       "A"
+      ],
+      "tie": true,
+      "savings": null,
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "4.00",
+     "B": "4.00"
+    }
+   },
+   "note": "SPEC E21: A 1 kg 4.00 vs B 3 kg 11.99: 399.67 c vs 400 c differ by 0.08 % (< 0.1 %) -> tie"
+  }
+ ],
+ "generated": [
+  {
+   "id": "w2-labels",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 599,
+      "size": {
+       "packCount": 1,
+       "itemSize": "12"
+      },
+      "unit": "pcs",
+      "label": "rolls"
+     },
+     {
+      "id": "B",
+      "priceMinor": 499,
+      "size": {
+       "packCount": 1,
+       "itemSize": "200"
+      },
+      "unit": "pcs",
+      "label": "sheets"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 3,
+    "groups": [
+     {
+      "dimension": "count",
+      "ranking": [
+       "B",
+       "A"
+      ],
+      "winners": [
+       "B"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "B",
+       "runnerUpId": "A",
+       "permille": 950,
+       "moneyMinor": 9484
+      },
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [
+     "W2",
+     "W4:20"
+    ],
+    "unitDisplay": {
+     "A": "0.499",
+     "B": "0.025"
+    }
+   },
+   "note": "W2: rolls vs sheets"
+  },
+  {
+   "id": "w2-same-label",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 599,
+      "size": {
+       "packCount": 1,
+       "itemSize": "12"
+      },
+      "unit": "pcs",
+      "label": "Rolls "
+     },
+     {
+      "id": "B",
+      "priceMinor": 499,
+      "size": {
+       "packCount": 1,
+       "itemSize": "9"
+      },
+      "unit": "pcs",
+      "label": "rolls"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 3,
+    "groups": [
+     {
+      "dimension": "count",
+      "ranking": [
+       "A",
+       "B"
+      ],
+      "winners": [
+       "A"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "A",
+       "runnerUpId": "B",
+       "permille": 100,
+       "moneyMinor": 66
+      },
+      "lowestToPay": {
+       "cardIds": [
+        "B"
+       ],
+       "amountMinor": 499
+      }
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "0.499",
+     "B": "0.554"
+    }
+   },
+   "note": "no W2 when labels match (case and spaces ignored)"
+  },
+  {
+   "id": "w5-in-compare",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 199,
+      "size": {
+       "packCount": 1,
+       "itemSize": "400"
+      },
+      "unit": "g",
+      "deals": {
+       "quantity": {
+        "kind": "multiBuy",
+        "n": 3,
+        "priceMinor": 600
+       }
+      }
+     },
+     {
+      "id": "B",
+      "priceMinor": 249,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "B",
+       "A"
+      ],
+      "winners": [
+       "B"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "B",
+       "runnerUpId": "A",
+       "permille": 4,
+       "moneyMinor": 1
+      },
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [
+     "W5:multiBuy:A"
+    ],
+    "unitDisplay": {
+     "A": "5.00",
+     "B": "4.98"
+    }
+   },
+   "note": "W5 from a card is reported with its card id"
+  },
+  {
+   "id": "w6-in-compare",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 100,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "pcs",
+      "quantity": 5,
+      "deals": {
+       "quantity": {
+        "kind": "buyXGetY",
+        "x": 2,
+        "y": 1,
+        "pct": "100"
+       }
+      }
+     },
+     {
+      "id": "B",
+      "priceMinor": 90,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "pcs"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 3,
+    "groups": [
+     {
+      "dimension": "count",
+      "ranking": [
+       "A",
+       "B"
+      ],
+      "winners": [
+       "A"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "A",
+       "runnerUpId": "B",
+       "permille": 111,
+       "moneyMinor": 50
+      },
+      "lowestToPay": {
+       "cardIds": [
+        "B"
+       ],
+       "amountMinor": 90
+      }
+     }
+    ],
+    "warnings": [
+     "W6:takeMore:A"
+    ],
+    "unitDisplay": {
+     "A": "0.800",
+     "B": "0.900"
+    }
+   },
+   "note": "W6 hint (E9) reported with its card id"
+  },
+  {
+   "id": "w7-incomplete",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 249,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g"
+     },
+     {
+      "id": "B",
+      "priceMinor": null,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "kg"
+     },
+     {
+      "id": "C",
+      "priceMinor": 249,
+      "size": null,
+      "unit": "g"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "A"
+      ],
+      "winners": [],
+      "tie": false,
+      "savings": null,
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [
+     "W7:price:B",
+     "W7:size:C"
+    ],
+    "unitDisplay": {
+     "A": "4.98"
+    }
+   },
+   "note": "W7: incomplete cards ignored; one complete card -> no winner"
+  },
+  {
+   "id": "w8-free-ranked-first",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 249,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g"
+     },
+     {
+      "id": "B",
+      "priceMinor": 0,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 3,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "B",
+       "A"
+      ],
+      "winners": [
+       "B"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "B",
+       "runnerUpId": "A",
+       "permille": 1000,
+       "moneyMinor": 249
+      },
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [
+     "W8:B"
+    ],
+    "unitDisplay": {
+     "A": "4.980",
+     "B": "0.000"
+    }
+   },
+   "note": "W8: free card ranked first, 100 % cheaper"
+  },
+  {
+   "id": "w8-both-free",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 0,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g"
+     },
+     {
+      "id": "B",
+      "priceMinor": 0,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "kg"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 3,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "A",
+       "B"
+      ],
+      "winners": [
+       "A",
+       "B"
+      ],
+      "tie": true,
+      "savings": null,
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [
+     "W8:A",
+     "W8:B"
+    ],
+    "unitDisplay": {
+     "A": "0.000",
+     "B": "0.000"
+    }
+   },
+   "note": "two free cards tie"
+  },
+  {
+   "id": "w4-just-below",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 100,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "kg"
+     },
+     {
+      "id": "B",
+      "priceMinor": 999,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "kg"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "A",
+       "B"
+      ],
+      "winners": [
+       "A"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "A",
+       "runnerUpId": "B",
+       "permille": 900,
+       "moneyMinor": 899
+      },
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "1.00",
+     "B": "9.99"
+    }
+   },
+   "note": "ratio 9.99 -> no W4"
+  },
+  {
+   "id": "w4-at-ten",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 100,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "kg"
+     },
+     {
+      "id": "B",
+      "priceMinor": 1000,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "kg"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "A",
+       "B"
+      ],
+      "winners": [
+       "A"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "A",
+       "runnerUpId": "B",
+       "permille": 900,
+       "moneyMinor": 900
+      },
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [
+     "W4:10"
+    ],
+    "unitDisplay": {
+     "A": "1.00",
+     "B": "10.00"
+    }
+   },
+   "note": "ratio exactly 10 -> W4 '10x'"
+  },
+  {
+   "id": "w1-three-dims",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 119,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "l"
+     },
+     {
+      "id": "B",
+      "priceMinor": 129,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "kg"
+     },
+     {
+      "id": "C",
+      "priceMinor": 99,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1.5"
+      },
+      "unit": "l"
+     },
+     {
+      "id": "D",
+      "priceMinor": 300,
+      "size": {
+       "packCount": 1,
+       "itemSize": "10"
+      },
+      "unit": "pcs"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 3,
+    "groups": [
+     {
+      "dimension": "volume",
+      "ranking": [
+       "C",
+       "A"
+      ],
+      "winners": [
+       "C"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "C",
+       "runnerUpId": "A",
+       "permille": 445,
+       "moneyMinor": 80
+      },
+      "lowestToPay": null
+     },
+     {
+      "dimension": "mass",
+      "ranking": [
+       "B"
+      ],
+      "winners": [],
+      "tie": false,
+      "savings": null,
+      "lowestToPay": null
+     },
+     {
+      "dimension": "count",
+      "ranking": [
+       "D"
+      ],
+      "winners": [],
+      "tie": false,
+      "savings": null,
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [
+     "W1"
+    ],
+    "unitDisplay": {
+     "A": "1.190",
+     "B": "1.290",
+     "C": "0.660",
+     "D": "0.300"
+    }
+   },
+   "note": "W1 with three dimensions, each ranked separately"
+  },
+  {
+   "id": "tie-exact-threshold",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 1000,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "kg"
+     },
+     {
+      "id": "B",
+      "priceMinor": 999,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "kg"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "B",
+       "A"
+      ],
+      "winners": [
+       "B"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "B",
+       "runnerUpId": "A",
+       "permille": 1,
+       "moneyMinor": 1
+      },
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "10.00",
+     "B": "9.99"
+    }
+   },
+   "note": "1.000 vs 0.999 per kg: difference exactly 0.1 % -> NOT a tie"
+  },
+  {
+   "id": "tie-just-inside",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 1999,
+      "size": {
+       "packCount": 1,
+       "itemSize": "2"
+      },
+      "unit": "kg"
+     },
+     {
+      "id": "B",
+      "priceMinor": 1000,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "kg"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "A",
+       "B"
+      ],
+      "winners": [
+       "A",
+       "B"
+      ],
+      "tie": true,
+      "savings": null,
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "10.00",
+     "B": "10.00"
+    }
+   },
+   "note": "999.5 vs 1000 c/kg: 0.05 % -> tie"
+  },
+  {
+   "id": "tie-three-cards",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 200,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g"
+     },
+     {
+      "id": "B",
+      "priceMinor": 400,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "kg"
+     },
+     {
+      "id": "C",
+      "priceMinor": 500,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "kg"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "A",
+       "B",
+       "C"
+      ],
+      "winners": [
+       "A",
+       "B"
+      ],
+      "tie": true,
+      "savings": null,
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "4.00",
+     "B": "4.00",
+     "C": "5.00"
+    }
+   },
+   "note": "A and B tie, C dearer: both best value, no savings line"
+  },
+  {
+   "id": "lowest-to-pay",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 249,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g"
+     },
+     {
+      "id": "B",
+      "priceMinor": 549,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1.2"
+      },
+      "unit": "kg"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "B",
+       "A"
+      ],
+      "winners": [
+       "B"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "B",
+       "runnerUpId": "A",
+       "permille": 81,
+       "moneyMinor": 49
+      },
+      "lowestToPay": {
+       "cardIds": [
+        "A"
+       ],
+       "amountMinor": 249
+      }
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "4.98",
+     "B": "4.58"
+    }
+   },
+   "note": "winner B (big pack), A is lowest to pay"
+  },
+  {
+   "id": "lowest-to-pay-deposit",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 100,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "l",
+      "depositMinor": 25
+     },
+     {
+      "id": "B",
+      "priceMinor": 110,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1.5"
+      },
+      "unit": "l",
+      "depositMinor": 25
+     },
+     {
+      "id": "C",
+      "priceMinor": 105,
+      "size": {
+       "packCount": 1,
+       "itemSize": "0.5"
+      },
+      "unit": "l"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 3,
+    "groups": [
+     {
+      "dimension": "volume",
+      "ranking": [
+       "B",
+       "A",
+       "C"
+      ],
+      "winners": [
+       "B"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "B",
+       "runnerUpId": "A",
+       "permille": 267,
+       "moneyMinor": 40
+      },
+      "lowestToPay": {
+       "cardIds": [
+        "C"
+       ],
+       "amountMinor": 105
+      }
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "1.000",
+     "B": "0.733",
+     "C": "2.100"
+    }
+   },
+   "note": "deposit counts for lowest to pay (E + Dtot), not for U"
+  },
+  {
+   "id": "lowest-is-winner",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 199,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "kg"
+     },
+     {
+      "id": "B",
+      "priceMinor": 249,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "A",
+       "B"
+      ],
+      "winners": [
+       "A"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "A",
+       "runnerUpId": "B",
+       "permille": 600,
+       "moneyMinor": 299
+      },
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "1.99",
+     "B": "4.98"
+    }
+   },
+   "note": "winner is also lowest to pay -> no badge"
+  },
+  {
+   "id": "basis-invariant-kg",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 249,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g"
+     },
+     {
+      "id": "B",
+      "priceMinor": 549,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1.2"
+      },
+      "unit": "kg"
+     },
+     {
+      "id": "C",
+      "priceMinor": 239,
+      "size": {
+       "packCount": 1,
+       "itemSize": "16"
+      },
+      "unit": "oz"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric",
+     "bases": {
+      "mass": "kg"
+     }
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "B",
+       "A",
+       "C"
+      ],
+      "winners": [
+       "B"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "B",
+       "runnerUpId": "A",
+       "permille": 81,
+       "moneyMinor": 49
+      },
+      "lowestToPay": {
+       "cardIds": [
+        "C"
+       ],
+       "amountMinor": 239
+      }
+     }
+    ],
+    "warnings": [
+     "W3:C"
+    ],
+    "unitDisplay": {
+     "A": "4.98",
+     "B": "4.58",
+     "C": "5.27"
+    }
+   },
+   "note": "E1 cards per kg: same winner, same 8.1 %, same 0.49"
+  },
+  {
+   "id": "basis-invariant-100g",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 249,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g"
+     },
+     {
+      "id": "B",
+      "priceMinor": 549,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1.2"
+      },
+      "unit": "kg"
+     },
+     {
+      "id": "C",
+      "priceMinor": 239,
+      "size": {
+       "packCount": 1,
+       "itemSize": "16"
+      },
+      "unit": "oz"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric",
+     "bases": {
+      "mass": "100g"
+     }
+    }
+   },
+   "expected": {
+    "decimals": 3,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "B",
+       "A",
+       "C"
+      ],
+      "winners": [
+       "B"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "B",
+       "runnerUpId": "A",
+       "permille": 81,
+       "moneyMinor": 49
+      },
+      "lowestToPay": {
+       "cardIds": [
+        "C"
+       ],
+       "amountMinor": 239
+      }
+     }
+    ],
+    "warnings": [
+     "W3:C"
+    ],
+    "unitDisplay": {
+     "A": "0.498",
+     "B": "0.458",
+     "C": "0.527"
+    }
+   },
+   "note": "E1 cards per 100g: same winner, same 8.1 %, same 0.49"
+  },
+  {
+   "id": "basis-invariant-lb",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 249,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g"
+     },
+     {
+      "id": "B",
+      "priceMinor": 549,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1.2"
+      },
+      "unit": "kg"
+     },
+     {
+      "id": "C",
+      "priceMinor": 239,
+      "size": {
+       "packCount": 1,
+       "itemSize": "16"
+      },
+      "unit": "oz"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric",
+     "bases": {
+      "mass": "lb"
+     }
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "B",
+       "A",
+       "C"
+      ],
+      "winners": [
+       "B"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "B",
+       "runnerUpId": "A",
+       "permille": 81,
+       "moneyMinor": 49
+      },
+      "lowestToPay": {
+       "cardIds": [
+        "C"
+       ],
+       "amountMinor": 239
+      }
+     }
+    ],
+    "warnings": [
+     "W3:A",
+     "W3:B"
+    ],
+    "unitDisplay": {
+     "A": "2.26",
+     "B": "2.08",
+     "C": "2.39"
+    }
+   },
+   "note": "E1 cards per lb: same winner, same 8.1 %, same 0.49"
+  },
+  {
+   "id": "basis-invariant-oz",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 249,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g"
+     },
+     {
+      "id": "B",
+      "priceMinor": 549,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1.2"
+      },
+      "unit": "kg"
+     },
+     {
+      "id": "C",
+      "priceMinor": 239,
+      "size": {
+       "packCount": 1,
+       "itemSize": "16"
+      },
+      "unit": "oz"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric",
+     "bases": {
+      "mass": "oz"
+     }
+    }
+   },
+   "expected": {
+    "decimals": 3,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "B",
+       "A",
+       "C"
+      ],
+      "winners": [
+       "B"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "B",
+       "runnerUpId": "A",
+       "permille": 81,
+       "moneyMinor": 49
+      },
+      "lowestToPay": {
+       "cardIds": [
+        "C"
+       ],
+       "amountMinor": 239
+      }
+     }
+    ],
+    "warnings": [
+     "W3:A",
+     "W3:B"
+    ],
+    "unitDisplay": {
+     "A": "0.141",
+     "B": "0.130",
+     "C": "0.149"
+    }
+   },
+   "note": "E1 cards per oz: same winner, same 8.1 %, same 0.49"
+  },
+  {
+   "id": "struct-3for2-vs-25pct",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 229,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "deals": {
+       "quantity": {
+        "kind": "buyXGetY",
+        "x": 2,
+        "y": 1,
+        "pct": "100"
+       }
+      }
+     },
+     {
+      "id": "B",
+      "priceMinor": 229,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "deals": {
+       "percents": [
+        {
+         "pct": "25"
+        }
+       ]
+      }
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "A",
+       "B"
+      ],
+      "winners": [
+       "A"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "A",
+       "runnerUpId": "B",
+       "permille": 112,
+       "moneyMinor": 58
+      },
+      "lowestToPay": {
+       "cardIds": [
+        "B"
+       ],
+       "amountMinor": 172
+      }
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "3.05",
+     "B": "3.44"
+    }
+   },
+   "note": "Duplicate card, two deal structures on one product: same 500 g 2.29: '3 for 2' (q3) vs 25 % off (q1)"
+  },
+  {
+   "id": "struct-bogo-vs-40pct",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 349,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "deals": {
+       "quantity": {
+        "kind": "buyXGetY",
+        "x": 1,
+        "y": 1,
+        "pct": "100"
+       }
+      }
+     },
+     {
+      "id": "B",
+      "priceMinor": 349,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "deals": {
+       "percents": [
+        {
+         "pct": "40"
+        }
+       ]
+      }
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "A",
+       "B"
+      ],
+      "winners": [
+       "A"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "A",
+       "runnerUpId": "B",
+       "permille": 165,
+       "moneyMinor": 69
+      },
+      "lowestToPay": {
+       "cardIds": [
+        "B"
+       ],
+       "amountMinor": 209
+      }
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "3.49",
+     "B": "4.18"
+    }
+   },
+   "note": "Duplicate card, two deal structures on one product: same 3.49: BOGO (q2) vs 40 % off (q1)"
+  },
+  {
+   "id": "struct-half-vs-25pct",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 349,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "deals": {
+       "quantity": {
+        "kind": "buyXGetY",
+        "x": 1,
+        "y": 1,
+        "pct": "50"
+       }
+      }
+     },
+     {
+      "id": "B",
+      "priceMinor": 349,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "deals": {
+       "percents": [
+        {
+         "pct": "25"
+        }
+       ]
+      }
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "A",
+       "B"
+      ],
+      "winners": [
+       "A"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "A",
+       "runnerUpId": "B",
+       "permille": 2,
+       "moneyMinor": 1
+      },
+      "lowestToPay": {
+       "cardIds": [
+        "B"
+       ],
+       "amountMinor": 262
+      }
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "5.23",
+     "B": "5.24"
+    }
+   },
+   "note": "Duplicate card, two deal structures on one product: 2nd half price vs 25 % off (equal in theory; rounding decides)"
+  },
+  {
+   "id": "struct-2for5-vs-10pct",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 279,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "deals": {
+       "quantity": {
+        "kind": "multiBuy",
+        "n": 2,
+        "priceMinor": 500
+       }
+      }
+     },
+     {
+      "id": "B",
+      "priceMinor": 279,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "deals": {
+       "percents": [
+        {
+         "pct": "10"
+        }
+       ]
+      }
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "A",
+       "B"
+      ],
+      "winners": [
+       "A"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "A",
+       "runnerUpId": "B",
+       "permille": 4,
+       "moneyMinor": 2
+      },
+      "lowestToPay": {
+       "cardIds": [
+        "B"
+       ],
+       "amountMinor": 251
+      }
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "5.00",
+     "B": "5.02"
+    }
+   },
+   "note": "Duplicate card, two deal structures on one product: 2 for 5.00 vs 10 % off, P 2.79"
+  },
+  {
+   "id": "struct-b3g2-vs-3for2",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 125,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "deals": {
+       "quantity": {
+        "kind": "buyXGetY",
+        "x": 3,
+        "y": 2,
+        "pct": "100"
+       }
+      }
+     },
+     {
+      "id": "B",
+      "priceMinor": 125,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "deals": {
+       "quantity": {
+        "kind": "buyXGetY",
+        "x": 2,
+        "y": 1,
+        "pct": "100"
+       }
+      }
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "A",
+       "B"
+      ],
+      "winners": [
+       "A"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "A",
+       "runnerUpId": "B",
+       "permille": 100,
+       "moneyMinor": 42
+      },
+      "lowestToPay": {
+       "cardIds": [
+        "B"
+       ],
+       "amountMinor": 250
+      }
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "1.50",
+     "B": "1.67"
+    }
+   },
+   "note": "Duplicate card, two deal structures on one product: buy 3 get 2 free (q5) vs 3 for 2 (q3)"
+  },
+  {
+   "id": "struct-coupon-vs-cashback",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 499,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "deals": {
+       "coupons": [
+        {
+         "amountMinor": 100
+        }
+       ]
+      }
+     },
+     {
+      "id": "B",
+      "priceMinor": 499,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "deals": {
+       "cashback": {
+        "amountMinor": 100
+       }
+      }
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "A",
+       "B"
+      ],
+      "winners": [
+       "A",
+       "B"
+      ],
+      "tie": true,
+      "savings": null,
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "7.98",
+     "B": "7.98"
+    }
+   },
+   "note": "Duplicate card, two deal structures on one product: 1.00 coupon vs 1.00 cashback: same E -> tie"
+  },
+  {
+   "id": "struct-spend-vs-pct",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 269,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "quantity": 4,
+      "deals": {
+       "spendSave": {
+        "thresholdMinor": 1000,
+        "saveMinor": 200
+       }
+      }
+     },
+     {
+      "id": "B",
+      "priceMinor": 269,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "deals": {
+       "percents": [
+        {
+         "pct": "15"
+        }
+       ]
+      }
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "A",
+       "B"
+      ],
+      "winners": [
+       "A"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "A",
+       "runnerUpId": "B",
+       "permille": 44,
+       "moneyMinor": 40
+      },
+      "lowestToPay": {
+       "cardIds": [
+        "B"
+       ],
+       "amountMinor": 229
+      }
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "4.38",
+     "B": "4.58"
+    }
+   },
+   "note": "Duplicate card, two deal structures on one product: spend 10 save 2 (q4 of 2.69) vs 15 % off (q1)"
+  },
+  {
+   "id": "struct-multibuy-remainder",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 199,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "quantity": 4,
+      "deals": {
+       "quantity": {
+        "kind": "multiBuy",
+        "n": 3,
+        "priceMinor": 500
+       }
+      }
+     },
+     {
+      "id": "B",
+      "priceMinor": 199,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "quantity": 3,
+      "deals": {
+       "quantity": {
+        "kind": "multiBuy",
+        "n": 3,
+        "priceMinor": 500
+       }
+      }
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "B",
+       "A"
+      ],
+      "winners": [
+       "B"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "B",
+       "runnerUpId": "A",
+       "permille": 46,
+       "moneyMinor": 24
+      },
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [
+     "W6:outsideDeal:A"
+    ],
+    "unitDisplay": {
+     "A": "3.50",
+     "B": "3.33"
+    }
+   },
+   "note": "Duplicate card, two deal structures on one product: 3 for 5 bought 4 vs 3 for 5 bought 3"
+  },
+  {
+   "id": "struct-bogo-odd-vs-even",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 349,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "quantity": 3,
+      "deals": {
+       "quantity": {
+        "kind": "buyXGetY",
+        "x": 1,
+        "y": 1,
+        "pct": "100"
+       }
+      }
+     },
+     {
+      "id": "B",
+      "priceMinor": 349,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "quantity": 2,
+      "deals": {
+       "quantity": {
+        "kind": "buyXGetY",
+        "x": 1,
+        "y": 1,
+        "pct": "100"
+       }
+      }
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "B",
+       "A"
+      ],
+      "winners": [
+       "B"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "B",
+       "runnerUpId": "A",
+       "permille": 250,
+       "moneyMinor": 116
+      },
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [
+     "W6:takeMore:A"
+    ],
+    "unitDisplay": {
+     "A": "4.65",
+     "B": "3.49"
+    }
+   },
+   "note": "Duplicate card, two deal structures on one product: BOGO bought 3 vs BOGO bought 2"
+  },
+  {
+   "id": "struct-stacked-vs-single",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 1000,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "deals": {
+       "percents": [
+        {
+         "pct": "20"
+        },
+        {
+         "pct": "10"
+        }
+       ]
+      }
+     },
+     {
+      "id": "B",
+      "priceMinor": 1000,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g",
+      "deals": {
+       "percents": [
+        {
+         "pct": "30"
+        }
+       ]
+      }
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "B",
+       "A"
+      ],
+      "winners": [
+       "B"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "B",
+       "runnerUpId": "A",
+       "permille": 28,
+       "moneyMinor": 20
+      },
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "14.40",
+     "B": "14.00"
+    }
+   },
+   "note": "Duplicate card, two deal structures on one product: 20 % + 10 % vs 30 % (stacking is less)"
+  },
+  {
+   "id": "jpy-compare",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 298,
+      "size": {
+       "packCount": 1,
+       "itemSize": "400"
+      },
+      "unit": "g"
+     },
+     {
+      "id": "B",
+      "priceMinor": 698,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "kg"
+     }
+    ],
+    "settings": {
+     "currency": "JPY",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 0,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "B",
+       "A"
+      ],
+      "winners": [
+       "B"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "B",
+       "runnerUpId": "A",
+       "permille": 63,
+       "moneyMinor": 47
+      },
+      "lowestToPay": {
+       "cardIds": [
+        "A"
+       ],
+       "amountMinor": 298
+      }
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "745",
+     "B": "698"
+    }
+   },
+   "note": "JPY: 0 decimals when all >= 1 yen"
+  },
+  {
+   "id": "kwd-compare",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 1250,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g"
+     },
+     {
+      "id": "B",
+      "priceMinor": 450,
+      "size": {
+       "packCount": 1,
+       "itemSize": "2"
+      },
+      "unit": "kg"
+     }
+    ],
+    "settings": {
+     "currency": "KWD",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 4,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "B",
+       "A"
+      ],
+      "winners": [
+       "B"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "B",
+       "runnerUpId": "A",
+       "permille": 910,
+       "moneyMinor": 4550
+      },
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [
+     "W4:11"
+    ],
+    "unitDisplay": {
+     "A": "2.5000",
+     "B": "0.2250"
+    }
+   },
+   "note": "KWD: 3 decimals, 4 when one is < 1 dinar"
+  },
+  {
+   "id": "us-tax-compare",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 349,
+      "size": {
+       "packCount": 1,
+       "itemSize": "12"
+      },
+      "unit": "oz",
+      "quantity": 2,
+      "deals": {
+       "quantity": {
+        "kind": "buyXGetY",
+        "x": 1,
+        "y": 1,
+        "pct": "100"
+       }
+      }
+     },
+     {
+      "id": "B",
+      "priceMinor": 599,
+      "size": {
+       "packCount": 1,
+       "itemSize": "32"
+      },
+      "unit": "oz"
+     }
+    ],
+    "settings": {
+     "currency": "USD",
+     "taxMode": "add",
+     "measurementSystem": "us",
+     "taxRate": "8.875"
+    }
+   },
+   "expected": {
+    "decimals": 3,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "A",
+       "B"
+      ],
+      "winners": [
+       "A"
+      ],
+      "tie": false,
+      "savings": {
+       "winnerId": "A",
+       "runnerUpId": "B",
+       "permille": 223,
+       "moneyMinor": 109
+      },
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "0.158",
+     "B": "0.204"
+    }
+   },
+   "note": "US add tax 8.875 % on both: ranking unchanged by a common rate"
+  },
+  {
+   "id": "one-card",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": 249,
+      "size": {
+       "packCount": 1,
+       "itemSize": "500"
+      },
+      "unit": "g"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [
+     {
+      "dimension": "mass",
+      "ranking": [
+       "A"
+      ],
+      "winners": [],
+      "tie": false,
+      "savings": null,
+      "lowestToPay": null
+     }
+    ],
+    "warnings": [],
+    "unitDisplay": {
+     "A": "4.98"
+    }
+   },
+   "note": "one complete card: its unit price, no winner"
+  },
+  {
+   "id": "no-cards-complete",
+   "input": {
+    "cards": [
+     {
+      "id": "A",
+      "priceMinor": null,
+      "size": null,
+      "unit": "g"
+     },
+     {
+      "id": "B",
+      "priceMinor": null,
+      "size": {
+       "packCount": 1,
+       "itemSize": "1"
+      },
+      "unit": "kg"
+     }
+    ],
+    "settings": {
+     "currency": "EUR",
+     "taxMode": "include",
+     "measurementSystem": "metric"
+    }
+   },
+   "expected": {
+    "decimals": 2,
+    "groups": [],
+    "warnings": [
+     "W7:price:A",
+     "W7:price:B"
+    ],
+    "unitDisplay": {}
+   },
+   "note": "nothing complete: only W7"
+  }
+ ]
+}

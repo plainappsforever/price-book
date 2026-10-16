@@ -1,0 +1,19 @@
+appId: ${APP_ID}
+name: Engine self-test - exact BigInt engine on the device JS engine (Hermes)
+tags:
+  - device-proof
+---
+- runFlow: subflows/launch.yaml
+- tapOn: {id: open-settings}
+- scrollUntilVisible:
+    element:
+      id: open-about
+    direction: DOWN
+- tapOn: {id: open-about}
+- extendedWaitUntil:
+    visible:
+      id: engine-selftest
+    timeout: 15000
+- assertVisible:
+    id: engine-selftest
+    text: engine OK

@@ -1,0 +1,66 @@
+appId: ${APP_ID}
+name: Release build - Edit keeps the deal - a 3 for 2 price saved from Compare keeps its after-deal price when only the date is edited (v1.1 B1)
+tags:
+  - release
+---
+# Release build: clean install, data typed through the screens (no seed link)
+- runFlow: ../subflows/release-start.yaml
+- runFlow:
+    file: ../subflows/type.yaml
+    env:
+      KEYS: 2.29n500
+- tapOn: {id: deal-add-A}
+- tapOn: {id: preset-threeForTwo}
+- tapOn: {id: save-A}
+- tapOn: {id: save-name}
+- inputText: Crisps
+# Enter closes the keyboard (Maestro's iOS hideKeyboard gesture can close the save sheet itself)
+- pressKey: Enter
+- tapOn: {id: save-confirm}
+- extendedWaitUntil:
+    visible:
+      id: compare-notice
+      text: "Saved to Crisps"
+    timeout: 15000
+- tapOn: {id: tab-book}
+- extendedWaitUntil:
+    visible:
+      id: product-1
+    timeout: 15000
+- tapOn: {id: product-1}
+# The book remembers €1.53 per pack (D40): €3.06 per kg, not the €4.58 shelf price
+- extendedWaitUntil:
+    visible:
+      id: tile-latest
+      text: "€3\\.06 per kg"
+    timeout: 15000
+- scrollUntilVisible:
+    element:
+      id: price-row-1
+    direction: DOWN
+- tapOn: {id: price-row-1}
+- extendedWaitUntil:
+    visible:
+      id: price-paid
+      text: "After deal: €1\\.53 per pack \\(kept\\)"
+    timeout: 15000
+# change only the date (no keyboard, no scrolling): the after-deal price must survive (review probe P1)
+- tapOn: {id: date-prev}
+- tapOn: {id: price-save}
+# back on the product screen, which can still be scrolled down to the price list (Android keeps the position)
+- extendedWaitUntil:
+    visible:
+      id: product-screen
+    timeout: 15000
+- scrollUntilVisible:
+    element:
+      id: tile-latest
+    direction: UP
+- extendedWaitUntil:
+    visible:
+      id: tile-latest
+      text: "€3\\.06 per kg"
+    timeout: 15000
+- assertVisible:
+    id: tile-latest-detail
+    text: "€1\\.53 · 500 g · yesterday"

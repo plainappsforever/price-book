@@ -1,0 +1,101 @@
+appId: ${APP_ID}
+name: Release build - price memory on real screens - add a product and two prices, save from Compare (no debug links)
+tags:
+  - release
+---
+# Release builds have no seed link: the book is built through the real screens on a clean install.
+- launchApp:
+    clearState: true
+    stopApp: true
+- extendedWaitUntil:
+    visible:
+      id: compare-screen
+    timeout: 90000
+- runFlow: ../subflows/settings-eu.yaml
+- tapOn: {id: tab-book}
+- assertVisible: {id: book-empty}
+- tapOn: {id: book-add}
+- tapOn: {id: pe-name}
+- inputText: Olive oil
+- tapOn: {id: pe-brand}
+- inputText: Terra
+- hideKeyboard
+- tapOn: {id: pe-dim-volume}
+- tapOn: {id: pe-save}
+- extendedWaitUntil:
+    visible:
+      id: price-product
+      text: "Olive oil"
+    timeout: 15000
+- tapOn: {id: store-new}
+- tapOn: {id: store-new-input}
+- inputText: Lidl
+- tapOn: {id: store-new-add}
+- tapOn: {id: date-prev}
+- runFlow:
+    file: ../subflows/ptype.yaml
+    env:
+      KEYS: 4.99n750
+- tapOn: {id: unit-ml}
+- assertVisible:
+    id: price-live
+    text: "€6\\.65 per L"
+- tapOn: {id: price-save}
+- extendedWaitUntil:
+    visible:
+      id: tile-latest
+      text: "€6\\.65 per L"
+    timeout: 15000
+- assertVisible:
+    id: tile-latest-detail
+    text: "€4\\.99 · 750 ml · Lidl · yesterday"
+# a second, cheaper price today: the lowest tile and the gauge follow
+- tapOn: {id: product-add-price}
+- runFlow:
+    file: ../subflows/ptype.yaml
+    env:
+      KEYS: "3.99"
+- assertVisible:
+    id: price-live
+    text: "€5\\.32 per L"
+- tapOn: {id: price-save}
+- extendedWaitUntil:
+    visible:
+      id: tile-latest
+      text: "€5\\.32 per L"
+    timeout: 15000
+- assertVisible:
+    id: tile-lowest
+    text: "€5\\.32 per L"
+- assertVisible:
+    id: tile-highest
+    text: "€6\\.65 per L"
+- takeScreenshot: release-product
+# Save from Compare as a new product (U3), then the book has both
+- runFlow:
+    file: ../subflows/back.yaml
+    env:
+      BACK_TITLE: Price Book
+- tapOn: {id: tab-compare}
+- runFlow:
+    file: ../subflows/type.yaml
+    env:
+      KEYS: 2.49n500
+- tapOn: {id: save-A}
+- tapOn: {id: save-name}
+- inputText: Green tea
+- assertVisible: "New product: Green tea"
+# Enter closes the keyboard (Maestro's iOS hideKeyboard gesture can close the save sheet itself)
+- pressKey: Enter
+- tapOn: {id: save-confirm}
+- extendedWaitUntil:
+    visible:
+      id: compare-notice
+      text: "Saved to Green tea"
+    timeout: 15000
+- tapOn: {id: tab-book}
+- extendedWaitUntil:
+    visible:
+      id: product-2
+    timeout: 15000
+- takeScreenshot: release-book

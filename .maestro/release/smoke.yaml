@@ -1,0 +1,40 @@
+appId: ${APP_ID}
+name: Release build - Smoke - launch, change theme, restart, theme persists
+tags:
+  - release
+---
+- launchApp:
+    clearState: true
+    stopApp: true
+- extendedWaitUntil:
+    visible:
+      id: compare-screen
+    timeout: 90000
+- tapOn:
+    id: open-settings
+- scrollUntilVisible:
+    element:
+      id: theme-dark
+    direction: DOWN
+- tapOn:
+    id: theme-dark
+- assertVisible:
+    id: theme-dark
+    selected: true
+
+# Restart the app: the theme must still be there
+- stopApp
+- runFlow: ../subflows/launch.yaml
+- tapOn:
+    id: open-settings
+- scrollUntilVisible:
+    element:
+      id: theme-dark
+    direction: DOWN
+- assertVisible:
+    id: theme-dark
+    selected: true
+
+# Restore the default theme for the next run
+- tapOn:
+    id: theme-system

@@ -1,0 +1,7 @@
+appId: ${APP_ID}
+---
+- extendedWaitUntil:
+    visible:
+      id: never-present-element
+    timeout: 1000
+    optional: true

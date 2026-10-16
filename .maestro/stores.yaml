@@ -1,0 +1,81 @@
+appId: ${APP_ID}
+name: Stores - add, duplicate refused, rename, archive, delete with a second tap (prices stay as No store)
+tags:
+  - book
+---
+- runFlow:
+    file: subflows/seed.yaml
+    env:
+      SEED: s1
+- runFlow: subflows/settings-eu.yaml
+- tapOn: {id: open-settings}
+- scrollUntilVisible:
+    element:
+      id: open-stores
+    direction: DOWN
+- tapOn: {id: open-stores}
+- extendedWaitUntil:
+    visible:
+      id: stores-screen
+    timeout: 15000
+- assertVisible:
+    id: store-count-1
+    text: "5 prices"
+- tapOn: {id: stores-new}
+- inputText: Lidl
+- tapOn: {id: stores-add}
+- assertVisible: {id: store-4}
+# the same name in other letters is refused
+- tapOn: {id: stores-new}
+- inputText: LIDL
+- tapOn: {id: stores-add}
+- assertVisible:
+    id: stores-error
+    text: "A store with this name already exists"
+# rename
+- eraseText: 10
+- tapOn: {id: store-rename-4}
+- tapOn: {id: store-edit-4}
+- eraseText: 10
+- inputText: Lidl Nord
+- tapOn: {id: store-save-4}
+- assertVisible: "Lidl Nord"
+# archive
+- tapOn: {id: store-archive-4}
+- assertVisible: "Lidl Nord  \\(archived\\)"
+- tapOn: {id: store-archive-4}
+# delete a store with prices: Aldi has 1 price, it stays as "No store"
+- tapOn: {id: store-delete-2}
+- assertVisible:
+    id: store-delete-2
+    text: "Tap again: its 1 price stays as \"No store\""
+- tapOn: {id: store-delete-2}
+- assertNotVisible: {id: store-2}
+- runFlow:
+    file: subflows/back.yaml
+    env:
+      BACK_TITLE: Settings
+- extendedWaitUntil:
+    visible:
+      id: settings-screen
+    timeout: 15000
+- runFlow:
+    file: subflows/pause.yaml
+    env:
+      MS: 800
+- runFlow:
+    file: subflows/back.yaml
+    env:
+      BACK_TITLE: Compare
+- extendedWaitUntil:
+    visible:
+      id: compare-screen
+    timeout: 15000
+- tapOn: {id: tab-book}
+- tapOn: {id: product-1}
+- scrollUntilVisible:
+    element:
+      text: "Prices \\(5\\)"
+    direction: DOWN
+- assertVisible:
+    id: store-row-none

@@ -1,0 +1,13 @@
+appId: ${APP_ID}
+name: Release build - cold start to a usable keypad (A14 timing, read from the command durations)
+tags:
+  - release
+---
+# Process stopped, then started: launchApp + the first keypad key visible. Sum of the two command durations = launch to keypad as the
+# test driver sees it (an upper bound: it includes the driver's own polling). scripts/launch-timing.sh runs it 5 times.
+- launchApp:
+    stopApp: true
+- extendedWaitUntil:
+    visible:
+      id: key-5
+    timeout: 30000

@@ -1,0 +1,42 @@
+appId: ${APP_ID}
+name: Draft persists - type, kill the app, relaunch, values and deal are back (A18)
+tags:
+  - compare
+---
+- runFlow:
+    file: subflows/seed.yaml
+    env:
+      SEED: empty
+- runFlow: subflows/settings-eu.yaml
+- runFlow:
+    file: subflows/type.yaml
+    env:
+      KEYS: 2.29n500n5.49n1.2
+- tapOn: {id: unit-kg}
+- tapOn: {id: deal-add-A}
+- tapOn: {id: preset-threeForTwo}
+- assertVisible:
+    id: result-A
+    text: "€3.05 per kg"
+# the draft is written 300 ms after the last change
+- runFlow:
+    file: subflows/pause.yaml
+    env:
+      MS: 1500
+- stopApp
+- runFlow: subflows/launch.yaml
+- assertVisible:
+    id: price-A-text
+    text: "2\\.29\\|?"
+- assertVisible:
+    id: size-B-text
+    text: "1\\.2\\|?"
+- assertVisible:
+    id: deal-A-0
+    text: 3 for 2
+- assertVisible:
+    id: result-A
+    text: "€3.05 per kg"
+- assertVisible:
+    id: result-B
+    text: "€4.58 per kg"

@@ -1,0 +1,94 @@
+appId: ${APP_ID}
+name: Product stats - S1 coffee (usual, lowest, highest, stores, stale, cheapest, chart) and S2 crisps banner (A7)
+tags:
+  - book
+---
+- runFlow:
+    file: subflows/seed.yaml
+    env:
+      SEED: s1
+- runFlow: subflows/settings-eu.yaml
+- tapOn: {id: tab-book}
+# list rows: latest price, store, relative date, shrinkflation mark on the crisps
+- assertVisible:
+    id: price-1
+    text: "€4\\.98 per kg.*Rewe.*"
+- assertVisible:
+    id: price-2
+    text: "€11\\.37 per kg.*"
+- assertVisible:
+    id: shrink-2
+- assertVisible:
+    id: chip-1
+    text: "Usual price"
+- tapOn: {id: product-1}
+- assertVisible:
+    id: tile-usual
+    text: "€4\\.98 per kg"
+- assertVisible:
+    id: tile-usual-note
+    text: "based on 4 regular prices"
+- assertVisible:
+    id: tile-lowest
+    text: "€3\\.99 per kg"
+- assertVisible:
+    id: tile-highest
+    text: "€5\\.18 per kg"
+- assertVisible:
+    id: tile-latest
+    text: "€4\\.98 per kg"
+- assertVisible:
+    id: tile-latest-detail
+    text: "€2\\.49 · 500 g · Rewe · 4 weeks ago"
+- assertVisible:
+    id: gauge-bar-text
+    text: "Latest price: Same as your usual — Usual price"
+- scrollUntilVisible:
+    element:
+      id: store-cheapest-1
+    direction: DOWN
+- assertVisible:
+    id: store-cheapest-1
+    text: "Last seen cheapest"
+- scrollUntilVisible:
+    element:
+      id: store-stale-2
+    direction: DOWN
+- assertVisible:
+    id: store-stale-2
+    text: "Older than 90 days"
+- assertNotVisible:
+    id: store-stale-3
+- scrollUntilVisible:
+    element:
+      id: store-latest-3
+    direction: DOWN
+- assertVisible:
+    id: store-latest-3
+    text: "Latest €5\\.18 per kg · .*"
+- scrollUntilVisible:
+    element:
+      id: chart-summary
+    direction: DOWN
+- assertVisible:
+    id: chart-summary
+    text: "5 prices from 2026-01-10 to 2026-08-28, between €3\\.99 per kg and €5\\.18 per kg"
+- scrollUntilVisible:
+    element:
+      text: "Prices \\(5\\)"
+    direction: DOWN
+- scrollUntilVisible:
+    element:
+      text: ".*Weekend offer.*"
+    direction: DOWN
+- assertVisible: ".*Weekend offer.*"
+- runFlow:
+    file: subflows/back.yaml
+    env:
+      BACK_TITLE: Price Book
+# S2: the crisps pack got smaller at the same price
+- tapOn: {id: product-2}
+- assertVisible:
+    id: banner-0-text
+    text: "Same price, 12\\.5 % less — \\+14\\.3 % per kg"
+- assertVisible: "200 g → 175 g · since 2026-09-01 · Rewe"

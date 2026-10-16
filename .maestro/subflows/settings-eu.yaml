@@ -1,0 +1,54 @@
+appId: ${APP_ID}
+---
+# Locale-dependent settings set through the UI, so flows pass on any device locale: EUR, 1,234.56, metric
+# (resets every basis to per kg / per L / each / per m), prices include tax, no rate, key tick off.
+- tapOn:
+    id: open-settings
+- extendedWaitUntil:
+    visible:
+      id: settings-screen
+    timeout: 15000
+- tapOn:
+    id: currency-EUR
+- scrollUntilVisible:
+    element:
+      id: format-point
+    direction: DOWN
+- tapOn:
+    id: format-point
+- scrollUntilVisible:
+    element:
+      id: units-metric
+    direction: DOWN
+- tapOn:
+    id: units-metric
+- scrollUntilVisible:
+    element:
+      id: haptics-off
+    direction: DOWN
+- tapOn:
+    id: haptics-off
+- scrollUntilVisible:
+    element:
+      id: settings-tax
+    direction: DOWN
+- tapOn:
+    id: settings-tax
+- tapOn:
+    id: tax-include
+- tapOn:
+    id: tax-clear
+- tapOn:
+    id: tax-done
+- extendedWaitUntil:
+    visible:
+      id: settings-screen
+    timeout: 15000
+- runFlow:
+    file: back.yaml
+    env:
+      BACK_TITLE: Compare
+- extendedWaitUntil:
+    visible:
+      id: compare-screen
+    timeout: 15000

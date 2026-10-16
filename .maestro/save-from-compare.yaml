@@ -1,0 +1,59 @@
+appId: ${APP_ID}
+name: Save from Compare - U3 in 3 taps plus typing, existing and new product, the saved price is in the book
+tags:
+  - book
+---
+- runFlow:
+    file: subflows/seed.yaml
+    env:
+      SEED: s1
+- runFlow: subflows/settings-eu.yaml
+- runFlow:
+    file: subflows/type.yaml
+    env:
+      KEYS: 2.49n500
+# ---- U3 starts: 3 taps until "U3 ends" (budget 6), plus typing the first letters ----
+- tapOn: {id: save-A}
+- tapOn: {id: save-name}
+- inputText: Cof
+- tapOn: {id: save-pick-1}
+- tapOn: {id: save-confirm}
+# ---- U3 ends ----
+- extendedWaitUntil:
+    visible:
+      id: compare-notice
+      text: "Saved to Coffee beans"
+    timeout: 15000
+# a new product: type a new name, nothing to pick
+- tapOn: {id: save-A}
+- tapOn: {id: save-name}
+- inputText: Green tea
+- assertVisible: "New product: Green tea"
+# Enter closes the keyboard (Maestro's iOS hideKeyboard gesture can close the save sheet itself)
+- pressKey: Enter
+- tapOn: {id: save-confirm}
+- extendedWaitUntil:
+    visible:
+      id: compare-notice
+      text: "Saved to Green tea"
+    timeout: 15000
+# both are in the book: Coffee has 6 prices, Green tea 1
+- tapOn: {id: tab-book}
+- extendedWaitUntil:
+    visible:
+      id: product-3
+    timeout: 15000
+- tapOn: {id: product-1}
+- scrollUntilVisible:
+    element:
+      text: "Prices \\(6\\)"
+    direction: DOWN
+- assertVisible: "Prices \\(6\\)"
+- runFlow:
+    file: subflows/back.yaml
+    env:
+      BACK_TITLE: Price Book
+- tapOn: {id: product-3}
+- assertVisible:
+    id: tile-latest
+    text: "€4\\.98 per kg"

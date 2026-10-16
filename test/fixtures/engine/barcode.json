@@ -1,0 +1,8367 @@
+[
+ {
+  "id": "anchor-1",
+  "input": {
+   "raw": "4006381333931",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "4006381333931",
+   "kind": "ean13",
+   "candidates": [
+    "4006381333931"
+   ],
+   "label": "product",
+   "display": "4006381333931"
+  },
+  "note": "Wikipedia EAN-13 example"
+ },
+ {
+  "id": "anchor-2",
+  "input": {
+   "raw": "73513537",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "73513537",
+   "kind": "ean8",
+   "candidates": [
+    "73513537"
+   ],
+   "label": "product",
+   "display": "73513537"
+  },
+  "note": "Wikipedia EAN-8 example"
+ },
+ {
+  "id": "anchor-3",
+  "input": {
+   "raw": "036000291452",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0036000291452",
+   "kind": "upca",
+   "candidates": [
+    "0036000291452"
+   ],
+   "label": "product",
+   "display": "036000291452"
+  },
+  "note": "Wikipedia UPC-A example"
+ },
+ {
+  "id": "anchor-4",
+  "input": {
+   "raw": "04252614",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0042100005264",
+   "kind": "upce",
+   "candidates": [
+    "0042100005264"
+   ],
+   "label": "product",
+   "display": "042100005264"
+  },
+  "note": "Wikipedia UPC-E example 04252614 = UPC-A 042100005264"
+ },
+ {
+  "id": "anchor-5",
+  "input": {
+   "raw": "042100005264",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0042100005264",
+   "kind": "upca",
+   "candidates": [
+    "0042100005264"
+   ],
+   "label": "product",
+   "display": "042100005264"
+  },
+  "note": "the UPC-A form of the UPC-E example"
+ },
+ {
+  "id": "anchor-6",
+  "input": {
+   "raw": "9780306406157",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "9780306406157",
+   "kind": "ean13",
+   "candidates": [
+    "9780306406157"
+   ],
+   "label": "product",
+   "display": "9780306406157"
+  },
+  "note": "Wikipedia ISBN-13 example (books are products)"
+ },
+ {
+  "id": "anchor-7",
+  "input": {
+   "raw": "4006381333932",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 example with the last digit changed"
+ },
+ {
+  "id": "ean13-1",
+  "input": {
+   "raw": "8822798555850",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "8822798555850",
+   "kind": "ean13",
+   "candidates": [
+    "8822798555850"
+   ],
+   "label": "product",
+   "display": "8822798555850"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-1",
+  "input": {
+   "raw": "8822798555851",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-1",
+  "input": {
+   "raw": "864764307580",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0864764307580",
+   "kind": "upca",
+   "candidates": [
+    "0864764307580"
+   ],
+   "label": "product",
+   "display": "864764307580"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-1",
+  "input": {
+   "raw": "0864764307580",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0864764307580",
+   "kind": "ean13",
+   "candidates": [
+    "0864764307580"
+   ],
+   "label": "product",
+   "display": "864764307580"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-1",
+  "input": {
+   "raw": "00864764307580",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0864764307580",
+   "kind": "ean13",
+   "candidates": [
+    "0864764307580"
+   ],
+   "label": "product",
+   "display": "864764307580"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-1",
+  "input": {
+   "raw": "46931535",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "46931535",
+   "kind": "ean8",
+   "candidates": [
+    "46931535"
+   ],
+   "label": "product",
+   "display": "46931535"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-1",
+  "input": {
+   "raw": "46931535",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "46931535",
+   "kind": "ean8",
+   "candidates": [
+    "46931535"
+   ],
+   "label": "product",
+   "display": "46931535"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-1",
+  "input": {
+   "raw": "11005469",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0110054000069",
+   "kind": "upce",
+   "candidates": [
+    "0110054000069",
+    "11005469"
+   ],
+   "label": "product",
+   "display": "110054000069"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-1",
+  "input": {
+   "raw": "11005469",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "11005469",
+   "kind": "ean8",
+   "candidates": [
+    "11005469",
+    "0110054000069"
+   ],
+   "label": "product",
+   "display": "11005469"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-1",
+  "input": {
+   "raw": "110054000069",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0110054000069",
+   "kind": "upca",
+   "candidates": [
+    "0110054000069"
+   ],
+   "label": "product",
+   "display": "110054000069"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-2",
+  "input": {
+   "raw": "3661224505206",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "3661224505206",
+   "kind": "ean13",
+   "candidates": [
+    "3661224505206"
+   ],
+   "label": "product",
+   "display": "3661224505206"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-2",
+  "input": {
+   "raw": "3661224505208",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-2",
+  "input": {
+   "raw": "048800415877",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0048800415877",
+   "kind": "upca",
+   "candidates": [
+    "0048800415877"
+   ],
+   "label": "product",
+   "display": "048800415877"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-2",
+  "input": {
+   "raw": "0048800415877",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0048800415877",
+   "kind": "ean13",
+   "candidates": [
+    "0048800415877"
+   ],
+   "label": "product",
+   "display": "048800415877"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-2",
+  "input": {
+   "raw": "00048800415877",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0048800415877",
+   "kind": "ean13",
+   "candidates": [
+    "0048800415877"
+   ],
+   "label": "product",
+   "display": "048800415877"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-2",
+  "input": {
+   "raw": "04019701",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "04019701",
+   "kind": "ean8",
+   "candidates": [
+    "04019701"
+   ],
+   "label": "storeLabel",
+   "display": "04019701"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-2",
+  "input": {
+   "raw": "04019701",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "04019701",
+   "kind": "ean8",
+   "candidates": [
+    "04019701"
+   ],
+   "label": "storeLabel",
+   "display": "04019701"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-2",
+  "input": {
+   "raw": "02385358",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0023853000058",
+   "kind": "upce",
+   "candidates": [
+    "0023853000058",
+    "02385358"
+   ],
+   "label": "product",
+   "display": "023853000058"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-2",
+  "input": {
+   "raw": "02385358",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "02385358",
+   "kind": "ean8",
+   "candidates": [
+    "02385358",
+    "0023853000058"
+   ],
+   "label": "storeLabel",
+   "display": "02385358"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-2",
+  "input": {
+   "raw": "023853000058",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0023853000058",
+   "kind": "upca",
+   "candidates": [
+    "0023853000058"
+   ],
+   "label": "product",
+   "display": "023853000058"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-3",
+  "input": {
+   "raw": "5032199331356",
+   "hint": "org.gs1.EAN-13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "5032199331356",
+   "kind": "ean13",
+   "candidates": [
+    "5032199331356"
+   ],
+   "label": "product",
+   "display": "5032199331356"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-3",
+  "input": {
+   "raw": "5032199331359",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-3",
+  "input": {
+   "raw": "482932007980",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0482932007980",
+   "kind": "upca",
+   "candidates": [
+    "0482932007980"
+   ],
+   "label": "storeLabel",
+   "display": "482932007980"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-3",
+  "input": {
+   "raw": "0482932007980",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0482932007980",
+   "kind": "ean13",
+   "candidates": [
+    "0482932007980"
+   ],
+   "label": "storeLabel",
+   "display": "482932007980"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-3",
+  "input": {
+   "raw": "00482932007980",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0482932007980",
+   "kind": "ean13",
+   "candidates": [
+    "0482932007980"
+   ],
+   "label": "storeLabel",
+   "display": "482932007980"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-3",
+  "input": {
+   "raw": "97077442",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "97077442",
+   "kind": "ean8",
+   "candidates": [
+    "97077442"
+   ],
+   "label": "product",
+   "display": "97077442"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-3",
+  "input": {
+   "raw": "97077442",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "97077442",
+   "kind": "ean8",
+   "candidates": [
+    "97077442"
+   ],
+   "label": "product",
+   "display": "97077442"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-3",
+  "input": {
+   "raw": "11675594",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0116755000094",
+   "kind": "upce",
+   "candidates": [
+    "0116755000094",
+    "11675594"
+   ],
+   "label": "product",
+   "display": "116755000094"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-3",
+  "input": {
+   "raw": "11675594",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "11675594",
+   "kind": "ean8",
+   "candidates": [
+    "11675594",
+    "0116755000094"
+   ],
+   "label": "product",
+   "display": "11675594"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-3",
+  "input": {
+   "raw": "116755000094",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0116755000094",
+   "kind": "upca",
+   "candidates": [
+    "0116755000094"
+   ],
+   "label": "product",
+   "display": "116755000094"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-4",
+  "input": {
+   "raw": "4667477693669",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "4667477693669",
+   "kind": "ean13",
+   "candidates": [
+    "4667477693669"
+   ],
+   "label": "product",
+   "display": "4667477693669"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-4",
+  "input": {
+   "raw": "4667477693663",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-4",
+  "input": {
+   "raw": "561379236020",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0561379236020",
+   "kind": "upca",
+   "candidates": [
+    "0561379236020"
+   ],
+   "label": "product",
+   "display": "561379236020"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-4",
+  "input": {
+   "raw": "0561379236020",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0561379236020",
+   "kind": "ean13",
+   "candidates": [
+    "0561379236020"
+   ],
+   "label": "product",
+   "display": "561379236020"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-4",
+  "input": {
+   "raw": "00561379236020",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0561379236020",
+   "kind": "ean13",
+   "candidates": [
+    "0561379236020"
+   ],
+   "label": "product",
+   "display": "561379236020"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-4",
+  "input": {
+   "raw": "47366152",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "47366152",
+   "kind": "ean8",
+   "candidates": [
+    "47366152"
+   ],
+   "label": "product",
+   "display": "47366152"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-4",
+  "input": {
+   "raw": "47366152",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "47366152",
+   "kind": "ean8",
+   "candidates": [
+    "47366152"
+   ],
+   "label": "product",
+   "display": "47366152"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-4",
+  "input": {
+   "raw": "18002263",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0180022000063",
+   "kind": "upce",
+   "candidates": [
+    "0180022000063",
+    "18002263"
+   ],
+   "label": "product",
+   "display": "180022000063"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-4",
+  "input": {
+   "raw": "18002263",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "18002263",
+   "kind": "ean8",
+   "candidates": [
+    "18002263",
+    "0180022000063"
+   ],
+   "label": "product",
+   "display": "18002263"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-4",
+  "input": {
+   "raw": "180022000063",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0180022000063",
+   "kind": "upca",
+   "candidates": [
+    "0180022000063"
+   ],
+   "label": "product",
+   "display": "180022000063"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-5",
+  "input": {
+   "raw": "5435714375215",
+   "hint": "org.gs1.EAN-13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "5435714375215",
+   "kind": "ean13",
+   "candidates": [
+    "5435714375215"
+   ],
+   "label": "product",
+   "display": "5435714375215"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-5",
+  "input": {
+   "raw": "5435714375210",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-5",
+  "input": {
+   "raw": "983518990370",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0983518990370",
+   "kind": "upca",
+   "candidates": [
+    "0983518990370"
+   ],
+   "label": "product",
+   "display": "983518990370"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-5",
+  "input": {
+   "raw": "0983518990370",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0983518990370",
+   "kind": "ean13",
+   "candidates": [
+    "0983518990370"
+   ],
+   "label": "product",
+   "display": "983518990370"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-5",
+  "input": {
+   "raw": "00983518990370",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0983518990370",
+   "kind": "ean13",
+   "candidates": [
+    "0983518990370"
+   ],
+   "label": "product",
+   "display": "983518990370"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-5",
+  "input": {
+   "raw": "58972526",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "58972526",
+   "kind": "ean8",
+   "candidates": [
+    "58972526"
+   ],
+   "label": "product",
+   "display": "58972526"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-5",
+  "input": {
+   "raw": "58972526",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "58972526",
+   "kind": "ean8",
+   "candidates": [
+    "58972526"
+   ],
+   "label": "product",
+   "display": "58972526"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-5",
+  "input": {
+   "raw": "09410268",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0094102000068",
+   "kind": "upce",
+   "candidates": [
+    "0094102000068",
+    "09410268"
+   ],
+   "label": "product",
+   "display": "094102000068"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-5",
+  "input": {
+   "raw": "09410268",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "09410268",
+   "kind": "ean8",
+   "candidates": [
+    "09410268",
+    "0094102000068"
+   ],
+   "label": "storeLabel",
+   "display": "09410268"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-5",
+  "input": {
+   "raw": "094102000068",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0094102000068",
+   "kind": "upca",
+   "candidates": [
+    "0094102000068"
+   ],
+   "label": "product",
+   "display": "094102000068"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-6",
+  "input": {
+   "raw": "5816401286012",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "5816401286012",
+   "kind": "ean13",
+   "candidates": [
+    "5816401286012"
+   ],
+   "label": "product",
+   "display": "5816401286012"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-6",
+  "input": {
+   "raw": "5816401286018",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-6",
+  "input": {
+   "raw": "865218961945",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0865218961945",
+   "kind": "upca",
+   "candidates": [
+    "0865218961945"
+   ],
+   "label": "product",
+   "display": "865218961945"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-6",
+  "input": {
+   "raw": "0865218961945",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0865218961945",
+   "kind": "ean13",
+   "candidates": [
+    "0865218961945"
+   ],
+   "label": "product",
+   "display": "865218961945"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-6",
+  "input": {
+   "raw": "00865218961945",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0865218961945",
+   "kind": "ean13",
+   "candidates": [
+    "0865218961945"
+   ],
+   "label": "product",
+   "display": "865218961945"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-6",
+  "input": {
+   "raw": "44223809",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "44223809",
+   "kind": "ean8",
+   "candidates": [
+    "44223809"
+   ],
+   "label": "product",
+   "display": "44223809"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-6",
+  "input": {
+   "raw": "44223809",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "44223809",
+   "kind": "ean8",
+   "candidates": [
+    "44223809"
+   ],
+   "label": "product",
+   "display": "44223809"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-6",
+  "input": {
+   "raw": "09395572",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0093955000072",
+   "kind": "upce",
+   "candidates": [
+    "0093955000072",
+    "09395572"
+   ],
+   "label": "product",
+   "display": "093955000072"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-6",
+  "input": {
+   "raw": "09395572",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "09395572",
+   "kind": "ean8",
+   "candidates": [
+    "09395572",
+    "0093955000072"
+   ],
+   "label": "storeLabel",
+   "display": "09395572"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-6",
+  "input": {
+   "raw": "093955000072",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0093955000072",
+   "kind": "upca",
+   "candidates": [
+    "0093955000072"
+   ],
+   "label": "product",
+   "display": "093955000072"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-7",
+  "input": {
+   "raw": "6570079093257",
+   "hint": "org.gs1.EAN-13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "6570079093257",
+   "kind": "ean13",
+   "candidates": [
+    "6570079093257"
+   ],
+   "label": "product",
+   "display": "6570079093257"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-7",
+  "input": {
+   "raw": "6570079093254",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-7",
+  "input": {
+   "raw": "566812300672",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0566812300672",
+   "kind": "upca",
+   "candidates": [
+    "0566812300672"
+   ],
+   "label": "product",
+   "display": "566812300672"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-7",
+  "input": {
+   "raw": "0566812300672",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0566812300672",
+   "kind": "ean13",
+   "candidates": [
+    "0566812300672"
+   ],
+   "label": "product",
+   "display": "566812300672"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-7",
+  "input": {
+   "raw": "00566812300672",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0566812300672",
+   "kind": "ean13",
+   "candidates": [
+    "0566812300672"
+   ],
+   "label": "product",
+   "display": "566812300672"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-7",
+  "input": {
+   "raw": "23852327",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "23852327",
+   "kind": "ean8",
+   "candidates": [
+    "23852327"
+   ],
+   "label": "storeLabel",
+   "display": "23852327"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-7",
+  "input": {
+   "raw": "23852327",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "23852327",
+   "kind": "ean8",
+   "candidates": [
+    "23852327"
+   ],
+   "label": "storeLabel",
+   "display": "23852327"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-7",
+  "input": {
+   "raw": "09218323",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0092200001833",
+   "kind": "upce",
+   "candidates": [
+    "0092200001833"
+   ],
+   "label": "product",
+   "display": "092200001833"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-7",
+  "input": {
+   "raw": "09218323",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0092200001833",
+   "kind": "upce",
+   "candidates": [
+    "0092200001833"
+   ],
+   "label": "product",
+   "display": "092200001833"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-7",
+  "input": {
+   "raw": "092200001833",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0092200001833",
+   "kind": "upca",
+   "candidates": [
+    "0092200001833"
+   ],
+   "label": "product",
+   "display": "092200001833"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-8",
+  "input": {
+   "raw": "4247106262970",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "4247106262970",
+   "kind": "ean13",
+   "candidates": [
+    "4247106262970"
+   ],
+   "label": "product",
+   "display": "4247106262970"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-8",
+  "input": {
+   "raw": "4247106262978",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-8",
+  "input": {
+   "raw": "809574452976",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0809574452976",
+   "kind": "upca",
+   "candidates": [
+    "0809574452976"
+   ],
+   "label": "product",
+   "display": "809574452976"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-8",
+  "input": {
+   "raw": "0809574452976",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0809574452976",
+   "kind": "ean13",
+   "candidates": [
+    "0809574452976"
+   ],
+   "label": "product",
+   "display": "809574452976"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-8",
+  "input": {
+   "raw": "00809574452976",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0809574452976",
+   "kind": "ean13",
+   "candidates": [
+    "0809574452976"
+   ],
+   "label": "product",
+   "display": "809574452976"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-8",
+  "input": {
+   "raw": "04406907",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "04406907",
+   "kind": "ean8",
+   "candidates": [
+    "04406907"
+   ],
+   "label": "storeLabel",
+   "display": "04406907"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-8",
+  "input": {
+   "raw": "04406907",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "04406907",
+   "kind": "ean8",
+   "candidates": [
+    "04406907"
+   ],
+   "label": "storeLabel",
+   "display": "04406907"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-8",
+  "input": {
+   "raw": "14107252",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0141072000052",
+   "kind": "upce",
+   "candidates": [
+    "0141072000052",
+    "14107252"
+   ],
+   "label": "product",
+   "display": "141072000052"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-8",
+  "input": {
+   "raw": "14107252",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "14107252",
+   "kind": "ean8",
+   "candidates": [
+    "14107252",
+    "0141072000052"
+   ],
+   "label": "product",
+   "display": "14107252"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-8",
+  "input": {
+   "raw": "141072000052",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0141072000052",
+   "kind": "upca",
+   "candidates": [
+    "0141072000052"
+   ],
+   "label": "product",
+   "display": "141072000052"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-9",
+  "input": {
+   "raw": "5106682429278",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "5106682429278",
+   "kind": "ean13",
+   "candidates": [
+    "5106682429278"
+   ],
+   "label": "product",
+   "display": "5106682429278"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-9",
+  "input": {
+   "raw": "5106682429277",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-9",
+  "input": {
+   "raw": "090564610692",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0090564610692",
+   "kind": "upca",
+   "candidates": [
+    "0090564610692"
+   ],
+   "label": "product",
+   "display": "090564610692"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-9",
+  "input": {
+   "raw": "0090564610692",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0090564610692",
+   "kind": "ean13",
+   "candidates": [
+    "0090564610692"
+   ],
+   "label": "product",
+   "display": "090564610692"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-9",
+  "input": {
+   "raw": "00090564610692",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0090564610692",
+   "kind": "ean13",
+   "candidates": [
+    "0090564610692"
+   ],
+   "label": "product",
+   "display": "090564610692"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-9",
+  "input": {
+   "raw": "17511520",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "17511520",
+   "kind": "ean8",
+   "candidates": [
+    "17511520"
+   ],
+   "label": "product",
+   "display": "17511520"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-9",
+  "input": {
+   "raw": "17511520",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "17511520",
+   "kind": "ean8",
+   "candidates": [
+    "17511520"
+   ],
+   "label": "product",
+   "display": "17511520"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-9",
+  "input": {
+   "raw": "15301352",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0153013000052",
+   "kind": "upce",
+   "candidates": [
+    "0153013000052",
+    "15301352"
+   ],
+   "label": "product",
+   "display": "153013000052"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-9",
+  "input": {
+   "raw": "15301352",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "15301352",
+   "kind": "ean8",
+   "candidates": [
+    "15301352",
+    "0153013000052"
+   ],
+   "label": "product",
+   "display": "15301352"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-9",
+  "input": {
+   "raw": "153013000052",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0153013000052",
+   "kind": "upca",
+   "candidates": [
+    "0153013000052"
+   ],
+   "label": "product",
+   "display": "153013000052"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-10",
+  "input": {
+   "raw": "6366751884509",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "6366751884509",
+   "kind": "ean13",
+   "candidates": [
+    "6366751884509"
+   ],
+   "label": "product",
+   "display": "6366751884509"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-10",
+  "input": {
+   "raw": "6366751884500",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-10",
+  "input": {
+   "raw": "423731652339",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0423731652339",
+   "kind": "upca",
+   "candidates": [
+    "0423731652339"
+   ],
+   "label": "storeLabel",
+   "display": "423731652339"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-10",
+  "input": {
+   "raw": "0423731652339",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0423731652339",
+   "kind": "ean13",
+   "candidates": [
+    "0423731652339"
+   ],
+   "label": "storeLabel",
+   "display": "423731652339"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-10",
+  "input": {
+   "raw": "00423731652339",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0423731652339",
+   "kind": "ean13",
+   "candidates": [
+    "0423731652339"
+   ],
+   "label": "storeLabel",
+   "display": "423731652339"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-10",
+  "input": {
+   "raw": "81661275",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "81661275",
+   "kind": "ean8",
+   "candidates": [
+    "81661275"
+   ],
+   "label": "product",
+   "display": "81661275"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-10",
+  "input": {
+   "raw": "81661275",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "81661275",
+   "kind": "ean8",
+   "candidates": [
+    "81661275"
+   ],
+   "label": "product",
+   "display": "81661275"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-10",
+  "input": {
+   "raw": "07240959",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0072409000059",
+   "kind": "upce",
+   "candidates": [
+    "0072409000059",
+    "07240959"
+   ],
+   "label": "product",
+   "display": "072409000059"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-10",
+  "input": {
+   "raw": "07240959",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "07240959",
+   "kind": "ean8",
+   "candidates": [
+    "07240959",
+    "0072409000059"
+   ],
+   "label": "storeLabel",
+   "display": "07240959"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-10",
+  "input": {
+   "raw": "072409000059",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0072409000059",
+   "kind": "upca",
+   "candidates": [
+    "0072409000059"
+   ],
+   "label": "product",
+   "display": "072409000059"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-11",
+  "input": {
+   "raw": "9068941003789",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "9068941003789",
+   "kind": "ean13",
+   "candidates": [
+    "9068941003789"
+   ],
+   "label": "product",
+   "display": "9068941003789"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-11",
+  "input": {
+   "raw": "9068941003781",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-11",
+  "input": {
+   "raw": "444108176180",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0444108176180",
+   "kind": "upca",
+   "candidates": [
+    "0444108176180"
+   ],
+   "label": "storeLabel",
+   "display": "444108176180"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-11",
+  "input": {
+   "raw": "0444108176180",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0444108176180",
+   "kind": "ean13",
+   "candidates": [
+    "0444108176180"
+   ],
+   "label": "storeLabel",
+   "display": "444108176180"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-11",
+  "input": {
+   "raw": "00444108176180",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0444108176180",
+   "kind": "ean13",
+   "candidates": [
+    "0444108176180"
+   ],
+   "label": "storeLabel",
+   "display": "444108176180"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-11",
+  "input": {
+   "raw": "03364581",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "03364581",
+   "kind": "ean8",
+   "candidates": [
+    "03364581",
+    "0033645000081"
+   ],
+   "label": "storeLabel",
+   "display": "03364581"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-11",
+  "input": {
+   "raw": "03364581",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0033645000081",
+   "kind": "upce",
+   "candidates": [
+    "0033645000081",
+    "03364581"
+   ],
+   "label": "product",
+   "display": "033645000081"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-11",
+  "input": {
+   "raw": "18419887",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0184198000087",
+   "kind": "upce",
+   "candidates": [
+    "0184198000087",
+    "18419887"
+   ],
+   "label": "product",
+   "display": "184198000087"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-11",
+  "input": {
+   "raw": "18419887",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "18419887",
+   "kind": "ean8",
+   "candidates": [
+    "18419887",
+    "0184198000087"
+   ],
+   "label": "product",
+   "display": "18419887"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-11",
+  "input": {
+   "raw": "184198000087",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0184198000087",
+   "kind": "upca",
+   "candidates": [
+    "0184198000087"
+   ],
+   "label": "product",
+   "display": "184198000087"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-12",
+  "input": {
+   "raw": "3773930451279",
+   "hint": "org.gs1.EAN-13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "3773930451279",
+   "kind": "ean13",
+   "candidates": [
+    "3773930451279"
+   ],
+   "label": "product",
+   "display": "3773930451279"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-12",
+  "input": {
+   "raw": "3773930451272",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-12",
+  "input": {
+   "raw": "436862378542",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0436862378542",
+   "kind": "upca",
+   "candidates": [
+    "0436862378542"
+   ],
+   "label": "storeLabel",
+   "display": "436862378542"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-12",
+  "input": {
+   "raw": "0436862378542",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0436862378542",
+   "kind": "ean13",
+   "candidates": [
+    "0436862378542"
+   ],
+   "label": "storeLabel",
+   "display": "436862378542"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-12",
+  "input": {
+   "raw": "00436862378542",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0436862378542",
+   "kind": "ean13",
+   "candidates": [
+    "0436862378542"
+   ],
+   "label": "storeLabel",
+   "display": "436862378542"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-12",
+  "input": {
+   "raw": "11117117",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "11117117",
+   "kind": "ean8",
+   "candidates": [
+    "11117117"
+   ],
+   "label": "product",
+   "display": "11117117"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-12",
+  "input": {
+   "raw": "11117117",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "11117117",
+   "kind": "ean8",
+   "candidates": [
+    "11117117"
+   ],
+   "label": "product",
+   "display": "11117117"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-12",
+  "input": {
+   "raw": "07973376",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0079733000076",
+   "kind": "upce",
+   "candidates": [
+    "0079733000076",
+    "07973376"
+   ],
+   "label": "product",
+   "display": "079733000076"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-12",
+  "input": {
+   "raw": "07973376",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "07973376",
+   "kind": "ean8",
+   "candidates": [
+    "07973376",
+    "0079733000076"
+   ],
+   "label": "storeLabel",
+   "display": "07973376"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-12",
+  "input": {
+   "raw": "079733000076",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0079733000076",
+   "kind": "upca",
+   "candidates": [
+    "0079733000076"
+   ],
+   "label": "product",
+   "display": "079733000076"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-13",
+  "input": {
+   "raw": "5886334142105",
+   "hint": "org.gs1.EAN-13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "5886334142105",
+   "kind": "ean13",
+   "candidates": [
+    "5886334142105"
+   ],
+   "label": "product",
+   "display": "5886334142105"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-13",
+  "input": {
+   "raw": "5886334142109",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-13",
+  "input": {
+   "raw": "633475703710",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0633475703710",
+   "kind": "upca",
+   "candidates": [
+    "0633475703710"
+   ],
+   "label": "product",
+   "display": "633475703710"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-13",
+  "input": {
+   "raw": "0633475703710",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0633475703710",
+   "kind": "ean13",
+   "candidates": [
+    "0633475703710"
+   ],
+   "label": "product",
+   "display": "633475703710"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-13",
+  "input": {
+   "raw": "00633475703710",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0633475703710",
+   "kind": "ean13",
+   "candidates": [
+    "0633475703710"
+   ],
+   "label": "product",
+   "display": "633475703710"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-13",
+  "input": {
+   "raw": "74398188",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "74398188",
+   "kind": "ean8",
+   "candidates": [
+    "74398188"
+   ],
+   "label": "product",
+   "display": "74398188"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-13",
+  "input": {
+   "raw": "74398188",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "74398188",
+   "kind": "ean8",
+   "candidates": [
+    "74398188"
+   ],
+   "label": "product",
+   "display": "74398188"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-13",
+  "input": {
+   "raw": "09027398",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0090273000098",
+   "kind": "upce",
+   "candidates": [
+    "0090273000098",
+    "09027398"
+   ],
+   "label": "product",
+   "display": "090273000098"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-13",
+  "input": {
+   "raw": "09027398",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "09027398",
+   "kind": "ean8",
+   "candidates": [
+    "09027398",
+    "0090273000098"
+   ],
+   "label": "storeLabel",
+   "display": "09027398"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-13",
+  "input": {
+   "raw": "090273000098",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0090273000098",
+   "kind": "upca",
+   "candidates": [
+    "0090273000098"
+   ],
+   "label": "product",
+   "display": "090273000098"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-14",
+  "input": {
+   "raw": "8175039354133",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "8175039354133",
+   "kind": "ean13",
+   "candidates": [
+    "8175039354133"
+   ],
+   "label": "product",
+   "display": "8175039354133"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-14",
+  "input": {
+   "raw": "8175039354138",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-14",
+  "input": {
+   "raw": "547581646468",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0547581646468",
+   "kind": "upca",
+   "candidates": [
+    "0547581646468"
+   ],
+   "label": "product",
+   "display": "547581646468"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-14",
+  "input": {
+   "raw": "0547581646468",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0547581646468",
+   "kind": "ean13",
+   "candidates": [
+    "0547581646468"
+   ],
+   "label": "product",
+   "display": "547581646468"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-14",
+  "input": {
+   "raw": "00547581646468",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0547581646468",
+   "kind": "ean13",
+   "candidates": [
+    "0547581646468"
+   ],
+   "label": "product",
+   "display": "547581646468"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-14",
+  "input": {
+   "raw": "25264685",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "25264685",
+   "kind": "ean8",
+   "candidates": [
+    "25264685"
+   ],
+   "label": "storeLabel",
+   "display": "25264685"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-14",
+  "input": {
+   "raw": "25264685",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "25264685",
+   "kind": "ean8",
+   "candidates": [
+    "25264685"
+   ],
+   "label": "storeLabel",
+   "display": "25264685"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-14",
+  "input": {
+   "raw": "12019472",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0120194000072",
+   "kind": "upce",
+   "candidates": [
+    "0120194000072",
+    "12019472"
+   ],
+   "label": "product",
+   "display": "120194000072"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-14",
+  "input": {
+   "raw": "12019472",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "12019472",
+   "kind": "ean8",
+   "candidates": [
+    "12019472",
+    "0120194000072"
+   ],
+   "label": "product",
+   "display": "12019472"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-14",
+  "input": {
+   "raw": "120194000072",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0120194000072",
+   "kind": "upca",
+   "candidates": [
+    "0120194000072"
+   ],
+   "label": "product",
+   "display": "120194000072"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-15",
+  "input": {
+   "raw": "9034737370861",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "9034737370861",
+   "kind": "ean13",
+   "candidates": [
+    "9034737370861"
+   ],
+   "label": "product",
+   "display": "9034737370861"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-15",
+  "input": {
+   "raw": "9034737370867",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-15",
+  "input": {
+   "raw": "308557398732",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0308557398732",
+   "kind": "upca",
+   "candidates": [
+    "0308557398732"
+   ],
+   "label": "product",
+   "display": "308557398732"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-15",
+  "input": {
+   "raw": "0308557398732",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0308557398732",
+   "kind": "ean13",
+   "candidates": [
+    "0308557398732"
+   ],
+   "label": "product",
+   "display": "308557398732"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-15",
+  "input": {
+   "raw": "00308557398732",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0308557398732",
+   "kind": "ean13",
+   "candidates": [
+    "0308557398732"
+   ],
+   "label": "product",
+   "display": "308557398732"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-15",
+  "input": {
+   "raw": "46648730",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "46648730",
+   "kind": "ean8",
+   "candidates": [
+    "46648730"
+   ],
+   "label": "product",
+   "display": "46648730"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-15",
+  "input": {
+   "raw": "46648730",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "46648730",
+   "kind": "ean8",
+   "candidates": [
+    "46648730"
+   ],
+   "label": "product",
+   "display": "46648730"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-15",
+  "input": {
+   "raw": "00406341",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0004060000031",
+   "kind": "upce",
+   "candidates": [
+    "0004060000031"
+   ],
+   "label": "product",
+   "display": "004060000031"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-15",
+  "input": {
+   "raw": "00406341",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0004060000031",
+   "kind": "upce",
+   "candidates": [
+    "0004060000031"
+   ],
+   "label": "product",
+   "display": "004060000031"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-15",
+  "input": {
+   "raw": "004060000031",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0004060000031",
+   "kind": "upca",
+   "candidates": [
+    "0004060000031"
+   ],
+   "label": "product",
+   "display": "004060000031"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-16",
+  "input": {
+   "raw": "4414771281852",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "4414771281852",
+   "kind": "ean13",
+   "candidates": [
+    "4414771281852"
+   ],
+   "label": "product",
+   "display": "4414771281852"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-16",
+  "input": {
+   "raw": "4414771281859",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-16",
+  "input": {
+   "raw": "230476502757",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0230476502757",
+   "kind": "upca",
+   "candidates": [
+    "0230476502757"
+   ],
+   "label": "storeLabel",
+   "display": "230476502757"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-16",
+  "input": {
+   "raw": "0230476502757",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0230476502757",
+   "kind": "ean13",
+   "candidates": [
+    "0230476502757"
+   ],
+   "label": "storeLabel",
+   "display": "230476502757"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-16",
+  "input": {
+   "raw": "00230476502757",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0230476502757",
+   "kind": "ean13",
+   "candidates": [
+    "0230476502757"
+   ],
+   "label": "storeLabel",
+   "display": "230476502757"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-16",
+  "input": {
+   "raw": "17038102",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "17038102",
+   "kind": "ean8",
+   "candidates": [
+    "17038102"
+   ],
+   "label": "product",
+   "display": "17038102"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-16",
+  "input": {
+   "raw": "17038102",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "17038102",
+   "kind": "ean8",
+   "candidates": [
+    "17038102"
+   ],
+   "label": "product",
+   "display": "17038102"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-16",
+  "input": {
+   "raw": "00378451",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0003784000051",
+   "kind": "upce",
+   "candidates": [
+    "0003784000051",
+    "00378451"
+   ],
+   "label": "product",
+   "display": "003784000051"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-16",
+  "input": {
+   "raw": "00378451",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "00378451",
+   "kind": "ean8",
+   "candidates": [
+    "00378451",
+    "0003784000051"
+   ],
+   "label": "storeLabel",
+   "display": "00378451"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-16",
+  "input": {
+   "raw": "003784000051",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0003784000051",
+   "kind": "upca",
+   "candidates": [
+    "0003784000051"
+   ],
+   "label": "product",
+   "display": "003784000051"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-17",
+  "input": {
+   "raw": "8090116817779",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "8090116817779",
+   "kind": "ean13",
+   "candidates": [
+    "8090116817779"
+   ],
+   "label": "product",
+   "display": "8090116817779"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-17",
+  "input": {
+   "raw": "8090116817777",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-17",
+  "input": {
+   "raw": "358182523313",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0358182523313",
+   "kind": "upca",
+   "candidates": [
+    "0358182523313"
+   ],
+   "label": "product",
+   "display": "358182523313"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-17",
+  "input": {
+   "raw": "0358182523313",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0358182523313",
+   "kind": "ean13",
+   "candidates": [
+    "0358182523313"
+   ],
+   "label": "product",
+   "display": "358182523313"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-17",
+  "input": {
+   "raw": "00358182523313",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0358182523313",
+   "kind": "ean13",
+   "candidates": [
+    "0358182523313"
+   ],
+   "label": "product",
+   "display": "358182523313"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-17",
+  "input": {
+   "raw": "06339029",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "06339029",
+   "kind": "ean8",
+   "candidates": [
+    "06339029"
+   ],
+   "label": "storeLabel",
+   "display": "06339029"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-17",
+  "input": {
+   "raw": "06339029",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "06339029",
+   "kind": "ean8",
+   "candidates": [
+    "06339029"
+   ],
+   "label": "storeLabel",
+   "display": "06339029"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-17",
+  "input": {
+   "raw": "13394059",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0133940000059",
+   "kind": "upce",
+   "candidates": [
+    "0133940000059",
+    "13394059"
+   ],
+   "label": "product",
+   "display": "133940000059"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-17",
+  "input": {
+   "raw": "13394059",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "13394059",
+   "kind": "ean8",
+   "candidates": [
+    "13394059",
+    "0133940000059"
+   ],
+   "label": "product",
+   "display": "13394059"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-17",
+  "input": {
+   "raw": "133940000059",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0133940000059",
+   "kind": "upca",
+   "candidates": [
+    "0133940000059"
+   ],
+   "label": "product",
+   "display": "133940000059"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-18",
+  "input": {
+   "raw": "6800540561597",
+   "hint": "org.gs1.EAN-13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "6800540561597",
+   "kind": "ean13",
+   "candidates": [
+    "6800540561597"
+   ],
+   "label": "product",
+   "display": "6800540561597"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-18",
+  "input": {
+   "raw": "6800540561596",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-18",
+  "input": {
+   "raw": "684265378076",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0684265378076",
+   "kind": "upca",
+   "candidates": [
+    "0684265378076"
+   ],
+   "label": "product",
+   "display": "684265378076"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-18",
+  "input": {
+   "raw": "0684265378076",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0684265378076",
+   "kind": "ean13",
+   "candidates": [
+    "0684265378076"
+   ],
+   "label": "product",
+   "display": "684265378076"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-18",
+  "input": {
+   "raw": "00684265378076",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0684265378076",
+   "kind": "ean13",
+   "candidates": [
+    "0684265378076"
+   ],
+   "label": "product",
+   "display": "684265378076"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-18",
+  "input": {
+   "raw": "94517668",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "94517668",
+   "kind": "ean8",
+   "candidates": [
+    "94517668"
+   ],
+   "label": "product",
+   "display": "94517668"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-18",
+  "input": {
+   "raw": "94517668",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "94517668",
+   "kind": "ean8",
+   "candidates": [
+    "94517668"
+   ],
+   "label": "product",
+   "display": "94517668"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-18",
+  "input": {
+   "raw": "08268815",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0082100006885",
+   "kind": "upce",
+   "candidates": [
+    "0082100006885",
+    "08268815"
+   ],
+   "label": "product",
+   "display": "082100006885"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-18",
+  "input": {
+   "raw": "08268815",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "08268815",
+   "kind": "ean8",
+   "candidates": [
+    "08268815",
+    "0082100006885"
+   ],
+   "label": "storeLabel",
+   "display": "08268815"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-18",
+  "input": {
+   "raw": "082100006885",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0082100006885",
+   "kind": "upca",
+   "candidates": [
+    "0082100006885"
+   ],
+   "label": "product",
+   "display": "082100006885"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-19",
+  "input": {
+   "raw": "6062341359746",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "6062341359746",
+   "kind": "ean13",
+   "candidates": [
+    "6062341359746"
+   ],
+   "label": "product",
+   "display": "6062341359746"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-19",
+  "input": {
+   "raw": "6062341359747",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-19",
+  "input": {
+   "raw": "703409507179",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0703409507179",
+   "kind": "upca",
+   "candidates": [
+    "0703409507179"
+   ],
+   "label": "product",
+   "display": "703409507179"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-19",
+  "input": {
+   "raw": "0703409507179",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0703409507179",
+   "kind": "ean13",
+   "candidates": [
+    "0703409507179"
+   ],
+   "label": "product",
+   "display": "703409507179"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-19",
+  "input": {
+   "raw": "00703409507179",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0703409507179",
+   "kind": "ean13",
+   "candidates": [
+    "0703409507179"
+   ],
+   "label": "product",
+   "display": "703409507179"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-19",
+  "input": {
+   "raw": "84201881",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "84201881",
+   "kind": "ean8",
+   "candidates": [
+    "84201881"
+   ],
+   "label": "product",
+   "display": "84201881"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-19",
+  "input": {
+   "raw": "84201881",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "84201881",
+   "kind": "ean8",
+   "candidates": [
+    "84201881"
+   ],
+   "label": "product",
+   "display": "84201881"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-19",
+  "input": {
+   "raw": "12169134",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0121600000914",
+   "kind": "upce",
+   "candidates": [
+    "0121600000914"
+   ],
+   "label": "product",
+   "display": "121600000914"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-19",
+  "input": {
+   "raw": "12169134",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0121600000914",
+   "kind": "upce",
+   "candidates": [
+    "0121600000914"
+   ],
+   "label": "product",
+   "display": "121600000914"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-19",
+  "input": {
+   "raw": "121600000914",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0121600000914",
+   "kind": "upca",
+   "candidates": [
+    "0121600000914"
+   ],
+   "label": "product",
+   "display": "121600000914"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-20",
+  "input": {
+   "raw": "6448940126277",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "6448940126277",
+   "kind": "ean13",
+   "candidates": [
+    "6448940126277"
+   ],
+   "label": "product",
+   "display": "6448940126277"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-20",
+  "input": {
+   "raw": "6448940126279",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-20",
+  "input": {
+   "raw": "062126948161",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0062126948161",
+   "kind": "upca",
+   "candidates": [
+    "0062126948161"
+   ],
+   "label": "product",
+   "display": "062126948161"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-20",
+  "input": {
+   "raw": "0062126948161",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0062126948161",
+   "kind": "ean13",
+   "candidates": [
+    "0062126948161"
+   ],
+   "label": "product",
+   "display": "062126948161"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-20",
+  "input": {
+   "raw": "00062126948161",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0062126948161",
+   "kind": "ean13",
+   "candidates": [
+    "0062126948161"
+   ],
+   "label": "product",
+   "display": "062126948161"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-20",
+  "input": {
+   "raw": "19635859",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "19635859",
+   "kind": "ean8",
+   "candidates": [
+    "19635859",
+    "0196358000059"
+   ],
+   "label": "product",
+   "display": "19635859"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-20",
+  "input": {
+   "raw": "19635859",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0196358000059",
+   "kind": "upce",
+   "candidates": [
+    "0196358000059",
+    "19635859"
+   ],
+   "label": "product",
+   "display": "196358000059"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-20",
+  "input": {
+   "raw": "19882600",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0198000008260",
+   "kind": "upce",
+   "candidates": [
+    "0198000008260"
+   ],
+   "label": "product",
+   "display": "198000008260"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-20",
+  "input": {
+   "raw": "19882600",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0198000008260",
+   "kind": "upce",
+   "candidates": [
+    "0198000008260"
+   ],
+   "label": "product",
+   "display": "198000008260"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-20",
+  "input": {
+   "raw": "198000008260",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0198000008260",
+   "kind": "upca",
+   "candidates": [
+    "0198000008260"
+   ],
+   "label": "product",
+   "display": "198000008260"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-21",
+  "input": {
+   "raw": "4462768980431",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "4462768980431",
+   "kind": "ean13",
+   "candidates": [
+    "4462768980431"
+   ],
+   "label": "product",
+   "display": "4462768980431"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-21",
+  "input": {
+   "raw": "4462768980434",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-21",
+  "input": {
+   "raw": "624745466862",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0624745466862",
+   "kind": "upca",
+   "candidates": [
+    "0624745466862"
+   ],
+   "label": "product",
+   "display": "624745466862"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-21",
+  "input": {
+   "raw": "0624745466862",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0624745466862",
+   "kind": "ean13",
+   "candidates": [
+    "0624745466862"
+   ],
+   "label": "product",
+   "display": "624745466862"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-21",
+  "input": {
+   "raw": "00624745466862",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0624745466862",
+   "kind": "ean13",
+   "candidates": [
+    "0624745466862"
+   ],
+   "label": "product",
+   "display": "624745466862"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-21",
+  "input": {
+   "raw": "44209117",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "44209117",
+   "kind": "ean8",
+   "candidates": [
+    "44209117"
+   ],
+   "label": "product",
+   "display": "44209117"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-21",
+  "input": {
+   "raw": "44209117",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "44209117",
+   "kind": "ean8",
+   "candidates": [
+    "44209117"
+   ],
+   "label": "product",
+   "display": "44209117"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-21",
+  "input": {
+   "raw": "19975437",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0199700000547",
+   "kind": "upce",
+   "candidates": [
+    "0199700000547"
+   ],
+   "label": "product",
+   "display": "199700000547"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-21",
+  "input": {
+   "raw": "19975437",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0199700000547",
+   "kind": "upce",
+   "candidates": [
+    "0199700000547"
+   ],
+   "label": "product",
+   "display": "199700000547"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-21",
+  "input": {
+   "raw": "199700000547",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0199700000547",
+   "kind": "upca",
+   "candidates": [
+    "0199700000547"
+   ],
+   "label": "product",
+   "display": "199700000547"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-22",
+  "input": {
+   "raw": "7440610837062",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "7440610837062",
+   "kind": "ean13",
+   "candidates": [
+    "7440610837062"
+   ],
+   "label": "product",
+   "display": "7440610837062"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-22",
+  "input": {
+   "raw": "7440610837066",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-22",
+  "input": {
+   "raw": "115387528969",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0115387528969",
+   "kind": "upca",
+   "candidates": [
+    "0115387528969"
+   ],
+   "label": "product",
+   "display": "115387528969"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-22",
+  "input": {
+   "raw": "0115387528969",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0115387528969",
+   "kind": "ean13",
+   "candidates": [
+    "0115387528969"
+   ],
+   "label": "product",
+   "display": "115387528969"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-22",
+  "input": {
+   "raw": "00115387528969",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0115387528969",
+   "kind": "ean13",
+   "candidates": [
+    "0115387528969"
+   ],
+   "label": "product",
+   "display": "115387528969"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-22",
+  "input": {
+   "raw": "36185856",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "36185856",
+   "kind": "ean8",
+   "candidates": [
+    "36185856"
+   ],
+   "label": "product",
+   "display": "36185856"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-22",
+  "input": {
+   "raw": "36185856",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "36185856",
+   "kind": "ean8",
+   "candidates": [
+    "36185856"
+   ],
+   "label": "product",
+   "display": "36185856"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-22",
+  "input": {
+   "raw": "06608105",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0066000000815",
+   "kind": "upce",
+   "candidates": [
+    "0066000000815"
+   ],
+   "label": "product",
+   "display": "066000000815"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-22",
+  "input": {
+   "raw": "06608105",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0066000000815",
+   "kind": "upce",
+   "candidates": [
+    "0066000000815"
+   ],
+   "label": "product",
+   "display": "066000000815"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-22",
+  "input": {
+   "raw": "066000000815",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0066000000815",
+   "kind": "upca",
+   "candidates": [
+    "0066000000815"
+   ],
+   "label": "product",
+   "display": "066000000815"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-23",
+  "input": {
+   "raw": "5550995275129",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "5550995275129",
+   "kind": "ean13",
+   "candidates": [
+    "5550995275129"
+   ],
+   "label": "product",
+   "display": "5550995275129"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-23",
+  "input": {
+   "raw": "5550995275124",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-23",
+  "input": {
+   "raw": "690755869948",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0690755869948",
+   "kind": "upca",
+   "candidates": [
+    "0690755869948"
+   ],
+   "label": "product",
+   "display": "690755869948"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-23",
+  "input": {
+   "raw": "0690755869948",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0690755869948",
+   "kind": "ean13",
+   "candidates": [
+    "0690755869948"
+   ],
+   "label": "product",
+   "display": "690755869948"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-23",
+  "input": {
+   "raw": "00690755869948",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0690755869948",
+   "kind": "ean13",
+   "candidates": [
+    "0690755869948"
+   ],
+   "label": "product",
+   "display": "690755869948"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-23",
+  "input": {
+   "raw": "17547000",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "17547000",
+   "kind": "ean8",
+   "candidates": [
+    "17547000"
+   ],
+   "label": "product",
+   "display": "17547000"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-23",
+  "input": {
+   "raw": "17547000",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "17547000",
+   "kind": "ean8",
+   "candidates": [
+    "17547000"
+   ],
+   "label": "product",
+   "display": "17547000"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-23",
+  "input": {
+   "raw": "14762846",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0147620000086",
+   "kind": "upce",
+   "candidates": [
+    "0147620000086"
+   ],
+   "label": "product",
+   "display": "147620000086"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-23",
+  "input": {
+   "raw": "14762846",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0147620000086",
+   "kind": "upce",
+   "candidates": [
+    "0147620000086"
+   ],
+   "label": "product",
+   "display": "147620000086"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-23",
+  "input": {
+   "raw": "147620000086",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0147620000086",
+   "kind": "upca",
+   "candidates": [
+    "0147620000086"
+   ],
+   "label": "product",
+   "display": "147620000086"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-24",
+  "input": {
+   "raw": "8992928372197",
+   "hint": "org.gs1.EAN-13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "8992928372197",
+   "kind": "ean13",
+   "candidates": [
+    "8992928372197"
+   ],
+   "label": "product",
+   "display": "8992928372197"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-24",
+  "input": {
+   "raw": "8992928372193",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-24",
+  "input": {
+   "raw": "105247938670",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0105247938670",
+   "kind": "upca",
+   "candidates": [
+    "0105247938670"
+   ],
+   "label": "product",
+   "display": "105247938670"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-24",
+  "input": {
+   "raw": "0105247938670",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0105247938670",
+   "kind": "ean13",
+   "candidates": [
+    "0105247938670"
+   ],
+   "label": "product",
+   "display": "105247938670"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-24",
+  "input": {
+   "raw": "00105247938670",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0105247938670",
+   "kind": "ean13",
+   "candidates": [
+    "0105247938670"
+   ],
+   "label": "product",
+   "display": "105247938670"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-24",
+  "input": {
+   "raw": "21047152",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "21047152",
+   "kind": "ean8",
+   "candidates": [
+    "21047152"
+   ],
+   "label": "storeLabel",
+   "display": "21047152"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-24",
+  "input": {
+   "raw": "21047152",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "21047152",
+   "kind": "ean8",
+   "candidates": [
+    "21047152"
+   ],
+   "label": "storeLabel",
+   "display": "21047152"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-24",
+  "input": {
+   "raw": "09996330",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0099900000630",
+   "kind": "upce",
+   "candidates": [
+    "0099900000630"
+   ],
+   "label": "product",
+   "display": "099900000630"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-24",
+  "input": {
+   "raw": "09996330",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0099900000630",
+   "kind": "upce",
+   "candidates": [
+    "0099900000630"
+   ],
+   "label": "product",
+   "display": "099900000630"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-24",
+  "input": {
+   "raw": "099900000630",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0099900000630",
+   "kind": "upca",
+   "candidates": [
+    "0099900000630"
+   ],
+   "label": "product",
+   "display": "099900000630"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-25",
+  "input": {
+   "raw": "7130176738223",
+   "hint": "org.gs1.EAN-13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "7130176738223",
+   "kind": "ean13",
+   "candidates": [
+    "7130176738223"
+   ],
+   "label": "product",
+   "display": "7130176738223"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-25",
+  "input": {
+   "raw": "7130176738220",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-25",
+  "input": {
+   "raw": "667470471268",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0667470471268",
+   "kind": "upca",
+   "candidates": [
+    "0667470471268"
+   ],
+   "label": "product",
+   "display": "667470471268"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-25",
+  "input": {
+   "raw": "0667470471268",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0667470471268",
+   "kind": "ean13",
+   "candidates": [
+    "0667470471268"
+   ],
+   "label": "product",
+   "display": "667470471268"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-25",
+  "input": {
+   "raw": "00667470471268",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0667470471268",
+   "kind": "ean13",
+   "candidates": [
+    "0667470471268"
+   ],
+   "label": "product",
+   "display": "667470471268"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-25",
+  "input": {
+   "raw": "01027716",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "01027716",
+   "kind": "ean8",
+   "candidates": [
+    "01027716"
+   ],
+   "label": "storeLabel",
+   "display": "01027716"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-25",
+  "input": {
+   "raw": "01027716",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "01027716",
+   "kind": "ean8",
+   "candidates": [
+    "01027716"
+   ],
+   "label": "storeLabel",
+   "display": "01027716"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-25",
+  "input": {
+   "raw": "04459310",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0044100005930",
+   "kind": "upce",
+   "candidates": [
+    "0044100005930"
+   ],
+   "label": "product",
+   "display": "044100005930"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-25",
+  "input": {
+   "raw": "04459310",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0044100005930",
+   "kind": "upce",
+   "candidates": [
+    "0044100005930"
+   ],
+   "label": "product",
+   "display": "044100005930"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-25",
+  "input": {
+   "raw": "044100005930",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0044100005930",
+   "kind": "upca",
+   "candidates": [
+    "0044100005930"
+   ],
+   "label": "product",
+   "display": "044100005930"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-26",
+  "input": {
+   "raw": "6362059243567",
+   "hint": "org.gs1.EAN-13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "6362059243567",
+   "kind": "ean13",
+   "candidates": [
+    "6362059243567"
+   ],
+   "label": "product",
+   "display": "6362059243567"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-26",
+  "input": {
+   "raw": "6362059243565",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-26",
+  "input": {
+   "raw": "516192494157",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0516192494157",
+   "kind": "upca",
+   "candidates": [
+    "0516192494157"
+   ],
+   "label": "product",
+   "display": "516192494157"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-26",
+  "input": {
+   "raw": "0516192494157",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0516192494157",
+   "kind": "ean13",
+   "candidates": [
+    "0516192494157"
+   ],
+   "label": "product",
+   "display": "516192494157"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-26",
+  "input": {
+   "raw": "00516192494157",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0516192494157",
+   "kind": "ean13",
+   "candidates": [
+    "0516192494157"
+   ],
+   "label": "product",
+   "display": "516192494157"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-26",
+  "input": {
+   "raw": "75801335",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "75801335",
+   "kind": "ean8",
+   "candidates": [
+    "75801335"
+   ],
+   "label": "product",
+   "display": "75801335"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-26",
+  "input": {
+   "raw": "75801335",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "75801335",
+   "kind": "ean8",
+   "candidates": [
+    "75801335"
+   ],
+   "label": "product",
+   "display": "75801335"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-26",
+  "input": {
+   "raw": "14840272",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0148402000072",
+   "kind": "upce",
+   "candidates": [
+    "0148402000072",
+    "14840272"
+   ],
+   "label": "product",
+   "display": "148402000072"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-26",
+  "input": {
+   "raw": "14840272",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "14840272",
+   "kind": "ean8",
+   "candidates": [
+    "14840272",
+    "0148402000072"
+   ],
+   "label": "product",
+   "display": "14840272"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-26",
+  "input": {
+   "raw": "148402000072",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0148402000072",
+   "kind": "upca",
+   "candidates": [
+    "0148402000072"
+   ],
+   "label": "product",
+   "display": "148402000072"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-27",
+  "input": {
+   "raw": "5046533470601",
+   "hint": "org.gs1.EAN-13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "5046533470601",
+   "kind": "ean13",
+   "candidates": [
+    "5046533470601"
+   ],
+   "label": "product",
+   "display": "5046533470601"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-27",
+  "input": {
+   "raw": "5046533470600",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-27",
+  "input": {
+   "raw": "625294392459",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0625294392459",
+   "kind": "upca",
+   "candidates": [
+    "0625294392459"
+   ],
+   "label": "product",
+   "display": "625294392459"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-27",
+  "input": {
+   "raw": "0625294392459",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0625294392459",
+   "kind": "ean13",
+   "candidates": [
+    "0625294392459"
+   ],
+   "label": "product",
+   "display": "625294392459"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-27",
+  "input": {
+   "raw": "00625294392459",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0625294392459",
+   "kind": "ean13",
+   "candidates": [
+    "0625294392459"
+   ],
+   "label": "product",
+   "display": "625294392459"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-27",
+  "input": {
+   "raw": "90175138",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "90175138",
+   "kind": "ean8",
+   "candidates": [
+    "90175138"
+   ],
+   "label": "product",
+   "display": "90175138"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-27",
+  "input": {
+   "raw": "90175138",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "90175138",
+   "kind": "ean8",
+   "candidates": [
+    "90175138"
+   ],
+   "label": "product",
+   "display": "90175138"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-27",
+  "input": {
+   "raw": "17357513",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0173100005753",
+   "kind": "upce",
+   "candidates": [
+    "0173100005753"
+   ],
+   "label": "product",
+   "display": "173100005753"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-27",
+  "input": {
+   "raw": "17357513",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0173100005753",
+   "kind": "upce",
+   "candidates": [
+    "0173100005753"
+   ],
+   "label": "product",
+   "display": "173100005753"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-27",
+  "input": {
+   "raw": "173100005753",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0173100005753",
+   "kind": "upca",
+   "candidates": [
+    "0173100005753"
+   ],
+   "label": "product",
+   "display": "173100005753"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-28",
+  "input": {
+   "raw": "6334858828351",
+   "hint": "org.gs1.EAN-13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "6334858828351",
+   "kind": "ean13",
+   "candidates": [
+    "6334858828351"
+   ],
+   "label": "product",
+   "display": "6334858828351"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-28",
+  "input": {
+   "raw": "6334858828352",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-28",
+  "input": {
+   "raw": "177229897725",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0177229897725",
+   "kind": "upca",
+   "candidates": [
+    "0177229897725"
+   ],
+   "label": "product",
+   "display": "177229897725"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-28",
+  "input": {
+   "raw": "0177229897725",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0177229897725",
+   "kind": "ean13",
+   "candidates": [
+    "0177229897725"
+   ],
+   "label": "product",
+   "display": "177229897725"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-28",
+  "input": {
+   "raw": "00177229897725",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0177229897725",
+   "kind": "ean13",
+   "candidates": [
+    "0177229897725"
+   ],
+   "label": "product",
+   "display": "177229897725"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-28",
+  "input": {
+   "raw": "07143359",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "07143359",
+   "kind": "ean8",
+   "candidates": [
+    "07143359",
+    "0071433000059"
+   ],
+   "label": "storeLabel",
+   "display": "07143359"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-28",
+  "input": {
+   "raw": "07143359",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0071433000059",
+   "kind": "upce",
+   "candidates": [
+    "0071433000059",
+    "07143359"
+   ],
+   "label": "product",
+   "display": "071433000059"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-28",
+  "input": {
+   "raw": "06550578",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0065505000078",
+   "kind": "upce",
+   "candidates": [
+    "0065505000078",
+    "06550578"
+   ],
+   "label": "product",
+   "display": "065505000078"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-28",
+  "input": {
+   "raw": "06550578",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "06550578",
+   "kind": "ean8",
+   "candidates": [
+    "06550578",
+    "0065505000078"
+   ],
+   "label": "storeLabel",
+   "display": "06550578"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-28",
+  "input": {
+   "raw": "065505000078",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0065505000078",
+   "kind": "upca",
+   "candidates": [
+    "0065505000078"
+   ],
+   "label": "product",
+   "display": "065505000078"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-29",
+  "input": {
+   "raw": "6328715673901",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "6328715673901",
+   "kind": "ean13",
+   "candidates": [
+    "6328715673901"
+   ],
+   "label": "product",
+   "display": "6328715673901"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-29",
+  "input": {
+   "raw": "6328715673903",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-29",
+  "input": {
+   "raw": "667188897909",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0667188897909",
+   "kind": "upca",
+   "candidates": [
+    "0667188897909"
+   ],
+   "label": "product",
+   "display": "667188897909"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-29",
+  "input": {
+   "raw": "0667188897909",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0667188897909",
+   "kind": "ean13",
+   "candidates": [
+    "0667188897909"
+   ],
+   "label": "product",
+   "display": "667188897909"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-29",
+  "input": {
+   "raw": "00667188897909",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0667188897909",
+   "kind": "ean13",
+   "candidates": [
+    "0667188897909"
+   ],
+   "label": "product",
+   "display": "667188897909"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-29",
+  "input": {
+   "raw": "78606456",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "78606456",
+   "kind": "ean8",
+   "candidates": [
+    "78606456"
+   ],
+   "label": "product",
+   "display": "78606456"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-29",
+  "input": {
+   "raw": "78606456",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "78606456",
+   "kind": "ean8",
+   "candidates": [
+    "78606456"
+   ],
+   "label": "product",
+   "display": "78606456"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-29",
+  "input": {
+   "raw": "15887177",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0158871000077",
+   "kind": "upce",
+   "candidates": [
+    "0158871000077",
+    "15887177"
+   ],
+   "label": "product",
+   "display": "158871000077"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-29",
+  "input": {
+   "raw": "15887177",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "15887177",
+   "kind": "ean8",
+   "candidates": [
+    "15887177",
+    "0158871000077"
+   ],
+   "label": "product",
+   "display": "15887177"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-29",
+  "input": {
+   "raw": "158871000077",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0158871000077",
+   "kind": "upca",
+   "candidates": [
+    "0158871000077"
+   ],
+   "label": "product",
+   "display": "158871000077"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-30",
+  "input": {
+   "raw": "8194539839360",
+   "hint": "org.gs1.EAN-13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "8194539839360",
+   "kind": "ean13",
+   "candidates": [
+    "8194539839360"
+   ],
+   "label": "product",
+   "display": "8194539839360"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-30",
+  "input": {
+   "raw": "8194539839363",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-30",
+  "input": {
+   "raw": "677334926582",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0677334926582",
+   "kind": "upca",
+   "candidates": [
+    "0677334926582"
+   ],
+   "label": "product",
+   "display": "677334926582"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-30",
+  "input": {
+   "raw": "0677334926582",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0677334926582",
+   "kind": "ean13",
+   "candidates": [
+    "0677334926582"
+   ],
+   "label": "product",
+   "display": "677334926582"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-30",
+  "input": {
+   "raw": "00677334926582",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0677334926582",
+   "kind": "ean13",
+   "candidates": [
+    "0677334926582"
+   ],
+   "label": "product",
+   "display": "677334926582"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-30",
+  "input": {
+   "raw": "30485518",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "30485518",
+   "kind": "ean8",
+   "candidates": [
+    "30485518"
+   ],
+   "label": "product",
+   "display": "30485518"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-30",
+  "input": {
+   "raw": "30485518",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "30485518",
+   "kind": "ean8",
+   "candidates": [
+    "30485518"
+   ],
+   "label": "product",
+   "display": "30485518"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-30",
+  "input": {
+   "raw": "05660797",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0056607000097",
+   "kind": "upce",
+   "candidates": [
+    "0056607000097",
+    "05660797"
+   ],
+   "label": "product",
+   "display": "056607000097"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-30",
+  "input": {
+   "raw": "05660797",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "05660797",
+   "kind": "ean8",
+   "candidates": [
+    "05660797",
+    "0056607000097"
+   ],
+   "label": "storeLabel",
+   "display": "05660797"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-30",
+  "input": {
+   "raw": "056607000097",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0056607000097",
+   "kind": "upca",
+   "candidates": [
+    "0056607000097"
+   ],
+   "label": "product",
+   "display": "056607000097"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-31",
+  "input": {
+   "raw": "4495500155897",
+   "hint": "org.gs1.EAN-13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "4495500155897",
+   "kind": "ean13",
+   "candidates": [
+    "4495500155897"
+   ],
+   "label": "product",
+   "display": "4495500155897"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-31",
+  "input": {
+   "raw": "4495500155891",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-31",
+  "input": {
+   "raw": "953413224115",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0953413224115",
+   "kind": "upca",
+   "candidates": [
+    "0953413224115"
+   ],
+   "label": "product",
+   "display": "953413224115"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-31",
+  "input": {
+   "raw": "0953413224115",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0953413224115",
+   "kind": "ean13",
+   "candidates": [
+    "0953413224115"
+   ],
+   "label": "product",
+   "display": "953413224115"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-31",
+  "input": {
+   "raw": "00953413224115",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0953413224115",
+   "kind": "ean13",
+   "candidates": [
+    "0953413224115"
+   ],
+   "label": "product",
+   "display": "953413224115"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-31",
+  "input": {
+   "raw": "69312250",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "69312250",
+   "kind": "ean8",
+   "candidates": [
+    "69312250"
+   ],
+   "label": "product",
+   "display": "69312250"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-31",
+  "input": {
+   "raw": "69312250",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "69312250",
+   "kind": "ean8",
+   "candidates": [
+    "69312250"
+   ],
+   "label": "product",
+   "display": "69312250"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-31",
+  "input": {
+   "raw": "17170422",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0171200007042",
+   "kind": "upce",
+   "candidates": [
+    "0171200007042"
+   ],
+   "label": "product",
+   "display": "171200007042"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-31",
+  "input": {
+   "raw": "17170422",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0171200007042",
+   "kind": "upce",
+   "candidates": [
+    "0171200007042"
+   ],
+   "label": "product",
+   "display": "171200007042"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-31",
+  "input": {
+   "raw": "171200007042",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0171200007042",
+   "kind": "upca",
+   "candidates": [
+    "0171200007042"
+   ],
+   "label": "product",
+   "display": "171200007042"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-32",
+  "input": {
+   "raw": "4563265321809",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "4563265321809",
+   "kind": "ean13",
+   "candidates": [
+    "4563265321809"
+   ],
+   "label": "product",
+   "display": "4563265321809"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-32",
+  "input": {
+   "raw": "4563265321804",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-32",
+  "input": {
+   "raw": "876169806353",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0876169806353",
+   "kind": "upca",
+   "candidates": [
+    "0876169806353"
+   ],
+   "label": "product",
+   "display": "876169806353"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-32",
+  "input": {
+   "raw": "0876169806353",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0876169806353",
+   "kind": "ean13",
+   "candidates": [
+    "0876169806353"
+   ],
+   "label": "product",
+   "display": "876169806353"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-32",
+  "input": {
+   "raw": "00876169806353",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0876169806353",
+   "kind": "ean13",
+   "candidates": [
+    "0876169806353"
+   ],
+   "label": "product",
+   "display": "876169806353"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-32",
+  "input": {
+   "raw": "55361613",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "55361613",
+   "kind": "ean8",
+   "candidates": [
+    "55361613"
+   ],
+   "label": "product",
+   "display": "55361613"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-32",
+  "input": {
+   "raw": "55361613",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "55361613",
+   "kind": "ean8",
+   "candidates": [
+    "55361613"
+   ],
+   "label": "product",
+   "display": "55361613"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-32",
+  "input": {
+   "raw": "13913854",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0139138000054",
+   "kind": "upce",
+   "candidates": [
+    "0139138000054",
+    "13913854"
+   ],
+   "label": "product",
+   "display": "139138000054"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-32",
+  "input": {
+   "raw": "13913854",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "13913854",
+   "kind": "ean8",
+   "candidates": [
+    "13913854",
+    "0139138000054"
+   ],
+   "label": "product",
+   "display": "13913854"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-32",
+  "input": {
+   "raw": "139138000054",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0139138000054",
+   "kind": "upca",
+   "candidates": [
+    "0139138000054"
+   ],
+   "label": "product",
+   "display": "139138000054"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-33",
+  "input": {
+   "raw": "7737653287603",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "7737653287603",
+   "kind": "ean13",
+   "candidates": [
+    "7737653287603"
+   ],
+   "label": "product",
+   "display": "7737653287603"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-33",
+  "input": {
+   "raw": "7737653287609",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-33",
+  "input": {
+   "raw": "750070914836",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0750070914836",
+   "kind": "upca",
+   "candidates": [
+    "0750070914836"
+   ],
+   "label": "product",
+   "display": "750070914836"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-33",
+  "input": {
+   "raw": "0750070914836",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0750070914836",
+   "kind": "ean13",
+   "candidates": [
+    "0750070914836"
+   ],
+   "label": "product",
+   "display": "750070914836"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-33",
+  "input": {
+   "raw": "00750070914836",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0750070914836",
+   "kind": "ean13",
+   "candidates": [
+    "0750070914836"
+   ],
+   "label": "product",
+   "display": "750070914836"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-33",
+  "input": {
+   "raw": "31913867",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "31913867",
+   "kind": "ean8",
+   "candidates": [
+    "31913867"
+   ],
+   "label": "product",
+   "display": "31913867"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-33",
+  "input": {
+   "raw": "31913867",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "31913867",
+   "kind": "ean8",
+   "candidates": [
+    "31913867"
+   ],
+   "label": "product",
+   "display": "31913867"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-33",
+  "input": {
+   "raw": "15808514",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0158100000854",
+   "kind": "upce",
+   "candidates": [
+    "0158100000854"
+   ],
+   "label": "product",
+   "display": "158100000854"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-33",
+  "input": {
+   "raw": "15808514",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0158100000854",
+   "kind": "upce",
+   "candidates": [
+    "0158100000854"
+   ],
+   "label": "product",
+   "display": "158100000854"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-33",
+  "input": {
+   "raw": "158100000854",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0158100000854",
+   "kind": "upca",
+   "candidates": [
+    "0158100000854"
+   ],
+   "label": "product",
+   "display": "158100000854"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-34",
+  "input": {
+   "raw": "4829595697671",
+   "hint": "org.gs1.EAN-13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "4829595697671",
+   "kind": "ean13",
+   "candidates": [
+    "4829595697671"
+   ],
+   "label": "product",
+   "display": "4829595697671"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-34",
+  "input": {
+   "raw": "4829595697678",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-34",
+  "input": {
+   "raw": "176706541199",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0176706541199",
+   "kind": "upca",
+   "candidates": [
+    "0176706541199"
+   ],
+   "label": "product",
+   "display": "176706541199"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-34",
+  "input": {
+   "raw": "0176706541199",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0176706541199",
+   "kind": "ean13",
+   "candidates": [
+    "0176706541199"
+   ],
+   "label": "product",
+   "display": "176706541199"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-34",
+  "input": {
+   "raw": "00176706541199",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0176706541199",
+   "kind": "ean13",
+   "candidates": [
+    "0176706541199"
+   ],
+   "label": "product",
+   "display": "176706541199"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-34",
+  "input": {
+   "raw": "82518400",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "82518400",
+   "kind": "ean8",
+   "candidates": [
+    "82518400"
+   ],
+   "label": "product",
+   "display": "82518400"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-34",
+  "input": {
+   "raw": "82518400",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "82518400",
+   "kind": "ean8",
+   "candidates": [
+    "82518400"
+   ],
+   "label": "product",
+   "display": "82518400"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-34",
+  "input": {
+   "raw": "05506071",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0055060000071",
+   "kind": "upce",
+   "candidates": [
+    "0055060000071",
+    "05506071"
+   ],
+   "label": "product",
+   "display": "055060000071"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-34",
+  "input": {
+   "raw": "05506071",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "05506071",
+   "kind": "ean8",
+   "candidates": [
+    "05506071",
+    "0055060000071"
+   ],
+   "label": "storeLabel",
+   "display": "05506071"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-34",
+  "input": {
+   "raw": "055060000071",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0055060000071",
+   "kind": "upca",
+   "candidates": [
+    "0055060000071"
+   ],
+   "label": "product",
+   "display": "055060000071"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-35",
+  "input": {
+   "raw": "3856013718008",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "3856013718008",
+   "kind": "ean13",
+   "candidates": [
+    "3856013718008"
+   ],
+   "label": "product",
+   "display": "3856013718008"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-35",
+  "input": {
+   "raw": "3856013718006",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-35",
+  "input": {
+   "raw": "835384590539",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0835384590539",
+   "kind": "upca",
+   "candidates": [
+    "0835384590539"
+   ],
+   "label": "product",
+   "display": "835384590539"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-35",
+  "input": {
+   "raw": "0835384590539",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0835384590539",
+   "kind": "ean13",
+   "candidates": [
+    "0835384590539"
+   ],
+   "label": "product",
+   "display": "835384590539"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-35",
+  "input": {
+   "raw": "00835384590539",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0835384590539",
+   "kind": "ean13",
+   "candidates": [
+    "0835384590539"
+   ],
+   "label": "product",
+   "display": "835384590539"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-35",
+  "input": {
+   "raw": "78110007",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "78110007",
+   "kind": "ean8",
+   "candidates": [
+    "78110007"
+   ],
+   "label": "product",
+   "display": "78110007"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-35",
+  "input": {
+   "raw": "78110007",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "78110007",
+   "kind": "ean8",
+   "candidates": [
+    "78110007"
+   ],
+   "label": "product",
+   "display": "78110007"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-35",
+  "input": {
+   "raw": "04588035",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0045800000805",
+   "kind": "upce",
+   "candidates": [
+    "0045800000805"
+   ],
+   "label": "product",
+   "display": "045800000805"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-35",
+  "input": {
+   "raw": "04588035",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0045800000805",
+   "kind": "upce",
+   "candidates": [
+    "0045800000805"
+   ],
+   "label": "product",
+   "display": "045800000805"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-35",
+  "input": {
+   "raw": "045800000805",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0045800000805",
+   "kind": "upca",
+   "candidates": [
+    "0045800000805"
+   ],
+   "label": "product",
+   "display": "045800000805"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-36",
+  "input": {
+   "raw": "8296756282964",
+   "hint": "org.gs1.EAN-13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "8296756282964",
+   "kind": "ean13",
+   "candidates": [
+    "8296756282964"
+   ],
+   "label": "product",
+   "display": "8296756282964"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-36",
+  "input": {
+   "raw": "8296756282963",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-36",
+  "input": {
+   "raw": "708287297556",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0708287297556",
+   "kind": "upca",
+   "candidates": [
+    "0708287297556"
+   ],
+   "label": "product",
+   "display": "708287297556"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-36",
+  "input": {
+   "raw": "0708287297556",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0708287297556",
+   "kind": "ean13",
+   "candidates": [
+    "0708287297556"
+   ],
+   "label": "product",
+   "display": "708287297556"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-36",
+  "input": {
+   "raw": "00708287297556",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0708287297556",
+   "kind": "ean13",
+   "candidates": [
+    "0708287297556"
+   ],
+   "label": "product",
+   "display": "708287297556"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-36",
+  "input": {
+   "raw": "79332569",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "79332569",
+   "kind": "ean8",
+   "candidates": [
+    "79332569"
+   ],
+   "label": "product",
+   "display": "79332569"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-36",
+  "input": {
+   "raw": "79332569",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "79332569",
+   "kind": "ean8",
+   "candidates": [
+    "79332569"
+   ],
+   "label": "product",
+   "display": "79332569"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-36",
+  "input": {
+   "raw": "01519808",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0015000001988",
+   "kind": "upce",
+   "candidates": [
+    "0015000001988",
+    "01519808"
+   ],
+   "label": "product",
+   "display": "015000001988"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-36",
+  "input": {
+   "raw": "01519808",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "01519808",
+   "kind": "ean8",
+   "candidates": [
+    "01519808",
+    "0015000001988"
+   ],
+   "label": "storeLabel",
+   "display": "01519808"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-36",
+  "input": {
+   "raw": "015000001988",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0015000001988",
+   "kind": "upca",
+   "candidates": [
+    "0015000001988"
+   ],
+   "label": "product",
+   "display": "015000001988"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-37",
+  "input": {
+   "raw": "9162361771201",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "9162361771201",
+   "kind": "ean13",
+   "candidates": [
+    "9162361771201"
+   ],
+   "label": "product",
+   "display": "9162361771201"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-37",
+  "input": {
+   "raw": "9162361771202",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-37",
+  "input": {
+   "raw": "675459391285",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0675459391285",
+   "kind": "upca",
+   "candidates": [
+    "0675459391285"
+   ],
+   "label": "product",
+   "display": "675459391285"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-37",
+  "input": {
+   "raw": "0675459391285",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0675459391285",
+   "kind": "ean13",
+   "candidates": [
+    "0675459391285"
+   ],
+   "label": "product",
+   "display": "675459391285"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-37",
+  "input": {
+   "raw": "00675459391285",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0675459391285",
+   "kind": "ean13",
+   "candidates": [
+    "0675459391285"
+   ],
+   "label": "product",
+   "display": "675459391285"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-37",
+  "input": {
+   "raw": "56603255",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "56603255",
+   "kind": "ean8",
+   "candidates": [
+    "56603255"
+   ],
+   "label": "product",
+   "display": "56603255"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-37",
+  "input": {
+   "raw": "56603255",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "56603255",
+   "kind": "ean8",
+   "candidates": [
+    "56603255"
+   ],
+   "label": "product",
+   "display": "56603255"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-37",
+  "input": {
+   "raw": "18618167",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0186181000067",
+   "kind": "upce",
+   "candidates": [
+    "0186181000067",
+    "18618167"
+   ],
+   "label": "product",
+   "display": "186181000067"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-37",
+  "input": {
+   "raw": "18618167",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "18618167",
+   "kind": "ean8",
+   "candidates": [
+    "18618167",
+    "0186181000067"
+   ],
+   "label": "product",
+   "display": "18618167"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-37",
+  "input": {
+   "raw": "186181000067",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0186181000067",
+   "kind": "upca",
+   "candidates": [
+    "0186181000067"
+   ],
+   "label": "product",
+   "display": "186181000067"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-38",
+  "input": {
+   "raw": "5669358487878",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "5669358487878",
+   "kind": "ean13",
+   "candidates": [
+    "5669358487878"
+   ],
+   "label": "product",
+   "display": "5669358487878"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-38",
+  "input": {
+   "raw": "5669358487870",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-38",
+  "input": {
+   "raw": "474832051545",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0474832051545",
+   "kind": "upca",
+   "candidates": [
+    "0474832051545"
+   ],
+   "label": "storeLabel",
+   "display": "474832051545"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-38",
+  "input": {
+   "raw": "0474832051545",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0474832051545",
+   "kind": "ean13",
+   "candidates": [
+    "0474832051545"
+   ],
+   "label": "storeLabel",
+   "display": "474832051545"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-38",
+  "input": {
+   "raw": "00474832051545",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0474832051545",
+   "kind": "ean13",
+   "candidates": [
+    "0474832051545"
+   ],
+   "label": "storeLabel",
+   "display": "474832051545"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-38",
+  "input": {
+   "raw": "39358912",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "39358912",
+   "kind": "ean8",
+   "candidates": [
+    "39358912"
+   ],
+   "label": "product",
+   "display": "39358912"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-38",
+  "input": {
+   "raw": "39358912",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "39358912",
+   "kind": "ean8",
+   "candidates": [
+    "39358912"
+   ],
+   "label": "product",
+   "display": "39358912"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-38",
+  "input": {
+   "raw": "03069301",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0030000006931",
+   "kind": "upce",
+   "candidates": [
+    "0030000006931",
+    "03069301"
+   ],
+   "label": "product",
+   "display": "030000006931"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-38",
+  "input": {
+   "raw": "03069301",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "03069301",
+   "kind": "ean8",
+   "candidates": [
+    "03069301",
+    "0030000006931"
+   ],
+   "label": "storeLabel",
+   "display": "03069301"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-38",
+  "input": {
+   "raw": "030000006931",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0030000006931",
+   "kind": "upca",
+   "candidates": [
+    "0030000006931"
+   ],
+   "label": "product",
+   "display": "030000006931"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-39",
+  "input": {
+   "raw": "7836125058960",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "7836125058960",
+   "kind": "ean13",
+   "candidates": [
+    "7836125058960"
+   ],
+   "label": "product",
+   "display": "7836125058960"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-39",
+  "input": {
+   "raw": "7836125058963",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-39",
+  "input": {
+   "raw": "161851876180",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0161851876180",
+   "kind": "upca",
+   "candidates": [
+    "0161851876180"
+   ],
+   "label": "product",
+   "display": "161851876180"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-39",
+  "input": {
+   "raw": "0161851876180",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0161851876180",
+   "kind": "ean13",
+   "candidates": [
+    "0161851876180"
+   ],
+   "label": "product",
+   "display": "161851876180"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-39",
+  "input": {
+   "raw": "00161851876180",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0161851876180",
+   "kind": "ean13",
+   "candidates": [
+    "0161851876180"
+   ],
+   "label": "product",
+   "display": "161851876180"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-39",
+  "input": {
+   "raw": "24522458",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "24522458",
+   "kind": "ean8",
+   "candidates": [
+    "24522458"
+   ],
+   "label": "storeLabel",
+   "display": "24522458"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-39",
+  "input": {
+   "raw": "24522458",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "24522458",
+   "kind": "ean8",
+   "candidates": [
+    "24522458"
+   ],
+   "label": "storeLabel",
+   "display": "24522458"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-39",
+  "input": {
+   "raw": "14522086",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0145220000086",
+   "kind": "upce",
+   "candidates": [
+    "0145220000086",
+    "14522086"
+   ],
+   "label": "product",
+   "display": "145220000086"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-39",
+  "input": {
+   "raw": "14522086",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "14522086",
+   "kind": "ean8",
+   "candidates": [
+    "14522086",
+    "0145220000086"
+   ],
+   "label": "product",
+   "display": "14522086"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-39",
+  "input": {
+   "raw": "145220000086",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0145220000086",
+   "kind": "upca",
+   "candidates": [
+    "0145220000086"
+   ],
+   "label": "product",
+   "display": "145220000086"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "ean13-40",
+  "input": {
+   "raw": "4705214209565",
+   "hint": "ean13"
+  },
+  "expected": {
+   "ok": true,
+   "code": "4705214209565",
+   "kind": "ean13",
+   "candidates": [
+    "4705214209565"
+   ],
+   "label": "product",
+   "display": "4705214209565"
+  },
+  "note": "random EAN-13"
+ },
+ {
+  "id": "ean13-bad-40",
+  "input": {
+   "raw": "4705214209569",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "EAN-13 with a wrong check digit"
+ },
+ {
+  "id": "upca-40",
+  "input": {
+   "raw": "720216654384",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0720216654384",
+   "kind": "upca",
+   "candidates": [
+    "0720216654384"
+   ],
+   "label": "product",
+   "display": "720216654384"
+  },
+  "note": "random UPC-A (12 digits)"
+ },
+ {
+  "id": "upca-as13-40",
+  "input": {
+   "raw": "0720216654384",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0720216654384",
+   "kind": "ean13",
+   "candidates": [
+    "0720216654384"
+   ],
+   "label": "product",
+   "display": "720216654384"
+  },
+  "note": "the same UPC-A read as EAN-13 (iOS reports UPC-A that way)"
+ },
+ {
+  "id": "upca-as14-40",
+  "input": {
+   "raw": "00720216654384",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0720216654384",
+   "kind": "ean13",
+   "candidates": [
+    "0720216654384"
+   ],
+   "label": "product",
+   "display": "720216654384"
+  },
+  "note": "the same UPC-A as GTIN-14"
+ },
+ {
+  "id": "ean8-40",
+  "input": {
+   "raw": "31724463",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "31724463",
+   "kind": "ean8",
+   "candidates": [
+    "31724463"
+   ],
+   "label": "product",
+   "display": "31724463"
+  },
+  "note": "random EAN-8 (may also read as UPC-E)"
+ },
+ {
+  "id": "ean8-hint-upce-40",
+  "input": {
+   "raw": "31724463",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "31724463",
+   "kind": "ean8",
+   "candidates": [
+    "31724463"
+   ],
+   "label": "product",
+   "display": "31724463"
+  },
+  "note": "8 digits with the UPC-E hint: UPC-E if valid as one"
+ },
+ {
+  "id": "upce-40",
+  "input": {
+   "raw": "16306811",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0163100000681",
+   "kind": "upce",
+   "candidates": [
+    "0163100000681"
+   ],
+   "label": "product",
+   "display": "163100000681"
+  },
+  "note": "random UPC-E with the scanner's hint"
+ },
+ {
+  "id": "upce-nohint-40",
+  "input": {
+   "raw": "16306811",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0163100000681",
+   "kind": "upce",
+   "candidates": [
+    "0163100000681"
+   ],
+   "label": "product",
+   "display": "163100000681"
+  },
+  "note": "the same UPC-E typed by hand (EAN-8 wins if it is valid as both)"
+ },
+ {
+  "id": "upce-expanded-40",
+  "input": {
+   "raw": "163100000681",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0163100000681",
+   "kind": "upca",
+   "candidates": [
+    "0163100000681"
+   ],
+   "label": "product",
+   "display": "163100000681"
+  },
+  "note": "the UPC-A form of that UPC-E"
+ },
+ {
+  "id": "upce-last-0",
+  "input": {
+   "raw": "04952701",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0049000005271",
+   "kind": "upce",
+   "candidates": [
+    "0049000005271",
+    "04952701"
+   ],
+   "label": "product",
+   "display": "049000005271"
+  },
+  "note": "UPC-E expansion rule for last digit 0"
+ },
+ {
+  "id": "upce-last-1",
+  "input": {
+   "raw": "01638916",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0016100003896",
+   "kind": "upce",
+   "candidates": [
+    "0016100003896"
+   ],
+   "label": "product",
+   "display": "016100003896"
+  },
+  "note": "UPC-E expansion rule for last digit 1"
+ },
+ {
+  "id": "upce-last-2",
+  "input": {
+   "raw": "03682720",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0036200008270",
+   "kind": "upce",
+   "candidates": [
+    "0036200008270"
+   ],
+   "label": "product",
+   "display": "036200008270"
+  },
+  "note": "UPC-E expansion rule for last digit 2"
+ },
+ {
+  "id": "upce-last-3",
+  "input": {
+   "raw": "04196135",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0041900000615",
+   "kind": "upce",
+   "candidates": [
+    "0041900000615"
+   ],
+   "label": "product",
+   "display": "041900000615"
+  },
+  "note": "UPC-E expansion rule for last digit 3"
+ },
+ {
+  "id": "upce-last-4",
+  "input": {
+   "raw": "05587342",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0055870000032",
+   "kind": "upce",
+   "candidates": [
+    "0055870000032"
+   ],
+   "label": "product",
+   "display": "055870000032"
+  },
+  "note": "UPC-E expansion rule for last digit 4"
+ },
+ {
+  "id": "upce-last-5",
+  "input": {
+   "raw": "06570651",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0065706000051",
+   "kind": "upce",
+   "candidates": [
+    "0065706000051",
+    "06570651"
+   ],
+   "label": "product",
+   "display": "065706000051"
+  },
+  "note": "UPC-E expansion rule for last digit 5"
+ },
+ {
+  "id": "upce-last-6",
+  "input": {
+   "raw": "07414565",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0074145000065",
+   "kind": "upce",
+   "candidates": [
+    "0074145000065",
+    "07414565"
+   ],
+   "label": "product",
+   "display": "074145000065"
+  },
+  "note": "UPC-E expansion rule for last digit 6"
+ },
+ {
+  "id": "upce-last-7",
+  "input": {
+   "raw": "09953178",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0099531000078",
+   "kind": "upce",
+   "candidates": [
+    "0099531000078",
+    "09953178"
+   ],
+   "label": "product",
+   "display": "099531000078"
+  },
+  "note": "UPC-E expansion rule for last digit 7"
+ },
+ {
+  "id": "upce-last-8",
+  "input": {
+   "raw": "00148184",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0001481000084",
+   "kind": "upce",
+   "candidates": [
+    "0001481000084",
+    "00148184"
+   ],
+   "label": "product",
+   "display": "001481000084"
+  },
+  "note": "UPC-E expansion rule for last digit 8"
+ },
+ {
+  "id": "upce-last-9",
+  "input": {
+   "raw": "01369397",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0013693000097",
+   "kind": "upce",
+   "candidates": [
+    "0013693000097",
+    "01369397"
+   ],
+   "label": "product",
+   "display": "013693000097"
+  },
+  "note": "UPC-E expansion rule for last digit 9"
+ },
+ {
+  "id": "wrong-0",
+  "input": {
+   "raw": "4006381450730",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "every possible last digit (one is right)"
+ },
+ {
+  "id": "wrong-1",
+  "input": {
+   "raw": "4006381356031",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "every possible last digit (one is right)"
+ },
+ {
+  "id": "wrong-2",
+  "input": {
+   "raw": "4006381641032",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "every possible last digit (one is right)"
+ },
+ {
+  "id": "wrong-3",
+  "input": {
+   "raw": "4006381568333",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "4006381568333",
+   "kind": "ean13",
+   "candidates": [
+    "4006381568333"
+   ],
+   "label": "product",
+   "display": "4006381568333"
+  },
+  "note": "every possible last digit (one is right)"
+ },
+ {
+  "id": "wrong-4",
+  "input": {
+   "raw": "4006381657634",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "every possible last digit (one is right)"
+ },
+ {
+  "id": "wrong-5",
+  "input": {
+   "raw": "4006381861735",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "every possible last digit (one is right)"
+ },
+ {
+  "id": "wrong-6",
+  "input": {
+   "raw": "4006381800536",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "every possible last digit (one is right)"
+ },
+ {
+  "id": "wrong-7",
+  "input": {
+   "raw": "4006381164237",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "every possible last digit (one is right)"
+ },
+ {
+  "id": "wrong-8",
+  "input": {
+   "raw": "4006381684138",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "every possible last digit (one is right)"
+ },
+ {
+  "id": "wrong-9",
+  "input": {
+   "raw": "4006381703639",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "every possible last digit (one is right)"
+ },
+ {
+  "id": "prefix-020",
+  "input": {
+   "raw": "0201057271362",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0201057271362",
+   "kind": "ean13",
+   "candidates": [
+    "0201057271362"
+   ],
+   "label": "storeLabel",
+   "display": "201057271362"
+  },
+  "note": "GS1 prefix 020"
+ },
+ {
+  "id": "prefix-025",
+  "input": {
+   "raw": "0256658048615",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0256658048615",
+   "kind": "ean13",
+   "candidates": [
+    "0256658048615"
+   ],
+   "label": "storeLabel",
+   "display": "256658048615"
+  },
+  "note": "GS1 prefix 025"
+ },
+ {
+  "id": "prefix-029",
+  "input": {
+   "raw": "0291768370805",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0291768370805",
+   "kind": "ean13",
+   "candidates": [
+    "0291768370805"
+   ],
+   "label": "storeLabel",
+   "display": "291768370805"
+  },
+  "note": "GS1 prefix 029"
+ },
+ {
+  "id": "prefix-040",
+  "input": {
+   "raw": "0408189892292",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0408189892292",
+   "kind": "ean13",
+   "candidates": [
+    "0408189892292"
+   ],
+   "label": "storeLabel",
+   "display": "408189892292"
+  },
+  "note": "GS1 prefix 040"
+ },
+ {
+  "id": "prefix-049",
+  "input": {
+   "raw": "0491258272804",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0491258272804",
+   "kind": "ean13",
+   "candidates": [
+    "0491258272804"
+   ],
+   "label": "storeLabel",
+   "display": "491258272804"
+  },
+  "note": "GS1 prefix 049"
+ },
+ {
+  "id": "prefix-200",
+  "input": {
+   "raw": "2008758965259",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "2008758965259",
+   "kind": "ean13",
+   "candidates": [
+    "2008758965259"
+   ],
+   "label": "storeLabel",
+   "display": "2008758965259"
+  },
+  "note": "GS1 prefix 200"
+ },
+ {
+  "id": "prefix-234",
+  "input": {
+   "raw": "2345370773849",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "2345370773849",
+   "kind": "ean13",
+   "candidates": [
+    "2345370773849"
+   ],
+   "label": "storeLabel",
+   "display": "2345370773849"
+  },
+  "note": "GS1 prefix 234"
+ },
+ {
+  "id": "prefix-299",
+  "input": {
+   "raw": "2999515148445",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "2999515148445",
+   "kind": "ean13",
+   "candidates": [
+    "2999515148445"
+   ],
+   "label": "storeLabel",
+   "display": "2999515148445"
+  },
+  "note": "GS1 prefix 299"
+ },
+ {
+  "id": "prefix-300",
+  "input": {
+   "raw": "3004840452019",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "3004840452019",
+   "kind": "ean13",
+   "candidates": [
+    "3004840452019"
+   ],
+   "label": "product",
+   "display": "3004840452019"
+  },
+  "note": "GS1 prefix 300"
+ },
+ {
+  "id": "prefix-400",
+  "input": {
+   "raw": "4006905746353",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "4006905746353",
+   "kind": "ean13",
+   "candidates": [
+    "4006905746353"
+   ],
+   "label": "product",
+   "display": "4006905746353"
+  },
+  "note": "GS1 prefix 400"
+ },
+ {
+  "id": "prefix-440",
+  "input": {
+   "raw": "4406668949495",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "4406668949495",
+   "kind": "ean13",
+   "candidates": [
+    "4406668949495"
+   ],
+   "label": "product",
+   "display": "4406668949495"
+  },
+  "note": "GS1 prefix 440"
+ },
+ {
+  "id": "prefix-977",
+  "input": {
+   "raw": "9777033387286",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "9777033387286",
+   "kind": "ean13",
+   "candidates": [
+    "9777033387286"
+   ],
+   "label": "product",
+   "display": "9777033387286"
+  },
+  "note": "GS1 prefix 977"
+ },
+ {
+  "id": "prefix-978",
+  "input": {
+   "raw": "9782027203176",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "9782027203176",
+   "kind": "ean13",
+   "candidates": [
+    "9782027203176"
+   ],
+   "label": "product",
+   "display": "9782027203176"
+  },
+  "note": "GS1 prefix 978"
+ },
+ {
+  "id": "prefix-979",
+  "input": {
+   "raw": "9797031297226",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "9797031297226",
+   "kind": "ean13",
+   "candidates": [
+    "9797031297226"
+   ],
+   "label": "product",
+   "display": "9797031297226"
+  },
+  "note": "GS1 prefix 979"
+ },
+ {
+  "id": "prefix-980",
+  "input": {
+   "raw": "9801952998527",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "coupon"
+  },
+  "note": "GS1 prefix 980"
+ },
+ {
+  "id": "prefix-983",
+  "input": {
+   "raw": "9833907261370",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "coupon"
+  },
+  "note": "GS1 prefix 983"
+ },
+ {
+  "id": "prefix-984",
+  "input": {
+   "raw": "9840821563008",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "9840821563008",
+   "kind": "ean13",
+   "candidates": [
+    "9840821563008"
+   ],
+   "label": "product",
+   "display": "9840821563008"
+  },
+  "note": "GS1 prefix 984"
+ },
+ {
+  "id": "prefix-989",
+  "input": {
+   "raw": "9892119383492",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "9892119383492",
+   "kind": "ean13",
+   "candidates": [
+    "9892119383492"
+   ],
+   "label": "product",
+   "display": "9892119383492"
+  },
+  "note": "GS1 prefix 989"
+ },
+ {
+  "id": "prefix-990",
+  "input": {
+   "raw": "9907648951811",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "coupon"
+  },
+  "note": "GS1 prefix 990"
+ },
+ {
+  "id": "prefix-999",
+  "input": {
+   "raw": "9991812692051",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "coupon"
+  },
+  "note": "GS1 prefix 999"
+ },
+ {
+  "id": "prefix-050",
+  "input": {
+   "raw": "0500674211400",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0500674211400",
+   "kind": "ean13",
+   "candidates": [
+    "0500674211400"
+   ],
+   "label": "product",
+   "display": "500674211400"
+  },
+  "note": "GS1 prefix 050"
+ },
+ {
+  "id": "prefix-019",
+  "input": {
+   "raw": "0197270772994",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0197270772994",
+   "kind": "ean13",
+   "candidates": [
+    "0197270772994"
+   ],
+   "label": "product",
+   "display": "197270772994"
+  },
+  "note": "GS1 prefix 019"
+ },
+ {
+  "id": "prefix-030",
+  "input": {
+   "raw": "0309029217797",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0309029217797",
+   "kind": "ean13",
+   "candidates": [
+    "0309029217797"
+   ],
+   "label": "product",
+   "display": "309029217797"
+  },
+  "note": "GS1 prefix 030"
+ },
+ {
+  "id": "ean8-prefix-0",
+  "input": {
+   "raw": "01969696",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "01969696",
+   "kind": "ean8",
+   "candidates": [
+    "01969696",
+    "0019696000096"
+   ],
+   "label": "storeLabel",
+   "display": "01969696"
+  },
+  "note": "EAN-8 starting with 0"
+ },
+ {
+  "id": "ean8-prefix-1",
+  "input": {
+   "raw": "15726353",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "15726353",
+   "kind": "ean8",
+   "candidates": [
+    "15726353",
+    "0157263000053"
+   ],
+   "label": "product",
+   "display": "15726353"
+  },
+  "note": "EAN-8 starting with 1"
+ },
+ {
+  "id": "ean8-prefix-2",
+  "input": {
+   "raw": "24511063",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "24511063",
+   "kind": "ean8",
+   "candidates": [
+    "24511063"
+   ],
+   "label": "storeLabel",
+   "display": "24511063"
+  },
+  "note": "EAN-8 starting with 2"
+ },
+ {
+  "id": "ean8-prefix-3",
+  "input": {
+   "raw": "39525680",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "39525680",
+   "kind": "ean8",
+   "candidates": [
+    "39525680"
+   ],
+   "label": "product",
+   "display": "39525680"
+  },
+  "note": "EAN-8 starting with 3"
+ },
+ {
+  "id": "ean8-prefix-4",
+  "input": {
+   "raw": "42288237",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "42288237",
+   "kind": "ean8",
+   "candidates": [
+    "42288237"
+   ],
+   "label": "product",
+   "display": "42288237"
+  },
+  "note": "EAN-8 starting with 4"
+ },
+ {
+  "id": "ean8-prefix-5",
+  "input": {
+   "raw": "56453263",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "56453263",
+   "kind": "ean8",
+   "candidates": [
+    "56453263"
+   ],
+   "label": "product",
+   "display": "56453263"
+  },
+  "note": "EAN-8 starting with 5"
+ },
+ {
+  "id": "ean8-prefix-6",
+  "input": {
+   "raw": "65549865",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "65549865",
+   "kind": "ean8",
+   "candidates": [
+    "65549865"
+   ],
+   "label": "product",
+   "display": "65549865"
+  },
+  "note": "EAN-8 starting with 6"
+ },
+ {
+  "id": "ean8-prefix-7",
+  "input": {
+   "raw": "74784349",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "74784349",
+   "kind": "ean8",
+   "candidates": [
+    "74784349"
+   ],
+   "label": "product",
+   "display": "74784349"
+  },
+  "note": "EAN-8 starting with 7"
+ },
+ {
+  "id": "ean8-prefix-8",
+  "input": {
+   "raw": "81714148",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "81714148",
+   "kind": "ean8",
+   "candidates": [
+    "81714148"
+   ],
+   "label": "product",
+   "display": "81714148"
+  },
+  "note": "EAN-8 starting with 8"
+ },
+ {
+  "id": "ean8-prefix-9",
+  "input": {
+   "raw": "99628925",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "99628925",
+   "kind": "ean8",
+   "candidates": [
+    "99628925"
+   ],
+   "label": "product",
+   "display": "99628925"
+  },
+  "note": "EAN-8 starting with 9"
+ },
+ {
+  "id": "weighed-upca",
+  "input": {
+   "raw": "214976999804",
+   "hint": "upc_a"
+  },
+  "expected": {
+   "ok": true,
+   "code": "0214976999804",
+   "kind": "upca",
+   "candidates": [
+    "0214976999804"
+   ],
+   "label": "storeLabel",
+   "display": "214976999804"
+  },
+  "note": "UPC-A number system 2 (random weight)"
+ },
+ {
+  "id": "spaces",
+  "input": {
+   "raw": "4 006381 333931",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "4006381333931",
+   "kind": "ean13",
+   "candidates": [
+    "4006381333931"
+   ],
+   "label": "product",
+   "display": "4006381333931"
+  },
+  "note": "printed groups with spaces"
+ },
+ {
+  "id": "hyphens",
+  "input": {
+   "raw": "978-0-306-40615-7",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "9780306406157",
+   "kind": "ean13",
+   "candidates": [
+    "9780306406157"
+   ],
+   "label": "product",
+   "display": "9780306406157"
+  },
+  "note": "ISBN with hyphens"
+ },
+ {
+  "id": "nbsp",
+  "input": {
+   "raw": " 4006381 333931 ",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "4006381333931",
+   "kind": "ean13",
+   "candidates": [
+    "4006381333931"
+   ],
+   "label": "product",
+   "display": "4006381333931"
+  },
+  "note": "no-break and narrow spaces"
+ },
+ {
+  "id": "empty",
+  "input": {
+   "raw": "",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "empty"
+  },
+  "note": "nothing typed"
+ },
+ {
+  "id": "blank",
+  "input": {
+   "raw": "   ",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "empty"
+  },
+  "note": "spaces only"
+ },
+ {
+  "id": "letters",
+  "input": {
+   "raw": "40063813339a1",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "chars"
+  },
+  "note": "a letter"
+ },
+ {
+  "id": "dot",
+  "input": {
+   "raw": "4006381.333931",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "chars"
+  },
+  "note": "a dot"
+ },
+ {
+  "id": "fullwidth",
+  "input": {
+   "raw": "４006381333931",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "chars"
+  },
+  "note": "a full-width digit is not an ASCII digit"
+ },
+ {
+  "id": "length-1",
+  "input": {
+   "raw": "3",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "length"
+  },
+  "note": "1 digits"
+ },
+ {
+  "id": "length-5",
+  "input": {
+   "raw": "62487",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "length"
+  },
+  "note": "5 digits"
+ },
+ {
+  "id": "length-6",
+  "input": {
+   "raw": "813625",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "length"
+  },
+  "note": "6 digits"
+ },
+ {
+  "id": "length-7",
+  "input": {
+   "raw": "0766168",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "length"
+  },
+  "note": "7 digits"
+ },
+ {
+  "id": "length-9",
+  "input": {
+   "raw": "810150031",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "length"
+  },
+  "note": "9 digits"
+ },
+ {
+  "id": "length-10",
+  "input": {
+   "raw": "8041784150",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "length"
+  },
+  "note": "10 digits"
+ },
+ {
+  "id": "length-11",
+  "input": {
+   "raw": "90105684535",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "length"
+  },
+  "note": "11 digits"
+ },
+ {
+  "id": "length-15",
+  "input": {
+   "raw": "092947494684874",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "length"
+  },
+  "note": "15 digits"
+ },
+ {
+  "id": "length-20",
+  "input": {
+   "raw": "57584707662362598998",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "length"
+  },
+  "note": "20 digits"
+ },
+ {
+  "id": "gtin14-case",
+  "input": {
+   "raw": "13576312577775",
+   "hint": null
+  },
+  "expected": {
+   "ok": false,
+   "error": "length"
+  },
+  "note": "GTIN-14 of a case (indicator 1): not a shelf item"
+ },
+ {
+  "id": "qr-hint",
+  "input": {
+   "raw": "4006381333931",
+   "hint": "qr"
+  },
+  "expected": {
+   "ok": false,
+   "error": "format"
+  },
+  "note": "a QR code that happens to hold digits"
+ },
+ {
+  "id": "code128-hint",
+  "input": {
+   "raw": "4006381333931",
+   "hint": "code128"
+  },
+  "expected": {
+   "ok": false,
+   "error": "format"
+  },
+  "note": "Code 128 is not a retail product code"
+ },
+ {
+  "id": "hint-mismatch",
+  "input": {
+   "raw": "4006381333931",
+   "hint": "ean8"
+  },
+  "expected": {
+   "ok": true,
+   "code": "4006381333931",
+   "kind": "ean13",
+   "candidates": [
+    "4006381333931"
+   ],
+   "label": "product",
+   "display": "4006381333931"
+  },
+  "note": "the hint names another length: the digits decide"
+ },
+ {
+  "id": "upce-ns2",
+  "input": {
+   "raw": "21234565",
+   "hint": "upc_e"
+  },
+  "expected": {
+   "ok": false,
+   "error": "checkDigit"
+  },
+  "note": "UPC-E needs number system 0 or 1"
+ },
+ {
+  "id": "zeros13",
+  "input": {
+   "raw": "0000000000000",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "0000000000000",
+   "kind": "ean13",
+   "candidates": [
+    "0000000000000"
+   ],
+   "label": "product",
+   "display": "000000000000"
+  },
+  "note": "all zeros: the check digit is valid and prefix 000 is UPC-compatible"
+ },
+ {
+  "id": "zeros8",
+  "input": {
+   "raw": "00000000",
+   "hint": null
+  },
+  "expected": {
+   "ok": true,
+   "code": "00000000",
+   "kind": "ean8",
+   "candidates": [
+    "00000000",
+    "0000000000000"
+   ],
+   "label": "storeLabel",
+   "display": "00000000"
+  },
+  "note": "eight zeros"
+ }
+]

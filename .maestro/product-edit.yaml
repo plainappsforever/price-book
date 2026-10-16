@@ -1,0 +1,94 @@
+appId: ${APP_ID}
+name: Product edit - add a product and its first price (new store, earlier date), name guard, edit, delete with a second tap
+tags:
+  - book
+---
+- runFlow:
+    file: subflows/seed.yaml
+    env:
+      SEED: s1
+- runFlow: subflows/settings-eu.yaml
+- tapOn: {id: tab-book}
+- tapOn: {id: book-add}
+- tapOn: {id: pe-name}
+- inputText: Olive oil
+- tapOn: {id: pe-brand}
+- inputText: Terra
+- hideKeyboard
+- tapOn: {id: pe-dim-volume}
+- tapOn: {id: pe-save}
+# straight to the first price of the new product
+- extendedWaitUntil:
+    visible:
+      id: price-product
+      text: "Olive oil"
+    timeout: 15000
+- tapOn: {id: store-new}
+- tapOn: {id: store-new-input}
+- inputText: Lidl
+- tapOn: {id: store-new-add}
+- tapOn: {id: date-prev}
+- runFlow:
+    file: subflows/ptype.yaml
+    env:
+      KEYS: 4.99n750
+- tapOn: {id: unit-ml}
+- assertVisible:
+    id: price-live
+    text: "€6\\.65 per L"
+- tapOn: {id: price-save}
+- extendedWaitUntil:
+    visible:
+      id: tile-latest
+      text: "€6\\.65 per L"
+    timeout: 15000
+- assertVisible:
+    id: tile-latest-detail
+    text: "€4\\.99 · 750 ml · Lidl · yesterday"
+- assertVisible:
+    id: product-title
+    text: "Olive oil"
+# star it from the product screen and edit it
+- tapOn: {id: product-star}
+- tapOn: {id: product-edit}
+- tapOn: {id: pe-variant}
+- inputText: Extra virgin
+- hideKeyboard
+- tapOn: {id: pe-save}
+- extendedWaitUntil:
+    visible:
+      id: product-title
+    timeout: 15000
+- runFlow:
+    file: subflows/back.yaml
+    env:
+      BACK_TITLE: Price Book
+- assertVisible: "Terra · Extra virgin"
+# the same name again: "You already have it"
+- tapOn: {id: book-add}
+- tapOn: {id: pe-name}
+- inputText: olive OIL
+- hideKeyboard
+- tapOn: {id: pe-save}
+- assertVisible:
+    id: pe-existing
+- tapOn: {id: pe-open-existing}
+- assertVisible:
+    id: product-title
+    text: "Olive oil"
+# delete: first tap shows the count, second tap deletes
+- tapOn: {id: product-edit}
+- scrollUntilVisible:
+    element:
+      id: pe-delete
+    direction: DOWN
+- tapOn: {id: pe-delete}
+- assertVisible:
+    id: pe-delete
+    text: "Tap again to delete the product and its 1 price"
+- tapOn: {id: pe-delete}
+- extendedWaitUntil:
+    visible:
+      id: book-screen
+    timeout: 15000
+- assertNotVisible: "Olive oil"

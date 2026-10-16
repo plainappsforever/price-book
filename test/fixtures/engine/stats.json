@@ -1,0 +1,7206 @@
+{
+ "cases": [
+  {
+   "id": "S1",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-01-10",
+      "createdAt": "2026-01-10T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 249,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 2,
+      "observedOn": "2026-02-14",
+      "createdAt": "2026-02-14T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 229,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-03-20",
+      "createdAt": "2026-03-20T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 399,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1",
+      "unit": "kg",
+      "depositMinor": 0,
+      "isPromo": true
+     },
+     {
+      "id": 4,
+      "storeId": 3,
+      "observedOn": "2026-07-20",
+      "createdAt": "2026-07-20T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 259,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 5,
+      "storeId": 1,
+      "observedOn": "2026-08-28",
+      "createdAt": "2026-08-28T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 249,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": [
+     "4.49",
+     "3.95",
+     "5.10",
+     "5.20",
+     "5.30"
+    ]
+   },
+   "expected": {
+    "count": 5,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 5,
+    "lowest": [
+     3,
+     true
+    ],
+    "highest": [
+     4,
+     false
+    ],
+    "usual": {
+     "value": "498",
+     "basedOn": 4,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "4.98",
+     "lowest": "3.99",
+     "highest": "5.18",
+     "usual": "4.98"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 5,
+      "lowest": 3,
+      "count": 3,
+      "days": 33,
+      "stale": false,
+      "cheapest": true,
+      "display": "4.98"
+     },
+     {
+      "store": 3,
+      "latest": 4,
+      "lowest": 4,
+      "count": 1,
+      "days": 72,
+      "stale": false,
+      "cheapest": false,
+      "display": "5.18"
+     },
+     {
+      "store": 2,
+      "latest": 2,
+      "lowest": 2,
+      "count": 1,
+      "days": 228,
+      "stale": true,
+      "cheapest": false,
+      "display": "4.58"
+     }
+    ],
+    "shrink": [],
+    "gauge": {
+     "4.49": {
+      "verdict": "good",
+      "pct": -10,
+      "usualAt": 832,
+      "at": 420
+     },
+     "3.95": {
+      "verdict": "lowest",
+      "pct": -21,
+      "usualAt": 832,
+      "at": 0
+     },
+     "5.10": {
+      "verdict": "usual",
+      "pct": 2,
+      "usualAt": 832,
+      "at": 933
+     },
+     "5.20": {
+      "verdict": "usual",
+      "pct": 4,
+      "usualAt": 832,
+      "at": 1000
+     },
+     "5.30": {
+      "verdict": "highest",
+      "pct": 6,
+      "usualAt": 832,
+      "at": 1000
+     }
+    },
+    "latestGauge": {
+     "verdict": "usual",
+     "pct": 0,
+     "usualAt": 832,
+     "at": 832
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        832
+       ],
+       [
+        3,
+        300,
+        0
+       ],
+       [
+        5,
+        1000,
+        832
+       ]
+      ]
+     ],
+     [
+      2,
+      [
+       [
+        2,
+        152,
+        496
+       ]
+      ]
+     ],
+     [
+      3,
+      [
+       [
+        4,
+        830,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "SPEC 5.8 example S1: tiles, five gauge candidates, store table, staleness"
+  },
+  {
+   "id": "S1-boundaries",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-01-10",
+      "createdAt": "2026-01-10T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 249,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 2,
+      "observedOn": "2026-02-14",
+      "createdAt": "2026-02-14T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 229,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-03-20",
+      "createdAt": "2026-03-20T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 399,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1",
+      "unit": "kg",
+      "depositMinor": 0,
+      "isPromo": true
+     },
+     {
+      "id": 4,
+      "storeId": 3,
+      "observedOn": "2026-07-20",
+      "createdAt": "2026-07-20T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 259,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 5,
+      "storeId": 1,
+      "observedOn": "2026-08-28",
+      "createdAt": "2026-08-28T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 249,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": [
+     "3.99",
+     "3.9899",
+     "4.731",
+     "4.7311",
+     "5.229",
+     "5.2291",
+     "5.18",
+     "6"
+    ]
+   },
+   "expected": {
+    "count": 5,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 5,
+    "lowest": [
+     3,
+     true
+    ],
+    "highest": [
+     4,
+     false
+    ],
+    "usual": {
+     "value": "498",
+     "basedOn": 4,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "4.98",
+     "lowest": "3.99",
+     "highest": "5.18",
+     "usual": "4.98"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 5,
+      "lowest": 3,
+      "count": 3,
+      "days": 33,
+      "stale": false,
+      "cheapest": true,
+      "display": "4.98"
+     },
+     {
+      "store": 3,
+      "latest": 4,
+      "lowest": 4,
+      "count": 1,
+      "days": 72,
+      "stale": false,
+      "cheapest": false,
+      "display": "5.18"
+     },
+     {
+      "store": 2,
+      "latest": 2,
+      "lowest": 2,
+      "count": 1,
+      "days": 228,
+      "stale": true,
+      "cheapest": false,
+      "display": "4.58"
+     }
+    ],
+    "shrink": [],
+    "gauge": {
+     "3.99": {
+      "verdict": "lowest",
+      "pct": -20,
+      "usualAt": 832,
+      "at": 0
+     },
+     "3.9899": {
+      "verdict": "lowest",
+      "pct": -20,
+      "usualAt": 832,
+      "at": 0
+     },
+     "4.731": {
+      "verdict": "good",
+      "pct": -5,
+      "usualAt": 832,
+      "at": 623
+     },
+     "4.7311": {
+      "verdict": "usual",
+      "pct": -5,
+      "usualAt": 832,
+      "at": 623
+     },
+     "5.229": {
+      "verdict": "usual",
+      "pct": 5,
+      "usualAt": 832,
+      "at": 1000
+     },
+     "5.2291": {
+      "verdict": "highest",
+      "pct": 5,
+      "usualAt": 832,
+      "at": 1000
+     },
+     "5.18": {
+      "verdict": "usual",
+      "pct": 4,
+      "usualAt": 832,
+      "at": 1000
+     },
+     "6": {
+      "verdict": "highest",
+      "pct": 20,
+      "usualAt": 832,
+      "at": 1000
+     }
+    },
+    "latestGauge": {
+     "verdict": "usual",
+     "pct": 0,
+     "usualAt": 832,
+     "at": 832
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        832
+       ],
+       [
+        3,
+        300,
+        0
+       ],
+       [
+        5,
+        1000,
+        832
+       ]
+      ]
+     ],
+     [
+      2,
+      [
+       [
+        2,
+        152,
+        496
+       ]
+      ]
+     ],
+     [
+      3,
+      [
+       [
+        4,
+        830,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "S1 book at the exact band edges: = lowest, = usual x 0.95, = usual x 1.05, just above"
+  },
+  {
+   "id": "S1-other-currency",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-01-10",
+      "createdAt": "2026-01-10T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 249,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 2,
+      "observedOn": "2026-02-14",
+      "createdAt": "2026-02-14T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 229,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-03-20",
+      "createdAt": "2026-03-20T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 399,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1",
+      "unit": "kg",
+      "depositMinor": 0,
+      "isPromo": true
+     },
+     {
+      "id": 4,
+      "storeId": 3,
+      "observedOn": "2026-07-20",
+      "createdAt": "2026-07-20T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 259,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 5,
+      "storeId": 1,
+      "observedOn": "2026-08-28",
+      "createdAt": "2026-08-28T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 249,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 6,
+      "storeId": 2,
+      "observedOn": "2026-09-01",
+      "createdAt": "2026-09-01T12:00:00.000Z",
+      "currency": "USD",
+      "packPriceMinor": 100,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 7,
+      "storeId": 1,
+      "observedOn": "2026-09-02",
+      "createdAt": "2026-09-02T12:00:00.000Z",
+      "currency": "USD",
+      "packPriceMinor": 900,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": [
+     "4.49"
+    ]
+   },
+   "expected": {
+    "count": 5,
+    "otherCurrency": 2,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 5,
+    "lowest": [
+     3,
+     true
+    ],
+    "highest": [
+     4,
+     false
+    ],
+    "usual": {
+     "value": "498",
+     "basedOn": 4,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "4.98",
+     "lowest": "3.99",
+     "highest": "5.18",
+     "usual": "4.98"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 5,
+      "lowest": 3,
+      "count": 3,
+      "days": 33,
+      "stale": false,
+      "cheapest": true,
+      "display": "4.98"
+     },
+     {
+      "store": 3,
+      "latest": 4,
+      "lowest": 4,
+      "count": 1,
+      "days": 72,
+      "stale": false,
+      "cheapest": false,
+      "display": "5.18"
+     },
+     {
+      "store": 2,
+      "latest": 2,
+      "lowest": 2,
+      "count": 1,
+      "days": 228,
+      "stale": true,
+      "cheapest": false,
+      "display": "4.58"
+     }
+    ],
+    "shrink": [],
+    "gauge": {
+     "4.49": {
+      "verdict": "good",
+      "pct": -10,
+      "usualAt": 832,
+      "at": 420
+     }
+    },
+    "latestGauge": {
+     "verdict": "usual",
+     "pct": 0,
+     "usualAt": 832,
+     "at": 832
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        832
+       ],
+       [
+        3,
+        300,
+        0
+       ],
+       [
+        5,
+        1000,
+        832
+       ]
+      ]
+     ],
+     [
+      2,
+      [
+       [
+        2,
+        152,
+        496
+       ]
+      ]
+     ],
+     [
+      3,
+      [
+       [
+        4,
+        830,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "S1 plus two USD prices: excluded and counted (SPEC 4)"
+  },
+  {
+   "id": "S1-per-100g",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric",
+     "bases": {
+      "mass": "100g"
+     }
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-01-10",
+      "createdAt": "2026-01-10T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 249,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 2,
+      "observedOn": "2026-02-14",
+      "createdAt": "2026-02-14T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 229,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-03-20",
+      "createdAt": "2026-03-20T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 399,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1",
+      "unit": "kg",
+      "depositMinor": 0,
+      "isPromo": true
+     },
+     {
+      "id": 4,
+      "storeId": 3,
+      "observedOn": "2026-07-20",
+      "createdAt": "2026-07-20T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 259,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 5,
+      "storeId": 1,
+      "observedOn": "2026-08-28",
+      "createdAt": "2026-08-28T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 249,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": [
+     "0.449",
+     "0.53"
+    ]
+   },
+   "expected": {
+    "count": 5,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "100g",
+    "decimals": 3,
+    "latest": 5,
+    "lowest": [
+     3,
+     true
+    ],
+    "highest": [
+     4,
+     false
+    ],
+    "usual": {
+     "value": "249/5",
+     "basedOn": 4,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "0.498",
+     "lowest": "0.399",
+     "highest": "0.518",
+     "usual": "0.498"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 5,
+      "lowest": 3,
+      "count": 3,
+      "days": 33,
+      "stale": false,
+      "cheapest": true,
+      "display": "0.498"
+     },
+     {
+      "store": 3,
+      "latest": 4,
+      "lowest": 4,
+      "count": 1,
+      "days": 72,
+      "stale": false,
+      "cheapest": false,
+      "display": "0.518"
+     },
+     {
+      "store": 2,
+      "latest": 2,
+      "lowest": 2,
+      "count": 1,
+      "days": 228,
+      "stale": true,
+      "cheapest": false,
+      "display": "0.458"
+     }
+    ],
+    "shrink": [],
+    "gauge": {
+     "0.449": {
+      "verdict": "good",
+      "pct": -10,
+      "usualAt": 832,
+      "at": 420
+     },
+     "0.53": {
+      "verdict": "highest",
+      "pct": 6,
+      "usualAt": 832,
+      "at": 1000
+     }
+    },
+    "latestGauge": {
+     "verdict": "usual",
+     "pct": 0,
+     "usualAt": 832,
+     "at": 832
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        832
+       ],
+       [
+        3,
+        300,
+        0
+       ],
+       [
+        5,
+        1000,
+        832
+       ]
+      ]
+     ],
+     [
+      2,
+      [
+       [
+        2,
+        152,
+        496
+       ]
+      ]
+     ],
+     [
+      3,
+      [
+       [
+        4,
+        830,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "S1 shown per 100 g: same verdicts, 3 decimals"
+  },
+  {
+   "id": "S2",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 11,
+      "storeId": 1,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "200",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 12,
+      "storeId": 1,
+      "observedOn": "2026-09-01",
+      "createdAt": "2026-09-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "175",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 2,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 12,
+    "lowest": [
+     11,
+     false
+    ],
+    "highest": [
+     12,
+     false
+    ],
+    "usual": {
+     "value": "14925/14",
+     "basedOn": 2,
+     "source": "all"
+    },
+    "display": {
+     "latest": "11.37",
+     "lowest": "9.95",
+     "highest": "11.37",
+     "usual": "10.66"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 12,
+      "lowest": 11,
+      "count": 2,
+      "days": 29,
+      "stale": false,
+      "cheapest": true,
+      "display": "11.37"
+     }
+    ],
+    "shrink": [
+     {
+      "kind": "samePrice",
+      "shrink": true,
+      "prev": 11,
+      "cur": 12,
+      "ref": 11,
+      "same": true,
+      "size": -125,
+      "unit": 143
+     }
+    ],
+    "gauge": {},
+    "latestGauge": {
+     "building": 1
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        11,
+        0,
+        0
+       ],
+       [
+        12,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "SPEC 5.8 example S2: same price, 12.5 % less, +14.3 % per kg"
+  },
+  {
+   "id": "shrink-price-up",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "200",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-09-01",
+      "createdAt": "2026-09-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 209,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "175",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 2,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 2,
+    "lowest": [
+     1,
+     false
+    ],
+    "highest": [
+     2,
+     false
+    ],
+    "usual": {
+     "value": "15325/14",
+     "basedOn": 2,
+     "source": "all"
+    },
+    "display": {
+     "latest": "11.94",
+     "lowest": "9.95",
+     "highest": "11.94",
+     "usual": "10.95"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 2,
+      "lowest": 1,
+      "count": 2,
+      "days": 29,
+      "stale": false,
+      "cheapest": true,
+      "display": "11.94"
+     }
+    ],
+    "shrink": [
+     {
+      "kind": "priceUp",
+      "shrink": true,
+      "prev": 1,
+      "cur": 2,
+      "ref": 1,
+      "same": true,
+      "size": -125,
+      "unit": 200
+     }
+    ],
+    "gauge": {},
+    "latestGauge": {
+     "building": 1
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        0
+       ],
+       [
+        2,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "smaller pack and a higher pack price at the same store"
+  },
+  {
+   "id": "shrink-cheaper-pack-dearer-unit",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "200",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-09-01",
+      "createdAt": "2026-09-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 189,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "175",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 2,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 2,
+    "lowest": [
+     1,
+     false
+    ],
+    "highest": [
+     2,
+     false
+    ],
+    "usual": {
+     "value": "2075/2",
+     "basedOn": 2,
+     "source": "all"
+    },
+    "display": {
+     "latest": "10.80",
+     "lowest": "9.95",
+     "highest": "10.80",
+     "usual": "10.38"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 2,
+      "lowest": 1,
+      "count": 2,
+      "days": 29,
+      "stale": false,
+      "cheapest": true,
+      "display": "10.80"
+     }
+    ],
+    "shrink": [
+     {
+      "kind": "cheaperPackDearerUnit",
+      "shrink": true,
+      "prev": 1,
+      "cur": 2,
+      "ref": 1,
+      "same": true,
+      "size": -125,
+      "unit": 85
+     }
+    ],
+    "gauge": {},
+    "latestGauge": {
+     "building": 1
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        0
+       ],
+       [
+        2,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "pack price down, unit price up"
+  },
+  {
+   "id": "shrink-smaller-not-dearer",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "200",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-09-01",
+      "createdAt": "2026-09-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 159,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "175",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 2,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 2,
+    "lowest": [
+     2,
+     false
+    ],
+    "highest": [
+     1,
+     false
+    ],
+    "usual": {
+     "value": "13325/14",
+     "basedOn": 2,
+     "source": "all"
+    },
+    "display": {
+     "latest": "9.09",
+     "lowest": "9.09",
+     "highest": "9.95",
+     "usual": "9.52"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 2,
+      "lowest": 2,
+      "count": 2,
+      "days": 29,
+      "stale": false,
+      "cheapest": true,
+      "display": "9.09"
+     }
+    ],
+    "shrink": [
+     {
+      "kind": "smallerNotDearer",
+      "shrink": false,
+      "prev": 1,
+      "cur": 2,
+      "ref": 1,
+      "same": true,
+      "size": -125,
+      "unit": -87
+     }
+    ],
+    "gauge": {},
+    "latestGauge": {
+     "building": 1
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        1000
+       ],
+       [
+        2,
+        1000,
+        0
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "pack price down at least in proportion: reported, not shrinkflation (D35)"
+  },
+  {
+   "id": "shrink-other-store",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "200",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 2,
+      "observedOn": "2026-09-01",
+      "createdAt": "2026-09-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 179,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "175",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 2,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 2,
+    "lowest": [
+     1,
+     false
+    ],
+    "highest": [
+     2,
+     false
+    ],
+    "usual": {
+     "value": "14125/14",
+     "basedOn": 2,
+     "source": "all"
+    },
+    "display": {
+     "latest": "10.23",
+     "lowest": "9.95",
+     "highest": "10.23",
+     "usual": "10.09"
+    },
+    "stores": [
+     {
+      "store": 2,
+      "latest": 2,
+      "lowest": 2,
+      "count": 1,
+      "days": 29,
+      "stale": false,
+      "cheapest": true,
+      "display": "10.23"
+     },
+     {
+      "store": 1,
+      "latest": 1,
+      "lowest": 1,
+      "count": 1,
+      "days": 213,
+      "stale": true,
+      "cheapest": false,
+      "display": "9.95"
+     }
+    ],
+    "shrink": [
+     {
+      "kind": "packSmaller",
+      "shrink": true,
+      "prev": 1,
+      "cur": 2,
+      "ref": 1,
+      "same": false,
+      "size": -125,
+      "unit": 28
+     }
+    ],
+    "gauge": {},
+    "latestGauge": {
+     "building": 1
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        0
+       ]
+      ]
+     ],
+     [
+      2,
+      [
+       [
+        2,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "different store, no earlier price there: pack got smaller"
+  },
+  {
+   "id": "shrink-promo-ignored",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "200",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-04-01",
+      "createdAt": "2026-04-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 99,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "150",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": true
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "200",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 3,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 3,
+    "lowest": [
+     2,
+     true
+    ],
+    "highest": [
+     3,
+     false
+    ],
+    "usual": {
+     "value": "995",
+     "basedOn": 3,
+     "source": "all"
+    },
+    "display": {
+     "latest": "9.95",
+     "lowest": "6.60",
+     "highest": "9.95",
+     "usual": "9.95"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 3,
+      "lowest": 2,
+      "count": 3,
+      "days": 152,
+      "stale": true,
+      "cheapest": false,
+      "display": "9.95"
+     }
+    ],
+    "shrink": [],
+    "gauge": {},
+    "latestGauge": {
+     "building": 2
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        1000
+       ],
+       [
+        2,
+        508,
+        0
+       ],
+       [
+        3,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "a smaller promo pack in between is ignored"
+  },
+  {
+   "id": "shrink-promo-between",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "200",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-04-01",
+      "createdAt": "2026-04-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 99,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "175",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": true
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "175",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 3,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 3,
+    "lowest": [
+     2,
+     true
+    ],
+    "highest": [
+     3,
+     false
+    ],
+    "usual": {
+     "value": "995",
+     "basedOn": 3,
+     "source": "all"
+    },
+    "display": {
+     "latest": "11.37",
+     "lowest": "5.66",
+     "highest": "11.37",
+     "usual": "9.95"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 3,
+      "lowest": 2,
+      "count": 3,
+      "days": 152,
+      "stale": true,
+      "cheapest": false,
+      "display": "11.37"
+     }
+    ],
+    "shrink": [
+     {
+      "kind": "samePrice",
+      "shrink": true,
+      "prev": 1,
+      "cur": 3,
+      "ref": 1,
+      "same": true,
+      "size": -125,
+      "unit": 143
+     }
+    ],
+    "gauge": {},
+    "latestGauge": {
+     "building": 2
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        751
+       ],
+       [
+        2,
+        508,
+        0
+       ],
+       [
+        3,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "promo skipped: the event compares the two regular prices"
+  },
+  {
+   "id": "shrink-promo-new-size",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "200",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-04-01",
+      "createdAt": "2026-04-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 149,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "175",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": true
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 2,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 2,
+    "lowest": [
+     2,
+     true
+    ],
+    "highest": [
+     1,
+     false
+    ],
+    "usual": {
+     "value": "12925/14",
+     "basedOn": 2,
+     "source": "all"
+    },
+    "display": {
+     "latest": "8.51",
+     "lowest": "8.51",
+     "highest": "9.95",
+     "usual": "9.23"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 2,
+      "lowest": 2,
+      "count": 2,
+      "days": 182,
+      "stale": true,
+      "cheapest": false,
+      "display": "8.51"
+     }
+    ],
+    "shrink": [],
+    "gauge": {},
+    "latestGauge": {
+     "building": 1
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        1000
+       ],
+       [
+        2,
+        1000,
+        0
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "a smaller pack seen only on promo is no event"
+  },
+  {
+   "id": "shrink-threshold-exact",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 499,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-04-01",
+      "createdAt": "2026-04-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 499,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "990",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 2,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 2,
+    "lowest": [
+     1,
+     false
+    ],
+    "highest": [
+     2,
+     false
+    ],
+    "usual": {
+     "value": "99301/198",
+     "basedOn": 2,
+     "source": "all"
+    },
+    "display": {
+     "latest": "5.04",
+     "lowest": "4.99",
+     "highest": "5.04",
+     "usual": "5.02"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 2,
+      "lowest": 1,
+      "count": 2,
+      "days": 182,
+      "stale": true,
+      "cheapest": false,
+      "display": "5.04"
+     }
+    ],
+    "shrink": [
+     {
+      "kind": "samePrice",
+      "shrink": true,
+      "prev": 1,
+      "cur": 2,
+      "ref": 1,
+      "same": true,
+      "size": -10,
+      "unit": 10
+     }
+    ],
+    "gauge": {},
+    "latestGauge": {
+     "building": 1
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        0
+       ],
+       [
+        2,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "Q_new = Q_prev x 0.99 counts (<=)"
+  },
+  {
+   "id": "shrink-threshold-under",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 499,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-04-01",
+      "createdAt": "2026-04-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 499,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "991",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 2,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 2,
+    "lowest": [
+     1,
+     false
+    ],
+    "highest": [
+     2,
+     false
+    ],
+    "usual": {
+     "value": "993509/1982",
+     "basedOn": 2,
+     "source": "all"
+    },
+    "display": {
+     "latest": "5.04",
+     "lowest": "4.99",
+     "highest": "5.04",
+     "usual": "5.01"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 2,
+      "lowest": 1,
+      "count": 2,
+      "days": 182,
+      "stale": true,
+      "cheapest": false,
+      "display": "5.04"
+     }
+    ],
+    "shrink": [],
+    "gauge": {},
+    "latestGauge": {
+     "building": 1
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        0
+       ],
+       [
+        2,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "Q_new = Q_prev x 0.991: no event"
+  },
+  {
+   "id": "shrink-same-store-not-adjacent",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "200",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 2,
+      "observedOn": "2026-04-01",
+      "createdAt": "2026-04-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 179,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "200",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "175",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 3,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 3,
+    "lowest": [
+     2,
+     false
+    ],
+    "highest": [
+     3,
+     false
+    ],
+    "usual": {
+     "value": "995",
+     "basedOn": 3,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "11.37",
+     "lowest": "8.95",
+     "highest": "11.37",
+     "usual": "9.95"
+    },
+    "stores": [
+     {
+      "store": 2,
+      "latest": 2,
+      "lowest": 2,
+      "count": 1,
+      "days": 182,
+      "stale": true,
+      "cheapest": false,
+      "display": "8.95"
+     },
+     {
+      "store": 1,
+      "latest": 3,
+      "lowest": 1,
+      "count": 2,
+      "days": 152,
+      "stale": true,
+      "cheapest": false,
+      "display": "11.37"
+     }
+    ],
+    "shrink": [
+     {
+      "kind": "samePrice",
+      "shrink": true,
+      "prev": 2,
+      "cur": 3,
+      "ref": 1,
+      "same": true,
+      "size": -125,
+      "unit": 143
+     }
+    ],
+    "gauge": {},
+    "latestGauge": {
+     "building": 2
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        413
+       ],
+       [
+        3,
+        1000,
+        1000
+       ]
+      ]
+     ],
+     [
+      2,
+      [
+       [
+        2,
+        508,
+        0
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "previous price is Aldi; classified against Rewe's earlier price"
+  },
+  {
+   "id": "shrink-chain",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-01-01",
+      "createdAt": "2026-01-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "200",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-04-01",
+      "createdAt": "2026-04-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "175",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-08-01",
+      "createdAt": "2026-08-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "150",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 3,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 3,
+    "lowest": [
+     1,
+     false
+    ],
+    "highest": [
+     3,
+     false
+    ],
+    "usual": {
+     "value": "7960/7",
+     "basedOn": 3,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "13.27",
+     "lowest": "9.95",
+     "highest": "13.27",
+     "usual": "11.37"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 3,
+      "lowest": 1,
+      "count": 3,
+      "days": 60,
+      "stale": false,
+      "cheapest": true,
+      "display": "13.27"
+     }
+    ],
+    "shrink": [
+     {
+      "kind": "samePrice",
+      "shrink": true,
+      "prev": 1,
+      "cur": 2,
+      "ref": 1,
+      "same": true,
+      "size": -125,
+      "unit": 143
+     },
+     {
+      "kind": "samePrice",
+      "shrink": true,
+      "prev": 2,
+      "cur": 3,
+      "ref": 2,
+      "same": true,
+      "size": -143,
+      "unit": 167
+     }
+    ],
+    "gauge": {},
+    "latestGauge": {
+     "building": 2
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        0
+       ],
+       [
+        2,
+        425,
+        429
+       ],
+       [
+        3,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "two shrinks in a row: two events"
+  },
+  {
+   "id": "shrink-multipack",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 299,
+      "paidPriceMinor": null,
+      "packCount": 4,
+      "itemSize": "100",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 299,
+      "paidPriceMinor": null,
+      "packCount": 3,
+      "itemSize": "100",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 2,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 2,
+    "lowest": [
+     1,
+     false
+    ],
+    "highest": [
+     2,
+     false
+    ],
+    "usual": {
+     "value": "10465/12",
+     "basedOn": 2,
+     "source": "all"
+    },
+    "display": {
+     "latest": "9.97",
+     "lowest": "7.48",
+     "highest": "9.97",
+     "usual": "8.72"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 2,
+      "lowest": 1,
+      "count": 2,
+      "days": 121,
+      "stale": true,
+      "cheapest": false,
+      "display": "9.97"
+     }
+    ],
+    "shrink": [
+     {
+      "kind": "samePrice",
+      "shrink": true,
+      "prev": 1,
+      "cur": 2,
+      "ref": 1,
+      "same": true,
+      "size": -250,
+      "unit": 333
+     }
+    ],
+    "gauge": {},
+    "latestGauge": {
+     "building": 1
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        0
+       ],
+       [
+        2,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "4 x 100 g -> 3 x 100 g at the same price"
+  },
+  {
+   "id": "shrink-unit-change",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "USD",
+     "dimension": "mass",
+     "measurementSystem": "us"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "USD",
+      "packPriceMinor": 399,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1",
+      "unit": "lb",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "USD",
+      "packPriceMinor": 399,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "400",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 2,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "oz",
+    "decimals": 3,
+    "latest": 2,
+    "lowest": [
+     1,
+     false
+    ],
+    "highest": [
+     2,
+     false
+    ],
+    "usual": {
+     "value": "34058335563/1280000000",
+     "basedOn": 2,
+     "source": "all"
+    },
+    "display": {
+     "latest": "0.283",
+     "lowest": "0.249",
+     "highest": "0.283",
+     "usual": "0.266"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 2,
+      "lowest": 1,
+      "count": 2,
+      "days": 121,
+      "stale": true,
+      "cheapest": false,
+      "display": "0.283"
+     }
+    ],
+    "shrink": [
+     {
+      "kind": "samePrice",
+      "shrink": true,
+      "prev": 1,
+      "cur": 2,
+      "ref": 1,
+      "same": true,
+      "size": -118,
+      "unit": 134
+     }
+    ],
+    "gauge": {},
+    "latestGauge": {
+     "building": 1
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        0
+       ],
+       [
+        2,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "1 lb -> 400 g, US book per oz"
+  },
+  {
+   "id": "shrink-bigger",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "175",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 219,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "200",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 2,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 2,
+    "lowest": [
+     2,
+     false
+    ],
+    "highest": [
+     1,
+     false
+    ],
+    "usual": {
+     "value": "15625/14",
+     "basedOn": 2,
+     "source": "all"
+    },
+    "display": {
+     "latest": "10.95",
+     "lowest": "10.95",
+     "highest": "11.37",
+     "usual": "11.16"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 2,
+      "lowest": 2,
+      "count": 2,
+      "days": 121,
+      "stale": true,
+      "cheapest": false,
+      "display": "10.95"
+     }
+    ],
+    "shrink": [],
+    "gauge": {},
+    "latestGauge": {
+     "building": 1
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        1000
+       ],
+       [
+        2,
+        1000,
+        0
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "pack got bigger: no event"
+  },
+  {
+   "id": "shrink-no-store",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": null,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "200",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": null,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "175",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 2,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 2,
+    "lowest": [
+     1,
+     false
+    ],
+    "highest": [
+     2,
+     false
+    ],
+    "usual": {
+     "value": "14925/14",
+     "basedOn": 2,
+     "source": "all"
+    },
+    "display": {
+     "latest": "11.37",
+     "lowest": "9.95",
+     "highest": "11.37",
+     "usual": "10.66"
+    },
+    "stores": [
+     {
+      "store": null,
+      "latest": 2,
+      "lowest": 1,
+      "count": 2,
+      "days": 121,
+      "stale": true,
+      "cheapest": false,
+      "display": "11.37"
+     }
+    ],
+    "shrink": [
+     {
+      "kind": "packSmaller",
+      "shrink": true,
+      "prev": 1,
+      "cur": 2,
+      "ref": 1,
+      "same": false,
+      "size": -125,
+      "unit": 143
+     }
+    ],
+    "gauge": {},
+    "latestGauge": {
+     "building": 1
+    },
+    "chart": [
+     [
+      null,
+      [
+       [
+        1,
+        0,
+        0
+       ],
+       [
+        2,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "prices without a store have no same-store reference"
+  },
+  {
+   "id": "shrink-paid-price",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "200",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": 149,
+      "packCount": 1,
+      "itemSize": "175",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 2,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 2,
+    "lowest": [
+     2,
+     false
+    ],
+    "highest": [
+     1,
+     false
+    ],
+    "usual": {
+     "value": "12925/14",
+     "basedOn": 2,
+     "source": "all"
+    },
+    "display": {
+     "latest": "8.51",
+     "lowest": "8.51",
+     "highest": "9.95",
+     "usual": "9.23"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 2,
+      "lowest": 2,
+      "count": 2,
+      "days": 121,
+      "stale": true,
+      "cheapest": false,
+      "display": "8.51"
+     }
+    ],
+    "shrink": [
+     {
+      "kind": "samePrice",
+      "shrink": true,
+      "prev": 1,
+      "cur": 2,
+      "ref": 1,
+      "same": true,
+      "size": -125,
+      "unit": -144
+     }
+    ],
+    "gauge": {},
+    "latestGauge": {
+     "building": 1
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        1000
+       ],
+       [
+        2,
+        1000,
+        0
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "same shelf price, coupon paid price: kind uses the shelf price, unit uses paid"
+  },
+  {
+   "id": "shrink-two-pack-sizes",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 899,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-04-01",
+      "createdAt": "2026-04-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 499,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 899,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 4,
+      "storeId": 1,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 499,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 4,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 4,
+    "lowest": [
+     3,
+     false
+    ],
+    "highest": [
+     4,
+     false
+    ],
+    "usual": {
+     "value": "1897/2",
+     "basedOn": 4,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "9.98",
+     "lowest": "8.99",
+     "highest": "9.98",
+     "usual": "9.49"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 4,
+      "lowest": 3,
+      "count": 4,
+      "days": 121,
+      "stale": true,
+      "cheapest": false,
+      "display": "9.98"
+     }
+    ],
+    "shrink": [
+     {
+      "kind": "differentPackSize",
+      "shrink": false,
+      "prev": 1,
+      "cur": 2,
+      "ref": 1,
+      "same": true,
+      "size": -500,
+      "unit": 110
+     }
+    ],
+    "gauge": {},
+    "latestGauge": {
+     "verdict": "highest",
+     "pct": 11,
+     "usualAt": 0,
+     "at": 1000
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        0
+       ],
+       [
+        2,
+        337,
+        1000
+       ],
+       [
+        3,
+        663,
+        0
+       ],
+       [
+        4,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "D42 / review #6: 1 kg 8.99 -> 500 g 4.99 -> 1 kg -> 500 g at one store: only the first switch is reported, and as a different pack size (50 % smaller), never shrinkflation"
+  },
+  {
+   "id": "shrink-two-pack-counts",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "volume",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 449,
+      "paidPriceMinor": null,
+      "packCount": 6,
+      "itemSize": "330",
+      "unit": "ml",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-04-01",
+      "createdAt": "2026-04-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 329,
+      "paidPriceMinor": null,
+      "packCount": 4,
+      "itemSize": "330",
+      "unit": "ml",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 449,
+      "paidPriceMinor": null,
+      "packCount": 6,
+      "itemSize": "330",
+      "unit": "ml",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 4,
+      "storeId": 1,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 329,
+      "paidPriceMinor": null,
+      "packCount": 4,
+      "itemSize": "330",
+      "unit": "ml",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 4,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "l",
+    "decimals": 2,
+    "latest": 4,
+    "lowest": [
+     3,
+     false
+    ],
+    "highest": [
+     4,
+     false
+    ],
+    "usual": {
+     "value": "47125/198",
+     "basedOn": 4,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "2.49",
+     "lowest": "2.27",
+     "highest": "2.49",
+     "usual": "2.38"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 4,
+      "lowest": 3,
+      "count": 4,
+      "days": 121,
+      "stale": true,
+      "cheapest": false,
+      "display": "2.49"
+     }
+    ],
+    "shrink": [
+     {
+      "kind": "differentPackSize",
+      "shrink": false,
+      "prev": 1,
+      "cur": 2,
+      "ref": 1,
+      "same": true,
+      "size": -333,
+      "unit": 99
+     }
+    ],
+    "gauge": {},
+    "latestGauge": {
+     "verdict": "highest",
+     "pct": 10,
+     "usualAt": 0,
+     "at": 1000
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        0
+       ],
+       [
+        2,
+        337,
+        1000
+       ],
+       [
+        3,
+        663,
+        0
+       ],
+       [
+        4,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "D42: 6 x 330 ml and 4 x 330 ml bought alternately: no repeated events"
+  },
+  {
+   "id": "shrink-known-then-new",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-01-01",
+      "createdAt": "2026-01-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "200",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-02-01",
+      "createdAt": "2026-02-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 189,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "150",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "200",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 4,
+      "storeId": 1,
+      "observedOn": "2026-04-01",
+      "createdAt": "2026-04-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 189,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "150",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 5,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "200",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 6,
+      "storeId": 1,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "180",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 6,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 6,
+    "lowest": [
+     5,
+     false
+    ],
+    "highest": [
+     4,
+     false
+    ],
+    "usual": {
+     "value": "18905/18",
+     "basedOn": 6,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "11.06",
+     "lowest": "9.95",
+     "highest": "12.60",
+     "usual": "10.50"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 6,
+      "lowest": 5,
+      "count": 6,
+      "days": 121,
+      "stale": true,
+      "cheapest": false,
+      "display": "11.06"
+     }
+    ],
+    "shrink": [
+     {
+      "kind": "cheaperPackDearerUnit",
+      "shrink": true,
+      "prev": 1,
+      "cur": 2,
+      "ref": 1,
+      "same": true,
+      "size": -250,
+      "unit": 266
+     },
+     {
+      "kind": "samePrice",
+      "shrink": true,
+      "prev": 5,
+      "cur": 6,
+      "ref": 5,
+      "same": true,
+      "size": -100,
+      "unit": 111
+     }
+    ],
+    "gauge": {},
+    "latestGauge": {
+     "verdict": "above",
+     "pct": 11,
+     "usualAt": 0,
+     "at": 417
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        0
+       ],
+       [
+        2,
+        205,
+        1000
+       ],
+       [
+        3,
+        391,
+        0
+       ],
+       [
+        4,
+        596,
+        1000
+       ],
+       [
+        5,
+        795,
+        0
+       ],
+       [
+        6,
+        1000,
+        417
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "D42: switching back to a known size is no event; a NEW smaller size of the same pack still is"
+  },
+  {
+   "id": "shrink-30-percent-edge",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-01-01",
+      "createdAt": "2026-01-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-02-01",
+      "createdAt": "2026-02-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "700",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 2,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 4,
+      "storeId": 2,
+      "observedOn": "2026-04-01",
+      "createdAt": "2026-04-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "699",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 4,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 4,
+    "lowest": [
+     3,
+     false
+    ],
+    "highest": [
+     4,
+     false
+    ],
+    "usual": {
+     "value": "3383/14",
+     "basedOn": 4,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "2.85",
+     "lowest": "1.99",
+     "highest": "2.85",
+     "usual": "2.42"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 2,
+      "lowest": 1,
+      "count": 2,
+      "days": 241,
+      "stale": true,
+      "cheapest": false,
+      "display": "2.84"
+     },
+     {
+      "store": 2,
+      "latest": 4,
+      "lowest": 3,
+      "count": 2,
+      "days": 182,
+      "stale": true,
+      "cheapest": false,
+      "display": "2.85"
+     }
+    ],
+    "shrink": [
+     {
+      "kind": "samePrice",
+      "shrink": true,
+      "prev": 1,
+      "cur": 2,
+      "ref": 1,
+      "same": true,
+      "size": -300,
+      "unit": 429
+     },
+     {
+      "kind": "differentPackSize",
+      "shrink": false,
+      "prev": 3,
+      "cur": 4,
+      "ref": 3,
+      "same": true,
+      "size": -301,
+      "unit": 431
+     }
+    ],
+    "gauge": {},
+    "latestGauge": {
+     "verdict": "highest",
+     "pct": 43,
+     "usualAt": 0,
+     "at": 1000
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        0
+       ],
+       [
+        2,
+        344,
+        995
+       ]
+      ]
+     ],
+     [
+      2,
+      [
+       [
+        3,
+        656,
+        0
+       ],
+       [
+        4,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "D42: exactly 30 % smaller is still classified (samePrice); 30.1 % is a different pack size"
+  },
+  {
+   "id": "usual-few-regular",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 500,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 300,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": true
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-07-01",
+      "createdAt": "2026-07-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 520,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 4,
+      "storeId": 1,
+      "observedOn": "2026-08-01",
+      "createdAt": "2026-08-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 320,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": true
+     }
+    ],
+    "candidates": [
+     "4.10"
+    ]
+   },
+   "expected": {
+    "count": 4,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 4,
+    "lowest": [
+     2,
+     true
+    ],
+    "highest": [
+     3,
+     false
+    ],
+    "usual": {
+     "value": "410",
+     "basedOn": 4,
+     "source": "all"
+    },
+    "display": {
+     "latest": "3.20",
+     "lowest": "3.00",
+     "highest": "5.20",
+     "usual": "4.10"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 4,
+      "lowest": 2,
+      "count": 4,
+      "days": 60,
+      "stale": false,
+      "cheapest": true,
+      "display": "3.20"
+     }
+    ],
+    "shrink": [],
+    "gauge": {
+     "4.10": {
+      "verdict": "usual",
+      "pct": 0,
+      "usualAt": 500,
+      "at": 500
+     }
+    },
+    "latestGauge": {
+     "verdict": "good",
+     "pct": -36,
+     "usualAt": 909,
+     "at": 91
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        909
+       ],
+       [
+        2,
+        337,
+        0
+       ],
+       [
+        3,
+        663,
+        1000
+       ],
+       [
+        4,
+        1000,
+        91
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "2 regular + 2 promo in the window: median of all 4"
+  },
+  {
+   "id": "usual-exactly-3-regular",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 500,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 300,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": true
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-07-01",
+      "createdAt": "2026-07-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 520,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 4,
+      "storeId": 1,
+      "observedOn": "2026-08-01",
+      "createdAt": "2026-08-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 480,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": [
+     "4.10"
+    ]
+   },
+   "expected": {
+    "count": 4,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 4,
+    "lowest": [
+     2,
+     true
+    ],
+    "highest": [
+     3,
+     false
+    ],
+    "usual": {
+     "value": "500",
+     "basedOn": 3,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "4.80",
+     "lowest": "3.00",
+     "highest": "5.20",
+     "usual": "5.00"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 4,
+      "lowest": 2,
+      "count": 4,
+      "days": 60,
+      "stale": false,
+      "cheapest": true,
+      "display": "4.80"
+     }
+    ],
+    "shrink": [],
+    "gauge": {
+     "4.10": {
+      "verdict": "good",
+      "pct": -18,
+      "usualAt": 909,
+      "at": 500
+     }
+    },
+    "latestGauge": {
+     "verdict": "usual",
+     "pct": -4,
+     "usualAt": 909,
+     "at": 818
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        909
+       ],
+       [
+        2,
+        337,
+        0
+       ],
+       [
+        3,
+        663,
+        1000
+       ],
+       [
+        4,
+        1000,
+        818
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "3 regular prices: promo excluded from the median"
+  },
+  {
+   "id": "usual-older",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2024-01-15",
+      "createdAt": "2024-01-15T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 410,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2024-02-15",
+      "createdAt": "2024-02-15T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 420,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2024-03-15",
+      "createdAt": "2024-03-15T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 430,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 4,
+      "storeId": 1,
+      "observedOn": "2024-04-15",
+      "createdAt": "2024-04-15T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 440,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 5,
+      "storeId": 1,
+      "observedOn": "2024-05-15",
+      "createdAt": "2024-05-15T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 450,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 6,
+      "storeId": 1,
+      "observedOn": "2024-06-15",
+      "createdAt": "2024-06-15T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 460,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 7,
+      "storeId": 1,
+      "observedOn": "2024-07-15",
+      "createdAt": "2024-07-15T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 470,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": [
+     "4.50"
+    ]
+   },
+   "expected": {
+    "count": 7,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 7,
+    "lowest": [
+     1,
+     false
+    ],
+    "highest": [
+     7,
+     false
+    ],
+    "usual": {
+     "value": "450",
+     "basedOn": 5,
+     "source": "older"
+    },
+    "display": {
+     "latest": "4.70",
+     "lowest": "4.10",
+     "highest": "4.70",
+     "usual": "4.50"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 7,
+      "lowest": 1,
+      "count": 7,
+      "days": 807,
+      "stale": true,
+      "cheapest": false,
+      "display": "4.70"
+     }
+    ],
+    "shrink": [],
+    "gauge": {
+     "4.50": {
+      "verdict": "usual",
+      "pct": 0,
+      "usualAt": 667,
+      "at": 667
+     }
+    },
+    "latestGauge": {
+     "verdict": "highest",
+     "pct": 7,
+     "usualAt": 600,
+     "at": 1000
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        0
+       ],
+       [
+        2,
+        170,
+        167
+       ],
+       [
+        3,
+        330,
+        333
+       ],
+       [
+        4,
+        500,
+        500
+       ],
+       [
+        5,
+        665,
+        667
+       ],
+       [
+        6,
+        835,
+        833
+       ],
+       [
+        7,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "empty 365-day window: median of the last 5 prices (older data)"
+  },
+  {
+   "id": "usual-window-boundary",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2025-09-29",
+      "createdAt": "2025-09-29T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 900,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2025-09-30",
+      "createdAt": "2025-09-30T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 500,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-01-01",
+      "createdAt": "2026-01-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 520,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 4,
+      "storeId": 1,
+      "observedOn": "2026-02-01",
+      "createdAt": "2026-02-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 540,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 4,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 4,
+    "lowest": [
+     2,
+     false
+    ],
+    "highest": [
+     1,
+     false
+    ],
+    "usual": {
+     "value": "520",
+     "basedOn": 3,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "5.40",
+     "lowest": "5.00",
+     "highest": "9.00",
+     "usual": "5.20"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 4,
+      "lowest": 2,
+      "count": 4,
+      "days": 241,
+      "stale": true,
+      "cheapest": false,
+      "display": "5.40"
+     }
+    ],
+    "shrink": [],
+    "gauge": {},
+    "latestGauge": {
+     "verdict": "above",
+     "pct": 6,
+     "usualAt": 25,
+     "at": 100
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        1000
+       ],
+       [
+        2,
+        8,
+        0
+       ],
+       [
+        3,
+        752,
+        50
+       ],
+       [
+        4,
+        1000,
+        100
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "today - 365 days counts, today - 366 does not"
+  },
+  {
+   "id": "usual-odd-median",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 500,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 2,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 450,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-07-01",
+      "createdAt": "2026-07-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 999,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 3,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 3,
+    "lowest": [
+     2,
+     false
+    ],
+    "highest": [
+     3,
+     false
+    ],
+    "usual": {
+     "value": "500",
+     "basedOn": 3,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "9.99",
+     "lowest": "4.50",
+     "highest": "9.99",
+     "usual": "5.00"
+    },
+    "stores": [
+     {
+      "store": 2,
+      "latest": 2,
+      "lowest": 2,
+      "count": 1,
+      "days": 121,
+      "stale": true,
+      "cheapest": false,
+      "display": "4.50"
+     },
+     {
+      "store": 1,
+      "latest": 3,
+      "lowest": 1,
+      "count": 2,
+      "days": 91,
+      "stale": true,
+      "cheapest": false,
+      "display": "9.99"
+     }
+    ],
+    "shrink": [],
+    "gauge": {},
+    "latestGauge": {
+     "building": 2
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        91
+       ],
+       [
+        3,
+        1000,
+        1000
+       ]
+      ]
+     ],
+     [
+      2,
+      [
+       [
+        2,
+        508,
+        0
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "odd count: the middle value"
+  },
+  {
+   "id": "usual-even-median-exact",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 100,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "300",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 101,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "300",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-07-01",
+      "createdAt": "2026-07-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 90,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "300",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 4,
+      "storeId": 1,
+      "observedOn": "2026-08-01",
+      "createdAt": "2026-08-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 120,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "300",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": [
+     "3.35"
+    ]
+   },
+   "expected": {
+    "count": 4,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 4,
+    "lowest": [
+     3,
+     false
+    ],
+    "highest": [
+     4,
+     false
+    ],
+    "usual": {
+     "value": "335",
+     "basedOn": 4,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "4.00",
+     "lowest": "3.00",
+     "highest": "4.00",
+     "usual": "3.35"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 4,
+      "lowest": 3,
+      "count": 4,
+      "days": 60,
+      "stale": false,
+      "cheapest": true,
+      "display": "4.00"
+     }
+    ],
+    "shrink": [],
+    "gauge": {
+     "3.35": {
+      "verdict": "usual",
+      "pct": 0,
+      "usualAt": 350,
+      "at": 350
+     }
+    },
+    "latestGauge": {
+     "verdict": "highest",
+     "pct": 20,
+     "usualAt": 909,
+     "at": 1000
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        333
+       ],
+       [
+        2,
+        337,
+        367
+       ],
+       [
+        3,
+        663,
+        0
+       ],
+       [
+        4,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "even count, middle two 1.00/300 g and 1.01/300 g: exact mean (no rounding)"
+  },
+  {
+   "id": "gauge-two-prices",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 500,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 450,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": [
+     "4.00",
+     "6.00"
+    ]
+   },
+   "expected": {
+    "count": 2,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 2,
+    "lowest": [
+     2,
+     false
+    ],
+    "highest": [
+     1,
+     false
+    ],
+    "usual": {
+     "value": "475",
+     "basedOn": 2,
+     "source": "all"
+    },
+    "display": {
+     "latest": "4.50",
+     "lowest": "4.50",
+     "highest": "5.00",
+     "usual": "4.75"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 2,
+      "lowest": 2,
+      "count": 2,
+      "days": 121,
+      "stale": true,
+      "cheapest": false,
+      "display": "4.50"
+     }
+    ],
+    "shrink": [],
+    "gauge": {
+     "4.00": {
+      "building": 2
+     },
+     "6.00": {
+      "building": 2
+     }
+    },
+    "latestGauge": {
+     "building": 1
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        1000
+       ],
+       [
+        2,
+        1000,
+        0
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "fewer than 3 prices: building your history"
+  },
+  {
+   "id": "gauge-three-prices",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 500,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 450,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-07-01",
+      "createdAt": "2026-07-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 550,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": [
+     "4.00",
+     "4.75",
+     "5.00",
+     "5.50",
+     "6.00"
+    ]
+   },
+   "expected": {
+    "count": 3,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 3,
+    "lowest": [
+     2,
+     false
+    ],
+    "highest": [
+     3,
+     false
+    ],
+    "usual": {
+     "value": "500",
+     "basedOn": 3,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "5.50",
+     "lowest": "4.50",
+     "highest": "5.50",
+     "usual": "5.00"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 3,
+      "lowest": 2,
+      "count": 3,
+      "days": 91,
+      "stale": true,
+      "cheapest": false,
+      "display": "5.50"
+     }
+    ],
+    "shrink": [],
+    "gauge": {
+     "4.00": {
+      "verdict": "lowest",
+      "pct": -20,
+      "usualAt": 500,
+      "at": 0
+     },
+     "4.75": {
+      "verdict": "good",
+      "pct": -5,
+      "usualAt": 500,
+      "at": 250
+     },
+     "5.00": {
+      "verdict": "usual",
+      "pct": 0,
+      "usualAt": 500,
+      "at": 500
+     },
+     "5.50": {
+      "verdict": "highest",
+      "pct": 10,
+      "usualAt": 500,
+      "at": 1000
+     },
+     "6.00": {
+      "verdict": "highest",
+      "pct": 20,
+      "usualAt": 500,
+      "at": 1000
+     }
+    },
+    "latestGauge": {
+     "building": 2
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        500
+       ],
+       [
+        2,
+        508,
+        0
+       ],
+       [
+        3,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "exactly 3 prices: verdicts shown"
+  },
+  {
+   "id": "gauge-above",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-04-01",
+      "createdAt": "2026-04-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 400,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 500,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 500,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 4,
+      "storeId": 1,
+      "observedOn": "2026-07-01",
+      "createdAt": "2026-07-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 500,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 5,
+      "storeId": 1,
+      "observedOn": "2026-08-01",
+      "createdAt": "2026-08-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 600,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": [
+     "3.00",
+     "4.00",
+     "4.75",
+     "4.7501",
+     "5.00",
+     "5.25",
+     "5.26",
+     "5.99",
+     "6.00",
+     "7.00"
+    ]
+   },
+   "expected": {
+    "count": 5,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 5,
+    "lowest": [
+     1,
+     false
+    ],
+    "highest": [
+     5,
+     false
+    ],
+    "usual": {
+     "value": "500",
+     "basedOn": 5,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "6.00",
+     "lowest": "4.00",
+     "highest": "6.00",
+     "usual": "5.00"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 5,
+      "lowest": 1,
+      "count": 5,
+      "days": 60,
+      "stale": false,
+      "cheapest": true,
+      "display": "6.00"
+     }
+    ],
+    "shrink": [],
+    "gauge": {
+     "3.00": {
+      "verdict": "lowest",
+      "pct": -40,
+      "usualAt": 500,
+      "at": 0
+     },
+     "4.00": {
+      "verdict": "lowest",
+      "pct": -20,
+      "usualAt": 500,
+      "at": 0
+     },
+     "4.75": {
+      "verdict": "good",
+      "pct": -5,
+      "usualAt": 500,
+      "at": 375
+     },
+     "4.7501": {
+      "verdict": "usual",
+      "pct": -5,
+      "usualAt": 500,
+      "at": 375
+     },
+     "5.00": {
+      "verdict": "usual",
+      "pct": 0,
+      "usualAt": 500,
+      "at": 500
+     },
+     "5.25": {
+      "verdict": "usual",
+      "pct": 5,
+      "usualAt": 500,
+      "at": 625
+     },
+     "5.26": {
+      "verdict": "above",
+      "pct": 5,
+      "usualAt": 500,
+      "at": 630
+     },
+     "5.99": {
+      "verdict": "above",
+      "pct": 20,
+      "usualAt": 500,
+      "at": 995
+     },
+     "6.00": {
+      "verdict": "highest",
+      "pct": 20,
+      "usualAt": 500,
+      "at": 1000
+     },
+     "7.00": {
+      "verdict": "highest",
+      "pct": 40,
+      "usualAt": 500,
+      "at": 1000
+     }
+    },
+    "latestGauge": {
+     "verdict": "highest",
+     "pct": 20,
+     "usualAt": 1000,
+     "at": 1000
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        0
+       ],
+       [
+        2,
+        246,
+        500
+       ],
+       [
+        3,
+        500,
+        500
+       ],
+       [
+        4,
+        746,
+        500
+       ],
+       [
+        5,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "highest far above usual: the 'above usual' band exists"
+  },
+  {
+   "id": "gauge-percent-half",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 380,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 400,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-07-01",
+      "createdAt": "2026-07-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 420,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": [
+     "4.10",
+     "3.90",
+     "4.02",
+     "3.98"
+    ]
+   },
+   "expected": {
+    "count": 3,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 3,
+    "lowest": [
+     1,
+     false
+    ],
+    "highest": [
+     3,
+     false
+    ],
+    "usual": {
+     "value": "400",
+     "basedOn": 3,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "4.20",
+     "lowest": "3.80",
+     "highest": "4.20",
+     "usual": "4.00"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 3,
+      "lowest": 1,
+      "count": 3,
+      "days": 91,
+      "stale": true,
+      "cheapest": false,
+      "display": "4.20"
+     }
+    ],
+    "shrink": [],
+    "gauge": {
+     "4.10": {
+      "verdict": "usual",
+      "pct": 3,
+      "usualAt": 500,
+      "at": 750
+     },
+     "3.90": {
+      "verdict": "usual",
+      "pct": -3,
+      "usualAt": 500,
+      "at": 250
+     },
+     "4.02": {
+      "verdict": "usual",
+      "pct": 1,
+      "usualAt": 500,
+      "at": 550
+     },
+     "3.98": {
+      "verdict": "usual",
+      "pct": -1,
+      "usualAt": 500,
+      "at": 450
+     }
+    },
+    "latestGauge": {
+     "building": 2
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        0
+       ],
+       [
+        2,
+        508,
+        500
+       ],
+       [
+        3,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "% vs usual half up away from zero: +2.5 -> +3, -2.5 -> -3"
+  },
+  {
+   "id": "gauge-free",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 0,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 0,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-07-01",
+      "createdAt": "2026-07-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 0,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": [
+     "0",
+     "1"
+    ]
+   },
+   "expected": {
+    "count": 3,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 3,
+    "latest": 3,
+    "lowest": [
+     3,
+     false
+    ],
+    "highest": [
+     3,
+     false
+    ],
+    "usual": {
+     "value": "0",
+     "basedOn": 3,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "0.000",
+     "lowest": "0.000",
+     "highest": "0.000",
+     "usual": "0.000"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 3,
+      "lowest": 3,
+      "count": 3,
+      "days": 91,
+      "stale": true,
+      "cheapest": false,
+      "display": "0.000"
+     }
+    ],
+    "shrink": [],
+    "gauge": {
+     "0": {
+      "verdict": "lowest",
+      "pct": null,
+      "usualAt": 500,
+      "at": 500
+     },
+     "1": {
+      "verdict": "highest",
+      "pct": null,
+      "usualAt": 500,
+      "at": 500
+     }
+    },
+    "latestGauge": {
+     "building": 2
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        500
+       ],
+       [
+        2,
+        508,
+        500
+       ],
+       [
+        3,
+        1000,
+        500
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "every price free: usual 0, % not defined"
+  },
+  {
+   "id": "store-stale-boundary",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-07-02",
+      "createdAt": "2026-07-02T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 500,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 2,
+      "observedOn": "2026-07-01",
+      "createdAt": "2026-07-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 400,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 3,
+      "observedOn": "2026-09-01",
+      "createdAt": "2026-09-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 550,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 3,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 3,
+    "lowest": [
+     2,
+     false
+    ],
+    "highest": [
+     3,
+     false
+    ],
+    "usual": {
+     "value": "500",
+     "basedOn": 3,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "5.50",
+     "lowest": "4.00",
+     "highest": "5.50",
+     "usual": "5.00"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 1,
+      "lowest": 1,
+      "count": 1,
+      "days": 90,
+      "stale": false,
+      "cheapest": true,
+      "display": "5.00"
+     },
+     {
+      "store": 3,
+      "latest": 3,
+      "lowest": 3,
+      "count": 1,
+      "days": 29,
+      "stale": false,
+      "cheapest": false,
+      "display": "5.50"
+     },
+     {
+      "store": 2,
+      "latest": 2,
+      "lowest": 2,
+      "count": 1,
+      "days": 91,
+      "stale": true,
+      "cheapest": false,
+      "display": "4.00"
+     }
+    ],
+    "shrink": [],
+    "gauge": {},
+    "latestGauge": {
+     "building": 2
+    },
+    "chart": [
+     [
+      2,
+      [
+       [
+        2,
+        0,
+        0
+       ]
+      ]
+     ],
+     [
+      1,
+      [
+       [
+        1,
+        16,
+        667
+       ]
+      ]
+     ],
+     [
+      3,
+      [
+       [
+        3,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "latest exactly 90 days ago is fresh, 91 days is stale"
+  },
+  {
+   "id": "store-all-stale",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-01-02",
+      "createdAt": "2026-01-02T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 500,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 2,
+      "observedOn": "2026-02-01",
+      "createdAt": "2026-02-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 400,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 2,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 2,
+    "lowest": [
+     2,
+     false
+    ],
+    "highest": [
+     1,
+     false
+    ],
+    "usual": {
+     "value": "450",
+     "basedOn": 2,
+     "source": "all"
+    },
+    "display": {
+     "latest": "4.00",
+     "lowest": "4.00",
+     "highest": "5.00",
+     "usual": "4.50"
+    },
+    "stores": [
+     {
+      "store": 2,
+      "latest": 2,
+      "lowest": 2,
+      "count": 1,
+      "days": 241,
+      "stale": true,
+      "cheapest": false,
+      "display": "4.00"
+     },
+     {
+      "store": 1,
+      "latest": 1,
+      "lowest": 1,
+      "count": 1,
+      "days": 271,
+      "stale": true,
+      "cheapest": false,
+      "display": "5.00"
+     }
+    ],
+    "shrink": [],
+    "gauge": {},
+    "latestGauge": {
+     "building": 1
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        1000
+       ]
+      ]
+     ],
+     [
+      2,
+      [
+       [
+        2,
+        1000,
+        0
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "no store seen in 90 days: no 'last seen cheapest'"
+  },
+  {
+   "id": "store-tie",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-08-02",
+      "createdAt": "2026-08-02T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 250,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 2,
+      "observedOn": "2026-08-01",
+      "createdAt": "2026-08-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 500,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1",
+      "unit": "kg",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 3,
+      "observedOn": "2026-09-01",
+      "createdAt": "2026-09-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 550,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 3,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 3,
+    "lowest": [
+     1,
+     false
+    ],
+    "highest": [
+     3,
+     false
+    ],
+    "usual": {
+     "value": "500",
+     "basedOn": 3,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "5.50",
+     "lowest": "5.00",
+     "highest": "5.50",
+     "usual": "5.00"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 1,
+      "lowest": 1,
+      "count": 1,
+      "days": 59,
+      "stale": false,
+      "cheapest": true,
+      "display": "5.00"
+     },
+     {
+      "store": 2,
+      "latest": 2,
+      "lowest": 2,
+      "count": 1,
+      "days": 60,
+      "stale": false,
+      "cheapest": true,
+      "display": "5.00"
+     },
+     {
+      "store": 3,
+      "latest": 3,
+      "lowest": 3,
+      "count": 1,
+      "days": 29,
+      "stale": false,
+      "cheapest": false,
+      "display": "5.50"
+     }
+    ],
+    "shrink": [
+     {
+      "kind": "differentPackSize",
+      "shrink": false,
+      "prev": 2,
+      "cur": 1,
+      "ref": 2,
+      "same": false,
+      "size": -500,
+      "unit": 0
+     }
+    ],
+    "gauge": {},
+    "latestGauge": {
+     "building": 2
+    },
+    "chart": [
+     [
+      2,
+      [
+       [
+        2,
+        0,
+        0
+       ]
+      ]
+     ],
+     [
+      1,
+      [
+       [
+        1,
+        32,
+        0
+       ]
+      ]
+     ],
+     [
+      3,
+      [
+       [
+        3,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "two stores with the same latest unit price share the badge"
+  },
+  {
+   "id": "store-no-store",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": null,
+      "observedOn": "2026-08-02",
+      "createdAt": "2026-08-02T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 100,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 2,
+      "observedOn": "2026-08-01",
+      "createdAt": "2026-08-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 500,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 2,
+      "observedOn": "2026-09-01",
+      "createdAt": "2026-09-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 450,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 3,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 3,
+    "lowest": [
+     1,
+     false
+    ],
+    "highest": [
+     2,
+     false
+    ],
+    "usual": {
+     "value": "450",
+     "basedOn": 3,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "4.50",
+     "lowest": "1.00",
+     "highest": "5.00",
+     "usual": "4.50"
+    },
+    "stores": [
+     {
+      "store": null,
+      "latest": 1,
+      "lowest": 1,
+      "count": 1,
+      "days": 59,
+      "stale": false,
+      "cheapest": false,
+      "display": "1.00"
+     },
+     {
+      "store": 2,
+      "latest": 3,
+      "lowest": 3,
+      "count": 2,
+      "days": 29,
+      "stale": false,
+      "cheapest": true,
+      "display": "4.50"
+     }
+    ],
+    "shrink": [],
+    "gauge": {},
+    "latestGauge": {
+     "building": 2
+    },
+    "chart": [
+     [
+      2,
+      [
+       [
+        2,
+        0,
+        1000
+       ],
+       [
+        3,
+        1000,
+        875
+       ]
+      ]
+     ],
+     [
+      null,
+      [
+       [
+        1,
+        32,
+        0
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "prices without a store get a row but never the badge"
+  },
+  {
+   "id": "store-latest-promo",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-08-01",
+      "createdAt": "2026-08-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 500,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-09-01",
+      "createdAt": "2026-09-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 300,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": true
+     },
+     {
+      "id": 3,
+      "storeId": 2,
+      "observedOn": "2026-09-02",
+      "createdAt": "2026-09-02T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 400,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 3,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 3,
+    "lowest": [
+     2,
+     true
+    ],
+    "highest": [
+     1,
+     false
+    ],
+    "usual": {
+     "value": "400",
+     "basedOn": 3,
+     "source": "all"
+    },
+    "display": {
+     "latest": "4.00",
+     "lowest": "3.00",
+     "highest": "5.00",
+     "usual": "4.00"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 2,
+      "lowest": 2,
+      "count": 2,
+      "days": 29,
+      "stale": false,
+      "cheapest": true,
+      "display": "3.00"
+     },
+     {
+      "store": 2,
+      "latest": 3,
+      "lowest": 3,
+      "count": 1,
+      "days": 28,
+      "stale": false,
+      "cheapest": false,
+      "display": "4.00"
+     }
+    ],
+    "shrink": [],
+    "gauge": {},
+    "latestGauge": {
+     "building": 2
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        1000
+       ],
+       [
+        2,
+        969,
+        0
+       ]
+      ]
+     ],
+     [
+      2,
+      [
+       [
+        3,
+        1000,
+        500
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "a store whose latest price is a promo: the promo counts for that store"
+  },
+  {
+   "id": "latest-same-day",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-09-01",
+      "createdAt": "2026-09-01T18:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 500,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 2,
+      "observedOn": "2026-09-01",
+      "createdAt": "2026-09-01T09:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 450,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 2,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 1,
+    "lowest": [
+     2,
+     false
+    ],
+    "highest": [
+     1,
+     false
+    ],
+    "usual": {
+     "value": "475",
+     "basedOn": 2,
+     "source": "all"
+    },
+    "display": {
+     "latest": "5.00",
+     "lowest": "4.50",
+     "highest": "5.00",
+     "usual": "4.75"
+    },
+    "stores": [
+     {
+      "store": 2,
+      "latest": 2,
+      "lowest": 2,
+      "count": 1,
+      "days": 29,
+      "stale": false,
+      "cheapest": true,
+      "display": "4.50"
+     },
+     {
+      "store": 1,
+      "latest": 1,
+      "lowest": 1,
+      "count": 1,
+      "days": 29,
+      "stale": false,
+      "cheapest": false,
+      "display": "5.00"
+     }
+    ],
+    "shrink": [],
+    "gauge": {},
+    "latestGauge": {
+     "building": 1
+    },
+    "chart": [
+     [
+      2,
+      [
+       [
+        2,
+        500,
+        0
+       ]
+      ]
+     ],
+     [
+      1,
+      [
+       [
+        1,
+        500,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "same date: created_at decides the latest"
+  },
+  {
+   "id": "lowest-tie-most-recent",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-03-01",
+      "createdAt": "2026-03-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 400,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 2,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 400,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-07-01",
+      "createdAt": "2026-07-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 500,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 4,
+      "storeId": 1,
+      "observedOn": "2026-08-01",
+      "createdAt": "2026-08-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 500,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 5,
+      "storeId": 2,
+      "observedOn": "2026-09-01",
+      "createdAt": "2026-09-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 500,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 5,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 5,
+    "lowest": [
+     2,
+     false
+    ],
+    "highest": [
+     5,
+     false
+    ],
+    "usual": {
+     "value": "500",
+     "basedOn": 5,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "5.00",
+     "lowest": "4.00",
+     "highest": "5.00",
+     "usual": "5.00"
+    },
+    "stores": [
+     {
+      "store": 2,
+      "latest": 5,
+      "lowest": 2,
+      "count": 2,
+      "days": 29,
+      "stale": false,
+      "cheapest": true,
+      "display": "5.00"
+     },
+     {
+      "store": 1,
+      "latest": 4,
+      "lowest": 1,
+      "count": 3,
+      "days": 60,
+      "stale": false,
+      "cheapest": true,
+      "display": "5.00"
+     }
+    ],
+    "shrink": [],
+    "gauge": {},
+    "latestGauge": {
+     "verdict": "highest",
+     "pct": 11,
+     "usualAt": 500,
+     "at": 1000
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        0
+       ],
+       [
+        3,
+        663,
+        1000
+       ],
+       [
+        4,
+        832,
+        1000
+       ]
+      ]
+     ],
+     [
+      2,
+      [
+       [
+        2,
+        332,
+        0
+       ],
+       [
+        5,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "equal lowest prices: the most recent one is shown"
+  },
+  {
+   "id": "invalid-unit",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 500,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1000",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 100,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "ml",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 1,
+    "otherCurrency": 0,
+    "invalid": 1,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 1,
+    "lowest": [
+     1,
+     false
+    ],
+    "highest": [
+     1,
+     false
+    ],
+    "usual": {
+     "value": "500",
+     "basedOn": 1,
+     "source": "all"
+    },
+    "display": {
+     "latest": "5.00",
+     "lowest": "5.00",
+     "highest": "5.00",
+     "usual": "5.00"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 1,
+      "lowest": 1,
+      "count": 1,
+      "days": 152,
+      "stale": true,
+      "cheapest": false,
+      "display": "5.00"
+     }
+    ],
+    "shrink": [],
+    "gauge": {},
+    "latestGauge": {
+     "building": 0
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        500,
+        500
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "a price in a volume unit on a mass product is not used"
+  },
+  {
+   "id": "paid-price",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 249,
+      "paidPriceMinor": 166,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 25,
+      "isPromo": true
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 249,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 25,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-07-01",
+      "createdAt": "2026-07-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 249,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": []
+   },
+   "expected": {
+    "count": 3,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 3,
+    "lowest": [
+     1,
+     true
+    ],
+    "highest": [
+     3,
+     false
+    ],
+    "usual": {
+     "value": "498",
+     "basedOn": 3,
+     "source": "all"
+    },
+    "display": {
+     "latest": "4.98",
+     "lowest": "3.32",
+     "highest": "4.98",
+     "usual": "4.98"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 3,
+      "lowest": 1,
+      "count": 3,
+      "days": 91,
+      "stale": true,
+      "cheapest": false,
+      "display": "4.98"
+     }
+    ],
+    "shrink": [],
+    "gauge": {},
+    "latestGauge": {
+     "building": 2
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        0
+       ],
+       [
+        2,
+        508,
+        1000
+       ],
+       [
+        3,
+        1000,
+        1000
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "paid price after a deal drives the unit price; deposit never does"
+  },
+  {
+   "id": "jpy",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "JPY",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "JPY",
+      "packPriceMinor": 398,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 1,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "JPY",
+      "packPriceMinor": 428,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-07-01",
+      "createdAt": "2026-07-01T12:00:00.000Z",
+      "currency": "JPY",
+      "packPriceMinor": 358,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "500",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": [
+     "700",
+     "860"
+    ]
+   },
+   "expected": {
+    "count": 3,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 0,
+    "latest": 3,
+    "lowest": [
+     3,
+     false
+    ],
+    "highest": [
+     2,
+     false
+    ],
+    "usual": {
+     "value": "796",
+     "basedOn": 3,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "716",
+     "lowest": "716",
+     "highest": "856",
+     "usual": "796"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 3,
+      "lowest": 3,
+      "count": 3,
+      "days": 91,
+      "stale": true,
+      "cheapest": false,
+      "display": "716"
+     }
+    ],
+    "shrink": [],
+    "gauge": {
+     "700": {
+      "verdict": "lowest",
+      "pct": -12,
+      "usualAt": 571,
+      "at": 0
+     },
+     "860": {
+      "verdict": "highest",
+      "pct": 8,
+      "usualAt": 571,
+      "at": 1000
+     }
+    },
+    "latestGauge": {
+     "building": 2
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        571
+       ],
+       [
+        2,
+        508,
+        1000
+       ],
+       [
+        3,
+        1000,
+        0
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "JPY book: 0 decimals when every value >= 1 yen"
+  },
+  {
+   "id": "count-rolls",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "count",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 399,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "8",
+      "unit": "pcs",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 2,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 549,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "12",
+      "unit": "pcs",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-07-01",
+      "createdAt": "2026-07-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 449,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "1",
+      "unit": "dozen",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": [
+     "0.45"
+    ]
+   },
+   "expected": {
+    "count": 3,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "1",
+    "decimals": 3,
+    "latest": 3,
+    "lowest": [
+     3,
+     false
+    ],
+    "highest": [
+     1,
+     false
+    ],
+    "usual": {
+     "value": "183/4",
+     "basedOn": 3,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "0.374",
+     "lowest": "0.374",
+     "highest": "0.499",
+     "usual": "0.458"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 3,
+      "lowest": 3,
+      "count": 2,
+      "days": 91,
+      "stale": true,
+      "cheapest": false,
+      "display": "0.374"
+     },
+     {
+      "store": 2,
+      "latest": 2,
+      "lowest": 2,
+      "count": 1,
+      "days": 121,
+      "stale": true,
+      "cheapest": false,
+      "display": "0.458"
+     }
+    ],
+    "shrink": [],
+    "gauge": {
+     "0.45": {
+      "verdict": "usual",
+      "pct": -2,
+      "usualAt": 669,
+      "at": 609
+     }
+    },
+    "latestGauge": {
+     "building": 2
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        1000
+       ],
+       [
+        3,
+        1000,
+        0
+       ]
+      ]
+     ],
+     [
+      2,
+      [
+       [
+        2,
+        508,
+        669
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "count product per roll: 3 decimals under 1 euro"
+  },
+  {
+   "id": "volume-us",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "USD",
+     "dimension": "volume",
+     "measurementSystem": "us"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-05-01",
+      "createdAt": "2026-05-01T12:00:00.000Z",
+      "currency": "USD",
+      "packPriceMinor": 349,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "64",
+      "unit": "floz_us",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 2,
+      "storeId": 2,
+      "observedOn": "2026-06-01",
+      "createdAt": "2026-06-01T12:00:00.000Z",
+      "currency": "USD",
+      "packPriceMinor": 299,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "2",
+      "unit": "l",
+      "depositMinor": 0,
+      "isPromo": false
+     },
+     {
+      "id": 3,
+      "storeId": 1,
+      "observedOn": "2026-07-01",
+      "createdAt": "2026-07-01T12:00:00.000Z",
+      "currency": "USD",
+      "packPriceMinor": 379,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "64",
+      "unit": "floz_us",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": [
+     "0.05"
+    ]
+   },
+   "expected": {
+    "count": 3,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "floz_us",
+    "decimals": 3,
+    "latest": 3,
+    "lowest": [
+     2,
+     false
+    ],
+    "highest": [
+     3,
+     false
+    ],
+    "usual": {
+     "value": "349/64",
+     "basedOn": 3,
+     "source": "regular"
+    },
+    "display": {
+     "latest": "0.059",
+     "lowest": "0.044",
+     "highest": "0.059",
+     "usual": "0.055"
+    },
+    "stores": [
+     {
+      "store": 2,
+      "latest": 2,
+      "lowest": 2,
+      "count": 1,
+      "days": 121,
+      "stale": true,
+      "cheapest": false,
+      "display": "0.044"
+     },
+     {
+      "store": 1,
+      "latest": 3,
+      "lowest": 1,
+      "count": 2,
+      "days": 91,
+      "stale": true,
+      "cheapest": false,
+      "display": "0.059"
+     }
+    ],
+    "shrink": [],
+    "gauge": {
+     "0.05": {
+      "verdict": "good",
+      "pct": -8,
+      "usualAt": 688,
+      "at": 386
+     }
+    },
+    "latestGauge": {
+     "building": 2
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        0,
+        688
+       ],
+       [
+        3,
+        1000,
+        1000
+       ]
+      ]
+     ],
+     [
+      2,
+      [
+       [
+        2,
+        508,
+        0
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "US book per fl oz, liters and fl oz mixed"
+  },
+  {
+   "id": "empty",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [],
+    "candidates": [
+     "1"
+    ]
+   },
+   "expected": {
+    "count": 0,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": null,
+    "lowest": null,
+    "highest": null,
+    "usual": null,
+    "display": null,
+    "stores": [],
+    "shrink": [],
+    "gauge": {
+     "1": {
+      "building": 0
+     }
+    },
+    "latestGauge": null,
+    "chart": []
+   },
+   "note": "no prices at all"
+  },
+  {
+   "id": "single",
+   "input": {
+    "today": "2026-09-30",
+    "settings": {
+     "currency": "EUR",
+     "dimension": "mass",
+     "measurementSystem": "metric"
+    },
+    "observations": [
+     {
+      "id": 1,
+      "storeId": 1,
+      "observedOn": "2026-09-01",
+      "createdAt": "2026-09-01T12:00:00.000Z",
+      "currency": "EUR",
+      "packPriceMinor": 199,
+      "paidPriceMinor": null,
+      "packCount": 1,
+      "itemSize": "200",
+      "unit": "g",
+      "depositMinor": 0,
+      "isPromo": false
+     }
+    ],
+    "candidates": [
+     "9"
+    ]
+   },
+   "expected": {
+    "count": 1,
+    "otherCurrency": 0,
+    "invalid": 0,
+    "basis": "kg",
+    "decimals": 2,
+    "latest": 1,
+    "lowest": [
+     1,
+     false
+    ],
+    "highest": [
+     1,
+     false
+    ],
+    "usual": {
+     "value": "995",
+     "basedOn": 1,
+     "source": "all"
+    },
+    "display": {
+     "latest": "9.95",
+     "lowest": "9.95",
+     "highest": "9.95",
+     "usual": "9.95"
+    },
+    "stores": [
+     {
+      "store": 1,
+      "latest": 1,
+      "lowest": 1,
+      "count": 1,
+      "days": 29,
+      "stale": false,
+      "cheapest": true,
+      "display": "9.95"
+     }
+    ],
+    "shrink": [],
+    "gauge": {
+     "9": {
+      "building": 1
+     }
+    },
+    "latestGauge": {
+     "building": 0
+    },
+    "chart": [
+     [
+      1,
+      [
+       [
+        1,
+        500,
+        500
+       ]
+      ]
+     ]
+    ]
+   },
+   "note": "one price: tiles, no gauge"
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+# .oss-scrub-allow - findings of scripts/oss/scrub-check.sh that a human checked and accepts (public file, no values).
+# Reviewed 2026-10-16 for the first public source release.
+P-PHONE test/fixtures/engine/barcode.json   # EAN/UPC barcode digits in test fixtures, not phone numbers
+P-PHONE src/db/barcodes.test.ts             # barcode digits in a unit test
+P-PKGID README.md                 # placeholder app id com.tim.*: the identifier changes before the first store release
+P-PKGID app.config.ts             # placeholder app id com.tim.*: the identifier changes before the first store release
+P-PKGID fdroid/*                  # placeholder app id com.tim.*: the identifier changes before the first store release
+P-PKGID scripts/launch-timing.sh  # placeholder app id com.tim.*: the identifier changes before the first store release

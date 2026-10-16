@@ -1,0 +1,11 @@
+appId: ${APP_ID}
+---
+# V1.5 P1 (D65): hands ${CODE} (scanner type ${TYPE}) to the open scan screen as if the camera had read it (dev builds only;
+# a simulator has no camera and Maestro cannot show a barcode to one). The scan screen must already be open.
+- evalScript: ${output.scanNonce = String(Date.now() % 100000000)}
+- openLink: ${APP_SCHEME}://debug/scan?code=${CODE}&type=${TYPE}&nonce=${output.scanNonce}
+- runFlow:
+    when:
+      visible: "Open"
+    commands:
+      - tapOn: "Open"

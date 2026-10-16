@@ -1,0 +1,80 @@
+appId: ${APP_ID}
+name: Gauge in Compare - S1 book, 4.49 is a Good price -10 %, price-basis label with tax and cashback (A8, D40)
+tags:
+  - compare
+---
+- runFlow:
+    file: subflows/seed.yaml
+    env:
+      SEED: s1
+- runFlow: subflows/settings-eu.yaml
+# U5: tap name -> pick the product -> type the price -> gauge line
+- tapOn: {id: link-A}
+- tapOn: {id: pick-1}
+- extendedWaitUntil:
+    visible:
+      id: link-A
+      text: Coffee beans
+    timeout: 15000
+- runFlow:
+    file: subflows/type.yaml
+    env:
+      KEYS: 4.49n1
+- tapOn: {id: unit-kg}
+- assertVisible:
+    id: gauge-A
+    text: "10 % below your usual — Good price"
+- assertNotVisible:
+    id: gauge-basis-A
+
+# US-style add-tax card: Compare ranks with tax, the gauge stays on the shelf price and says so (D40)
+- tapOn: {id: tax-chip}
+- tapOn: {id: tax-add}
+- tapOn: {id: tkey-8}
+- tapOn: {id: tkey-sep}
+- tapOn: {id: tkey-8}
+- tapOn: {id: tkey-7}
+- tapOn: {id: tkey-5}
+- tapOn: {id: tax-done}
+- assertVisible:
+    id: tax-chip
+    text: "\\+ 8\\.875 % tax"
+- assertVisible:
+    id: gauge-A
+    text: "10 % below your usual — Good price"
+- assertVisible:
+    id: gauge-basis-A
+    text: "Judged on the shelf price before tax, like your saved prices"
+# The review's case: a shelf tag equal to the usual price, tax added at the till -> still "Usual price"
+- tapOn: {id: price-A}
+- tapOn: {id: key-del}
+- tapOn: {id: key-del}
+- tapOn: {id: key-del}
+- tapOn: {id: key-del}
+- runFlow:
+    file: subflows/type.yaml
+    env:
+      KEYS: 4.98
+- assertVisible:
+    id: result-A
+    text: "€5\\.42 per kg"
+- assertVisible:
+    id: gauge-A
+    text: "Same as your usual — Usual price"
+
+# Cashback card: the label names both exclusions
+- tapOn: {id: deal-add-A}
+- tapOn: {id: form-more}
+- tapOn: {id: form-cashback}
+- tapOn: {id: dealfield-pct}
+- runFlow:
+    file: subflows/dtype.yaml
+    env:
+      KEYS: "10"
+- tapOn: {id: deal-done}
+- assertVisible:
+    id: gauge-basis-A
+    text: "Judged on the shelf price before tax and cashback, like your saved prices"
+- assertVisible:
+    id: gauge-A
+    text: "Same as your usual — Usual price"

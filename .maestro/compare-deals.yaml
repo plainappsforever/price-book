@@ -1,0 +1,108 @@
+appId: ${APP_ID}
+name: Compare deals - E8 3 for 2, E10 multi-buy remainder, E12 10 for 10 on screen
+tags:
+  - compare
+---
+- runFlow:
+    file: subflows/seed.yaml
+    env:
+      SEED: empty
+- runFlow: subflows/settings-eu.yaml
+
+# E8: A 500 g €2.29 with "3 for 2" (U2: + Deal -> 3 for 2 = 2 taps) vs B 1.2 kg €5.49
+- runFlow:
+    file: subflows/type.yaml
+    env:
+      KEYS: 2.29n500n5.49n1.2
+- tapOn: {id: unit-kg}
+- tapOn: {id: deal-add-A}
+- tapOn: {id: preset-threeForTwo}
+- assertVisible:
+    id: deal-A-0
+    text: 3 for 2
+- assertVisible:
+    id: result-A
+    text: "€3.05 per kg"
+- assertVisible:
+    id: badge-best-A
+- assertVisible:
+    id: summary-mass
+    text: "33\\.3 % cheaper per kg · saves €2\\.28 on 1\\.5 kg"
+- assertVisible:
+    id: perpack-A
+    text: "You pay €4\\.58 for 3 · €1\\.53 each"
+- tapOn: {id: breakdown-toggle-A}
+- assertVisible: "Buy 2 get 1 free"
+
+# E10: "3 for €5" at €1.99, bought 4 -> €6.99, one item outside the deal
+- tapOn: {id: clear}
+- tapOn: {id: clear}
+- assertVisible:
+    id: missing-A
+    text: Enter a price
+- runFlow:
+    file: subflows/type.yaml
+    env:
+      KEYS: 1.99n1
+- tapOn: {id: unit-pcs}
+- tapOn: {id: deal-add-A}
+- tapOn: {id: form-nForPrice}
+- runFlow:
+    file: subflows/dtype.yaml
+    env:
+      KEYS: 3n5
+- tapOn: {id: deal-done}
+- assertVisible:
+    id: deal-A-0
+    text: 3 for €5.00
+- assertVisible:
+    id: perpack-A
+    text: "You pay €5\\.00 for 3 · €1\\.67 each"
+- tapOn: {id: qty-A}
+- tapOn: {id: key-4}
+- assertVisible:
+    id: perpack-A
+    text: "You pay €6\\.99 for 4 · €1\\.75 each"
+- assertVisible: "1 item outside the deal pays the normal price"
+
+# E12 in dollars: "10 for $10" at $1.29. Per item: q1 $1.00. Must buy: q3 $3.87 + "Deal needs 10 — 7 more"
+- tapOn: {id: open-settings}
+- tapOn: {id: currency-USD}
+- runFlow:
+    file: subflows/back.yaml
+    env:
+      BACK_TITLE: Compare
+- tapOn: {id: clear}
+- tapOn: {id: clear}
+- runFlow:
+    file: subflows/type.yaml
+    env:
+      KEYS: 1.29n1
+- tapOn: {id: unit-pcs}
+- tapOn: {id: deal-add-A}
+- tapOn: {id: form-nForPrice}
+- runFlow:
+    file: subflows/dtype.yaml
+    env:
+      KEYS: 10n10
+- tapOn: {id: dealtoggle-perItem}
+- tapOn: {id: deal-done}
+- tapOn: {id: qty-A}
+- tapOn: {id: key-1}
+- assertVisible:
+    id: perpack-A
+    text: "You pay \\$1\\.00 for 1 · \\$1\\.00 each"
+- tapOn: {id: deal-remove-A-0}
+- tapOn: {id: deal-add-A}
+- tapOn: {id: form-nForPrice}
+- runFlow:
+    file: subflows/dtype.yaml
+    env:
+      KEYS: 10n10
+- tapOn: {id: deal-done}
+- tapOn: {id: qty-A}
+- tapOn: {id: key-3}
+- assertVisible:
+    id: perpack-A
+    text: "You pay \\$3\\.87 for 3 · \\$1\\.29 each"
+- assertVisible: "Deal needs 10 — 7 more"

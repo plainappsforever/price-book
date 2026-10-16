@@ -1,0 +1,2428 @@
+{
+  "halfUp": [
+    {
+      "id": "hu-4725",
+      "input": {
+        "n": "4725",
+        "d": "1000"
+      },
+      "expected": "5",
+      "note": "4.725 -> 5 (half up)"
+    },
+    {
+      "id": "hu-0",
+      "input": {
+        "n": "0",
+        "d": "7"
+      },
+      "expected": "0",
+      "note": "zero"
+    },
+    {
+      "id": "hu-half",
+      "input": {
+        "n": "1",
+        "d": "2"
+      },
+      "expected": "1",
+      "note": "0.5 -> 1"
+    },
+    {
+      "id": "hu-just-below-half",
+      "input": {
+        "n": "499",
+        "d": "1000"
+      },
+      "expected": "0",
+      "note": "0.499 -> 0"
+    },
+    {
+      "id": "hu-just-above-half",
+      "input": {
+        "n": "501",
+        "d": "1000"
+      },
+      "expected": "1",
+      "note": "0.501 -> 1"
+    },
+    {
+      "id": "hu-1p5",
+      "input": {
+        "n": "3",
+        "d": "2"
+      },
+      "expected": "2",
+      "note": "1.5 -> 2"
+    },
+    {
+      "id": "hu-2p5",
+      "input": {
+        "n": "5",
+        "d": "2"
+      },
+      "expected": "3",
+      "note": "2.5 -> 3 (not banker rounding)"
+    },
+    {
+      "id": "hu-3p5",
+      "input": {
+        "n": "7",
+        "d": "2"
+      },
+      "expected": "4",
+      "note": "3.5 -> 4"
+    },
+    {
+      "id": "hu-third",
+      "input": {
+        "n": "1",
+        "d": "3"
+      },
+      "expected": "0",
+      "note": "1/3 -> 0"
+    },
+    {
+      "id": "hu-two-thirds",
+      "input": {
+        "n": "2",
+        "d": "3"
+      },
+      "expected": "1",
+      "note": "2/3 -> 1"
+    },
+    {
+      "id": "hu-neg-half",
+      "input": {
+        "n": "-1",
+        "d": "2"
+      },
+      "expected": "-1",
+      "note": "negatives round half away from zero (symmetric)"
+    },
+    {
+      "id": "hu-neg-2p5",
+      "input": {
+        "n": "-5",
+        "d": "2"
+      },
+      "expected": "-3",
+      "note": "-2.5 -> -3"
+    },
+    {
+      "id": "hu-neg-0p4",
+      "input": {
+        "n": "-2",
+        "d": "5"
+      },
+      "expected": "0",
+      "note": "-0.4 -> 0"
+    },
+    {
+      "id": "hu-e7",
+      "input": {
+        "n": "349",
+        "d": "2"
+      },
+      "expected": "175",
+      "note": "SPEC E7: 174.5 -> 175"
+    },
+    {
+      "id": "hu-e4-step1",
+      "input": {
+        "n": "99900",
+        "d": "400"
+      },
+      "expected": "250",
+      "note": "SPEC E4: 249.75 -> 250"
+    },
+    {
+      "id": "hu-e4-step2",
+      "input": {
+        "n": "11235",
+        "d": "100"
+      },
+      "expected": "112",
+      "note": "SPEC E4: 112.35 -> 112"
+    },
+    {
+      "id": "hu-big",
+      "input": {
+        "n": "123456789012345678901234567890",
+        "d": "1000000000000000000000000"
+      },
+      "expected": "123457",
+      "note": "big integers stay exact"
+    }
+  ],
+  "toMinor": [
+    {
+      "id": "tm-e3",
+      "input": {
+        "amountMajor": "4.725",
+        "exponent": 2
+      },
+      "expected": "473",
+      "note": "SPEC E3 exact 4.725 -> 4.73"
+    },
+    {
+      "id": "tm-e1-b",
+      "input": {
+        "amountMajor": "4.575",
+        "exponent": 2
+      },
+      "expected": "458",
+      "note": "SPEC E1 B 4.575 -> 4.58"
+    },
+    {
+      "id": "tm-e1-c",
+      "input": {
+        "amountMajor": "5.26905",
+        "exponent": 2
+      },
+      "expected": "527",
+      "note": "SPEC E1 C 526.905 cents -> 5.27"
+    },
+    {
+      "id": "tm-just-below",
+      "input": {
+        "amountMajor": "4.7249999",
+        "exponent": 2
+      },
+      "expected": "472",
+      "note": "one hair below half stays down"
+    },
+    {
+      "id": "tm-jpy",
+      "input": {
+        "amountMajor": "498.5",
+        "exponent": 0
+      },
+      "expected": "499",
+      "note": "JPY exponent 0"
+    },
+    {
+      "id": "tm-jpy-low",
+      "input": {
+        "amountMajor": "498.4",
+        "exponent": 0
+      },
+      "expected": "498",
+      "note": "JPY exponent 0"
+    },
+    {
+      "id": "tm-kwd",
+      "input": {
+        "amountMajor": "1.2345",
+        "exponent": 3
+      },
+      "expected": "1235",
+      "note": "KWD exponent 3: 1.2345 -> 1.235"
+    },
+    {
+      "id": "tm-zero",
+      "input": {
+        "amountMajor": "0",
+        "exponent": 2
+      },
+      "expected": "0",
+      "note": "free"
+    },
+    {
+      "id": "tm-whole",
+      "input": {
+        "amountMajor": "12",
+        "exponent": 2
+      },
+      "expected": "1200",
+      "note": "integers scale up"
+    }
+  ],
+  "percentOf": [
+    {
+      "id": "pc-e4-25",
+      "input": {
+        "amountMinor": 999,
+        "pct": "25"
+      },
+      "expected": "250",
+      "note": "SPEC E4: 249.75 -> 250 (-2.50)"
+    },
+    {
+      "id": "pc-e4-15",
+      "input": {
+        "amountMinor": 749,
+        "pct": "15"
+      },
+      "expected": "112",
+      "note": "SPEC E4: 112.35 -> 112 (-1.12)"
+    },
+    {
+      "id": "pc-e5-20",
+      "input": {
+        "amountMinor": 1000,
+        "pct": "20"
+      },
+      "expected": "200",
+      "note": "SPEC E5"
+    },
+    {
+      "id": "pc-e5-10",
+      "input": {
+        "amountMinor": 800,
+        "pct": "10"
+      },
+      "expected": "80",
+      "note": "SPEC E5 second step"
+    },
+    {
+      "id": "pc-e7-half",
+      "input": {
+        "amountMinor": 349,
+        "pct": "50"
+      },
+      "expected": "175",
+      "note": "SPEC E7: 174.5 -> 175"
+    },
+    {
+      "id": "pc-e14-store",
+      "input": {
+        "amountMinor": 998,
+        "pct": "20"
+      },
+      "expected": "200",
+      "note": "SPEC E14: 199.6 -> 200"
+    },
+    {
+      "id": "pc-e14-tax-store",
+      "input": {
+        "amountMinor": 698,
+        "pct": "8.875"
+      },
+      "expected": "62",
+      "note": "SPEC E14: 61.9475 -> 62"
+    },
+    {
+      "id": "pc-e14-tax-mfr",
+      "input": {
+        "amountMinor": 798,
+        "pct": "8.875"
+      },
+      "expected": "71",
+      "note": "SPEC E14: 70.8225 -> 71"
+    },
+    {
+      "id": "pc-e16-tax",
+      "input": {
+        "amountMinor": 1999,
+        "pct": "6"
+      },
+      "expected": "120",
+      "note": "SPEC E16: 119.94 -> 120"
+    },
+    {
+      "id": "pc-e16-cashback",
+      "input": {
+        "amountMinor": 1999,
+        "pct": "10"
+      },
+      "expected": "200",
+      "note": "SPEC E16: 199.9 -> 200"
+    },
+    {
+      "id": "pc-e17-add",
+      "input": {
+        "amountMinor": 1000,
+        "pct": "19"
+      },
+      "expected": "190",
+      "note": "SPEC E17 add: 1.90"
+    },
+    {
+      "id": "pc-half-up-tie",
+      "input": {
+        "amountMinor": 5,
+        "pct": "50"
+      },
+      "expected": "3",
+      "note": "2.5 -> 3"
+    },
+    {
+      "id": "pc-zero-pct",
+      "input": {
+        "amountMinor": 999,
+        "pct": "0"
+      },
+      "expected": "0",
+      "note": "rate 0"
+    },
+    {
+      "id": "pc-100",
+      "input": {
+        "amountMinor": 999,
+        "pct": "100"
+      },
+      "expected": "999",
+      "note": "a whole discount"
+    },
+    {
+      "id": "pc-fraction-pct",
+      "input": {
+        "amountMinor": 1000,
+        "pct": "12.5"
+      },
+      "expected": "125",
+      "note": "fractional percent"
+    }
+  ],
+  "toDecimalString": [
+    {
+      "id": "ds-4725",
+      "input": {
+        "value": "4725/1000",
+        "decimals": 2
+      },
+      "expected": "4.73",
+      "note": "half up"
+    },
+    {
+      "id": "ds-zero-decimals",
+      "input": {
+        "value": "4725/1000",
+        "decimals": 0
+      },
+      "expected": "5",
+      "note": "no decimal point"
+    },
+    {
+      "id": "ds-small",
+      "input": {
+        "value": "1/200",
+        "decimals": 2
+      },
+      "expected": "0.01",
+      "note": "0.005 -> 0.01 (leading zero kept)"
+    },
+    {
+      "id": "ds-tiny",
+      "input": {
+        "value": "1/400",
+        "decimals": 2
+      },
+      "expected": "0.00",
+      "note": "0.0025 -> 0.00"
+    },
+    {
+      "id": "ds-three",
+      "input": {
+        "value": "1/3",
+        "decimals": 3
+      },
+      "expected": "0.333",
+      "note": "repeating"
+    },
+    {
+      "id": "ds-e3-oz",
+      "input": {
+        "value": "1/1",
+        "decimals": 3
+      },
+      "expected": "1.000",
+      "note": "padding"
+    },
+    {
+      "id": "ds-neg",
+      "input": {
+        "value": "-1/200",
+        "decimals": 2
+      },
+      "expected": "-0.01",
+      "note": "away from zero"
+    },
+    {
+      "id": "ds-e1-c-conv",
+      "input": {
+        "value": "45359237/100000",
+        "decimals": 1
+      },
+      "expected": "453.6",
+      "note": "SPEC W3: 16 oz = 453.6 g"
+    }
+  ],
+  "exponents": [
+    {
+      "id": "exp-eur",
+      "input": {
+        "currency": "EUR"
+      },
+      "expected": 2,
+      "note": "default"
+    },
+    {
+      "id": "exp-usd",
+      "input": {
+        "currency": "USD"
+      },
+      "expected": 2,
+      "note": "default"
+    },
+    {
+      "id": "exp-gbp",
+      "input": {
+        "currency": "GBP"
+      },
+      "expected": 2,
+      "note": "default"
+    },
+    {
+      "id": "exp-jpy",
+      "input": {
+        "currency": "JPY"
+      },
+      "expected": 0,
+      "note": "SPEC 5.1"
+    },
+    {
+      "id": "exp-kwd",
+      "input": {
+        "currency": "KWD"
+      },
+      "expected": 3,
+      "note": "SPEC 5.1"
+    },
+    {
+      "id": "exp-bhd",
+      "input": {
+        "currency": "BHD"
+      },
+      "expected": 3,
+      "note": "SPEC 5.1"
+    },
+    {
+      "id": "exp-krw",
+      "input": {
+        "currency": "KRW"
+      },
+      "expected": 0,
+      "note": "ISO 4217"
+    }
+  ],
+  "exponentFallbackTable": [
+    {
+      "id": "tab-jpy",
+      "input": {
+        "currency": "JPY"
+      },
+      "expected": 0,
+      "note": "table"
+    },
+    {
+      "id": "tab-kwd",
+      "input": {
+        "currency": "KWD"
+      },
+      "expected": 3,
+      "note": "table"
+    },
+    {
+      "id": "tab-bhd",
+      "input": {
+        "currency": "bhd"
+      },
+      "expected": 3,
+      "note": "table is case-insensitive"
+    },
+    {
+      "id": "tab-eur",
+      "input": {
+        "currency": "EUR"
+      },
+      "expected": 2,
+      "note": "default"
+    },
+    {
+      "id": "tab-unknown",
+      "input": {
+        "currency": "ZZZ"
+      },
+      "expected": 2,
+      "note": "unknown code defaults to 2"
+    }
+  ],
+  "displayDecimals": [
+    {
+      "id": "dd-all-over-1",
+      "input": {
+        "valuesMinor": [
+          "498",
+          "915/2",
+          "23900000000/45359237"
+        ],
+        "exponent": 2
+      },
+      "expected": 2,
+      "note": "SPEC E1: all >= 1 unit -> 2 decimals"
+    },
+    {
+      "id": "dd-some-under-1",
+      "input": {
+        "valuesMinor": [
+          "7059031258125/500000000000",
+          "915/2"
+        ],
+        "exponent": 2
+      },
+      "expected": 3,
+      "note": "SPEC E2 per oz: values < 1 -> 3 decimals for all"
+    },
+    {
+      "id": "dd-exactly-1",
+      "input": {
+        "valuesMinor": [
+          "100",
+          "250"
+        ],
+        "exponent": 2
+      },
+      "expected": 2,
+      "note": "exactly one unit counts as >= 1"
+    },
+    {
+      "id": "dd-just-under-1",
+      "input": {
+        "valuesMinor": [
+          "99",
+          "250"
+        ],
+        "exponent": 2
+      },
+      "expected": 3,
+      "note": "0.99 -> 3 decimals"
+    },
+    {
+      "id": "dd-jpy",
+      "input": {
+        "valuesMinor": [
+          "498",
+          "1200"
+        ],
+        "exponent": 0
+      },
+      "expected": 0,
+      "note": "JPY: whole yen when all >= 1"
+    },
+    {
+      "id": "dd-jpy-under",
+      "input": {
+        "valuesMinor": [
+          "1/2",
+          "1200"
+        ],
+        "exponent": 0
+      },
+      "expected": 1,
+      "note": "JPY under one yen: one decimal"
+    },
+    {
+      "id": "dd-kwd",
+      "input": {
+        "valuesMinor": [
+          "1500",
+          "2500"
+        ],
+        "exponent": 3
+      },
+      "expected": 3,
+      "note": "KWD"
+    },
+    {
+      "id": "dd-empty",
+      "input": {
+        "valuesMinor": [],
+        "exponent": 2
+      },
+      "expected": 2,
+      "note": "nothing shown -> base precision"
+    }
+  ],
+  "formatMinor": [
+    {
+      "id": "fm-eur-en",
+      "input": {
+        "minor": 473,
+        "currency": "EUR",
+        "locale": "en-US"
+      },
+      "expected": "€4.73",
+      "note": "display"
+    },
+    {
+      "id": "fm-usd-en",
+      "input": {
+        "minor": 349,
+        "currency": "USD",
+        "locale": "en-US"
+      },
+      "expected": "$3.49",
+      "note": "display"
+    },
+    {
+      "id": "fm-zero",
+      "input": {
+        "minor": 0,
+        "currency": "EUR",
+        "locale": "en-US"
+      },
+      "expected": "€0.00",
+      "note": "Free still formats"
+    },
+    {
+      "id": "fm-big",
+      "input": {
+        "minor": 100000000,
+        "currency": "USD",
+        "locale": "en-US"
+      },
+      "expected": "$1,000,000.00",
+      "note": "price limit"
+    },
+    {
+      "id": "fm-jpy",
+      "input": {
+        "minor": 498,
+        "currency": "JPY",
+        "locale": "en-US"
+      },
+      "expected": "¥498",
+      "note": "exponent 0"
+    },
+    {
+      "id": "fm-kwd",
+      "input": {
+        "minor": 1235,
+        "currency": "KWD",
+        "locale": "en-US"
+      },
+      "expected": "KWD 1.235",
+      "note": "exponent 3"
+    },
+    {
+      "id": "fm-eur-de",
+      "input": {
+        "minor": 473,
+        "currency": "EUR",
+        "locale": "de-DE"
+      },
+      "expected": "4,73 €",
+      "note": "de-DE comma and trailing symbol"
+    }
+  ],
+  "formatUnitPrice": [
+    {
+      "id": "fu-e3",
+      "input": {
+        "unitMinor": "945/2",
+        "currency": "EUR",
+        "decimals": 2,
+        "locale": "en-US"
+      },
+      "expected": "€4.73",
+      "note": "SPEC E3"
+    },
+    {
+      "id": "fu-e1-b",
+      "input": {
+        "unitMinor": "915/2",
+        "currency": "EUR",
+        "decimals": 2,
+        "locale": "en-US"
+      },
+      "expected": "€4.58",
+      "note": "SPEC E1 B"
+    },
+    {
+      "id": "fu-e1-c",
+      "input": {
+        "unitMinor": "23900000000/45359237",
+        "currency": "EUR",
+        "decimals": 2,
+        "locale": "en-US"
+      },
+      "expected": "€5.27",
+      "note": "SPEC E1 C"
+    },
+    {
+      "id": "fu-e2-a",
+      "input": {
+        "unitMinor": "7059031258125/500000000000",
+        "currency": "USD",
+        "decimals": 3,
+        "locale": "en-US"
+      },
+      "expected": "$0.141",
+      "note": "SPEC E2 A (3 decimals)"
+    },
+    {
+      "id": "fu-e2-b",
+      "input": {
+        "unitMinor": "15563888195625/1200000000000",
+        "currency": "USD",
+        "decimals": 3,
+        "locale": "en-US"
+      },
+      "expected": "$0.130",
+      "note": "SPEC E2 B"
+    },
+    {
+      "id": "fu-e2-c",
+      "input": {
+        "unitMinor": "677553602687500000/45359237000000000",
+        "currency": "USD",
+        "decimals": 3,
+        "locale": "en-US"
+      },
+      "expected": "$0.149",
+      "note": "SPEC E2 C = 239/16 cents"
+    },
+    {
+      "id": "fu-e18-a",
+      "input": {
+        "unitMinor": "449000/1980",
+        "currency": "EUR",
+        "decimals": 2,
+        "locale": "en-US"
+      },
+      "expected": "€2.27",
+      "note": "SPEC E18"
+    },
+    {
+      "id": "fu-e18-b",
+      "input": {
+        "unitMinor": "1190/15",
+        "currency": "EUR",
+        "decimals": 2,
+        "locale": "en-US"
+      },
+      "expected": "€0.79",
+      "note": "SPEC E18"
+    },
+    {
+      "id": "fu-e8-a",
+      "input": {
+        "unitMinor": "22900/75",
+        "currency": "EUR",
+        "decimals": 2,
+        "locale": "en-US"
+      },
+      "expected": "€3.05",
+      "note": "SPEC E8"
+    },
+    {
+      "id": "fu-e16",
+      "input": {
+        "unitMinor": "1919/12",
+        "currency": "USD",
+        "decimals": 2,
+        "locale": "en-US"
+      },
+      "expected": "$1.60",
+      "note": "SPEC E16"
+    },
+    {
+      "id": "fu-jpy",
+      "input": {
+        "unitMinor": "498",
+        "currency": "JPY",
+        "decimals": 0,
+        "locale": "en-US"
+      },
+      "expected": "¥498",
+      "note": "JPY"
+    }
+  ],
+  "floatTraps400g": [
+    {
+      "id": "trap-400g-9",
+      "input": {
+        "packPriceMinor": 9,
+        "sizeG": 400
+      },
+      "expected": 23,
+      "note": "E1 float trap: 9 cents per 400 g = 22.5 cents/kg exactly, half up -> 23"
+    },
+    {
+      "id": "trap-400g-11",
+      "input": {
+        "packPriceMinor": 11,
+        "sizeG": 400
+      },
+      "expected": 28,
+      "note": "E1 float trap: 11 cents per 400 g = 27.5 cents/kg exactly, half up -> 28"
+    },
+    {
+      "id": "trap-400g-15",
+      "input": {
+        "packPriceMinor": 15,
+        "sizeG": 400
+      },
+      "expected": 38,
+      "note": "E1 float trap: 15 cents per 400 g = 37.5 cents/kg exactly, half up -> 38"
+    },
+    {
+      "id": "trap-400g-21",
+      "input": {
+        "packPriceMinor": 21,
+        "sizeG": 400
+      },
+      "expected": 53,
+      "note": "E1 float trap: 21 cents per 400 g = 52.5 cents/kg exactly, half up -> 53"
+    },
+    {
+      "id": "trap-400g-23",
+      "input": {
+        "packPriceMinor": 23,
+        "sizeG": 400
+      },
+      "expected": 58,
+      "note": "E1 float trap: 23 cents per 400 g = 57.5 cents/kg exactly, half up -> 58"
+    },
+    {
+      "id": "trap-400g-29",
+      "input": {
+        "packPriceMinor": 29,
+        "sizeG": 400
+      },
+      "expected": 73,
+      "note": "E1 float trap: 29 cents per 400 g = 72.5 cents/kg exactly, half up -> 73"
+    },
+    {
+      "id": "trap-400g-31",
+      "input": {
+        "packPriceMinor": 31,
+        "sizeG": 400
+      },
+      "expected": 78,
+      "note": "E1 float trap: 31 cents per 400 g = 77.5 cents/kg exactly, half up -> 78"
+    },
+    {
+      "id": "trap-400g-35",
+      "input": {
+        "packPriceMinor": 35,
+        "sizeG": 400
+      },
+      "expected": 88,
+      "note": "E1 float trap: 35 cents per 400 g = 87.5 cents/kg exactly, half up -> 88"
+    },
+    {
+      "id": "trap-400g-41",
+      "input": {
+        "packPriceMinor": 41,
+        "sizeG": 400
+      },
+      "expected": 103,
+      "note": "E1 float trap: 41 cents per 400 g = 102.5 cents/kg exactly, half up -> 103"
+    },
+    {
+      "id": "trap-400g-47",
+      "input": {
+        "packPriceMinor": 47,
+        "sizeG": 400
+      },
+      "expected": 118,
+      "note": "E1 float trap: 47 cents per 400 g = 117.5 cents/kg exactly, half up -> 118"
+    },
+    {
+      "id": "trap-400g-49",
+      "input": {
+        "packPriceMinor": 49,
+        "sizeG": 400
+      },
+      "expected": 123,
+      "note": "E1 float trap: 49 cents per 400 g = 122.5 cents/kg exactly, half up -> 123"
+    },
+    {
+      "id": "trap-400g-51",
+      "input": {
+        "packPriceMinor": 51,
+        "sizeG": 400
+      },
+      "expected": 128,
+      "note": "E1 float trap: 51 cents per 400 g = 127.5 cents/kg exactly, half up -> 128"
+    },
+    {
+      "id": "trap-400g-57",
+      "input": {
+        "packPriceMinor": 57,
+        "sizeG": 400
+      },
+      "expected": 143,
+      "note": "E1 float trap: 57 cents per 400 g = 142.5 cents/kg exactly, half up -> 143"
+    },
+    {
+      "id": "trap-400g-83",
+      "input": {
+        "packPriceMinor": 83,
+        "sizeG": 400
+      },
+      "expected": 208,
+      "note": "E1 float trap: 83 cents per 400 g = 207.5 cents/kg exactly, half up -> 208"
+    },
+    {
+      "id": "trap-400g-87",
+      "input": {
+        "packPriceMinor": 87,
+        "sizeG": 400
+      },
+      "expected": 218,
+      "note": "E1 float trap: 87 cents per 400 g = 217.5 cents/kg exactly, half up -> 218"
+    },
+    {
+      "id": "trap-400g-95",
+      "input": {
+        "packPriceMinor": 95,
+        "sizeG": 400
+      },
+      "expected": 238,
+      "note": "E1 float trap: 95 cents per 400 g = 237.5 cents/kg exactly, half up -> 238"
+    },
+    {
+      "id": "trap-400g-97",
+      "input": {
+        "packPriceMinor": 97,
+        "sizeG": 400
+      },
+      "expected": 243,
+      "note": "E1 float trap: 97 cents per 400 g = 242.5 cents/kg exactly, half up -> 243"
+    },
+    {
+      "id": "trap-400g-99",
+      "input": {
+        "packPriceMinor": 99,
+        "sizeG": 400
+      },
+      "expected": 248,
+      "note": "E1 float trap: 99 cents per 400 g = 247.5 cents/kg exactly, half up -> 248"
+    },
+    {
+      "id": "trap-400g-115",
+      "input": {
+        "packPriceMinor": 115,
+        "sizeG": 400
+      },
+      "expected": 288,
+      "note": "E1 float trap: 115 cents per 400 g = 287.5 cents/kg exactly, half up -> 288"
+    },
+    {
+      "id": "trap-400g-119",
+      "input": {
+        "packPriceMinor": 119,
+        "sizeG": 400
+      },
+      "expected": 298,
+      "note": "E1 float trap: 119 cents per 400 g = 297.5 cents/kg exactly, half up -> 298"
+    },
+    {
+      "id": "trap-400g-139",
+      "input": {
+        "packPriceMinor": 139,
+        "sizeG": 400
+      },
+      "expected": 348,
+      "note": "E1 float trap: 139 cents per 400 g = 347.5 cents/kg exactly, half up -> 348"
+    },
+    {
+      "id": "trap-400g-141",
+      "input": {
+        "packPriceMinor": 141,
+        "sizeG": 400
+      },
+      "expected": 353,
+      "note": "E1 float trap: 141 cents per 400 g = 352.5 cents/kg exactly, half up -> 353"
+    },
+    {
+      "id": "trap-400g-145",
+      "input": {
+        "packPriceMinor": 145,
+        "sizeG": 400
+      },
+      "expected": 363,
+      "note": "E1 float trap: 145 cents per 400 g = 362.5 cents/kg exactly, half up -> 363"
+    },
+    {
+      "id": "trap-400g-149",
+      "input": {
+        "packPriceMinor": 149,
+        "sizeG": 400
+      },
+      "expected": 373,
+      "note": "E1 float trap: 149 cents per 400 g = 372.5 cents/kg exactly, half up -> 373"
+    },
+    {
+      "id": "trap-400g-163",
+      "input": {
+        "packPriceMinor": 163,
+        "sizeG": 400
+      },
+      "expected": 408,
+      "note": "E1 float trap: 163 cents per 400 g = 407.5 cents/kg exactly, half up -> 408"
+    },
+    {
+      "id": "trap-400g-165",
+      "input": {
+        "packPriceMinor": 165,
+        "sizeG": 400
+      },
+      "expected": 413,
+      "note": "E1 float trap: 165 cents per 400 g = 412.5 cents/kg exactly, half up -> 413"
+    },
+    {
+      "id": "trap-400g-169",
+      "input": {
+        "packPriceMinor": 169,
+        "sizeG": 400
+      },
+      "expected": 423,
+      "note": "E1 float trap: 169 cents per 400 g = 422.5 cents/kg exactly, half up -> 423"
+    },
+    {
+      "id": "trap-400g-171",
+      "input": {
+        "packPriceMinor": 171,
+        "sizeG": 400
+      },
+      "expected": 428,
+      "note": "E1 float trap: 171 cents per 400 g = 427.5 cents/kg exactly, half up -> 428"
+    },
+    {
+      "id": "trap-400g-173",
+      "input": {
+        "packPriceMinor": 173,
+        "sizeG": 400
+      },
+      "expected": 433,
+      "note": "E1 float trap: 173 cents per 400 g = 432.5 cents/kg exactly, half up -> 433"
+    },
+    {
+      "id": "trap-400g-179",
+      "input": {
+        "packPriceMinor": 179,
+        "sizeG": 400
+      },
+      "expected": 448,
+      "note": "E1 float trap: 179 cents per 400 g = 447.5 cents/kg exactly, half up -> 448"
+    },
+    {
+      "id": "trap-400g-181",
+      "input": {
+        "packPriceMinor": 181,
+        "sizeG": 400
+      },
+      "expected": 453,
+      "note": "E1 float trap: 181 cents per 400 g = 452.5 cents/kg exactly, half up -> 453"
+    },
+    {
+      "id": "trap-400g-189",
+      "input": {
+        "packPriceMinor": 189,
+        "sizeG": 400
+      },
+      "expected": 473,
+      "note": "E1 float trap: 189 cents per 400 g = 472.5 cents/kg exactly, half up -> 473"
+    },
+    {
+      "id": "trap-400g-191",
+      "input": {
+        "packPriceMinor": 191,
+        "sizeG": 400
+      },
+      "expected": 478,
+      "note": "E1 float trap: 191 cents per 400 g = 477.5 cents/kg exactly, half up -> 478"
+    },
+    {
+      "id": "trap-400g-193",
+      "input": {
+        "packPriceMinor": 193,
+        "sizeG": 400
+      },
+      "expected": 483,
+      "note": "E1 float trap: 193 cents per 400 g = 482.5 cents/kg exactly, half up -> 483"
+    },
+    {
+      "id": "trap-400g-199",
+      "input": {
+        "packPriceMinor": 199,
+        "sizeG": 400
+      },
+      "expected": 498,
+      "note": "E1 float trap: 199 cents per 400 g = 497.5 cents/kg exactly, half up -> 498"
+    },
+    {
+      "id": "trap-400g-201",
+      "input": {
+        "packPriceMinor": 201,
+        "sizeG": 400
+      },
+      "expected": 503,
+      "note": "E1 float trap: 201 cents per 400 g = 502.5 cents/kg exactly, half up -> 503"
+    },
+    {
+      "id": "trap-400g-203",
+      "input": {
+        "packPriceMinor": 203,
+        "sizeG": 400
+      },
+      "expected": 508,
+      "note": "E1 float trap: 203 cents per 400 g = 507.5 cents/kg exactly, half up -> 508"
+    },
+    {
+      "id": "trap-400g-205",
+      "input": {
+        "packPriceMinor": 205,
+        "sizeG": 400
+      },
+      "expected": 513,
+      "note": "E1 float trap: 205 cents per 400 g = 512.5 cents/kg exactly, half up -> 513"
+    },
+    {
+      "id": "trap-400g-207",
+      "input": {
+        "packPriceMinor": 207,
+        "sizeG": 400
+      },
+      "expected": 518,
+      "note": "E1 float trap: 207 cents per 400 g = 517.5 cents/kg exactly, half up -> 518"
+    },
+    {
+      "id": "trap-400g-213",
+      "input": {
+        "packPriceMinor": 213,
+        "sizeG": 400
+      },
+      "expected": 533,
+      "note": "E1 float trap: 213 cents per 400 g = 532.5 cents/kg exactly, half up -> 533"
+    },
+    {
+      "id": "trap-400g-215",
+      "input": {
+        "packPriceMinor": 215,
+        "sizeG": 400
+      },
+      "expected": 538,
+      "note": "E1 float trap: 215 cents per 400 g = 537.5 cents/kg exactly, half up -> 538"
+    },
+    {
+      "id": "trap-400g-223",
+      "input": {
+        "packPriceMinor": 223,
+        "sizeG": 400
+      },
+      "expected": 558,
+      "note": "E1 float trap: 223 cents per 400 g = 557.5 cents/kg exactly, half up -> 558"
+    },
+    {
+      "id": "trap-400g-253",
+      "input": {
+        "packPriceMinor": 253,
+        "sizeG": 400
+      },
+      "expected": 633,
+      "note": "E1 float trap: 253 cents per 400 g = 632.5 cents/kg exactly, half up -> 633"
+    },
+    {
+      "id": "trap-400g-255",
+      "input": {
+        "packPriceMinor": 255,
+        "sizeG": 400
+      },
+      "expected": 638,
+      "note": "E1 float trap: 255 cents per 400 g = 637.5 cents/kg exactly, half up -> 638"
+    },
+    {
+      "id": "trap-400g-257",
+      "input": {
+        "packPriceMinor": 257,
+        "sizeG": 400
+      },
+      "expected": 643,
+      "note": "E1 float trap: 257 cents per 400 g = 642.5 cents/kg exactly, half up -> 643"
+    },
+    {
+      "id": "trap-400g-263",
+      "input": {
+        "packPriceMinor": 263,
+        "sizeG": 400
+      },
+      "expected": 658,
+      "note": "E1 float trap: 263 cents per 400 g = 657.5 cents/kg exactly, half up -> 658"
+    },
+    {
+      "id": "trap-400g-265",
+      "input": {
+        "packPriceMinor": 265,
+        "sizeG": 400
+      },
+      "expected": 663,
+      "note": "E1 float trap: 265 cents per 400 g = 662.5 cents/kg exactly, half up -> 663"
+    },
+    {
+      "id": "trap-400g-273",
+      "input": {
+        "packPriceMinor": 273,
+        "sizeG": 400
+      },
+      "expected": 683,
+      "note": "E1 float trap: 273 cents per 400 g = 682.5 cents/kg exactly, half up -> 683"
+    },
+    {
+      "id": "trap-400g-303",
+      "input": {
+        "packPriceMinor": 303,
+        "sizeG": 400
+      },
+      "expected": 758,
+      "note": "E1 float trap: 303 cents per 400 g = 757.5 cents/kg exactly, half up -> 758"
+    },
+    {
+      "id": "trap-400g-305",
+      "input": {
+        "packPriceMinor": 305,
+        "sizeG": 400
+      },
+      "expected": 763,
+      "note": "E1 float trap: 305 cents per 400 g = 762.5 cents/kg exactly, half up -> 763"
+    },
+    {
+      "id": "trap-400g-307",
+      "input": {
+        "packPriceMinor": 307,
+        "sizeG": 400
+      },
+      "expected": 768,
+      "note": "E1 float trap: 307 cents per 400 g = 767.5 cents/kg exactly, half up -> 768"
+    },
+    {
+      "id": "trap-400g-313",
+      "input": {
+        "packPriceMinor": 313,
+        "sizeG": 400
+      },
+      "expected": 783,
+      "note": "E1 float trap: 313 cents per 400 g = 782.5 cents/kg exactly, half up -> 783"
+    },
+    {
+      "id": "trap-400g-315",
+      "input": {
+        "packPriceMinor": 315,
+        "sizeG": 400
+      },
+      "expected": 788,
+      "note": "E1 float trap: 315 cents per 400 g = 787.5 cents/kg exactly, half up -> 788"
+    },
+    {
+      "id": "trap-400g-321",
+      "input": {
+        "packPriceMinor": 321,
+        "sizeG": 400
+      },
+      "expected": 803,
+      "note": "E1 float trap: 321 cents per 400 g = 802.5 cents/kg exactly, half up -> 803"
+    },
+    {
+      "id": "trap-400g-323",
+      "input": {
+        "packPriceMinor": 323,
+        "sizeG": 400
+      },
+      "expected": 808,
+      "note": "E1 float trap: 323 cents per 400 g = 807.5 cents/kg exactly, half up -> 808"
+    },
+    {
+      "id": "trap-400g-327",
+      "input": {
+        "packPriceMinor": 327,
+        "sizeG": 400
+      },
+      "expected": 818,
+      "note": "E1 float trap: 327 cents per 400 g = 817.5 cents/kg exactly, half up -> 818"
+    },
+    {
+      "id": "trap-400g-331",
+      "input": {
+        "packPriceMinor": 331,
+        "sizeG": 400
+      },
+      "expected": 828,
+      "note": "E1 float trap: 331 cents per 400 g = 827.5 cents/kg exactly, half up -> 828"
+    },
+    {
+      "id": "trap-400g-333",
+      "input": {
+        "packPriceMinor": 333,
+        "sizeG": 400
+      },
+      "expected": 833,
+      "note": "E1 float trap: 333 cents per 400 g = 832.5 cents/kg exactly, half up -> 833"
+    },
+    {
+      "id": "trap-400g-337",
+      "input": {
+        "packPriceMinor": 337,
+        "sizeG": 400
+      },
+      "expected": 843,
+      "note": "E1 float trap: 337 cents per 400 g = 842.5 cents/kg exactly, half up -> 843"
+    },
+    {
+      "id": "trap-400g-343",
+      "input": {
+        "packPriceMinor": 343,
+        "sizeG": 400
+      },
+      "expected": 858,
+      "note": "E1 float trap: 343 cents per 400 g = 857.5 cents/kg exactly, half up -> 858"
+    },
+    {
+      "id": "trap-400g-351",
+      "input": {
+        "packPriceMinor": 351,
+        "sizeG": 400
+      },
+      "expected": 878,
+      "note": "E1 float trap: 351 cents per 400 g = 877.5 cents/kg exactly, half up -> 878"
+    },
+    {
+      "id": "trap-400g-353",
+      "input": {
+        "packPriceMinor": 353,
+        "sizeG": 400
+      },
+      "expected": 883,
+      "note": "E1 float trap: 353 cents per 400 g = 882.5 cents/kg exactly, half up -> 883"
+    },
+    {
+      "id": "trap-400g-355",
+      "input": {
+        "packPriceMinor": 355,
+        "sizeG": 400
+      },
+      "expected": 888,
+      "note": "E1 float trap: 355 cents per 400 g = 887.5 cents/kg exactly, half up -> 888"
+    },
+    {
+      "id": "trap-400g-357",
+      "input": {
+        "packPriceMinor": 357,
+        "sizeG": 400
+      },
+      "expected": 893,
+      "note": "E1 float trap: 357 cents per 400 g = 892.5 cents/kg exactly, half up -> 893"
+    },
+    {
+      "id": "trap-400g-361",
+      "input": {
+        "packPriceMinor": 361,
+        "sizeG": 400
+      },
+      "expected": 903,
+      "note": "E1 float trap: 361 cents per 400 g = 902.5 cents/kg exactly, half up -> 903"
+    },
+    {
+      "id": "trap-400g-363",
+      "input": {
+        "packPriceMinor": 363,
+        "sizeG": 400
+      },
+      "expected": 908,
+      "note": "E1 float trap: 363 cents per 400 g = 907.5 cents/kg exactly, half up -> 908"
+    },
+    {
+      "id": "trap-400g-367",
+      "input": {
+        "packPriceMinor": 367,
+        "sizeG": 400
+      },
+      "expected": 918,
+      "note": "E1 float trap: 367 cents per 400 g = 917.5 cents/kg exactly, half up -> 918"
+    },
+    {
+      "id": "trap-400g-371",
+      "input": {
+        "packPriceMinor": 371,
+        "sizeG": 400
+      },
+      "expected": 928,
+      "note": "E1 float trap: 371 cents per 400 g = 927.5 cents/kg exactly, half up -> 928"
+    },
+    {
+      "id": "trap-400g-373",
+      "input": {
+        "packPriceMinor": 373,
+        "sizeG": 400
+      },
+      "expected": 933,
+      "note": "E1 float trap: 373 cents per 400 g = 932.5 cents/kg exactly, half up -> 933"
+    },
+    {
+      "id": "trap-400g-377",
+      "input": {
+        "packPriceMinor": 377,
+        "sizeG": 400
+      },
+      "expected": 943,
+      "note": "E1 float trap: 377 cents per 400 g = 942.5 cents/kg exactly, half up -> 943"
+    },
+    {
+      "id": "trap-400g-383",
+      "input": {
+        "packPriceMinor": 383,
+        "sizeG": 400
+      },
+      "expected": 958,
+      "note": "E1 float trap: 383 cents per 400 g = 957.5 cents/kg exactly, half up -> 958"
+    },
+    {
+      "id": "trap-400g-387",
+      "input": {
+        "packPriceMinor": 387,
+        "sizeG": 400
+      },
+      "expected": 968,
+      "note": "E1 float trap: 387 cents per 400 g = 967.5 cents/kg exactly, half up -> 968"
+    },
+    {
+      "id": "trap-400g-393",
+      "input": {
+        "packPriceMinor": 393,
+        "sizeG": 400
+      },
+      "expected": 983,
+      "note": "E1 float trap: 393 cents per 400 g = 982.5 cents/kg exactly, half up -> 983"
+    },
+    {
+      "id": "trap-400g-397",
+      "input": {
+        "packPriceMinor": 397,
+        "sizeG": 400
+      },
+      "expected": 993,
+      "note": "E1 float trap: 397 cents per 400 g = 992.5 cents/kg exactly, half up -> 993"
+    },
+    {
+      "id": "trap-400g-401",
+      "input": {
+        "packPriceMinor": 401,
+        "sizeG": 400
+      },
+      "expected": 1003,
+      "note": "E1 float trap: 401 cents per 400 g = 1002.5 cents/kg exactly, half up -> 1003"
+    },
+    {
+      "id": "trap-400g-403",
+      "input": {
+        "packPriceMinor": 403,
+        "sizeG": 400
+      },
+      "expected": 1008,
+      "note": "E1 float trap: 403 cents per 400 g = 1007.5 cents/kg exactly, half up -> 1008"
+    },
+    {
+      "id": "trap-400g-405",
+      "input": {
+        "packPriceMinor": 405,
+        "sizeG": 400
+      },
+      "expected": 1013,
+      "note": "E1 float trap: 405 cents per 400 g = 1012.5 cents/kg exactly, half up -> 1013"
+    },
+    {
+      "id": "trap-400g-421",
+      "input": {
+        "packPriceMinor": 421,
+        "sizeG": 400
+      },
+      "expected": 1053,
+      "note": "E1 float trap: 421 cents per 400 g = 1052.5 cents/kg exactly, half up -> 1053"
+    },
+    {
+      "id": "trap-400g-431",
+      "input": {
+        "packPriceMinor": 431,
+        "sizeG": 400
+      },
+      "expected": 1078,
+      "note": "E1 float trap: 431 cents per 400 g = 1077.5 cents/kg exactly, half up -> 1078"
+    },
+    {
+      "id": "trap-400g-435",
+      "input": {
+        "packPriceMinor": 435,
+        "sizeG": 400
+      },
+      "expected": 1088,
+      "note": "E1 float trap: 435 cents per 400 g = 1087.5 cents/kg exactly, half up -> 1088"
+    },
+    {
+      "id": "trap-400g-439",
+      "input": {
+        "packPriceMinor": 439,
+        "sizeG": 400
+      },
+      "expected": 1098,
+      "note": "E1 float trap: 439 cents per 400 g = 1097.5 cents/kg exactly, half up -> 1098"
+    },
+    {
+      "id": "trap-400g-451",
+      "input": {
+        "packPriceMinor": 451,
+        "sizeG": 400
+      },
+      "expected": 1128,
+      "note": "E1 float trap: 451 cents per 400 g = 1127.5 cents/kg exactly, half up -> 1128"
+    },
+    {
+      "id": "trap-400g-455",
+      "input": {
+        "packPriceMinor": 455,
+        "sizeG": 400
+      },
+      "expected": 1138,
+      "note": "E1 float trap: 455 cents per 400 g = 1137.5 cents/kg exactly, half up -> 1138"
+    },
+    {
+      "id": "trap-400g-471",
+      "input": {
+        "packPriceMinor": 471,
+        "sizeG": 400
+      },
+      "expected": 1178,
+      "note": "E1 float trap: 471 cents per 400 g = 1177.5 cents/kg exactly, half up -> 1178"
+    },
+    {
+      "id": "trap-400g-481",
+      "input": {
+        "packPriceMinor": 481,
+        "sizeG": 400
+      },
+      "expected": 1203,
+      "note": "E1 float trap: 481 cents per 400 g = 1202.5 cents/kg exactly, half up -> 1203"
+    },
+    {
+      "id": "trap-400g-485",
+      "input": {
+        "packPriceMinor": 485,
+        "sizeG": 400
+      },
+      "expected": 1213,
+      "note": "E1 float trap: 485 cents per 400 g = 1212.5 cents/kg exactly, half up -> 1213"
+    },
+    {
+      "id": "trap-400g-489",
+      "input": {
+        "packPriceMinor": 489,
+        "sizeG": 400
+      },
+      "expected": 1223,
+      "note": "E1 float trap: 489 cents per 400 g = 1222.5 cents/kg exactly, half up -> 1223"
+    },
+    {
+      "id": "trap-400g-501",
+      "input": {
+        "packPriceMinor": 501,
+        "sizeG": 400
+      },
+      "expected": 1253,
+      "note": "E1 float trap: 501 cents per 400 g = 1252.5 cents/kg exactly, half up -> 1253"
+    },
+    {
+      "id": "trap-400g-505",
+      "input": {
+        "packPriceMinor": 505,
+        "sizeG": 400
+      },
+      "expected": 1263,
+      "note": "E1 float trap: 505 cents per 400 g = 1262.5 cents/kg exactly, half up -> 1263"
+    },
+    {
+      "id": "trap-400g-521",
+      "input": {
+        "packPriceMinor": 521,
+        "sizeG": 400
+      },
+      "expected": 1303,
+      "note": "E1 float trap: 521 cents per 400 g = 1302.5 cents/kg exactly, half up -> 1303"
+    },
+    {
+      "id": "trap-400g-531",
+      "input": {
+        "packPriceMinor": 531,
+        "sizeG": 400
+      },
+      "expected": 1328,
+      "note": "E1 float trap: 531 cents per 400 g = 1327.5 cents/kg exactly, half up -> 1328"
+    },
+    {
+      "id": "trap-400g-535",
+      "input": {
+        "packPriceMinor": 535,
+        "sizeG": 400
+      },
+      "expected": 1338,
+      "note": "E1 float trap: 535 cents per 400 g = 1337.5 cents/kg exactly, half up -> 1338"
+    },
+    {
+      "id": "trap-400g-539",
+      "input": {
+        "packPriceMinor": 539,
+        "sizeG": 400
+      },
+      "expected": 1348,
+      "note": "E1 float trap: 539 cents per 400 g = 1347.5 cents/kg exactly, half up -> 1348"
+    },
+    {
+      "id": "trap-400g-551",
+      "input": {
+        "packPriceMinor": 551,
+        "sizeG": 400
+      },
+      "expected": 1378,
+      "note": "E1 float trap: 551 cents per 400 g = 1377.5 cents/kg exactly, half up -> 1378"
+    },
+    {
+      "id": "trap-400g-555",
+      "input": {
+        "packPriceMinor": 555,
+        "sizeG": 400
+      },
+      "expected": 1388,
+      "note": "E1 float trap: 555 cents per 400 g = 1387.5 cents/kg exactly, half up -> 1388"
+    },
+    {
+      "id": "trap-400g-571",
+      "input": {
+        "packPriceMinor": 571,
+        "sizeG": 400
+      },
+      "expected": 1428,
+      "note": "E1 float trap: 571 cents per 400 g = 1427.5 cents/kg exactly, half up -> 1428"
+    },
+    {
+      "id": "trap-400g-581",
+      "input": {
+        "packPriceMinor": 581,
+        "sizeG": 400
+      },
+      "expected": 1453,
+      "note": "E1 float trap: 581 cents per 400 g = 1452.5 cents/kg exactly, half up -> 1453"
+    },
+    {
+      "id": "trap-400g-585",
+      "input": {
+        "packPriceMinor": 585,
+        "sizeG": 400
+      },
+      "expected": 1463,
+      "note": "E1 float trap: 585 cents per 400 g = 1462.5 cents/kg exactly, half up -> 1463"
+    },
+    {
+      "id": "trap-400g-589",
+      "input": {
+        "packPriceMinor": 589,
+        "sizeG": 400
+      },
+      "expected": 1473,
+      "note": "E1 float trap: 589 cents per 400 g = 1472.5 cents/kg exactly, half up -> 1473"
+    },
+    {
+      "id": "trap-400g-601",
+      "input": {
+        "packPriceMinor": 601,
+        "sizeG": 400
+      },
+      "expected": 1503,
+      "note": "E1 float trap: 601 cents per 400 g = 1502.5 cents/kg exactly, half up -> 1503"
+    },
+    {
+      "id": "trap-400g-605",
+      "input": {
+        "packPriceMinor": 605,
+        "sizeG": 400
+      },
+      "expected": 1513,
+      "note": "E1 float trap: 605 cents per 400 g = 1512.5 cents/kg exactly, half up -> 1513"
+    },
+    {
+      "id": "trap-400g-621",
+      "input": {
+        "packPriceMinor": 621,
+        "sizeG": 400
+      },
+      "expected": 1553,
+      "note": "E1 float trap: 621 cents per 400 g = 1552.5 cents/kg exactly, half up -> 1553"
+    },
+    {
+      "id": "trap-400g-627",
+      "input": {
+        "packPriceMinor": 627,
+        "sizeG": 400
+      },
+      "expected": 1568,
+      "note": "E1 float trap: 627 cents per 400 g = 1567.5 cents/kg exactly, half up -> 1568"
+    },
+    {
+      "id": "trap-400g-631",
+      "input": {
+        "packPriceMinor": 631,
+        "sizeG": 400
+      },
+      "expected": 1578,
+      "note": "E1 float trap: 631 cents per 400 g = 1577.5 cents/kg exactly, half up -> 1578"
+    },
+    {
+      "id": "trap-400g-635",
+      "input": {
+        "packPriceMinor": 635,
+        "sizeG": 400
+      },
+      "expected": 1588,
+      "note": "E1 float trap: 635 cents per 400 g = 1587.5 cents/kg exactly, half up -> 1588"
+    },
+    {
+      "id": "trap-400g-639",
+      "input": {
+        "packPriceMinor": 639,
+        "sizeG": 400
+      },
+      "expected": 1598,
+      "note": "E1 float trap: 639 cents per 400 g = 1597.5 cents/kg exactly, half up -> 1598"
+    },
+    {
+      "id": "trap-400g-641",
+      "input": {
+        "packPriceMinor": 641,
+        "sizeG": 400
+      },
+      "expected": 1603,
+      "note": "E1 float trap: 641 cents per 400 g = 1602.5 cents/kg exactly, half up -> 1603"
+    },
+    {
+      "id": "trap-400g-647",
+      "input": {
+        "packPriceMinor": 647,
+        "sizeG": 400
+      },
+      "expected": 1618,
+      "note": "E1 float trap: 647 cents per 400 g = 1617.5 cents/kg exactly, half up -> 1618"
+    },
+    {
+      "id": "trap-400g-649",
+      "input": {
+        "packPriceMinor": 649,
+        "sizeG": 400
+      },
+      "expected": 1623,
+      "note": "E1 float trap: 649 cents per 400 g = 1622.5 cents/kg exactly, half up -> 1623"
+    },
+    {
+      "id": "trap-400g-651",
+      "input": {
+        "packPriceMinor": 651,
+        "sizeG": 400
+      },
+      "expected": 1628,
+      "note": "E1 float trap: 651 cents per 400 g = 1627.5 cents/kg exactly, half up -> 1628"
+    },
+    {
+      "id": "trap-400g-659",
+      "input": {
+        "packPriceMinor": 659,
+        "sizeG": 400
+      },
+      "expected": 1648,
+      "note": "E1 float trap: 659 cents per 400 g = 1647.5 cents/kg exactly, half up -> 1648"
+    },
+    {
+      "id": "trap-400g-661",
+      "input": {
+        "packPriceMinor": 661,
+        "sizeG": 400
+      },
+      "expected": 1653,
+      "note": "E1 float trap: 661 cents per 400 g = 1652.5 cents/kg exactly, half up -> 1653"
+    },
+    {
+      "id": "trap-400g-667",
+      "input": {
+        "packPriceMinor": 667,
+        "sizeG": 400
+      },
+      "expected": 1668,
+      "note": "E1 float trap: 667 cents per 400 g = 1667.5 cents/kg exactly, half up -> 1668"
+    },
+    {
+      "id": "trap-400g-671",
+      "input": {
+        "packPriceMinor": 671,
+        "sizeG": 400
+      },
+      "expected": 1678,
+      "note": "E1 float trap: 671 cents per 400 g = 1677.5 cents/kg exactly, half up -> 1678"
+    },
+    {
+      "id": "trap-400g-677",
+      "input": {
+        "packPriceMinor": 677,
+        "sizeG": 400
+      },
+      "expected": 1693,
+      "note": "E1 float trap: 677 cents per 400 g = 1692.5 cents/kg exactly, half up -> 1693"
+    },
+    {
+      "id": "trap-400g-679",
+      "input": {
+        "packPriceMinor": 679,
+        "sizeG": 400
+      },
+      "expected": 1698,
+      "note": "E1 float trap: 679 cents per 400 g = 1697.5 cents/kg exactly, half up -> 1698"
+    },
+    {
+      "id": "trap-400g-681",
+      "input": {
+        "packPriceMinor": 681,
+        "sizeG": 400
+      },
+      "expected": 1703,
+      "note": "E1 float trap: 681 cents per 400 g = 1702.5 cents/kg exactly, half up -> 1703"
+    },
+    {
+      "id": "trap-400g-685",
+      "input": {
+        "packPriceMinor": 685,
+        "sizeG": 400
+      },
+      "expected": 1713,
+      "note": "E1 float trap: 685 cents per 400 g = 1712.5 cents/kg exactly, half up -> 1713"
+    },
+    {
+      "id": "trap-400g-689",
+      "input": {
+        "packPriceMinor": 689,
+        "sizeG": 400
+      },
+      "expected": 1723,
+      "note": "E1 float trap: 689 cents per 400 g = 1722.5 cents/kg exactly, half up -> 1723"
+    },
+    {
+      "id": "trap-400g-691",
+      "input": {
+        "packPriceMinor": 691,
+        "sizeG": 400
+      },
+      "expected": 1728,
+      "note": "E1 float trap: 691 cents per 400 g = 1727.5 cents/kg exactly, half up -> 1728"
+    },
+    {
+      "id": "trap-400g-697",
+      "input": {
+        "packPriceMinor": 697,
+        "sizeG": 400
+      },
+      "expected": 1743,
+      "note": "E1 float trap: 697 cents per 400 g = 1742.5 cents/kg exactly, half up -> 1743"
+    },
+    {
+      "id": "trap-400g-699",
+      "input": {
+        "packPriceMinor": 699,
+        "sizeG": 400
+      },
+      "expected": 1748,
+      "note": "E1 float trap: 699 cents per 400 g = 1747.5 cents/kg exactly, half up -> 1748"
+    },
+    {
+      "id": "trap-400g-701",
+      "input": {
+        "packPriceMinor": 701,
+        "sizeG": 400
+      },
+      "expected": 1753,
+      "note": "E1 float trap: 701 cents per 400 g = 1752.5 cents/kg exactly, half up -> 1753"
+    },
+    {
+      "id": "trap-400g-709",
+      "input": {
+        "packPriceMinor": 709,
+        "sizeG": 400
+      },
+      "expected": 1773,
+      "note": "E1 float trap: 709 cents per 400 g = 1772.5 cents/kg exactly, half up -> 1773"
+    },
+    {
+      "id": "trap-400g-711",
+      "input": {
+        "packPriceMinor": 711,
+        "sizeG": 400
+      },
+      "expected": 1778,
+      "note": "E1 float trap: 711 cents per 400 g = 1777.5 cents/kg exactly, half up -> 1778"
+    },
+    {
+      "id": "trap-400g-717",
+      "input": {
+        "packPriceMinor": 717,
+        "sizeG": 400
+      },
+      "expected": 1793,
+      "note": "E1 float trap: 717 cents per 400 g = 1792.5 cents/kg exactly, half up -> 1793"
+    },
+    {
+      "id": "trap-400g-721",
+      "input": {
+        "packPriceMinor": 721,
+        "sizeG": 400
+      },
+      "expected": 1803,
+      "note": "E1 float trap: 721 cents per 400 g = 1802.5 cents/kg exactly, half up -> 1803"
+    },
+    {
+      "id": "trap-400g-727",
+      "input": {
+        "packPriceMinor": 727,
+        "sizeG": 400
+      },
+      "expected": 1818,
+      "note": "E1 float trap: 727 cents per 400 g = 1817.5 cents/kg exactly, half up -> 1818"
+    },
+    {
+      "id": "trap-400g-729",
+      "input": {
+        "packPriceMinor": 729,
+        "sizeG": 400
+      },
+      "expected": 1823,
+      "note": "E1 float trap: 729 cents per 400 g = 1822.5 cents/kg exactly, half up -> 1823"
+    },
+    {
+      "id": "trap-400g-731",
+      "input": {
+        "packPriceMinor": 731,
+        "sizeG": 400
+      },
+      "expected": 1828,
+      "note": "E1 float trap: 731 cents per 400 g = 1827.5 cents/kg exactly, half up -> 1828"
+    },
+    {
+      "id": "trap-400g-735",
+      "input": {
+        "packPriceMinor": 735,
+        "sizeG": 400
+      },
+      "expected": 1838,
+      "note": "E1 float trap: 735 cents per 400 g = 1837.5 cents/kg exactly, half up -> 1838"
+    },
+    {
+      "id": "trap-400g-739",
+      "input": {
+        "packPriceMinor": 739,
+        "sizeG": 400
+      },
+      "expected": 1848,
+      "note": "E1 float trap: 739 cents per 400 g = 1847.5 cents/kg exactly, half up -> 1848"
+    },
+    {
+      "id": "trap-400g-741",
+      "input": {
+        "packPriceMinor": 741,
+        "sizeG": 400
+      },
+      "expected": 1853,
+      "note": "E1 float trap: 741 cents per 400 g = 1852.5 cents/kg exactly, half up -> 1853"
+    },
+    {
+      "id": "trap-400g-747",
+      "input": {
+        "packPriceMinor": 747,
+        "sizeG": 400
+      },
+      "expected": 1868,
+      "note": "E1 float trap: 747 cents per 400 g = 1867.5 cents/kg exactly, half up -> 1868"
+    },
+    {
+      "id": "trap-400g-749",
+      "input": {
+        "packPriceMinor": 749,
+        "sizeG": 400
+      },
+      "expected": 1873,
+      "note": "E1 float trap: 749 cents per 400 g = 1872.5 cents/kg exactly, half up -> 1873"
+    },
+    {
+      "id": "trap-400g-751",
+      "input": {
+        "packPriceMinor": 751,
+        "sizeG": 400
+      },
+      "expected": 1878,
+      "note": "E1 float trap: 751 cents per 400 g = 1877.5 cents/kg exactly, half up -> 1878"
+    },
+    {
+      "id": "trap-400g-759",
+      "input": {
+        "packPriceMinor": 759,
+        "sizeG": 400
+      },
+      "expected": 1898,
+      "note": "E1 float trap: 759 cents per 400 g = 1897.5 cents/kg exactly, half up -> 1898"
+    },
+    {
+      "id": "trap-400g-761",
+      "input": {
+        "packPriceMinor": 761,
+        "sizeG": 400
+      },
+      "expected": 1903,
+      "note": "E1 float trap: 761 cents per 400 g = 1902.5 cents/kg exactly, half up -> 1903"
+    },
+    {
+      "id": "trap-400g-767",
+      "input": {
+        "packPriceMinor": 767,
+        "sizeG": 400
+      },
+      "expected": 1918,
+      "note": "E1 float trap: 767 cents per 400 g = 1917.5 cents/kg exactly, half up -> 1918"
+    },
+    {
+      "id": "trap-400g-771",
+      "input": {
+        "packPriceMinor": 771,
+        "sizeG": 400
+      },
+      "expected": 1928,
+      "note": "E1 float trap: 771 cents per 400 g = 1927.5 cents/kg exactly, half up -> 1928"
+    },
+    {
+      "id": "trap-400g-777",
+      "input": {
+        "packPriceMinor": 777,
+        "sizeG": 400
+      },
+      "expected": 1943,
+      "note": "E1 float trap: 777 cents per 400 g = 1942.5 cents/kg exactly, half up -> 1943"
+    },
+    {
+      "id": "trap-400g-779",
+      "input": {
+        "packPriceMinor": 779,
+        "sizeG": 400
+      },
+      "expected": 1948,
+      "note": "E1 float trap: 779 cents per 400 g = 1947.5 cents/kg exactly, half up -> 1948"
+    },
+    {
+      "id": "trap-400g-781",
+      "input": {
+        "packPriceMinor": 781,
+        "sizeG": 400
+      },
+      "expected": 1953,
+      "note": "E1 float trap: 781 cents per 400 g = 1952.5 cents/kg exactly, half up -> 1953"
+    },
+    {
+      "id": "trap-400g-785",
+      "input": {
+        "packPriceMinor": 785,
+        "sizeG": 400
+      },
+      "expected": 1963,
+      "note": "E1 float trap: 785 cents per 400 g = 1962.5 cents/kg exactly, half up -> 1963"
+    },
+    {
+      "id": "trap-400g-789",
+      "input": {
+        "packPriceMinor": 789,
+        "sizeG": 400
+      },
+      "expected": 1973,
+      "note": "E1 float trap: 789 cents per 400 g = 1972.5 cents/kg exactly, half up -> 1973"
+    },
+    {
+      "id": "trap-400g-791",
+      "input": {
+        "packPriceMinor": 791,
+        "sizeG": 400
+      },
+      "expected": 1978,
+      "note": "E1 float trap: 791 cents per 400 g = 1977.5 cents/kg exactly, half up -> 1978"
+    },
+    {
+      "id": "trap-400g-797",
+      "input": {
+        "packPriceMinor": 797,
+        "sizeG": 400
+      },
+      "expected": 1993,
+      "note": "E1 float trap: 797 cents per 400 g = 1992.5 cents/kg exactly, half up -> 1993"
+    },
+    {
+      "id": "trap-400g-799",
+      "input": {
+        "packPriceMinor": 799,
+        "sizeG": 400
+      },
+      "expected": 1998,
+      "note": "E1 float trap: 799 cents per 400 g = 1997.5 cents/kg exactly, half up -> 1998"
+    },
+    {
+      "id": "trap-400g-801",
+      "input": {
+        "packPriceMinor": 801,
+        "sizeG": 400
+      },
+      "expected": 2003,
+      "note": "E1 float trap: 801 cents per 400 g = 2002.5 cents/kg exactly, half up -> 2003"
+    },
+    {
+      "id": "trap-400g-803",
+      "input": {
+        "packPriceMinor": 803,
+        "sizeG": 400
+      },
+      "expected": 2008,
+      "note": "E1 float trap: 803 cents per 400 g = 2007.5 cents/kg exactly, half up -> 2008"
+    },
+    {
+      "id": "trap-400g-809",
+      "input": {
+        "packPriceMinor": 809,
+        "sizeG": 400
+      },
+      "expected": 2023,
+      "note": "E1 float trap: 809 cents per 400 g = 2022.5 cents/kg exactly, half up -> 2023"
+    },
+    {
+      "id": "trap-400g-811",
+      "input": {
+        "packPriceMinor": 811,
+        "sizeG": 400
+      },
+      "expected": 2028,
+      "note": "E1 float trap: 811 cents per 400 g = 2027.5 cents/kg exactly, half up -> 2028"
+    },
+    {
+      "id": "trap-400g-817",
+      "input": {
+        "packPriceMinor": 817,
+        "sizeG": 400
+      },
+      "expected": 2043,
+      "note": "E1 float trap: 817 cents per 400 g = 2042.5 cents/kg exactly, half up -> 2043"
+    },
+    {
+      "id": "trap-400g-819",
+      "input": {
+        "packPriceMinor": 819,
+        "sizeG": 400
+      },
+      "expected": 2048,
+      "note": "E1 float trap: 819 cents per 400 g = 2047.5 cents/kg exactly, half up -> 2048"
+    },
+    {
+      "id": "trap-400g-827",
+      "input": {
+        "packPriceMinor": 827,
+        "sizeG": 400
+      },
+      "expected": 2068,
+      "note": "E1 float trap: 827 cents per 400 g = 2067.5 cents/kg exactly, half up -> 2068"
+    },
+    {
+      "id": "trap-400g-835",
+      "input": {
+        "packPriceMinor": 835,
+        "sizeG": 400
+      },
+      "expected": 2088,
+      "note": "E1 float trap: 835 cents per 400 g = 2087.5 cents/kg exactly, half up -> 2088"
+    },
+    {
+      "id": "trap-400g-837",
+      "input": {
+        "packPriceMinor": 837,
+        "sizeG": 400
+      },
+      "expected": 2093,
+      "note": "E1 float trap: 837 cents per 400 g = 2092.5 cents/kg exactly, half up -> 2093"
+    },
+    {
+      "id": "trap-400g-845",
+      "input": {
+        "packPriceMinor": 845,
+        "sizeG": 400
+      },
+      "expected": 2113,
+      "note": "E1 float trap: 845 cents per 400 g = 2112.5 cents/kg exactly, half up -> 2113"
+    },
+    {
+      "id": "trap-400g-853",
+      "input": {
+        "packPriceMinor": 853,
+        "sizeG": 400
+      },
+      "expected": 2133,
+      "note": "E1 float trap: 853 cents per 400 g = 2132.5 cents/kg exactly, half up -> 2133"
+    },
+    {
+      "id": "trap-400g-867",
+      "input": {
+        "packPriceMinor": 867,
+        "sizeG": 400
+      },
+      "expected": 2168,
+      "note": "E1 float trap: 867 cents per 400 g = 2167.5 cents/kg exactly, half up -> 2168"
+    },
+    {
+      "id": "trap-400g-877",
+      "input": {
+        "packPriceMinor": 877,
+        "sizeG": 400
+      },
+      "expected": 2193,
+      "note": "E1 float trap: 877 cents per 400 g = 2192.5 cents/kg exactly, half up -> 2193"
+    },
+    {
+      "id": "trap-400g-885",
+      "input": {
+        "packPriceMinor": 885,
+        "sizeG": 400
+      },
+      "expected": 2213,
+      "note": "E1 float trap: 885 cents per 400 g = 2212.5 cents/kg exactly, half up -> 2213"
+    },
+    {
+      "id": "trap-400g-887",
+      "input": {
+        "packPriceMinor": 887,
+        "sizeG": 400
+      },
+      "expected": 2218,
+      "note": "E1 float trap: 887 cents per 400 g = 2217.5 cents/kg exactly, half up -> 2218"
+    },
+    {
+      "id": "trap-400g-895",
+      "input": {
+        "packPriceMinor": 895,
+        "sizeG": 400
+      },
+      "expected": 2238,
+      "note": "E1 float trap: 895 cents per 400 g = 2237.5 cents/kg exactly, half up -> 2238"
+    },
+    {
+      "id": "trap-400g-903",
+      "input": {
+        "packPriceMinor": 903,
+        "sizeG": 400
+      },
+      "expected": 2258,
+      "note": "E1 float trap: 903 cents per 400 g = 2257.5 cents/kg exactly, half up -> 2258"
+    },
+    {
+      "id": "trap-400g-917",
+      "input": {
+        "packPriceMinor": 917,
+        "sizeG": 400
+      },
+      "expected": 2293,
+      "note": "E1 float trap: 917 cents per 400 g = 2292.5 cents/kg exactly, half up -> 2293"
+    },
+    {
+      "id": "trap-400g-927",
+      "input": {
+        "packPriceMinor": 927,
+        "sizeG": 400
+      },
+      "expected": 2318,
+      "note": "E1 float trap: 927 cents per 400 g = 2317.5 cents/kg exactly, half up -> 2318"
+    },
+    {
+      "id": "trap-400g-935",
+      "input": {
+        "packPriceMinor": 935,
+        "sizeG": 400
+      },
+      "expected": 2338,
+      "note": "E1 float trap: 935 cents per 400 g = 2337.5 cents/kg exactly, half up -> 2338"
+    },
+    {
+      "id": "trap-400g-937",
+      "input": {
+        "packPriceMinor": 937,
+        "sizeG": 400
+      },
+      "expected": 2343,
+      "note": "E1 float trap: 937 cents per 400 g = 2342.5 cents/kg exactly, half up -> 2343"
+    },
+    {
+      "id": "trap-400g-945",
+      "input": {
+        "packPriceMinor": 945,
+        "sizeG": 400
+      },
+      "expected": 2363,
+      "note": "E1 float trap: 945 cents per 400 g = 2362.5 cents/kg exactly, half up -> 2363"
+    },
+    {
+      "id": "trap-400g-953",
+      "input": {
+        "packPriceMinor": 953,
+        "sizeG": 400
+      },
+      "expected": 2383,
+      "note": "E1 float trap: 953 cents per 400 g = 2382.5 cents/kg exactly, half up -> 2383"
+    },
+    {
+      "id": "trap-400g-967",
+      "input": {
+        "packPriceMinor": 967,
+        "sizeG": 400
+      },
+      "expected": 2418,
+      "note": "E1 float trap: 967 cents per 400 g = 2417.5 cents/kg exactly, half up -> 2418"
+    },
+    {
+      "id": "trap-400g-977",
+      "input": {
+        "packPriceMinor": 977,
+        "sizeG": 400
+      },
+      "expected": 2443,
+      "note": "E1 float trap: 977 cents per 400 g = 2442.5 cents/kg exactly, half up -> 2443"
+    },
+    {
+      "id": "trap-400g-985",
+      "input": {
+        "packPriceMinor": 985,
+        "sizeG": 400
+      },
+      "expected": 2463,
+      "note": "E1 float trap: 985 cents per 400 g = 2462.5 cents/kg exactly, half up -> 2463"
+    },
+    {
+      "id": "trap-400g-987",
+      "input": {
+        "packPriceMinor": 987,
+        "sizeG": 400
+      },
+      "expected": 2468,
+      "note": "E1 float trap: 987 cents per 400 g = 2467.5 cents/kg exactly, half up -> 2468"
+    },
+    {
+      "id": "trap-400g-995",
+      "input": {
+        "packPriceMinor": 995,
+        "sizeG": 400
+      },
+      "expected": 2488,
+      "note": "E1 float trap: 995 cents per 400 g = 2487.5 cents/kg exactly, half up -> 2488"
+    }
+  ]
+}

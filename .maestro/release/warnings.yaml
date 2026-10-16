@@ -1,0 +1,56 @@
+appId: ${APP_ID}
+name: Release build - Warnings - W1 weight vs volume, W4 likely typo, W6 incomplete deal group
+tags:
+  - release
+---
+# Release build: clean install, data typed through the screens (no seed link)
+- runFlow: ../subflows/release-start.yaml
+
+# W1 (E19): 1 L €1.19 vs 1 kg €1.29
+- runFlow:
+    file: ../subflows/type.yaml
+    env:
+      KEYS: 1.19n1
+- tapOn: {id: unit-l}
+- runFlow:
+    file: ../subflows/type.yaml
+    env:
+      KEYS: n1.29n1
+- tapOn: {id: unit-kg}
+- assertVisible: "Weight and volume can't be compared"
+- assertNotVisible:
+    id: badge-best-A
+- assertNotVisible:
+    id: badge-best-B
+
+# W4 (E20): 500 g €2.49 vs 500 kg €2.59
+- tapOn: {id: clear}
+- runFlow:
+    file: ../subflows/type.yaml
+    env:
+      KEYS: 2.49n500
+- tapOn: {id: unit-g}
+- runFlow:
+    file: ../subflows/type.yaml
+    env:
+      KEYS: n2.59n500
+- tapOn: {id: unit-kg}
+- assertVisible: "Check the sizes: one unit price is 961× another"
+
+# W6 (E6): BOGO at €3.49, bought 1 -> "Take 1 more — free"
+- tapOn: {id: clear}
+- runFlow:
+    file: ../subflows/type.yaml
+    env:
+      KEYS: 3.49n12
+- tapOn: {id: deal-add-A}
+- tapOn: {id: preset-bogo}
+- tapOn: {id: qty-A}
+- tapOn: {id: key-1}
+- assertVisible: "Take 1 more — free"
+- tapOn: {id: key-del}
+- tapOn: {id: key-3}
+- assertVisible: "Take 1 more — free"
+- tapOn: {id: key-del}
+- tapOn: {id: key-2}
+- assertNotVisible: "Take 1 more — free"

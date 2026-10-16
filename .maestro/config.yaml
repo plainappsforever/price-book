@@ -1,0 +1,27 @@
+# Flows share one simulator and one database, so run them sequentially in this order (by flow name).
+flows:
+  - "*"
+executionOrder:
+  continueOnFailure: true
+  flowsOrder:
+    - "Smoke - launch, change theme, restart, theme persists"
+    - "Engine self-test - exact BigInt engine on the device JS engine (Hermes)"
+    - "Compare basic - U1 in 18 taps, answer without a calculate button"
+    - "Compare deals - E8 3 for 2, E10 multi-buy remainder, E12 10 for 10 on screen"
+    - "Warnings - W1 weight vs volume, W4 likely typo, W6 incomplete deal group"
+    - "Gauge in Compare - S1 book, 4.49 is a Good price -10 %, price-basis label with tax and cashback (A8, D40)"
+    - "Draft persists - type, kill the app, relaunch, values and deal are back (A18)"
+    - "Settings basis - cycle per kg / 100 g / lb on the header, remembered, chosen in Settings, US units reset to per oz"
+    - "Price Book list - search, favourites, store and category filters, sorts, empty state, star"
+    - "Product stats - S1 coffee (usual, lowest, highest, stores, stale, cheapest, chart) and S2 crisps banner (A7)"
+    - "Save from Compare - U3 in 3 taps plus typing, existing and new product, the saved price is in the book"
+    - "Edit keeps the deal - a 3 for 2 price saved from Compare keeps its after-deal price when only the date is edited (v1.1 B1)"
+    - "Quick price - U4 in 5 taps plus digits, duplicate guard, edit and delete with a second tap"
+    - "Near duplicate - the same shelf tag typed again with a 1-cent slip asks first; keep the saved one, or save anyway (R10)"
+    - "Scan find - your product by its barcode (typed, and a simulated UPC-E camera reading); an unknown code starts a new product with it"
+    - "Scan attach - a Compare card scan links the card; an unknown shop-label code is added to a product; codes edited in the product form"
+    - "Product edit - add a product and its first price (new store, earlier date), name guard, edit, delete with a second tap"
+    - "Stores - add, duplicate refused, rename, archive, delete with a second tap (prices stay as No store)"
+    - "Backup and restore - seed s1, back up (counts), wipe, restore (counts, one confirmation), CSV export; corrupt file is not testable here"
+    - "Big book - 5 000 prices, the list loads and a product opens in under a second (A17)"
+    - "DB probe - write queue, restore/seed races and migrations 3 to 5 on real expo-sqlite"

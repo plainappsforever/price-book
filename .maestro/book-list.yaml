@@ -1,0 +1,54 @@
+appId: ${APP_ID}
+name: Price Book list - search, favourites, store and category filters, sorts, empty state, star
+tags:
+  - book
+---
+- runFlow:
+    file: subflows/seed.yaml
+    env:
+      SEED: s1
+- runFlow: subflows/settings-eu.yaml
+- tapOn: {id: tab-book}
+- assertVisible: {id: product-1}
+- assertVisible: {id: product-2}
+# search: name, accents-insensitive, store names
+- tapOn: {id: book-search}
+- inputText: crisp
+- assertVisible: {id: product-2}
+- assertNotVisible: {id: product-1}
+- eraseText: 5
+- inputText: aldi
+- assertVisible: {id: product-1}
+- assertNotVisible: {id: product-2}
+- eraseText: 4
+- inputText: zzz
+- assertVisible: {id: book-empty}
+- eraseText: 3
+- hideKeyboard
+# favourites: only the coffee is starred
+- tapOn: {id: chip-favourites}
+- assertVisible: {id: product-1}
+- assertNotVisible: {id: product-2}
+- tapOn: {id: chip-all}
+# star the crisps, unstar the coffee
+- tapOn: {id: star-2}
+- tapOn: {id: star-1}
+- tapOn: {id: chip-favourites}
+- assertVisible: {id: product-2}
+- assertNotVisible: {id: product-1}
+- tapOn: {id: chip-all}
+# filters: store and category, then sorts
+- tapOn: {id: book-filters}
+- tapOn: {id: filter-store-2}
+- assertVisible: {id: product-1}
+- assertNotVisible: {id: product-2}
+- tapOn: {id: filter-store-any}
+- tapOn: {id: filter-category-Snacks}
+- assertVisible: {id: product-2}
+- assertNotVisible: {id: product-1}
+- tapOn: {id: filter-category-any}
+- tapOn: {id: sort-name}
+- assertVisible: {id: product-1}
+- tapOn: {id: sort-rise}
+- assertVisible: {id: product-1}
+- assertVisible: {id: product-2}

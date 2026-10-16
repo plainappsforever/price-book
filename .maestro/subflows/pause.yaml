@@ -1,0 +1,8 @@
+appId: ${APP_ID}
+---
+# Waits about ${MS} ms (Maestro has no sleep: an optional wait for an element that never appears).
+- extendedWaitUntil:
+    visible:
+      id: never-present-element
+    timeout: ${MS}
+    optional: true

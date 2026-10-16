@@ -1,0 +1,98 @@
+appId: ${APP_ID}
+name: Scan find - your product by its barcode (typed, and a simulated UPC-E camera reading); an unknown code starts a new product with it
+tags:
+  - book
+---
+- runFlow:
+    file: subflows/seed.yaml
+    env:
+      SEED: s1
+- runFlow: subflows/settings-eu.yaml
+- tapOn: {id: tab-book}
+- tapOn: {id: book-scan}
+- extendedWaitUntil:
+    visible: {id: scan-screen}
+    timeout: 15000
+# the camera is asked for only after "Allow camera": opening the screen shows no system prompt
+- assertVisible: {id: scan-allow}
+- assertVisible: "Price Book uses the camera only to read barcodes.*"
+# a typo is caught by the check digit
+- tapOn: {id: scan-manual}
+- inputText: "4001234567892"
+- tapOn: {id: scan-manual-go}
+- assertVisible:
+    id: scan-message
+    text: "These digits do not add up.*"
+- tapOn: {id: scan-manual}
+- eraseText: 20
+- inputText: "4001234567891"
+- tapOn: {id: scan-manual-go}
+- extendedWaitUntil:
+    visible:
+      id: product-title
+      text: Coffee beans
+    timeout: 15000
+- assertVisible:
+    id: product-barcodes
+    text: "Barcode: 4001234567891"
+# simulated camera: a UPC-E pack the book does not know yet
+- runFlow:
+    file: subflows/back.yaml
+    env:
+      BACK_TITLE: Price Book
+- tapOn: {id: book-scan}
+- extendedWaitUntil:
+    visible: {id: scan-allow}
+    timeout: 15000
+- runFlow:
+    file: subflows/camera.yaml
+    env:
+      CODE: "04252614"
+      TYPE: upc_e
+- extendedWaitUntil:
+    visible:
+      id: scan-notfound
+      text: "No product in your book has barcode 042100005264 yet\\."
+    timeout: 15000
+- assertVisible: "Price Book only knows the products you saved: there is no online product database\\."
+- assertNotVisible: {id: scan-store-label}
+- tapOn: {id: scan-new}
+- extendedWaitUntil:
+    visible: {id: pe-barcode-0042100005264}
+    timeout: 15000
+- tapOn: {id: pe-name}
+- inputText: Oat drink
+- tapOn: {id: pe-dim-volume}
+- scrollUntilVisible:
+    element: {id: pe-save}
+    direction: DOWN
+- tapOn: {id: pe-save}
+- extendedWaitUntil:
+    visible:
+      id: price-product
+      text: Oat drink
+    timeout: 15000
+- runFlow:
+    file: subflows/ptype.yaml
+    env:
+      KEYS: 1.29n1000
+- tapOn: {id: price-save}
+- extendedWaitUntil:
+    visible:
+      id: product-barcodes
+      text: "Barcode: 042100005264"
+    timeout: 15000
+# the printed UPC-A of that pack finds the same product
+- runFlow:
+    file: subflows/back.yaml
+    env:
+      BACK_TITLE: Price Book
+- tapOn: {id: book-scan}
+- tapOn: {id: scan-manual}
+- inputText: "042100005264"
+- tapOn: {id: scan-manual-go}
+- extendedWaitUntil:
+    visible:
+      id: product-title
+      text: Oat drink
+    timeout: 15000

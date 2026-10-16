@@ -1,0 +1,20 @@
+appId: ${APP_ID}
+name: DB probe - write queue, restore/seed races and migrations 3 to 5 on real expo-sqlite
+tags:
+  - device-proof
+---
+- runFlow: subflows/launch.yaml
+- openLink: ${APP_SCHEME}://debug/db-probe
+- runFlow:
+    when:
+      visible: "Open"
+    commands:
+      - tapOn: "Open"
+- extendedWaitUntil:
+    visible:
+      id: probe-result
+      text: "DB probe (OK|FAILED)"
+    timeout: 300000
+- assertVisible:
+    id: probe-result
+    text: DB probe OK

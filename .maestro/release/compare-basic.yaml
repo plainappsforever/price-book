@@ -1,0 +1,62 @@
+appId: ${APP_ID}
+name: Release build - Compare basic - U1 in 18 taps, answer without a calculate button
+tags:
+  - release
+---
+- launchApp:
+    clearState: true
+    stopApp: true
+- extendedWaitUntil:
+    visible:
+      id: compare-screen
+    timeout: 90000
+- runFlow: ../subflows/settings-eu.yaml
+# ---- U1 starts: exactly 18 tapOn steps until "U1 ends" (A4; counted by scripts/count-taps.sh) ----
+- tapOn: {id: key-2}
+- tapOn: {id: key-sep}
+- tapOn: {id: key-4}
+- tapOn: {id: key-9}
+- tapOn: {id: key-next}
+- tapOn: {id: key-5}
+- tapOn: {id: key-0}
+- tapOn: {id: key-0}
+- tapOn: {id: key-next}
+- tapOn: {id: key-5}
+- tapOn: {id: key-sep}
+- tapOn: {id: key-4}
+- tapOn: {id: key-9}
+- tapOn: {id: key-next}
+- tapOn: {id: key-1}
+- tapOn: {id: key-sep}
+- tapOn: {id: key-2}
+- tapOn: {id: unit-kg}
+# ---- U1 ends ----
+- assertVisible:
+    id: badge-best-B
+    text: Best value
+- assertVisible:
+    id: result-B
+    text: "€4.58 per kg"
+- assertVisible:
+    id: result-A
+    text: "€4.98 per kg"
+- assertVisible:
+    id: summary-mass
+    text: "8\\.1 % cheaper per kg · saves €0\\.49 on 1\\.2 kg"
+- assertNotVisible:
+    id: badge-best-A
+# v1.1 (REVIEW_V1 S6): one tap on Clear wipes the cards, and "Undo" brings them back for 5 seconds
+- tapOn: {id: clear}
+- assertVisible:
+    id: missing-A
+    text: Enter a price
+- assertVisible:
+    id: compare-notice
+    text: Cleared
+- tapOn: {id: compare-notice-action}
+- assertVisible:
+    id: result-B
+    text: "€4.58 per kg"
+- assertVisible:
+    id: result-A
+    text: "€4.98 per kg"

@@ -1,0 +1,84 @@
+appId: ${APP_ID}
+name: Quick price - U4 in 5 taps plus digits, duplicate guard, edit and delete with a second tap
+tags:
+  - book
+---
+- runFlow:
+    file: subflows/seed.yaml
+    env:
+      SEED: s1
+- runFlow: subflows/settings-eu.yaml
+# ---- U4 starts: 5 taps until "U4 ends" (budget 5), plus the price digits ----
+- tapOn: {id: tab-book}
+- tapOn: {id: chip-favourites}
+- tapOn: {id: product-1}
+- tapOn: {id: product-add-price}
+- runFlow:
+    file: subflows/ptype.yaml
+    env:
+      KEYS: "2.49"
+- tapOn: {id: price-save}
+# ---- U4 ends ----
+- extendedWaitUntil:
+    visible:
+      id: tile-latest-detail
+      text: "€2\\.49 · 500 g · Rewe · today"
+    timeout: 15000
+# the same price again on the same day asks first
+- tapOn: {id: product-add-price}
+- runFlow:
+    file: subflows/ptype.yaml
+    env:
+      KEYS: "2.49"
+- assertVisible:
+    id: price-live
+    text: "€4\\.98 per kg"
+- tapOn: {id: price-save}
+- assertVisible:
+    id: price-save
+    text: "Already saved for this day — save again\\?"
+- tapOn: {id: price-save}
+- scrollUntilVisible:
+    element:
+      text: "Prices \\(7\\)"
+    direction: DOWN
+# edit a price: change it to 2.59, then delete it with a second tap
+- tapOn: {id: price-row-9}
+- assertVisible:
+    id: pf-price-text
+    text: "2\\.49\\|?"
+- tapOn: {id: pkey-del}
+- tapOn: {id: pkey-del}
+- tapOn: {id: pkey-del}
+- tapOn: {id: pkey-del}
+- runFlow:
+    file: subflows/ptype.yaml
+    env:
+      KEYS: "2.59"
+- tapOn: {id: price-save}
+- scrollUntilVisible:
+    element:
+      text: ".*€2\\.59.*"
+    direction: DOWN
+- tapOn: {id: price-row-9}
+- tapOn: {id: price-delete}
+- assertVisible:
+    id: price-delete
+    text: "Tap again to delete"
+- tapOn: {id: price-delete}
+- scrollUntilVisible:
+    element:
+      text: "Prices \\(6\\)"
+    direction: DOWN
+# v1.1 (REVIEW_V1 N7): changing the book currency with prices saved asks first; nothing changes on the first tap
+- runFlow:
+    file: subflows/back.yaml
+    env:
+      BACK_TITLE: Price Book
+- tapOn: {id: open-settings}
+- tapOn: {id: currency-USD}
+- assertVisible:
+    id: currency-ask
+    text: "Your 8 prices in EUR will not count in the statistics while the book is in USD\\. Tap USD again to change\\."
+- tapOn: {id: currency-EUR}
+- assertNotVisible: {id: currency-ask}

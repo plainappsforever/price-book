@@ -1,0 +1,1427 @@
+{
+  "price": [
+    {
+      "id": "p-e1-a",
+      "input": {
+        "text": "2.49",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": true,
+        "value": 249
+      },
+      "note": "SPEC E1 A"
+    },
+    {
+      "id": "p-comma",
+      "input": {
+        "text": "2,49",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": true,
+        "value": 249
+      },
+      "note": "either separator is accepted (SPEC 5.3)"
+    },
+    {
+      "id": "p-e3",
+      "input": {
+        "text": "1.89",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": true,
+        "value": 189
+      },
+      "note": "SPEC E3"
+    },
+    {
+      "id": "p-whole",
+      "input": {
+        "text": "3",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": true,
+        "value": 300
+      },
+      "note": "no separator"
+    },
+    {
+      "id": "p-one-decimal",
+      "input": {
+        "text": "2.5",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": true,
+        "value": 250
+      },
+      "note": "one decimal pads to cents"
+    },
+    {
+      "id": "p-trailing-sep",
+      "input": {
+        "text": "2.",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": true,
+        "value": 200
+      },
+      "note": "a separator with nothing after it (mid-typing)"
+    },
+    {
+      "id": "p-leading-sep",
+      "input": {
+        "text": ".99",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": true,
+        "value": 99
+      },
+      "note": "leading separator"
+    },
+    {
+      "id": "p-leading-zeros",
+      "input": {
+        "text": "007.05",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": true,
+        "value": 705
+      },
+      "note": "leading zeros ignored"
+    },
+    {
+      "id": "p-zero",
+      "input": {
+        "text": "0",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": true,
+        "value": 0
+      },
+      "note": "price 0 is valid: Free (SPEC 7)"
+    },
+    {
+      "id": "p-zero-dec",
+      "input": {
+        "text": "0.00",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": true,
+        "value": 0
+      },
+      "note": "Free"
+    },
+    {
+      "id": "p-spaces",
+      "input": {
+        "text": " 4.99 ",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": true,
+        "value": 499
+      },
+      "note": "surrounding spaces trimmed"
+    },
+    {
+      "id": "p-max",
+      "input": {
+        "text": "1000000",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": true,
+        "value": 100000000
+      },
+      "note": "limit: 1 000 000.00"
+    },
+    {
+      "id": "p-max-dec",
+      "input": {
+        "text": "1000000.00",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": true,
+        "value": 100000000
+      },
+      "note": "limit with decimals"
+    },
+    {
+      "id": "p-over-max",
+      "input": {
+        "text": "1000000.01",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": false,
+        "error": "tooLarge"
+      },
+      "note": "one cent over the limit"
+    },
+    {
+      "id": "p-over-max-int",
+      "input": {
+        "text": "1000001",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": false,
+        "error": "tooLarge"
+      },
+      "note": "limit"
+    },
+    {
+      "id": "p-way-over",
+      "input": {
+        "text": "99999999999999999999",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": false,
+        "error": "tooLarge"
+      },
+      "note": "huge digits never overflow"
+    },
+    {
+      "id": "p-too-many-dec",
+      "input": {
+        "text": "2.499",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": false,
+        "error": "tooManyDecimals"
+      },
+      "note": "more digits than the currency exponent"
+    },
+    {
+      "id": "p-jpy",
+      "input": {
+        "text": "498",
+        "exponent": 0
+      },
+      "expected": {
+        "ok": true,
+        "value": 498
+      },
+      "note": "JPY exponent 0"
+    },
+    {
+      "id": "p-jpy-dec",
+      "input": {
+        "text": "498.5",
+        "exponent": 0
+      },
+      "expected": {
+        "ok": false,
+        "error": "tooManyDecimals"
+      },
+      "note": "JPY has no decimals"
+    },
+    {
+      "id": "p-jpy-max",
+      "input": {
+        "text": "1000000",
+        "exponent": 0
+      },
+      "expected": {
+        "ok": true,
+        "value": 1000000
+      },
+      "note": "JPY limit"
+    },
+    {
+      "id": "p-jpy-over",
+      "input": {
+        "text": "1000001",
+        "exponent": 0
+      },
+      "expected": {
+        "ok": false,
+        "error": "tooLarge"
+      },
+      "note": "JPY limit"
+    },
+    {
+      "id": "p-kwd",
+      "input": {
+        "text": "1.235",
+        "exponent": 3
+      },
+      "expected": {
+        "ok": true,
+        "value": 1235
+      },
+      "note": "KWD exponent 3"
+    },
+    {
+      "id": "p-kwd-max",
+      "input": {
+        "text": "1000000.000",
+        "exponent": 3
+      },
+      "expected": {
+        "ok": true,
+        "value": 1000000000
+      },
+      "note": "KWD limit"
+    },
+    {
+      "id": "p-kwd-over",
+      "input": {
+        "text": "1000000.001",
+        "exponent": 3
+      },
+      "expected": {
+        "ok": false,
+        "error": "tooLarge"
+      },
+      "note": "KWD limit"
+    },
+    {
+      "id": "p-empty",
+      "input": {
+        "text": "",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": false,
+        "error": "empty"
+      },
+      "note": "nothing typed"
+    },
+    {
+      "id": "p-spaces-only",
+      "input": {
+        "text": "   ",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": false,
+        "error": "empty"
+      },
+      "note": "only spaces"
+    },
+    {
+      "id": "p-only-sep",
+      "input": {
+        "text": ".",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": false,
+        "error": "incomplete"
+      },
+      "note": "just a separator"
+    },
+    {
+      "id": "p-two-seps",
+      "input": {
+        "text": "1.2.3",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": false,
+        "error": "malformed"
+      },
+      "note": "second separator is not a thousands separator"
+    },
+    {
+      "id": "p-thousands",
+      "input": {
+        "text": "1,234.56",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": false,
+        "error": "malformed"
+      },
+      "note": "thousands separators are not accepted (keypad only)"
+    },
+    {
+      "id": "p-letters",
+      "input": {
+        "text": "2.4a",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": false,
+        "error": "malformed"
+      },
+      "note": "garbage"
+    },
+    {
+      "id": "p-negative",
+      "input": {
+        "text": "-2",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": false,
+        "error": "malformed"
+      },
+      "note": "no negative prices"
+    },
+    {
+      "id": "p-exp",
+      "input": {
+        "text": "1e3",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": false,
+        "error": "malformed"
+      },
+      "note": "no exponent notation"
+    },
+    {
+      "id": "p-x",
+      "input": {
+        "text": "6x2",
+        "exponent": 2
+      },
+      "expected": {
+        "ok": false,
+        "error": "malformed"
+      },
+      "note": "multipack syntax is a size thing"
+    }
+  ],
+  "size": [
+    {
+      "id": "s-500",
+      "input": {
+        "text": "500"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 1,
+          "itemSize": "500"
+        }
+      },
+      "note": "SPEC E1 A"
+    },
+    {
+      "id": "s-1p2",
+      "input": {
+        "text": "1.2"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 1,
+          "itemSize": "1.2"
+        }
+      },
+      "note": "SPEC E1 B"
+    },
+    {
+      "id": "s-1c2",
+      "input": {
+        "text": "1,2"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 1,
+          "itemSize": "1.2"
+        }
+      },
+      "note": "comma separator"
+    },
+    {
+      "id": "s-16",
+      "input": {
+        "text": "16"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 1,
+          "itemSize": "16"
+        }
+      },
+      "note": "SPEC E1 C"
+    },
+    {
+      "id": "s-6x330",
+      "input": {
+        "text": "6x330"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 6,
+          "itemSize": "330"
+        }
+      },
+      "note": "SPEC 5.3 / E18"
+    },
+    {
+      "id": "s-6times330",
+      "input": {
+        "text": "6×330"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 6,
+          "itemSize": "330"
+        }
+      },
+      "note": "SPEC 5.3 multiplication sign"
+    },
+    {
+      "id": "s-6X330",
+      "input": {
+        "text": "6X330"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 6,
+          "itemSize": "330"
+        }
+      },
+      "note": "capital X"
+    },
+    {
+      "id": "s-6-space-x-0p33",
+      "input": {
+        "text": "6 x 0.33"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 6,
+          "itemSize": "0.33"
+        }
+      },
+      "note": "SPEC 5.3 spaces"
+    },
+    {
+      "id": "s-6x0c33",
+      "input": {
+        "text": "6x0,33"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 6,
+          "itemSize": "0.33"
+        }
+      },
+      "note": "comma in the item size"
+    },
+    {
+      "id": "s-6x-dot33",
+      "input": {
+        "text": "6x.33"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 6,
+          "itemSize": "0.33"
+        }
+      },
+      "note": "leading separator after x"
+    },
+    {
+      "id": "s-4x125",
+      "input": {
+        "text": "4x125"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 4,
+          "itemSize": "125"
+        }
+      },
+      "note": "SPEC section 13"
+    },
+    {
+      "id": "s-1x500",
+      "input": {
+        "text": "1x500"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 1,
+          "itemSize": "500"
+        }
+      },
+      "note": "count 1"
+    },
+    {
+      "id": "s-999x1",
+      "input": {
+        "text": "999x1"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 999,
+          "itemSize": "1"
+        }
+      },
+      "note": "pack count limit"
+    },
+    {
+      "id": "s-1000x1",
+      "input": {
+        "text": "1000x1"
+      },
+      "expected": {
+        "ok": false,
+        "error": "countRange"
+      },
+      "note": "pack count limit 999"
+    },
+    {
+      "id": "s-0x330",
+      "input": {
+        "text": "0x330"
+      },
+      "expected": {
+        "ok": false,
+        "error": "countRange"
+      },
+      "note": "zero packs"
+    },
+    {
+      "id": "s-count-decimal",
+      "input": {
+        "text": "6.5x330"
+      },
+      "expected": {
+        "ok": false,
+        "error": "malformed"
+      },
+      "note": "multipack count must be whole"
+    },
+    {
+      "id": "s-x330",
+      "input": {
+        "text": "x330"
+      },
+      "expected": {
+        "ok": false,
+        "error": "malformed"
+      },
+      "note": "count missing"
+    },
+    {
+      "id": "s-6x",
+      "input": {
+        "text": "6x"
+      },
+      "expected": {
+        "ok": false,
+        "error": "incomplete"
+      },
+      "note": "waiting for the size"
+    },
+    {
+      "id": "s-6x-space",
+      "input": {
+        "text": "6 x "
+      },
+      "expected": {
+        "ok": false,
+        "error": "incomplete"
+      },
+      "note": "waiting for the size"
+    },
+    {
+      "id": "s-6xx3",
+      "input": {
+        "text": "6xx3"
+      },
+      "expected": {
+        "ok": false,
+        "error": "malformed"
+      },
+      "note": "double multiply"
+    },
+    {
+      "id": "s-6x3x2",
+      "input": {
+        "text": "6x3x2"
+      },
+      "expected": {
+        "ok": false,
+        "error": "malformed"
+      },
+      "note": "only one multiply"
+    },
+    {
+      "id": "s-canonical-trailing",
+      "input": {
+        "text": "1.500"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 1,
+          "itemSize": "1.5"
+        }
+      },
+      "note": "canonical text drops trailing zeros"
+    },
+    {
+      "id": "s-canonical-leading",
+      "input": {
+        "text": "007"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 1,
+          "itemSize": "7"
+        }
+      },
+      "note": "canonical text drops leading zeros"
+    },
+    {
+      "id": "s-canonical-sep",
+      "input": {
+        "text": "500."
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 1,
+          "itemSize": "500"
+        }
+      },
+      "note": "trailing separator"
+    },
+    {
+      "id": "s-canonical-dot",
+      "input": {
+        "text": ".5"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 1,
+          "itemSize": "0.5"
+        }
+      },
+      "note": "leading separator"
+    },
+    {
+      "id": "s-3-decimals",
+      "input": {
+        "text": "0.333"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 1,
+          "itemSize": "0.333"
+        }
+      },
+      "note": "three decimals allowed"
+    },
+    {
+      "id": "s-4-decimals",
+      "input": {
+        "text": "0.3333"
+      },
+      "expected": {
+        "ok": false,
+        "error": "tooManyDecimals"
+      },
+      "note": "more than 3 decimals is refused (SPEC 5.3)"
+    },
+    {
+      "id": "s-zero",
+      "input": {
+        "text": "0"
+      },
+      "expected": {
+        "ok": false,
+        "error": "zero"
+      },
+      "note": "size 0 refused (SPEC 7)"
+    },
+    {
+      "id": "s-zero-dec",
+      "input": {
+        "text": "0.000"
+      },
+      "expected": {
+        "ok": false,
+        "error": "zero"
+      },
+      "note": "size 0 refused"
+    },
+    {
+      "id": "s-6x0",
+      "input": {
+        "text": "6x0"
+      },
+      "expected": {
+        "ok": false,
+        "error": "zero"
+      },
+      "note": "size 0 refused inside a multipack"
+    },
+    {
+      "id": "s-max",
+      "input": {
+        "text": "1000000"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 1,
+          "itemSize": "1000000"
+        }
+      },
+      "note": "size limit 1 000 000"
+    },
+    {
+      "id": "s-max-dec",
+      "input": {
+        "text": "1000000.000"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 1,
+          "itemSize": "1000000"
+        }
+      },
+      "note": "size limit with zero decimals"
+    },
+    {
+      "id": "s-over-max",
+      "input": {
+        "text": "1000001"
+      },
+      "expected": {
+        "ok": false,
+        "error": "tooLarge"
+      },
+      "note": "size limit"
+    },
+    {
+      "id": "s-over-max-dec",
+      "input": {
+        "text": "1000000.001"
+      },
+      "expected": {
+        "ok": false,
+        "error": "tooLarge"
+      },
+      "note": "size limit"
+    },
+    {
+      "id": "s-e20-500kg",
+      "input": {
+        "text": "500"
+      },
+      "expected": {
+        "ok": true,
+        "value": {
+          "packCount": 1,
+          "itemSize": "500"
+        }
+      },
+      "note": "SPEC E20 the typo 500 (kg) parses fine; W4 catches it in P2"
+    },
+    {
+      "id": "s-empty",
+      "input": {
+        "text": ""
+      },
+      "expected": {
+        "ok": false,
+        "error": "empty"
+      },
+      "note": "nothing typed"
+    },
+    {
+      "id": "s-sep",
+      "input": {
+        "text": ","
+      },
+      "expected": {
+        "ok": false,
+        "error": "incomplete"
+      },
+      "note": "just a separator"
+    },
+    {
+      "id": "s-two-seps",
+      "input": {
+        "text": "1.2.3"
+      },
+      "expected": {
+        "ok": false,
+        "error": "malformed"
+      },
+      "note": "malformed"
+    },
+    {
+      "id": "s-letters",
+      "input": {
+        "text": "5kg"
+      },
+      "expected": {
+        "ok": false,
+        "error": "malformed"
+      },
+      "note": "units are chosen with the chips, not typed"
+    },
+    {
+      "id": "s-negative",
+      "input": {
+        "text": "-5"
+      },
+      "expected": {
+        "ok": false,
+        "error": "malformed"
+      },
+      "note": "no negatives"
+    }
+  ],
+  "quantity": [
+    {
+      "id": "q-1",
+      "input": {
+        "text": "1"
+      },
+      "expected": {
+        "ok": true,
+        "value": 1
+      },
+      "note": "minimum"
+    },
+    {
+      "id": "q-3",
+      "input": {
+        "text": "3"
+      },
+      "expected": {
+        "ok": true,
+        "value": 3
+      },
+      "note": "SPEC E8 \"3 for 2\""
+    },
+    {
+      "id": "q-12",
+      "input": {
+        "text": "12"
+      },
+      "expected": {
+        "ok": true,
+        "value": 12
+      },
+      "note": "two digits"
+    },
+    {
+      "id": "q-999",
+      "input": {
+        "text": "999"
+      },
+      "expected": {
+        "ok": true,
+        "value": 999
+      },
+      "note": "limit"
+    },
+    {
+      "id": "q-1000",
+      "input": {
+        "text": "1000"
+      },
+      "expected": {
+        "ok": false,
+        "error": "tooLarge"
+      },
+      "note": "limit 999"
+    },
+    {
+      "id": "q-0",
+      "input": {
+        "text": "0"
+      },
+      "expected": {
+        "ok": false,
+        "error": "zero"
+      },
+      "note": "at least one pack"
+    },
+    {
+      "id": "q-007",
+      "input": {
+        "text": "007"
+      },
+      "expected": {
+        "ok": true,
+        "value": 7
+      },
+      "note": "leading zeros"
+    },
+    {
+      "id": "q-decimal",
+      "input": {
+        "text": "1.5"
+      },
+      "expected": {
+        "ok": false,
+        "error": "malformed"
+      },
+      "note": "whole packs only"
+    },
+    {
+      "id": "q-empty",
+      "input": {
+        "text": ""
+      },
+      "expected": {
+        "ok": false,
+        "error": "empty"
+      },
+      "note": "nothing typed"
+    },
+    {
+      "id": "q-letters",
+      "input": {
+        "text": "two"
+      },
+      "expected": {
+        "ok": false,
+        "error": "malformed"
+      },
+      "note": "garbage"
+    }
+  ],
+  "keys": [
+    {
+      "id": "k-u1-price",
+      "input": {
+        "field": "price",
+        "exponent": 2,
+        "keys": "249"
+      },
+      "expected": "249",
+      "note": "SPEC U1 price keys"
+    },
+    {
+      "id": "k-price-decimal",
+      "input": {
+        "field": "price",
+        "exponent": 2,
+        "keys": "2.49"
+      },
+      "expected": "2.49",
+      "note": "decimal key"
+    },
+    {
+      "id": "k-price-comma",
+      "input": {
+        "field": "price",
+        "exponent": 2,
+        "keys": "2,49"
+      },
+      "expected": "2,49",
+      "note": "comma key keeps what was typed"
+    },
+    {
+      "id": "k-price-third-decimal",
+      "input": {
+        "field": "price",
+        "exponent": 2,
+        "keys": "2.499"
+      },
+      "expected": "2.49",
+      "note": "a third decimal is ignored (SPEC 7)"
+    },
+    {
+      "id": "k-price-second-sep",
+      "input": {
+        "field": "price",
+        "exponent": 2,
+        "keys": "2.4,9"
+      },
+      "expected": "2.49",
+      "note": "a second separator is ignored (SPEC 2.1)"
+    },
+    {
+      "id": "k-price-leading-sep",
+      "input": {
+        "field": "price",
+        "exponent": 2,
+        "keys": ".5"
+      },
+      "expected": "0.5",
+      "note": "a leading separator gets a 0 in front"
+    },
+    {
+      "id": "k-price-leading-zero",
+      "input": {
+        "field": "price",
+        "exponent": 2,
+        "keys": "05"
+      },
+      "expected": "5",
+      "note": "0 then 5 is 5"
+    },
+    {
+      "id": "k-price-double-zero",
+      "input": {
+        "field": "price",
+        "exponent": 2,
+        "keys": "00"
+      },
+      "expected": "0",
+      "note": "0 then 0 stays 0"
+    },
+    {
+      "id": "k-price-over-limit",
+      "input": {
+        "field": "price",
+        "exponent": 2,
+        "keys": "10000000"
+      },
+      "expected": "1000000",
+      "note": "the 8th integer digit is ignored"
+    },
+    {
+      "id": "k-price-limit-exact",
+      "input": {
+        "field": "price",
+        "exponent": 2,
+        "keys": "1000000.00"
+      },
+      "expected": "1000000.00",
+      "note": "exactly the limit"
+    },
+    {
+      "id": "k-price-limit-cent",
+      "input": {
+        "field": "price",
+        "exponent": 2,
+        "keys": "1000000.01"
+      },
+      "expected": "1000000.0",
+      "note": "one cent over is ignored"
+    },
+    {
+      "id": "k-price-jpy-sep",
+      "input": {
+        "field": "price",
+        "exponent": 0,
+        "keys": "4.5"
+      },
+      "expected": "45",
+      "note": "JPY has no decimal key"
+    },
+    {
+      "id": "k-price-kwd",
+      "input": {
+        "field": "price",
+        "exponent": 3,
+        "keys": "1.2345"
+      },
+      "expected": "1.234",
+      "note": "KWD takes three decimals"
+    },
+    {
+      "id": "k-price-x-ignored",
+      "input": {
+        "field": "price",
+        "exponent": 2,
+        "keys": "2x5"
+      },
+      "expected": "25",
+      "note": "the multiply key is size-only"
+    },
+    {
+      "id": "k-price-backspace",
+      "input": {
+        "field": "price",
+        "exponent": 2,
+        "keys": "2.49<<"
+      },
+      "expected": "2.",
+      "note": "backspace removes one character each"
+    },
+    {
+      "id": "k-price-backspace-empty",
+      "input": {
+        "field": "price",
+        "exponent": 2,
+        "keys": "<<"
+      },
+      "expected": "",
+      "note": "backspace on empty is harmless"
+    },
+    {
+      "id": "k-size-u1",
+      "input": {
+        "field": "size",
+        "exponent": 2,
+        "keys": "1.2"
+      },
+      "expected": "1.2",
+      "note": "SPEC U1 size keys"
+    },
+    {
+      "id": "k-size-multipack",
+      "input": {
+        "field": "size",
+        "exponent": 2,
+        "keys": "6x330"
+      },
+      "expected": "6×330",
+      "note": "x becomes the multiply sign"
+    },
+    {
+      "id": "k-size-multipack-sign",
+      "input": {
+        "field": "size",
+        "exponent": 2,
+        "keys": "6×0.33"
+      },
+      "expected": "6×0.33",
+      "note": "typed multiply sign"
+    },
+    {
+      "id": "k-size-x-first",
+      "input": {
+        "field": "size",
+        "exponent": 2,
+        "keys": "x5"
+      },
+      "expected": "5",
+      "note": "x needs a number first"
+    },
+    {
+      "id": "k-size-second-x",
+      "input": {
+        "field": "size",
+        "exponent": 2,
+        "keys": "6x3x2"
+      },
+      "expected": "6×32",
+      "note": "only one multiply"
+    },
+    {
+      "id": "k-size-x-after-decimal",
+      "input": {
+        "field": "size",
+        "exponent": 2,
+        "keys": "6.5x3"
+      },
+      "expected": "6.53",
+      "note": "multipack count is whole"
+    },
+    {
+      "id": "k-size-count-limit",
+      "input": {
+        "field": "size",
+        "exponent": 2,
+        "keys": "1000x"
+      },
+      "expected": "1000",
+      "note": "1000 is a fine size, but x after it would make a pack count over 999, so x is ignored"
+    },
+    {
+      "id": "k-size-fourth-decimal",
+      "input": {
+        "field": "size",
+        "exponent": 2,
+        "keys": "0.3333"
+      },
+      "expected": "0.333",
+      "note": "sizes take 3 decimals"
+    },
+    {
+      "id": "k-size-per-part-decimal",
+      "input": {
+        "field": "size",
+        "exponent": 2,
+        "keys": "6x0.3.3"
+      },
+      "expected": "6×0.33",
+      "note": "each part has its own separator"
+    },
+    {
+      "id": "k-size-limit",
+      "input": {
+        "field": "size",
+        "exponent": 2,
+        "keys": "10000000"
+      },
+      "expected": "1000000",
+      "note": "size limit"
+    },
+    {
+      "id": "k-size-limit-decimal",
+      "input": {
+        "field": "size",
+        "exponent": 2,
+        "keys": "1000000.1"
+      },
+      "expected": "1000000.",
+      "note": "size limit with decimals"
+    },
+    {
+      "id": "k-size-backspace-multiply",
+      "input": {
+        "field": "size",
+        "exponent": 2,
+        "keys": "6x3<<"
+      },
+      "expected": "6",
+      "note": "two backspaces remove the 3 and the multiply sign"
+    },
+    {
+      "id": "k-size-backspace-one",
+      "input": {
+        "field": "size",
+        "exponent": 2,
+        "keys": "6x3<"
+      },
+      "expected": "6×",
+      "note": "backspace can stop right after the multiply sign"
+    },
+    {
+      "id": "k-size-zero-after-x",
+      "input": {
+        "field": "size",
+        "exponent": 2,
+        "keys": "6x05"
+      },
+      "expected": "6×5",
+      "note": "zero after x is replaced"
+    },
+    {
+      "id": "k-qty-digits",
+      "input": {
+        "field": "quantity",
+        "exponent": 2,
+        "keys": "12"
+      },
+      "expected": "12",
+      "note": "quantity"
+    },
+    {
+      "id": "k-qty-limit",
+      "input": {
+        "field": "quantity",
+        "exponent": 2,
+        "keys": "1234"
+      },
+      "expected": "123",
+      "note": "limit 999 -> 4th digit ignored"
+    },
+    {
+      "id": "k-qty-no-sep",
+      "input": {
+        "field": "quantity",
+        "exponent": 2,
+        "keys": "1.5"
+      },
+      "expected": "15",
+      "note": "whole numbers only"
+    },
+    {
+      "id": "k-qty-zero",
+      "input": {
+        "field": "quantity",
+        "exponent": 2,
+        "keys": "0"
+      },
+      "expected": "0",
+      "note": "a lone zero is allowed while typing"
+    },
+    {
+      "id": "k-qty-ignores-garbage",
+      "input": {
+        "field": "quantity",
+        "exponent": 2,
+        "keys": "1a2"
+      },
+      "expected": "12",
+      "note": "unknown keys are ignored"
+    }
+  ],
+  "canonicalDecimal": [
+    {
+      "id": "cd-1",
+      "input": {
+        "text": "2,50"
+      },
+      "expected": "2.5",
+      "note": "comma, trailing zero"
+    },
+    {
+      "id": "cd-2",
+      "input": {
+        "text": ".5"
+      },
+      "expected": "0.5",
+      "note": "leading separator"
+    },
+    {
+      "id": "cd-3",
+      "input": {
+        "text": "007"
+      },
+      "expected": "7",
+      "note": "leading zeros"
+    },
+    {
+      "id": "cd-4",
+      "input": {
+        "text": "0.330"
+      },
+      "expected": "0.33",
+      "note": "trailing zero"
+    },
+    {
+      "id": "cd-5",
+      "input": {
+        "text": "1000"
+      },
+      "expected": "1000",
+      "note": "trailing zeros of integers are kept"
+    },
+    {
+      "id": "cd-6",
+      "input": {
+        "text": "12x"
+      },
+      "expected": null,
+      "note": "not a plain number"
+    },
+    {
+      "id": "cd-7",
+      "input": {
+        "text": ""
+      },
+      "expected": null,
+      "note": "empty"
+    }
+  ]
+}

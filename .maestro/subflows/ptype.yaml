@@ -1,0 +1,11 @@
+appId: ${APP_ID}
+---
+# Types ${KEYS} on the Add price keypad: digits, "." = decimal key, "n" = Next, "x" = ×.
+- evalScript: >-
+    ${output.pkeys = KEYS.split('').map(function (k) { return k === '.' ? 'pkey-sep' : k === 'n' ? 'pkey-next' : k === 'x' ? 'pkey-times' : 'pkey-' + k; })}
+- repeat:
+    times: ${output.pkeys.length}
+    commands:
+      - evalScript: ${output.pkey = output.pkeys.shift()}
+      - tapOn:
+          id: ${output.pkey}

@@ -1,0 +1,40 @@
+appId: ${APP_ID}
+name: Release build - About - honest privacy text per platform, privacy-policy link, version 1.1.0, open-source licences offline
+tags:
+  - release
+---
+- launchApp:
+    clearState: true
+    stopApp: true
+- extendedWaitUntil:
+    visible:
+      id: compare-screen
+    timeout: 90000
+- tapOn: {id: open-settings}
+- scrollUntilVisible:
+    element:
+      id: open-about
+    direction: DOWN
+- tapOn: {id: open-about}
+- extendedWaitUntil:
+    visible:
+      id: about-screen
+    timeout: 15000
+# S4: says what the phone's own backup holds (Android: left out of Google's backup; iPhone: included if switched on)
+- assertVisible:
+    id: about-privacy
+    text: "Price Book works fully on this phone: no account, no network, no ads, no tracking, and we never see your prices\\. .*backup.*"
+# 1c item 9: the link is there (not opened: the test makes no network request)
+- assertVisible:
+    id: about-privacy-link
+    text: "Privacy policy \\(opens taulon\\.org\\)"
+- assertVisible:
+    id: about-version
+    text: "Version 1\\.1\\.0"
+# 1c item 14: the licence notices open offline
+- tapOn: {id: about-licenses}
+- extendedWaitUntil:
+    visible:
+      id: licenses-screen
+    timeout: 15000
+- assertVisible: "Price Book is built with open-source software.*"

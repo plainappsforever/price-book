@@ -1,0 +1,69 @@
+appId: ${APP_ID}
+name: Settings basis - cycle per kg / 100 g / lb on the header, remembered, chosen in Settings, US units reset to per oz
+tags:
+  - compare
+---
+- runFlow:
+    file: subflows/seed.yaml
+    env:
+      SEED: empty
+- runFlow: subflows/settings-eu.yaml
+- runFlow:
+    file: subflows/type.yaml
+    env:
+      KEYS: 2.49n500n5.49n1.2
+- tapOn: {id: unit-kg}
+- assertVisible:
+    id: result-B
+    text: "€4.58 per kg"
+- tapOn: {id: basis-mass}
+- assertVisible:
+    id: result-B
+    text: "€0.458 per 100 g"
+- assertVisible:
+    id: result-A
+    text: "€0.498 per 100 g"
+- tapOn: {id: basis-mass}
+- assertVisible:
+    id: result-B
+    text: "€2.08 per lb"
+# remembered across a restart
+- runFlow:
+    file: subflows/pause.yaml
+    env:
+      MS: 1500
+- stopApp
+- runFlow: subflows/launch.yaml
+- assertVisible:
+    id: result-B
+    text: "€2.08 per lb"
+# Settings shows the choice and can change it
+- tapOn: {id: open-settings}
+- scrollUntilVisible:
+    element:
+      id: basis-mass-kg
+    direction: DOWN
+- assertVisible:
+    id: basis-mass-lb
+    selected: true
+- tapOn: {id: basis-mass-kg}
+- runFlow:
+    file: subflows/back.yaml
+    env:
+      BACK_TITLE: Compare
+- assertVisible:
+    id: result-B
+    text: "€4.58 per kg"
+# US units: every basis resets to the US default (per oz; SPEC E2 three decimals)
+- tapOn: {id: open-settings}
+- tapOn: {id: units-us}
+- runFlow:
+    file: subflows/back.yaml
+    env:
+      BACK_TITLE: Compare
+- assertVisible:
+    id: result-B
+    text: "€0.130 per oz"
+- assertVisible:
+    id: result-A
+    text: "€0.141 per oz"

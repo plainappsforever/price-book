@@ -1,0 +1,46 @@
+appId: ${APP_ID}
+name: Big book - 5 000 prices, the list loads and a product opens in under a second (A17)
+tags:
+  - book
+---
+- runFlow:
+    file: subflows/seed.yaml
+    env:
+      SEED: big5000
+- runFlow: subflows/settings-eu.yaml
+- tapOn: {id: tab-book}
+# 3 digits of milliseconds at most: the list is on screen in < 1 000 ms after its data is in
+- extendedWaitUntil:
+    visible:
+      id: book-timing
+      text: "list ready in [0-9]{1,3} ms for 200 products"
+    timeout: 20000
+- assertVisible: {id: book-list}
+# the 5 000 prices behind the rows (statistics, chips) may take longer than the first rows
+- extendedWaitUntil:
+    visible:
+      id: book-timing-prices
+      text: "all prices loaded in [0-9]{1,4} ms"
+    timeout: 20000
+- takeScreenshot: big-book-list
+- tapOn: {id: product-188}
+- extendedWaitUntil:
+    visible:
+      id: product-timing
+      text: "opened in [0-9]{1,3} ms"
+    timeout: 20000
+- assertVisible: {id: tile-usual}
+- takeScreenshot: big-book-product
+- runFlow:
+    file: subflows/back.yaml
+    env:
+      BACK_TITLE: Price Book
+# the sort that has to compute every product
+- tapOn: {id: book-filters}
+- tapOn: {id: sort-rise}
+- extendedWaitUntil:
+    visible:
+      id: book-timing
+      text: "list ready in [0-9]{1,4} ms for 200 products"
+    timeout: 30000
+- assertVisible: {id: book-list}

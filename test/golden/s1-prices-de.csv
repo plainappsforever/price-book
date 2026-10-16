@@ -1,0 +1,8 @@
+﻿date;product;brand;variant;category;store;currency;pack_price;paid_price;pack_count;item_size;unit;total_quantity;base_unit;unit_price;unit_price_basis;deposit;promo;deal;note;barcodes
+2026-01-10;Coffee beans;Mokka Mill;Crema;Coffee;Rewe;EUR;2,49;;1;500;g;500;g;4,980;kg;0,00;no;;;4001234567891
+2026-02-14;Coffee beans;Mokka Mill;Crema;Coffee;Aldi;EUR;2,29;;1;500;g;500;g;4,580;kg;0,00;no;;;4001234567891
+2026-03-01;Crisps;Crunchy;Paprika;Snacks;Rewe;EUR;1,99;;1;200;g;200;g;9,950;kg;0,00;no;;;
+2026-03-20;Coffee beans;Mokka Mill;Crema;Coffee;Rewe;EUR;3,99;;1;1;kg;1000;g;3,990;kg;0,00;yes;"Weekend offer, ""1 kg for 3.99""";'=promo week;4001234567891
+2026-07-20;Coffee beans;Mokka Mill;Crema;Coffee;Edeka;EUR;2,59;;1;500;g;500;g;5,180;kg;0,00;no;;;4001234567891
+2026-08-28;Coffee beans;Mokka Mill;Crema;Coffee;Rewe;EUR;2,49;;1;500;g;500;g;4,980;kg;0,00;no;;;4001234567891
+2026-09-01;Crisps;Crunchy;Paprika;Snacks;Rewe;EUR;1,99;;1;175;g;175;g;11,371;kg;0,00;no;;Pack looks the same;

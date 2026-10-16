@@ -1,0 +1,11 @@
+appId: ${APP_ID}
+---
+# Types ${KEYS} on the Compare keypad: digits, "." = decimal key, "n" = Next, "x" = ×.
+- evalScript: >-
+    ${output.keys = KEYS.split('').map(function (k) { return k === '.' ? 'key-sep' : k === 'n' ? 'key-next' : k === 'x' ? 'key-times' : 'key-' + k; })}
+- repeat:
+    times: ${output.keys.length}
+    commands:
+      - evalScript: ${output.key = output.keys.shift()}
+      - tapOn:
+          id: ${output.key}

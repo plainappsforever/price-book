@@ -1,0 +1,60 @@
+appId: ${APP_ID}
+name: Release build - Scan - the camera is asked for only after "Allow camera"; a typed unknown code starts a new product that the code then finds
+tags:
+  - release
+---
+# Release build: clean install, data typed through the screens (no seed link, no simulated camera)
+- runFlow: ../subflows/release-start.yaml
+- tapOn: {id: tab-book}
+- tapOn: {id: book-scan}
+- extendedWaitUntil:
+    visible: {id: scan-allow}
+    timeout: 15000
+- assertVisible: "Price Book uses the camera only to read barcodes.*"
+- tapOn: {id: scan-manual}
+- inputText: "73513537"
+- tapOn: {id: scan-manual-go}
+- extendedWaitUntil:
+    visible:
+      id: scan-notfound
+      text: "No product in your book has barcode 73513537 yet\\."
+    timeout: 15000
+- tapOn: {id: scan-new}
+- extendedWaitUntil:
+    visible: {id: pe-barcode-73513537}
+    timeout: 15000
+- tapOn: {id: pe-name}
+- inputText: Tea
+- tapOn: {id: pe-dim-count}
+- scrollUntilVisible:
+    element: {id: pe-save}
+    direction: DOWN
+- tapOn: {id: pe-save}
+- extendedWaitUntil:
+    visible:
+      id: price-product
+      text: Tea
+    timeout: 15000
+- runFlow:
+    file: ../subflows/ptype.yaml
+    env:
+      KEYS: 2.19n20
+- tapOn: {id: price-save}
+- extendedWaitUntil:
+    visible:
+      id: product-barcodes
+      text: "Barcode: 73513537"
+    timeout: 15000
+- runFlow:
+    file: ../subflows/back.yaml
+    env:
+      BACK_TITLE: Price Book
+- tapOn: {id: book-scan}
+- tapOn: {id: scan-manual}
+- inputText: "73513537"
+- tapOn: {id: scan-manual-go}
+- extendedWaitUntil:
+    visible:
+      id: product-title
+      text: Tea
+    timeout: 15000

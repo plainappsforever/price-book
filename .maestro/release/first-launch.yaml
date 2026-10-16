@@ -1,0 +1,46 @@
+appId: ${APP_ID}
+name: Release build - first launch - no prompt, keypad ready, locale defaults (env CUR, FORMAT, UNITS, TAX)
+tags:
+  - release
+---
+# A12 / A14 on a clean install: no onboarding or permission dialog, the keypad is there, settings follow the device locale.
+# Run: maestro ... -e CUR=USD -e FORMAT=point -e UNITS=us -e TAX="\\+ tax" .maestro/release/first-launch.yaml
+- launchApp:
+    clearState: true
+    stopApp: true
+- extendedWaitUntil:
+    visible:
+      id: compare-screen
+    timeout: 90000
+- assertVisible:
+    id: key-5
+- assertNotVisible: "Allow"
+- assertNotVisible: "Don.t Allow"
+- takeScreenshot: first-launch-compare
+- tapOn:
+    id: open-settings
+- extendedWaitUntil:
+    visible:
+      id: settings-screen
+    timeout: 15000
+- assertVisible:
+    id: currency-${CUR}
+    selected: true
+- scrollUntilVisible:
+    element:
+      id: format-${FORMAT}
+    direction: DOWN
+- assertVisible:
+    id: format-${FORMAT}
+    selected: true
+- assertVisible:
+    id: units-${UNITS}
+    selected: true
+- scrollUntilVisible:
+    element:
+      id: settings-tax
+    direction: DOWN
+- assertVisible:
+    id: settings-tax
+    text: ${TAX}
+- takeScreenshot: first-launch-settings

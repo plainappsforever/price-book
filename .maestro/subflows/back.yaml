@@ -1,0 +1,27 @@
+appId: ${APP_ID}
+---
+# One screen back: Android system back; iOS header back button (labelled with the previous title).
+- runFlow:
+    when:
+      platform: Android
+    commands:
+      - back
+- runFlow:
+    when:
+      platform: iOS
+    commands:
+      - tapOn:
+          text: ${BACK_TITLE}
+          index: 0
+      # a header back tap right after a scroll or a push is sometimes swallowed: tap again if the button is still there
+      - waitForAnimationToEnd:
+          timeout: 2000
+      - runFlow:
+          when:
+            visible:
+              id: BackButton
+              text: ${BACK_TITLE}
+          commands:
+            - tapOn:
+                id: BackButton
+                text: ${BACK_TITLE}

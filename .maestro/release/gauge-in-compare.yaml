@@ -1,0 +1,102 @@
+appId: ${APP_ID}
+name: Release build - Gauge in Compare - three prices typed through Add price, 4.49 per kg is 10 % below usual and the lowest seen, D40 label with tax (A8)
+tags:
+  - release
+---
+# Release build: clean install, the history is typed through the real screens (no seed link)
+- runFlow: ../subflows/release-start.yaml
+- tapOn: {id: tab-book}
+- tapOn: {id: book-add}
+- tapOn: {id: pe-name}
+- inputText: Coffee beans
+- hideKeyboard
+- tapOn: {id: pe-dim-mass}
+- tapOn: {id: pe-save}
+- extendedWaitUntil:
+    visible:
+      id: price-product
+      text: "Coffee beans"
+    timeout: 15000
+# three regular prices on three different days: €2.49 / 500 g (€4.98 per kg) twice, then €2.29
+- tapOn: {id: date-prev}
+- tapOn: {id: date-prev}
+- tapOn: {id: date-prev}
+- runFlow:
+    file: ../subflows/ptype.yaml
+    env:
+      KEYS: 2.49n500
+- tapOn: {id: unit-g}
+- tapOn: {id: price-save}
+- extendedWaitUntil:
+    visible:
+      id: tile-latest
+      text: "€4\\.98 per kg"
+    timeout: 15000
+- tapOn: {id: product-add-price}
+- tapOn: {id: date-prev}
+- tapOn: {id: date-prev}
+- runFlow:
+    file: ../subflows/ptype.yaml
+    env:
+      KEYS: "2.49"
+- tapOn: {id: price-save}
+- extendedWaitUntil:
+    visible:
+      id: product-add-price
+    timeout: 15000
+# the third price is a little lower (€2.29 = €4.58 per kg): the usual stays €4.98, the latest is the lowest
+- tapOn: {id: product-add-price}
+- tapOn: {id: date-prev}
+- runFlow:
+    file: ../subflows/ptype.yaml
+    env:
+      KEYS: "2.29"
+- tapOn: {id: price-save}
+- extendedWaitUntil:
+    visible:
+      id: tile-usual
+      text: "€4\\.98 per kg"
+    timeout: 15000
+- assertVisible:
+    id: tile-latest
+    text: "€4\\.58 per kg"
+# store screenshot 05 (RELEASE_KIT 1c item 17): a Release product screen with a real history
+- takeScreenshot: release-product-history
+- runFlow:
+    file: ../subflows/back.yaml
+    env:
+      BACK_TITLE: Price Book
+# U5 on Compare: link card A to the product, type 4.49 for 1 kg
+- tapOn: {id: tab-compare}
+- tapOn: {id: link-A}
+- tapOn: {id: pick-1}
+- extendedWaitUntil:
+    visible:
+      id: link-A
+      text: Coffee beans
+    timeout: 15000
+- runFlow:
+    file: ../subflows/type.yaml
+    env:
+      KEYS: 4.49n1
+- tapOn: {id: unit-kg}
+- assertVisible:
+    id: gauge-A
+    text: "10 % below your usual — Lowest you.ve seen"
+- assertNotVisible:
+    id: gauge-basis-A
+# US-style add-tax: Compare ranks with tax, the gauge stays on the shelf price and says so (D40)
+- tapOn: {id: tax-chip}
+- tapOn: {id: tax-add}
+- tapOn: {id: tkey-8}
+- tapOn: {id: tkey-sep}
+- tapOn: {id: tkey-8}
+- tapOn: {id: tkey-7}
+- tapOn: {id: tkey-5}
+- tapOn: {id: tax-done}
+- assertVisible:
+    id: gauge-A
+    text: "10 % below your usual — Lowest you.ve seen"
+- assertVisible:
+    id: gauge-basis-A
+    text: "Judged on the shelf price before tax, like your saved prices"

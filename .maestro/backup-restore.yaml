@@ -1,0 +1,132 @@
+appId: ${APP_ID}
+name: Backup and restore - seed s1, back up (counts), wipe, restore (counts, one confirmation), CSV export; corrupt file is not testable here
+tags:
+  - book
+---
+- runFlow:
+    file: subflows/seed.yaml
+    env:
+      SEED: s1
+- runFlow: subflows/settings-eu.yaml
+- tapOn: {id: open-settings}
+- scrollUntilVisible:
+    element:
+      id: open-data
+    direction: DOWN
+- tapOn: {id: open-data}
+- extendedWaitUntil:
+    visible:
+      id: data-screen
+    timeout: 15000
+# the system share sheet cannot be asserted by Maestro: in test mode the file is only written and its label shown
+- scrollUntilVisible:
+    element:
+      id: data-skip-share
+    direction: DOWN
+- tapOn: {id: data-skip-share}
+- scrollUntilVisible:
+    element:
+      id: data-backup
+    direction: UP
+- tapOn: {id: data-backup}
+- extendedWaitUntil:
+    visible:
+      id: data-file-name
+      text: "price-book-backup-2026-09-30\\.json"
+    timeout: 15000
+- assertVisible:
+    id: data-file-counts
+    text: "7 prices, 2 products, 3 stores"
+- tapOn: {id: data-csv}
+- extendedWaitUntil:
+    visible:
+      id: data-file-name
+      text: "price-book-prices-2026-09-30\\.csv"
+    timeout: 15000
+- assertVisible:
+    id: data-file-counts
+    text: "7 prices, one per line"
+# wipe: the empty seed (a restart); then restore the file that was just written
+- runFlow:
+    file: subflows/seed.yaml
+    env:
+      SEED: empty
+- tapOn: {id: tab-book}
+- assertVisible: {id: book-empty}
+- tapOn: {id: open-settings}
+- scrollUntilVisible:
+    element:
+      id: open-data
+    direction: DOWN
+- tapOn: {id: open-data}
+- scrollUntilVisible:
+    element:
+      id: data-restore-last
+    direction: DOWN
+- tapOn: {id: data-restore-last}
+- extendedWaitUntil:
+    visible:
+      id: restore-counts
+      text: "This file: 7 prices, 2 products, 3 stores\\.\\nNow on this phone: 0 prices, 0 products, 0 stores\\.\\nReplace everything on this phone with the file\\?"
+    timeout: 15000
+- tapOn: {id: restore-confirm}
+- extendedWaitUntil:
+    visible:
+      id: data-message
+      text: "Restored: 7 prices, 2 products, 3 stores"
+    timeout: 15000
+# v1.1 (REVIEW_V1 S7): restoring over existing data keeps a copy first, and offers to bring it back
+- tapOn: {id: data-restore-last}
+- extendedWaitUntil:
+    visible:
+      id: restore-counts
+      text: "This file: 7 prices, 2 products, 3 stores\\.\\nNow on this phone: 7 prices, 2 products, 3 stores\\.\\n.*"
+    timeout: 15000
+- tapOn: {id: restore-confirm}
+- extendedWaitUntil:
+    visible:
+      id: data-message
+      text: "Restored: 7 prices, 2 products, 3 stores\\. What was on this phone before is kept.*"
+    timeout: 15000
+- scrollUntilVisible:
+    element:
+      id: data-restore-undo
+    direction: DOWN
+- runFlow:
+    file: subflows/back.yaml
+    env:
+      BACK_TITLE: Settings
+- extendedWaitUntil:
+    visible:
+      id: settings-screen
+    timeout: 15000
+- runFlow:
+    file: subflows/pause.yaml
+    env:
+      MS: 800
+- runFlow:
+    file: subflows/back.yaml
+    env:
+      BACK_TITLE: Compare
+- extendedWaitUntil:
+    visible:
+      id: book-screen
+    timeout: 15000
+- assertVisible: {id: product-1}
+- assertVisible:
+    id: price-1
+    text: "€4\\.98 per kg.*"
+# a cancelled restore changes nothing
+- tapOn: {id: open-settings}
+- scrollUntilVisible:
+    element:
+      id: open-data
+    direction: DOWN
+- tapOn: {id: open-data}
+- scrollUntilVisible:
+    element:
+      id: data-restore-last
+    direction: DOWN
+- tapOn: {id: data-restore-last}
+- tapOn: {id: restore-cancel}
+- assertNotVisible: {id: restore-preview}

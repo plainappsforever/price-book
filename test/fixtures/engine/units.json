@@ -1,0 +1,1076 @@
+{
+  "conversions": [
+    {
+      "id": "conv-16oz-g",
+      "input": {
+        "value": "16",
+        "from": "oz",
+        "to": "g"
+      },
+      "expected": "453.59237",
+      "note": "SPEC E1: C = 16 oz is exactly 453.59237 g"
+    },
+    {
+      "id": "conv-1lb-g",
+      "input": {
+        "value": "1",
+        "from": "lb",
+        "to": "g"
+      },
+      "expected": "453.59237",
+      "note": "SPEC 5.2 lb factor"
+    },
+    {
+      "id": "conv-1lb-oz",
+      "input": {
+        "value": "1",
+        "from": "lb",
+        "to": "oz"
+      },
+      "expected": "16",
+      "note": "NIST: 1 lb = 16 oz, exact with the table factors"
+    },
+    {
+      "id": "conv-1oz-g",
+      "input": {
+        "value": "1",
+        "from": "oz",
+        "to": "g"
+      },
+      "expected": "28.349523125",
+      "note": "SPEC 5.2 oz factor"
+    },
+    {
+      "id": "conv-1oz-mg",
+      "input": {
+        "value": "1",
+        "from": "oz",
+        "to": "mg"
+      },
+      "expected": "28349.523125",
+      "note": "mg factor 1/1000"
+    },
+    {
+      "id": "conv-1kg-g",
+      "input": {
+        "value": "1",
+        "from": "kg",
+        "to": "g"
+      },
+      "expected": "1000",
+      "note": "metric"
+    },
+    {
+      "id": "conv-1p2kg-g",
+      "input": {
+        "value": "1.2",
+        "from": "kg",
+        "to": "g"
+      },
+      "expected": "1200",
+      "note": "SPEC E1 card B"
+    },
+    {
+      "id": "conv-500g-kg",
+      "input": {
+        "value": "500",
+        "from": "g",
+        "to": "kg"
+      },
+      "expected": "0.5",
+      "note": "SPEC E1 card A"
+    },
+    {
+      "id": "conv-1mg-g",
+      "input": {
+        "value": "1",
+        "from": "mg",
+        "to": "g"
+      },
+      "expected": "1/1000",
+      "note": "mg is a thousandth"
+    },
+    {
+      "id": "conv-1kg-lb",
+      "input": {
+        "value": "1",
+        "from": "kg",
+        "to": "lb"
+      },
+      "expected": "100000000/45359237",
+      "note": "reciprocal of the lb factor, not a terminating decimal"
+    },
+    {
+      "id": "conv-1gal_us-floz_us",
+      "input": {
+        "value": "1",
+        "from": "gal_us",
+        "to": "floz_us"
+      },
+      "expected": "128",
+      "note": "NIST HB 44: 1 US gal = 128 US fl oz"
+    },
+    {
+      "id": "conv-1gal_us-l",
+      "input": {
+        "value": "1",
+        "from": "gal_us",
+        "to": "l"
+      },
+      "expected": "3.785411784",
+      "note": "NIST: exact"
+    },
+    {
+      "id": "conv-1qt_us-pt_us",
+      "input": {
+        "value": "1",
+        "from": "qt_us",
+        "to": "pt_us"
+      },
+      "expected": "2",
+      "note": "US quart = 2 pints"
+    },
+    {
+      "id": "conv-1pt_us-floz_us",
+      "input": {
+        "value": "1",
+        "from": "pt_us",
+        "to": "floz_us"
+      },
+      "expected": "16",
+      "note": "US pint = 16 fl oz"
+    },
+    {
+      "id": "conv-1cup_us-floz_us",
+      "input": {
+        "value": "1",
+        "from": "cup_us",
+        "to": "floz_us"
+      },
+      "expected": "8",
+      "note": "US cup = 8 fl oz"
+    },
+    {
+      "id": "conv-1gal_uk-floz_uk",
+      "input": {
+        "value": "1",
+        "from": "gal_uk",
+        "to": "floz_uk"
+      },
+      "expected": "160",
+      "note": "imperial fl oz = 1/160 gal"
+    },
+    {
+      "id": "conv-1gal_uk-l",
+      "input": {
+        "value": "1",
+        "from": "gal_uk",
+        "to": "l"
+      },
+      "expected": "4.54609",
+      "note": "UK Weights and Measures Act 1985 Sch. 1"
+    },
+    {
+      "id": "conv-1pt_uk-floz_uk",
+      "input": {
+        "value": "1",
+        "from": "pt_uk",
+        "to": "floz_uk"
+      },
+      "expected": "20",
+      "note": "imperial pint = 20 fl oz"
+    },
+    {
+      "id": "conv-1floz_us-ml",
+      "input": {
+        "value": "1",
+        "from": "floz_us",
+        "to": "ml"
+      },
+      "expected": "29.5735295625",
+      "note": "NIST exact"
+    },
+    {
+      "id": "conv-1floz_uk-ml",
+      "input": {
+        "value": "1",
+        "from": "floz_uk",
+        "to": "ml"
+      },
+      "expected": "28.4130625",
+      "note": "imperial exact"
+    },
+    {
+      "id": "conv-330ml-cl",
+      "input": {
+        "value": "330",
+        "from": "ml",
+        "to": "cl"
+      },
+      "expected": "33",
+      "note": "cl = 10 ml"
+    },
+    {
+      "id": "conv-1l-dl",
+      "input": {
+        "value": "1",
+        "from": "l",
+        "to": "dl"
+      },
+      "expected": "10",
+      "note": "dl = 100 ml"
+    },
+    {
+      "id": "conv-1in-mm",
+      "input": {
+        "value": "1",
+        "from": "in",
+        "to": "mm"
+      },
+      "expected": "25.4",
+      "note": "NIST exact"
+    },
+    {
+      "id": "conv-1ft-in",
+      "input": {
+        "value": "1",
+        "from": "ft",
+        "to": "in"
+      },
+      "expected": "12",
+      "note": "exact"
+    },
+    {
+      "id": "conv-1yd-ft",
+      "input": {
+        "value": "1",
+        "from": "yd",
+        "to": "ft"
+      },
+      "expected": "3",
+      "note": "exact"
+    },
+    {
+      "id": "conv-1yd-m",
+      "input": {
+        "value": "1",
+        "from": "yd",
+        "to": "m"
+      },
+      "expected": "0.9144",
+      "note": "exact"
+    },
+    {
+      "id": "conv-100ft-m",
+      "input": {
+        "value": "100",
+        "from": "ft",
+        "to": "m"
+      },
+      "expected": "30.48",
+      "note": "length basis 100 ft"
+    },
+    {
+      "id": "conv-1cm-mm",
+      "input": {
+        "value": "1",
+        "from": "cm",
+        "to": "mm"
+      },
+      "expected": "10",
+      "note": "metric"
+    },
+    {
+      "id": "conv-1dozen-pcs",
+      "input": {
+        "value": "1",
+        "from": "dozen",
+        "to": "pcs"
+      },
+      "expected": "12",
+      "note": "count"
+    },
+    {
+      "id": "conv-6pcs-dozen",
+      "input": {
+        "value": "6",
+        "from": "pcs",
+        "to": "dozen"
+      },
+      "expected": "1/2",
+      "note": "count, fraction"
+    },
+    {
+      "id": "conv-1kg-l-mismatch",
+      "input": {
+        "value": "1",
+        "from": "kg",
+        "to": "l"
+      },
+      "expected": null,
+      "note": "mass never converts to volume (no densities)"
+    },
+    {
+      "id": "conv-1l-pcs-mismatch",
+      "input": {
+        "value": "1",
+        "from": "l",
+        "to": "pcs"
+      },
+      "expected": null,
+      "note": "volume vs count"
+    },
+    {
+      "id": "conv-1m-g-mismatch",
+      "input": {
+        "value": "1",
+        "from": "m",
+        "to": "g"
+      },
+      "expected": null,
+      "note": "length vs mass"
+    },
+    {
+      "id": "conv-1oz-floz-mismatch",
+      "input": {
+        "value": "1",
+        "from": "oz",
+        "to": "floz_us"
+      },
+      "expected": null,
+      "note": "the classic oz vs fl oz mix-up is a mismatch"
+    }
+  ],
+  "packQuantity": [
+    {
+      "id": "pq-6x330ml",
+      "input": {
+        "packCount": 6,
+        "itemSize": "330",
+        "unit": "ml"
+      },
+      "expected": "1980",
+      "note": "SPEC E18 multipack"
+    },
+    {
+      "id": "pq-6x0p33l",
+      "input": {
+        "packCount": 6,
+        "itemSize": "0.33",
+        "unit": "l"
+      },
+      "expected": "1980",
+      "note": "same pack typed in litres"
+    },
+    {
+      "id": "pq-1p2kg",
+      "input": {
+        "packCount": 1,
+        "itemSize": "1.2",
+        "unit": "kg"
+      },
+      "expected": "1200",
+      "note": "SPEC E1 B"
+    },
+    {
+      "id": "pq-4x125g",
+      "input": {
+        "packCount": 4,
+        "itemSize": "125",
+        "unit": "g"
+      },
+      "expected": "500",
+      "note": "SPEC section 13 Task A"
+    },
+    {
+      "id": "pq-16oz",
+      "input": {
+        "packCount": 1,
+        "itemSize": "16",
+        "unit": "oz"
+      },
+      "expected": "453.59237",
+      "note": "SPEC E1 C"
+    },
+    {
+      "id": "pq-12x0p5l",
+      "input": {
+        "packCount": 12,
+        "itemSize": "0.5",
+        "unit": "l"
+      },
+      "expected": "6000",
+      "note": "multipack of litre units"
+    },
+    {
+      "id": "pq-2dozen",
+      "input": {
+        "packCount": 1,
+        "itemSize": "2",
+        "unit": "dozen"
+      },
+      "expected": "24",
+      "note": "count"
+    },
+    {
+      "id": "pq-12in",
+      "input": {
+        "packCount": 1,
+        "itemSize": "12",
+        "unit": "in"
+      },
+      "expected": "0.3048",
+      "note": "length"
+    },
+    {
+      "id": "pq-12ct",
+      "input": {
+        "packCount": 1,
+        "itemSize": "12",
+        "unit": "pcs"
+      },
+      "expected": "12",
+      "note": "SPEC E16 12 ct"
+    }
+  ],
+  "unitPrice": [
+    {
+      "id": "up-e1-a-kg",
+      "input": {
+        "totalMinor": "249",
+        "packCount": 1,
+        "itemSize": "500",
+        "unit": "g",
+        "basis": "kg"
+      },
+      "expected": {
+        "exact": "498",
+        "rounded": "498"
+      },
+      "note": "SPEC E1 A: EUR 4.98/kg"
+    },
+    {
+      "id": "up-e1-b-kg",
+      "input": {
+        "totalMinor": "549",
+        "packCount": 1,
+        "itemSize": "1.2",
+        "unit": "kg",
+        "basis": "kg"
+      },
+      "expected": {
+        "exact": "915/2",
+        "rounded": "458"
+      },
+      "note": "SPEC E1 B: exact 457.5 cents, 4.575 -> EUR 4.58"
+    },
+    {
+      "id": "up-e1-c-kg",
+      "input": {
+        "totalMinor": "239",
+        "packCount": 1,
+        "itemSize": "16",
+        "unit": "oz",
+        "basis": "kg"
+      },
+      "expected": {
+        "exact": "23900000000/45359237",
+        "rounded": "527"
+      },
+      "note": "SPEC E1 C: 526.905 cents -> EUR 5.27"
+    },
+    {
+      "id": "up-e3-400g",
+      "input": {
+        "totalMinor": "189",
+        "packCount": 1,
+        "itemSize": "400",
+        "unit": "g",
+        "basis": "kg"
+      },
+      "expected": {
+        "exact": "945/2",
+        "rounded": "473"
+      },
+      "note": "SPEC E3 float trap: 472.5 cents -> EUR 4.73"
+    },
+    {
+      "id": "up-e2-a-oz",
+      "input": {
+        "totalMinor": "249",
+        "packCount": 1,
+        "itemSize": "500",
+        "unit": "g",
+        "basis": "oz"
+      },
+      "expected": {
+        "exact": "7059031258125/500000000000",
+        "rounded": "14"
+      },
+      "note": "SPEC E2: A per oz 14.118 cents (shown as $0.141 with 3 decimals)"
+    },
+    {
+      "id": "up-e8-a-deal",
+      "input": {
+        "totalMinor": "458",
+        "packCount": 1,
+        "itemSize": "1.5",
+        "unit": "kg",
+        "basis": "kg"
+      },
+      "expected": {
+        "exact": "22900/75",
+        "rounded": "305"
+      },
+      "note": "SPEC E8 A after 3-for-2: 458 c for 1.5 kg = 305.33 c/kg"
+    },
+    {
+      "id": "up-e8-b",
+      "input": {
+        "totalMinor": "549",
+        "packCount": 1,
+        "itemSize": "1.2",
+        "unit": "kg",
+        "basis": "kg"
+      },
+      "expected": {
+        "exact": "915/2",
+        "rounded": "458"
+      },
+      "note": "SPEC E8 B"
+    },
+    {
+      "id": "up-e16-ct",
+      "input": {
+        "totalMinor": "1919",
+        "packCount": 1,
+        "itemSize": "12",
+        "unit": "pcs",
+        "basis": "1"
+      },
+      "expected": {
+        "exact": "1919/12",
+        "rounded": "160"
+      },
+      "note": "SPEC E16: E = 19.19 for 12 ct -> 159.92 cents -> $1.60 each"
+    },
+    {
+      "id": "up-e18-multipack",
+      "input": {
+        "totalMinor": "449",
+        "packCount": 6,
+        "itemSize": "330",
+        "unit": "ml",
+        "basis": "l"
+      },
+      "expected": {
+        "exact": "449000/1980",
+        "rounded": "227"
+      },
+      "note": "SPEC E18 A: 226.77 cents -> EUR 2.27/L"
+    },
+    {
+      "id": "up-e18-b",
+      "input": {
+        "totalMinor": "119",
+        "packCount": 1,
+        "itemSize": "1.5",
+        "unit": "l",
+        "basis": "l"
+      },
+      "expected": {
+        "exact": "1190/15",
+        "rounded": "79"
+      },
+      "note": "SPEC E18 B: 79.33 cents -> EUR 0.79/L"
+    },
+    {
+      "id": "up-e21-tie1-a",
+      "input": {
+        "totalMinor": "200",
+        "packCount": 1,
+        "itemSize": "500",
+        "unit": "g",
+        "basis": "kg"
+      },
+      "expected": {
+        "exact": "400",
+        "rounded": "400"
+      },
+      "note": "SPEC E21 tie 1, card A"
+    },
+    {
+      "id": "up-e21-tie2-b",
+      "input": {
+        "totalMinor": "1199",
+        "packCount": 1,
+        "itemSize": "3",
+        "unit": "kg",
+        "basis": "kg"
+      },
+      "expected": {
+        "exact": "1199/3",
+        "rounded": "400"
+      },
+      "note": "SPEC E21 tie 2: 399.67 cents"
+    },
+    {
+      "id": "up-e20-typo-b",
+      "input": {
+        "totalMinor": "259",
+        "packCount": 1,
+        "itemSize": "500",
+        "unit": "kg",
+        "basis": "kg"
+      },
+      "expected": {
+        "exact": "259/500",
+        "rounded": "1"
+      },
+      "note": "SPEC E20: 500 kg typo gives 0.518 cents/kg (961x cheaper than A)"
+    },
+    {
+      "id": "up-100g-basis",
+      "input": {
+        "totalMinor": "249",
+        "packCount": 1,
+        "itemSize": "500",
+        "unit": "g",
+        "basis": "100g"
+      },
+      "expected": {
+        "exact": "249/5",
+        "rounded": "50"
+      },
+      "note": "per 100 g: 49.8 cents"
+    },
+    {
+      "id": "up-100ml-basis",
+      "input": {
+        "totalMinor": "119",
+        "packCount": 1,
+        "itemSize": "1.5",
+        "unit": "l",
+        "basis": "100ml"
+      },
+      "expected": {
+        "exact": "119/15",
+        "rounded": "8"
+      },
+      "note": "per 100 ml: 7.93 cents"
+    },
+    {
+      "id": "up-lb-basis",
+      "input": {
+        "totalMinor": "349",
+        "packCount": 1,
+        "itemSize": "12",
+        "unit": "oz",
+        "basis": "lb"
+      },
+      "expected": {
+        "exact": "5584/12",
+        "rounded": "465"
+      },
+      "note": "SPEC E6: $3.49 for 12 oz = $4.65/lb (465.33 c)"
+    },
+    {
+      "id": "up-floz-basis",
+      "input": {
+        "totalMinor": "199",
+        "packCount": 1,
+        "itemSize": "1",
+        "unit": "gal_us",
+        "basis": "floz_us"
+      },
+      "expected": {
+        "exact": "199/128",
+        "rounded": "2"
+      },
+      "note": "per US fl oz of a gallon"
+    },
+    {
+      "id": "up-gal-basis-uk-pint",
+      "input": {
+        "totalMinor": "120",
+        "packCount": 1,
+        "itemSize": "1",
+        "unit": "pt_uk",
+        "basis": "qt_us"
+      },
+      "expected": {
+        "exact": "11356235352000000/56826125000000",
+        "rounded": "200"
+      },
+      "note": "UK pint priced per US quart: imperial and US volumes mix exactly"
+    },
+    {
+      "id": "up-ft-basis",
+      "input": {
+        "totalMinor": "1000",
+        "packCount": 1,
+        "itemSize": "100",
+        "unit": "ft",
+        "basis": "m"
+      },
+      "expected": {
+        "exact": "100000/3048",
+        "rounded": "33"
+      },
+      "note": "length: 100 ft for 10.00 = 32.81 cents per m"
+    },
+    {
+      "id": "up-100ft-basis",
+      "input": {
+        "totalMinor": "1000",
+        "packCount": 1,
+        "itemSize": "30.48",
+        "unit": "m",
+        "basis": "100ft"
+      },
+      "expected": {
+        "exact": "1000",
+        "rounded": "1000"
+      },
+      "note": "30.48 m is exactly 100 ft"
+    },
+    {
+      "id": "up-count-100",
+      "input": {
+        "totalMinor": "399",
+        "packCount": 1,
+        "itemSize": "80",
+        "unit": "pcs",
+        "basis": "100"
+      },
+      "expected": {
+        "exact": "39900/80",
+        "rounded": "499"
+      },
+      "note": "count per 100: 498.75 cents"
+    },
+    {
+      "id": "up-count-10",
+      "input": {
+        "totalMinor": "399",
+        "packCount": 1,
+        "itemSize": "80",
+        "unit": "pcs",
+        "basis": "10"
+      },
+      "expected": {
+        "exact": "399/8",
+        "rounded": "50"
+      },
+      "note": "count per 10: 49.875 cents"
+    }
+  ],
+  "bases": [
+    {
+      "id": "basis-cycle-mass",
+      "input": {
+        "dimension": "mass",
+        "start": "kg",
+        "steps": 4
+      },
+      "expected": [
+        "100g",
+        "lb",
+        "oz",
+        "kg"
+      ],
+      "note": "cycle kg -> 100 g -> lb -> oz -> kg (SPEC 2.1)"
+    },
+    {
+      "id": "basis-cycle-volume",
+      "input": {
+        "dimension": "volume",
+        "start": "l",
+        "steps": 5
+      },
+      "expected": [
+        "100ml",
+        "floz_us",
+        "qt_us",
+        "gal_us",
+        "l"
+      ],
+      "note": "SPEC 5.2 bases"
+    },
+    {
+      "id": "basis-cycle-count",
+      "input": {
+        "dimension": "count",
+        "start": "1",
+        "steps": 3
+      },
+      "expected": [
+        "10",
+        "100",
+        "1"
+      ],
+      "note": "count per 1 / 10 / 100"
+    },
+    {
+      "id": "basis-cycle-length",
+      "input": {
+        "dimension": "length",
+        "start": "m",
+        "steps": 3
+      },
+      "expected": [
+        "ft",
+        "100ft",
+        "m"
+      ],
+      "note": "length per m / ft / 100 ft"
+    },
+    {
+      "id": "basis-unknown-restarts",
+      "input": {
+        "dimension": "mass",
+        "start": "gal_us",
+        "steps": 1
+      },
+      "expected": [
+        "kg"
+      ],
+      "note": "an unknown basis (e.g. a stale setting) restarts at the first entry"
+    }
+  ],
+  "defaults": [
+    {
+      "id": "def-metric",
+      "input": {
+        "system": "metric"
+      },
+      "expected": {
+        "mass": "kg",
+        "volume": "l",
+        "count": "1",
+        "length": "m",
+        "chips": [
+          "g",
+          "kg",
+          "ml",
+          "l",
+          "pcs"
+        ]
+      },
+      "note": "SPEC 5.2 / 2.1 metric"
+    },
+    {
+      "id": "def-uk",
+      "input": {
+        "system": "uk"
+      },
+      "expected": {
+        "mass": "kg",
+        "volume": "l",
+        "count": "1",
+        "length": "m",
+        "chips": [
+          "g",
+          "kg",
+          "ml",
+          "l",
+          "pcs"
+        ]
+      },
+      "note": "UK PMO 2026: per kg / L"
+    },
+    {
+      "id": "def-us",
+      "input": {
+        "system": "us"
+      },
+      "expected": {
+        "mass": "oz",
+        "volume": "floz_us",
+        "count": "1",
+        "length": "ft",
+        "chips": [
+          "oz",
+          "lb",
+          "floz_us",
+          "pcs"
+        ]
+      },
+      "note": "US: per oz, per fl oz"
+    }
+  ],
+  "mismatch": [
+    {
+      "id": "mm-e19",
+      "input": {
+        "units": [
+          "l",
+          "kg"
+        ]
+      },
+      "expected": {
+        "mismatch": true,
+        "dimensions": [
+          "volume",
+          "mass"
+        ]
+      },
+      "note": "SPEC E19 1 L vs 1 kg"
+    },
+    {
+      "id": "mm-same-mass",
+      "input": {
+        "units": [
+          "g",
+          "kg",
+          "oz",
+          "lb"
+        ]
+      },
+      "expected": {
+        "mismatch": false,
+        "dimensions": [
+          "mass"
+        ]
+      },
+      "note": "metric and imperial mass compare"
+    },
+    {
+      "id": "mm-same-volume",
+      "input": {
+        "units": [
+          "ml",
+          "floz_us",
+          "floz_uk",
+          "gal_uk"
+        ]
+      },
+      "expected": {
+        "mismatch": false,
+        "dimensions": [
+          "volume"
+        ]
+      },
+      "note": "US and UK volume compare (both exact)"
+    },
+    {
+      "id": "mm-count-mass",
+      "input": {
+        "units": [
+          "pcs",
+          "g"
+        ]
+      },
+      "expected": {
+        "mismatch": true,
+        "dimensions": [
+          "count",
+          "mass"
+        ]
+      },
+      "note": "count vs mass"
+    },
+    {
+      "id": "mm-three",
+      "input": {
+        "units": [
+          "g",
+          "ml",
+          "m",
+          "kg"
+        ]
+      },
+      "expected": {
+        "mismatch": true,
+        "dimensions": [
+          "mass",
+          "volume",
+          "length"
+        ]
+      },
+      "note": "three groups, first-seen order"
+    },
+    {
+      "id": "mm-single",
+      "input": {
+        "units": [
+          "dozen"
+        ]
+      },
+      "expected": {
+        "mismatch": false,
+        "dimensions": [
+          "count"
+        ]
+      },
+      "note": "one card"
+    },
+    {
+      "id": "mm-empty",
+      "input": {
+        "units": []
+      },
+      "expected": {
+        "mismatch": false,
+        "dimensions": []
+      },
+      "note": "no cards"
+    }
+  ],
+  "unitMatchesDimension": [
+    {
+      "id": "umd-kg-mass",
+      "input": {
+        "unit": "kg",
+        "dimension": "mass"
+      },
+      "expected": true,
+      "note": "guard for products (D18)"
+    },
+    {
+      "id": "umd-kg-volume",
+      "input": {
+        "unit": "kg",
+        "dimension": "volume"
+      },
+      "expected": false,
+      "note": "mass unit on a volume product is refused"
+    },
+    {
+      "id": "umd-floz-volume",
+      "input": {
+        "unit": "floz_uk",
+        "dimension": "volume"
+      },
+      "expected": true,
+      "note": "imperial volume"
+    },
+    {
+      "id": "umd-pcs-count",
+      "input": {
+        "unit": "pcs",
+        "dimension": "count"
+      },
+      "expected": true,
+      "note": "count"
+    },
+    {
+      "id": "umd-unknown",
+      "input": {
+        "unit": "stone",
+        "dimension": "mass"
+      },
+      "expected": false,
+      "note": "unknown unit id"
+    },
+    {
+      "id": "umd-bad-dim",
+      "input": {
+        "unit": "g",
+        "dimension": "area"
+      },
+      "expected": false,
+      "note": "unknown dimension"
+    }
+  ]
+}

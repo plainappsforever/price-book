@@ -1,0 +1,66 @@
+appId: ${APP_ID}
+name: Near duplicate - the same shelf tag typed again with a 1-cent slip asks first; keep the saved one, or save anyway (R10)
+tags:
+  - book
+---
+- runFlow:
+    file: subflows/seed.yaml
+    env:
+      SEED: s1
+- runFlow: subflows/settings-eu.yaml
+- tapOn: {id: tab-book}
+- tapOn: {id: product-1}
+- tapOn: {id: product-add-price}
+- runFlow:
+    file: subflows/ptype.yaml
+    env:
+      KEYS: "2.49"
+- tapOn: {id: price-save}
+- extendedWaitUntil:
+    visible:
+      id: tile-latest-detail
+      text: "€2\\.49 · 500 g · Rewe · today"
+    timeout: 15000
+# 2.50 for the same 500 g at Rewe today: probably the same tag again
+- tapOn: {id: product-add-price}
+- runFlow:
+    file: subflows/ptype.yaml
+    env:
+      KEYS: "2.50"
+- tapOn: {id: price-save}
+- assertVisible:
+    id: price-save
+    text: "Looks like the same shelf tag as the €2\\.49 saved for this day — save anyway\\?"
+- tapOn: {id: price-dup-keep}
+- extendedWaitUntil:
+    visible:
+      id: product-title
+      text: Coffee beans
+    timeout: 15000
+- scrollUntilVisible:
+    element:
+      text: "Prices \\(6\\)"
+    direction: DOWN
+# save anyway: a second tap saves it
+- scrollUntilVisible:
+    element: {id: product-add-price}
+    direction: UP
+- tapOn: {id: product-add-price}
+- runFlow:
+    file: subflows/ptype.yaml
+    env:
+      KEYS: "2.50"
+- tapOn: {id: price-save}
+- assertVisible:
+    id: price-save
+    text: "Looks like the same shelf tag.*"
+- tapOn: {id: price-save}
+- extendedWaitUntil:
+    visible:
+      id: product-title
+      text: Coffee beans
+    timeout: 15000
+- scrollUntilVisible:
+    element:
+      text: "Prices \\(7\\)"
+    direction: DOWN

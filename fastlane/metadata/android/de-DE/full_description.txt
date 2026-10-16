@@ -1,0 +1,26 @@
+Price Book zeigt am Regal, welche Packung nach dem Angebot wirklich günstiger ist, und merkt sich, was du bezahlt hast. So erkennst du beim nächsten Einkauf, ob ein Preis dein üblicher oder ein guter ist.
+
+Kein Konto. Keine Werbung. Kein Abo. Die App hat keine Internet-Berechtigung: Sie arbeitet vollständig offline, und deine Preise bleiben auf deinem Handy.
+
+Hinweis: Die App ist vorerst nur auf Englisch. Währung, Dezimalkomma oder -punkt, Maßeinheiten und die Steuer-Voreinstellung richten sich nach der Region deines Handys. Die Namen der Schaltflächen unten stehen daher in „“ so, wie du sie in der App siehst.
+
+„Compare“ (Vergleichen)
+App öffnen und Preis und Größe von zwei bis fünf Produkten eintippen. Die Zifferntastatur ist sofort bereit, ohne Anmeldung und ohne Anleitung. Du siehst den Preis pro Kilo, Liter oder Stück, welches Produkt günstiger ist und wie viel du sparst. Gemischte Einheiten (Gramm und Unzen, Milliliter und Flüssigunzen) werden exakt umgerechnet. Eine Warnung erscheint, wenn etwas nicht stimmen kann, etwa Größen, die sich um den Faktor zehn unterscheiden, oder zwei verschiedene Arten von Einheiten.
+
+Echte Angebote
+Ein Angebot in zwei Tipps: 3 für 2, eins kaufen eins gratis, das zweite zum halben Preis, Prozent Rabatt, N für einen Preis, Gutschein, Spar-ab-Betrag, Cashback, Pfand. Preise können die Steuer enthalten, oder die Steuer kommt an der Kasse dazu; du wählst, auf Wunsch mit Steuersatz. „Show the maths“ zeigt jeden Rechenschritt, damit du ihn mit dem Kassenbon abgleichen kannst.
+
+Preisgedächtnis
+Speichere einen Preis von einer Vergleichskarte in drei Tipps oder trage ihn im „Price Book“ nach. Zu jedem Produkt siehst du den letzten, niedrigsten, üblichen und höchsten Grundpreis, eine Anzeige, wie der letzte Preis zu deinem üblichen liegt, das Geschäft, in dem du es zuletzt am günstigsten gesehen hast, ein Diagramm des Grundpreises über die Zeit und einen Hinweis, wenn eine Packung kleiner geworden ist. Er beruht auf den Packungsgrößen, die du gespeichert hast (Shrinkflation). Alles stammt aus deinen eigenen Einträgen. Price Book kennt keine Ladenpreise und ruft nichts ab.
+
+Deine Daten
+Sichere alles in einer Datei und stelle sie aus einer Datei wieder her; die App zeigt vorher, was die Datei enthält, und fragt einmal nach, bevor etwas ersetzt wird. Exportiere deine Preise als CSV-Datei für eine Tabellenkalkulation. Sicherung und CSV sind einfache, unverschlüsselte Dateien: Du entscheidest, wo du sie aufbewahrst, und nichts verlässt dein Handy, solange du keine Datei selbst teilst. Getestet mit einem Preisbuch mit 5.000 gespeicherten Preisen.
+
+Einstellungen
+Währung, Zahlenformat (1.234,56 oder 1,234.56), Einheiten (metrisch, US oder UK), die „pro ...“-Einheit der Grundpreise, Steuer, ein optionales Tastentick (Vibration), hell, dunkel oder wie das System.
+
+Gut zu wissen
+- „Last seen cheapest“ (zuletzt am günstigsten gesehen) und der übliche Preis werden aus den von dir gespeicherten Preisen berechnet, nicht aus Live-Preisen der Geschäfte.
+- Steuer, Pfand und Angebotsregeln unterscheiden sich je nach Geschäft und Land. Price Book rechnet mit dem, was du eingibst; an der Kasse gilt der Kassenpreis.
+- In dieser Version gibt es keine Kamera, keinen Barcode-Scan und keinen Bon-Scan.
+- Die Datensicherung deines Handys (Google oder iCloud) kann die Daten der App enthalten, wenn du sie eingeschaltet hast.

@@ -1,0 +1,25 @@
+At the shelf, Price Book shows which pack is really cheaper after the deal, and it remembers what you paid so you can tell a usual price from a good one next time.
+
+No account. No ads. No subscription. The app has no internet permission: it works fully offline and your prices stay on your phone.
+
+Compare
+Open the app and type the price and size of two to five products. The keypad is ready, there is no sign-up and no tutorial. You see the price per kilo, litre or piece, which product is cheaper and how much you save. Mixed units (grams and ounces, millilitres and fluid ounces) are converted exactly. A warning appears when something looks wrong, for example sizes that differ by a factor of ten or two different kinds of unit.
+
+Real deals
+Add a deal in two taps: 3 for 2, buy one get one free, second at half price, percent off, N for a price, coupon, spend and save, cashback, deposit. Prices can include tax, or tax is added at the till; you choose, with an optional rate. "Show the maths" lists every step, so you can check it against the receipt.
+
+Price memory
+Save a price from a Compare card in three taps, or add one from your Price Book. For each product you see the latest, lowest, usual and highest unit price, a gauge that shows how the latest price sits against your usual one, the store where you last saw it cheapest, a chart of the unit price over time, and a note when a pack got smaller, based on the pack sizes you saved (shrinkflation). Everything comes from your own records. Price Book does not know shop prices and does not look anything up.
+
+Your data
+Back up everything to one file and restore it from a file; the app shows what the file contains and asks once before it replaces anything. Export your prices as a CSV file for a spreadsheet. Backup and CSV files are plain, not encrypted: you choose where to keep them, and nothing leaves your phone unless you share a file yourself. Tested with a price book of 5,000 saved prices.
+
+Settings
+Currency, number format (1,234.56 or 1.234,56), units (metric, US or UK), the "per ..." unit for unit prices, tax, an optional key tick (vibration), light, dark or system appearance. Currency, number format, units and tax wording start from your phone's region.
+
+Good to know
+- The app is in English for now.
+- "Last seen cheapest" and "usual price" are worked out from the prices you saved, not from live shop prices.
+- Tax, deposit and deal rules differ by shop and country. Price Book calculates what you type; the till has the last word.
+- Barcode scan finds the products you saved; there is no online product database. Receipt and shelf-tag scanning are not in this version.
+- Your phone's own backup (Google or iCloud) may include the app's data if you turned that backup on.
