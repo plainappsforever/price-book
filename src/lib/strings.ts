@@ -294,7 +294,7 @@ export const strings = {
     order:
       'How the maths works: quantity deal, then % discounts in the order you add them, coupons, spend-and-save, tax, cashback. Deposits are shown separately and never change the unit price.',
     /** RELEASE_KIT 1c items 9 and 14: the hosted privacy policy (opens the browser; the app itself has no network code). */
-    privacyLink: 'Privacy policy (opens taulon.org)',
+    privacyLink: 'Privacy policy (opens the Plain Apps website)',
     licenses: 'Open-source licences',
     selfTest: 'Engine self-test',
     selfTestOk: 'engine OK',

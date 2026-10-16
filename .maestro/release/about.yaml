@@ -27,7 +27,7 @@ tags:
 # 1c item 9: the link is there (not opened: the test makes no network request)
 - assertVisible:
     id: about-privacy-link
-    text: "Privacy policy \\(opens taulon\\.org\\)"
+    text: "Privacy policy \\(opens the Plain Apps website\\)"
 - assertVisible:
     id: about-version
     text: "Version 1\\.1\\.0"
